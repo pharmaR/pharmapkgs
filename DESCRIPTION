@@ -4,7 +4,8 @@ Version: 0.0.1
 Authors@R: c(
     person("Ramiro", "Magno", , "rmagno@pattern.institute", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5226-3441")),
-    person("Pattern Institute", role = c("cph", "fnd"))
+    person("Pattern Institute", role = c("cph", "fnd")),
+    person("the R Validation Hub", role = c("cph", "fnd"))
   )
 Description: Routines to list, install and filter risk-assessed packages.
 License: MIT + file LICENSE
@@ -20,3 +21,5 @@ Imports:
     rlang,
     snakecase,
     tibble
+Remotes:
+    riskscore=git::https://github.com/pharmaR/riskscore.git
