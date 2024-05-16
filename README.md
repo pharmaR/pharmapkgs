@@ -139,7 +139,8 @@ getOption("repos")
 # Install one of the validated packages with pak.
 istats <- pak::pkg_install("standard::munsell") |>
   tibble::as_tibble()
-#> ℹ Loading metadata database✔ Loading metadata database ... done
+#>  ℹ source packages are missing from file:///home/rmagno/R/x86_64-pc-linux-gnu-library/4.4/pharmapkgs/repos/ubuntu-22.04/4.4/src/contrib
+#> ℹ Updating metadata database✔ Updating metadata database ... done
 #>  
 #> → Will install 1 package.
 #> → Will download 1 CRAN package (182.31 kB).
@@ -147,9 +148,9 @@ istats <- pak::pkg_install("standard::munsell") |>
 #> ℹ Getting 1 pkg (182.31 kB)
 #> ✔ Got munsell 0.5.1 (source) (182.31 kB)
 #> ℹ Building munsell 0.5.1
-#> ✔ Built munsell 0.5.1 (640ms)
-#> ✔ Installed munsell 0.5.1  (1s)
-#> ✔ 1 pkg + 1 dep: kept 1, added 1, dld 1 (182.31 kB) [3s]
+#> ✔ Built munsell 0.5.1 (638ms)
+#> ✔ Installed munsell 0.5.1  (12ms)
+#> ✔ 1 pkg + 1 dep: kept 1, added 1, dld 1 (182.31 kB) [4.3s]
   
 dplyr::glimpse(istats)
 #> Rows: 2
@@ -186,8 +187,8 @@ dplyr::glimpse(istats)
 #> $ lib_status       <chr> "new", "current"
 #> $ old_version      <chr> NA, "2.1-0"
 #> $ new_version      <chr> NA, NA
-#> $ fulltarget       <chr> "/tmp/RtmpZMEt1g/file1188a92cd2aaad/src/contrib/munse…
-#> $ fulltarget_tree  <chr> "/tmp/RtmpZMEt1g/file1188a92cd2aaad/src/contrib/munse…
+#> $ fulltarget       <chr> "/tmp/Rtmpl6FABF/file1198a94e93bf5/src/contrib/munsel…
+#> $ fulltarget_tree  <chr> "/tmp/Rtmpl6FABF/file1198a94e93bf5/src/contrib/munsel…
 #> $ download_status  <chr> "Got", "Had"
 #> $ download_error   <list> <NULL>, <NULL>
 #> $ file_size        <dbl> 182310, NA
@@ -198,17 +199,17 @@ dplyr::glimpse(istats)
 #> $ vignettes        <lgl> FALSE, FALSE
 #> $ install_args     <chr> "", ""
 #> $ packaged         <lgl> TRUE, TRUE
-#> $ file             <chr> "/tmp/RtmpZMEt1g/file1188a947fb9d2c/munsell_0.5.1_R_x…
+#> $ file             <chr> "/tmp/Rtmpl6FABF/file1198a95befa2f2/munsell_0.5.1_R_x…
 #> $ package_done     <lgl> TRUE, TRUE
 #> $ package_time     <I<list>> NA, NA
 #> $ package_error    <I<list>> , 
 #> $ package_stdout   <I<list>> , 
 #> $ build_done       <lgl> TRUE, TRUE
-#> $ build_time       <I<list>> 0.639574....,           NA
+#> $ build_time       <I<list>> 0.637974....,           NA
 #> $ build_error      <I<list>> FALSE,      
 #> $ build_stdout     <I<list>> * instal....,             
 #> $ install_done     <lgl> TRUE, TRUE
-#> $ install_time     <I<list>> 1.011386....,           NA
+#> $ install_time     <I<list>> 0.011922....,           NA
 #> $ install_error    <I<list>> FALSE,      
 #> $ install_stdout   <I<list>> , 
 #> $ worker_id        <chr> NA, NA
