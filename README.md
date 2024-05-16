@@ -4,7 +4,6 @@
 # pharmapkgs
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The goal of `{pharmapkgs}` is to facilitate the interfacing with
@@ -139,7 +138,7 @@ nrow(available.packages())
 #> [1] 82
 ```
 
-Install a pckage, and confirm that the package was pulled from the
+Install a package, and confirm that the package was pulled from the
 bundled download location, ensuring that the downloaded version of the
 package is the same that was used to derive the risk metrics.
 
@@ -151,19 +150,5 @@ if (pkg %in% rownames(installed.packages()))
   pak::pkg_remove(pkg)
 
 install_stats <- pak::pkg_install(pkg)
-#> ℹ Loading metadata database
-#> ✔ Loading metadata database ... done
-#> 
-#> 
-#> → Will install 1 package.
-#> → Will download 1 package with unknown size.
-#> + colorspace   2.1-0 [dl]
-#> 
-#> ℹ Getting 1 pkg with unknown size
-#> ✔ Got colorspace 2.1-0 (x86_64-pc-linux-gnu-ubuntu-22.04) (2.63 MB)
-#> ✔ Installed colorspace 2.1-0  (69ms)
-#> ✔ 1 pkg: added 1, dld 1 (2.63 MB) [2.6s]
 install_stats$sources
-#> [[1]]
-#> [1] "https://github.com/cran/colorspace/releases/download/2.1-0/colorspace_2.1-0_b1_R4.4_x86_64-pc-linux-gnu-ubuntu-22.04.tar.gz"
 ```

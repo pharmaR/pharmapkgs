@@ -117,11 +117,11 @@ options(
 nrow(available.packages())
 ```
 
-Install a pckage, and confirm that the package was pulled from the bundled
+Install a package, and confirm that the package was pulled from the bundled
 download location, ensuring that the downloaded version of the package is the
 same that was used to derive the risk metrics.
 
-```{r}
+```r
 pak::cache_clean()
 pkg <- "colorspace"
 
