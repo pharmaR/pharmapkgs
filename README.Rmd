@@ -11,6 +11,11 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+options(
+  cli.ansi = FALSE,
+  cli.dynamic = FALSE
+)
 ```
 
 # pharmapkgs
@@ -23,82 +28,106 @@ repositories of validated packages with risk metrics.
 
 ## Installation
 
-``` r
+_using `devtools`_
+
+```r
 # install.packages("devtools")
 devtools::install_github("pharmaR/pharmapkgs")
 ```
 
-## Bare bones demo
+_using `pak`_
+
+```r
+# install.packages("pak")
+pak::pkg_install("github::pharmaR/pharmapkgs")
+```
+
+## Bare Bones Demo
 
 All available packages from local repository.
 
 ```{r}
 library(pharmapkgs)
 
-# A local repository, bundled with pharmapkgs.
-(repo <- bundled_repos("ubuntu-22.04"))
+# local snapshot, bundled with pharmapkgs
+repo <- bundled_repos("ubuntu-22.04")
 
-# No filtering.
-all_pkgs <-
-  available.packages(contriburl = repo,
-                     fields = risk_fields(repo)) |>
+available.packages(repos = repo, fields = risk_fields(repo)) |>
   tibble::as_tibble()
-
-dplyr::glimpse(all_pkgs)
 ```
 
 Packages filtered using `{riskmetrics}` criteria.
 
 ```{r}
-# Fancy criteria. 
-my_filters <- risk_filter(ReverseDependencies < 0.5, HasNews == "1", RemoteChecks > 0.9)
+# Fancy criteria.
+my_filters <- risk_filter(
+  ReverseDependencies < 0.5,
+  HasNews == "1",
+  RemoteChecks > 0.9
+)
 
-# Validated packages.
-val_pkgs <-
-  available.packages(contriburl = repo,
-                     fields = risk_fields(repo),
-                     filters = my_filters) |>
-  tibble::as_tibble()
-
-dplyr::glimpse(val_pkgs)
+# Apply filter when inspecting packages
+tibble::as_tibble(available.packages(
+  repos = repo,
+  fields = risk_fields(repo),
+  filters = my_filters
+))
 ```
 
-Currently, not working, `pak::pkg_install()` is not downloading packages
-based on the DownloadURL field from the local repository.
+## Filtered Available Packages Workflow
+
+Configure a session to leverage a bundled repo.
 
 ```{r}
-if ("munsell" %in% rownames(installed.packages()))
-  pak::pkg_remove("munsell")
+repo <- bundled_repos("ubuntu-22.04")
+options(
+  # importantly, repo is called CRAN such that pak doesn't insert a CRAN mirror
+  repos = c(CRAN = repo)
+)
 
+nrow(available.packages())
+```
+
+For ease of use, modify `available.packages` to globally take a default
+value from `options(available_packages_fields)`, allowing the use of those
+fields within `risk_filter()`.
+
+This allows `pak` to leverage the same internal mechanisms for fetching
+packages and ensuring, at the time of download, that packages adhere to the 
+filters that we specify.
+
+```{r}
+formals(available.packages)$fields <-
+  quote(getOption("available_packages_fields", NULL))
+```
+
+Now apply a filter and observe a reduced subset of available packages.
+
+```{r}
+options(
+  # ensure additional fields are available for risk filters
+  available_packages_fields = risk_fields(repo),
+  # provide a custom package filter
+  available_packages_filters = risk_filter(
+    RemoteChecks > 0.9,
+    HasNews == "1"
+  )
+)
+
+nrow(available.packages())
+```
+
+Install a pckage, and confirm that the package was pulled from the bundled
+download location, ensuring that the downloaded version of the package is the
+same that was used to derive the risk metrics.
+
+```{r}
 pak::cache_clean()
-options(repos = repo)
-getOption("repos")
+pkg <- "colorspace"
 
-# Install one of the validated packages with pak.
-istats <- pak::pkg_install("standard::munsell") |>
-  tibble::as_tibble()
-  
-dplyr::glimpse(istats)
+if (pkg %in% rownames(installed.packages()))
+  pak::pkg_remove(pkg)
 
-istats$sources
-
-istats$ref
+install_stats <- pak::pkg_install(pkg)
+install_stats$sources
 ```
-
-## Not working
-
-Filtering through `options()` does not seem to work.
-
-```{r}
-# Not working.
-options(fields = risk_fields(repo),
-        available_package_filters = my_filters)
-available.packages(contriburl = repo) |>
-  tibble::as_tibble() |>
-  dplyr::glimpse()
-```
-
-## TODO
-
-- Modify installed package DESCRIPTION post-installation to include metrics
-- "report" that uses metrics/logs to populate a template

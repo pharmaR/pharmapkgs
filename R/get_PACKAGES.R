@@ -19,7 +19,6 @@ get_PACKAGES <- function(destpath,
                          type = getOption("pkgType"),
                          contrib_url = utils::contrib.url(repos, type),
                          quiet = FALSE) {
-
   # TODO: argument checking.
   url <- file.path(contrib_url, "PACKAGES")
   destfile <- file.path(destpath, filename)
@@ -39,12 +38,11 @@ path_to_RISKFIELDS <- function(path) {
 
 #' @export
 bundled_repos <- function(repos = NULL) {
-
   repos_path <- system.file("repos", package = "pharmapkgs", mustWork = TRUE)
-  repos_path2 <- ifelse (is.null(repos), repos_path, file.path(repos_path, repos))
-
-  contrib_path <- fs::path_dir(path_to_PACKAGES(repos_path2))
-  paste0("file://", contrib_path)
+  repos_path2 <- ifelse(is.null(repos), repos_path, file.path(repos_path, repos))
+  packages_path <- path_to_PACKAGES(repos_path2)
+  repo_path <- gsub("src/contrib/.*", "", packages_path)
+  paste0("file://", repo_path)
 }
 
 #' @export
@@ -57,5 +55,4 @@ bundled_PACKAGES <- function(repos) {
   }
 
   path_to_PACKAGES(path = file.path(repos_path, repos))
-
 }
