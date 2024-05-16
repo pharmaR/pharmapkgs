@@ -1,0 +1,87 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# pharmapkgs
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of `{pharmapkgs}` is to facilitate the interfacing with CRAN-like
+repositories of validated packages with risk metrics.
+
+## Installation
+
+``` r
+# install.packages("devtools")
+devtools::install_github("pharmaR/pharmapkgs")
+```
+
+## Bare bones demo
+
+All available packages from local repository.
+
+```{r}
+library(pharmapkgs)
+
+# A local repository, bundled with pharmapkgs.
+(repo <- bundled_repos("ubuntu-22.04"))
+
+# No filtering.
+all_pkgs <-
+  available.packages(contriburl = repo,
+                     fields = risk_fields(repo)) |>
+  tibble::as_tibble()
+
+dplyr::glimpse(all_pkgs)
+```
+
+Packages filtered using `{riskmetrics}` criteria.
+
+```{r}
+# Fancy criteria. 
+my_filters <- risk_filter(ReverseDependencies < 0.5, HasNews == "1", RemoteChecks > 0.9)
+
+# Validated packages.
+val_pkgs <-
+  available.packages(contriburl = repo,
+                     fields = risk_fields(repo),
+                     filters = my_filters) |>
+  tibble::as_tibble()
+
+dplyr::glimpse(val_pkgs)
+```
+
+```r
+# Install one of the validated packages with pak.
+pak::pkg_install("standard::munsell", lib = "test_lib")
+```
+
+## Not working
+
+Filtering through `options()` does not seem to work.
+
+```{r}
+# Not working.
+options(fields = risk_fields(repo),
+        available_package_filters = my_filters)
+available.packages(contriburl = repo) |>
+  tibble::as_tibble() |>
+  dplyr::glimpse()
+```
+
+## TODO
+
+- Modify installed package DESCRIPTION post-installation to include metrics
+- "report" that uses metrics/logs to populate a template
