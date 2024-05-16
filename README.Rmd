@@ -63,9 +63,26 @@ val_pkgs <-
 dplyr::glimpse(val_pkgs)
 ```
 
-```r
+Currently, not working, `pak::pkg_install()` is not downloading packages
+based on the DownloadURL field from the local repository.
+
+```{r}
+if ("munsell" %in% rownames(installed.packages()))
+  pak::pkg_remove("munsell")
+
+pak::cache_clean()
+options(repos = repo)
+getOption("repos")
+
 # Install one of the validated packages with pak.
-pak::pkg_install("standard::munsell", lib = "test_lib")
+istats <- pak::pkg_install("standard::munsell") |>
+  tibble::as_tibble()
+  
+dplyr::glimpse(istats)
+
+istats$sources
+
+istats$ref
 ```
 
 ## Not working

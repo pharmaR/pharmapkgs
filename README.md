@@ -124,9 +124,107 @@ dplyr::glimpse(val_pkgs)
 #> $ Repository            <chr> "file:///home/rmagno/R/x86_64-pc-linux-gnu-libra…
 ```
 
+Currently, not working, `pak::pkg_install()` is not downloading packages
+based on the DownloadURL field from the local repository.
+
 ``` r
+if ("munsell" %in% rownames(installed.packages()))
+  pak::pkg_remove("munsell")
+
+pak::cache_clean()
+options(repos = repo)
+getOption("repos")
+#> [1] "file:///home/rmagno/R/x86_64-pc-linux-gnu-library/4.4/pharmapkgs/repos/ubuntu-22.04/4.4/src/contrib"
+
 # Install one of the validated packages with pak.
-pak::pkg_install("standard::munsell", lib = "test_lib")
+istats <- pak::pkg_install("standard::munsell") |>
+  tibble::as_tibble()
+#> ℹ Loading metadata database✔ Loading metadata database ... done
+#>  
+#> → Will install 1 package.
+#> → Will download 1 CRAN package (182.31 kB).
+#> + munsell   0.5.1 [bld][dl] (182.31 kB)
+#> ℹ Getting 1 pkg (182.31 kB)
+#> ✔ Got munsell 0.5.1 (source) (182.31 kB)
+#> ℹ Building munsell 0.5.1
+#> ✔ Built munsell 0.5.1 (640ms)
+#> ✔ Installed munsell 0.5.1  (1s)
+#> ✔ 1 pkg + 1 dep: kept 1, added 1, dld 1 (182.31 kB) [3s]
+  
+dplyr::glimpse(istats)
+#> Rows: 2
+#> Columns: 59
+#> $ ref              <chr> "standard::munsell", "installed::/home/rmagno/R/x86_6…
+#> $ type             <chr> "standard", "installed"
+#> $ direct           <lgl> TRUE, FALSE
+#> $ directpkg        <lgl> TRUE, FALSE
+#> $ status           <chr> "OK", "OK"
+#> $ package          <chr> "munsell", "colorspace"
+#> $ version          <chr> "0.5.1", "2.1-0"
+#> $ license          <chr> "MIT + file LICENSE", "BSD_3_clause + file LICENSE"
+#> $ needscompilation <lgl> FALSE, TRUE
+#> $ priority         <chr> NA, NA
+#> $ md5sum           <chr> "16b9314466b17a8b694f331faa65eff8", NA
+#> $ sha256           <chr> "03a2fd9ac40766cded96dfe33b143d872d0aaa262a25482ce191…
+#> $ filesize         <int> 182310, NA
+#> $ built            <chr> NA, "R 4.4.0; x86_64-pc-linux-gnu; 2024-05-09 22:59:5…
+#> $ platform         <chr> "source", "x86_64-pc-linux-gnu"
+#> $ rversion         <chr> "*", "R 4.4.0"
+#> $ repotype         <chr> "cran", "cran"
+#> $ repodir          <chr> "src/contrib", "src/contrib"
+#> $ target           <chr> "src/contrib/munsell_0.5.1.tar.gz", "src/contrib/colo…
+#> $ deps             <list> [<tbl[4 x 5]>], [<tbl[5 x 5]>]
+#> $ mirror           <chr> "https://cran.rstudio.com", NA
+#> $ sources          <list> <"https://cran.rstudio.com/src/contrib/munsell_0.5.1.…
+#> $ remote           <list> ["munsell", "", "", "standard::munsell", "standard", …
+#> $ error            <list> [], []
+#> $ metadata         <list> <"standard", "standard::munsell", "standard::munsell"…
+#> $ dep_types        <list> <"Depends", "Imports", "LinkingTo">, <"Depends", "Imp…
+#> $ params           <list> <>, <>
+#> $ sysreqs          <chr> "", NA
+#> $ cache_status     <chr> "miss", NA
+#> $ lib_status       <chr> "new", "current"
+#> $ old_version      <chr> NA, "2.1-0"
+#> $ new_version      <chr> NA, NA
+#> $ fulltarget       <chr> "/tmp/RtmpZMEt1g/file1188a92cd2aaad/src/contrib/munse…
+#> $ fulltarget_tree  <chr> "/tmp/RtmpZMEt1g/file1188a92cd2aaad/src/contrib/munse…
+#> $ download_status  <chr> "Got", "Had"
+#> $ download_error   <list> <NULL>, <NULL>
+#> $ file_size        <dbl> 182310, NA
+#> $ library          <chr> "/home/rmagno/R/x86_64-pc-linux-gnu-library/4.4", "/h…
+#> $ binary           <lgl> FALSE, TRUE
+#> $ dependencies     <I<list>> colorspace,           
+#> $ installed        <chr> NA, "/home/rmagno/R/x86_64-pc-linux-gnu-library/4.4/c…
+#> $ vignettes        <lgl> FALSE, FALSE
+#> $ install_args     <chr> "", ""
+#> $ packaged         <lgl> TRUE, TRUE
+#> $ file             <chr> "/tmp/RtmpZMEt1g/file1188a947fb9d2c/munsell_0.5.1_R_x…
+#> $ package_done     <lgl> TRUE, TRUE
+#> $ package_time     <I<list>> NA, NA
+#> $ package_error    <I<list>> , 
+#> $ package_stdout   <I<list>> , 
+#> $ build_done       <lgl> TRUE, TRUE
+#> $ build_time       <I<list>> 0.639574....,           NA
+#> $ build_error      <I<list>> FALSE,      
+#> $ build_stdout     <I<list>> * instal....,             
+#> $ install_done     <lgl> TRUE, TRUE
+#> $ install_time     <I<list>> 1.011386....,           NA
+#> $ install_error    <I<list>> FALSE,      
+#> $ install_stdout   <I<list>> , 
+#> $ worker_id        <chr> NA, NA
+#> $ deps_left        <list> <>, <>
+
+istats$sources
+#> [[1]]
+#> [1] "https://cran.rstudio.com/src/contrib/munsell_0.5.1.tar.gz"                
+#> [2] "https://cran.rstudio.com/src/contrib/Archive/munsell/munsell_0.5.1.tar.gz"
+#> 
+#> [[2]]
+#> character(0)
+
+istats$ref
+#> [1] "standard::munsell"                                                   
+#> [2] "installed::/home/rmagno/R/x86_64-pc-linux-gnu-library/4.4/colorspace"
 ```
 
 ## Not working
