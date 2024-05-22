@@ -41,7 +41,7 @@ risk_filter <- function(..., fields = NULL) {
       # deduce which filters were used when calling available.packages
       ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
       ap_filters <- if (!is.null(ap_call$filters)) {
-        eval(ap_call$filters, parent.frame())
+        eval(ap_call$filters, envir = parent.frame(2))
       } else {
         global_filters()
       }
@@ -58,7 +58,7 @@ risk_filter <- function(..., fields = NULL) {
       ap_call$filters <- prior_filters
       ap_call$fields <- eval(ap_call$fields, envir = parent.frame())
       ap_call$fields <- unique(c(ap_call$fields, req_fields))
-      prior_pkgs <- eval(ap_call, envir = parent.frame())
+      prior_pkgs <- eval(ap_call, envir = parent.frame(2))
 
       # TODO: Note that `prior_pkgs` is the matrix returned by
       # `available.packages()` which is of type character. We will need to

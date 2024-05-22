@@ -152,7 +152,7 @@ install_stats <- pak::pkg_install(pkg)
 #> ℹ Getting 1 pkg with unknown size
 #> ✔ Got colorspace 2.1-0 (x86_64-pc-linux-gnu-ubuntu-22.04) (2.63 MB)
 #> ✔ Installed colorspace 2.1-0  (73ms)
-#> ✔ 1 pkg: added 1, dld 1 (2.63 MB) [2.9s]
+#> ✔ 1 pkg: added 1, dld 1 (2.63 MB) [3.3s]
 install_stats$sources
 #> [[1]]
 #> [1] "https://github.com/cran/colorspace/releases/download/2.1-0/colorspace_2.1-0_b1_R4.4_x86_64-pc-linux-gnu-ubuntu-22.04.tar.gz"
