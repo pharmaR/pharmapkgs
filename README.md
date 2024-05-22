@@ -4,6 +4,7 @@
 # pharmapkgs
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of `{pharmapkgs}` is to facilitate the interfacing with
@@ -75,6 +76,23 @@ tibble::as_tibble(available.packages(
   fields = risk_fields(repo),
   filters = my_filters
 ))
+#> Called from: f(res)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#44: ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#45: ap_filters <- if (!is.null(ap_call$filters)) {
+#>     eval(ap_call$filters, parent.frame())
+#> } else {
+#>     global_filters()
+#> }
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#46: eval(ap_call$filters, parent.frame())
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#55: is_risk_filter <- function(name) name == "risk_filter"
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#56: idx_self_filter <- Position(is_risk_filter, names(ap_filters), 
+#>     1L)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#57: prior_filters <- utils::head(ap_filters, idx_self_filter - 1L)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#60: ap_call$filters <- prior_filters
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#61: ap_call$fields <- eval(ap_call$fields, envir = parent.frame())
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#62: ap_call$fields <- unique(c(ap_call$fields, req_fields))
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#63: prior_pkgs <- eval(ap_call, envir = parent.frame())
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#69: dplyr::filter(tibble::as_tibble(prior_pkgs), !!!conditions)
 #> # A tibble: 6 × 34
 #>   Package   Version Priority Depends Imports LinkingTo Suggests Enhances License
 #>   <chr>     <chr>   <chr>    <chr>   <chr>   <chr>     <chr>    <chr>    <chr>  
@@ -101,6 +119,7 @@ Configure a session to leverage a bundled repo.
 repo <- bundled_repos("ubuntu-22.04")
 options(
   # importantly, repo is called CRAN such that pak doesn't insert a CRAN mirror
+  # awaiting feature r-lib/pak#637
   repos = c(CRAN = repo)
 )
 
@@ -108,9 +127,10 @@ nrow(available.packages())
 #> [1] 106
 ```
 
-We can provide a filter based on various risk criteria, that will allow `pak` to
-leverage the same internal mechanisms for fetching packages and ensuring, at the
-time of download, that packages adhere to the filters that we specify.
+We can provide a filter based on various risk criteria, that will allow
+`pak` to leverage the same internal mechanisms for fetching packages and
+ensuring, at the time of download, that packages adhere to the filters
+that we specify.
 
 Now apply a filter and observe a reduced subset of available packages.
 
@@ -123,6 +143,23 @@ options(
 )
 
 nrow(available.packages())
+#> Called from: f(res)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#44: ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#45: ap_filters <- if (!is.null(ap_call$filters)) {
+#>     eval(ap_call$filters, parent.frame())
+#> } else {
+#>     global_filters()
+#> }
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#48: global_filters()
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#55: is_risk_filter <- function(name) name == "risk_filter"
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#56: idx_self_filter <- Position(is_risk_filter, names(ap_filters), 
+#>     1L)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#57: prior_filters <- utils::head(ap_filters, idx_self_filter - 1L)
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#60: ap_call$filters <- prior_filters
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#61: ap_call$fields <- eval(ap_call$fields, envir = parent.frame())
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#62: ap_call$fields <- unique(c(ap_call$fields, req_fields))
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#63: prior_pkgs <- eval(ap_call, envir = parent.frame())
+#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#69: dplyr::filter(tibble::as_tibble(prior_pkgs), !!!conditions)
 #> [1] 82
 ```
 

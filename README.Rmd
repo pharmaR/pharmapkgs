@@ -82,6 +82,7 @@ Configure a session to leverage a bundled repo.
 repo <- bundled_repos("ubuntu-22.04")
 options(
   # importantly, repo is called CRAN such that pak doesn't insert a CRAN mirror
+  # awaiting feature r-lib/pak#637
   repos = c(CRAN = repo)
 )
 
@@ -94,7 +95,7 @@ time of download, that packages adhere to the filters that we specify.
 
 Now apply a filter and observe a reduced subset of available packages.
 
-``` r
+```{r}
 options(
   available_packages_filters = risk_filter(
     RemoteChecks > 0.9,

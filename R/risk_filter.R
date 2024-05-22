@@ -35,12 +35,18 @@ risk_filter <- function(..., fields = NULL) {
   list(
     add = TRUE,
     risk_filter = function(pkgs) {
+      browser()
+
       # we'll use the parent call to `available.packages()` to re-evalauate
       # available.packages as though the appropriate risk fields were included
 
       # deduce which filters were used when calling available_packages
       ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
-      ap_filters <- ap_call$filters %||% global_filters()
+      ap_filters <- if (!is.null(ap_call$filters)) {
+        eval(ap_call$filters, parent.frame())
+      } else {
+        global_filters()
+      }
 
       # find any filters that would have been applied up to this point
       #   TODO: do we need to handle cases where risk_filter() result is
