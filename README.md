@@ -76,23 +76,6 @@ tibble::as_tibble(available.packages(
   fields = risk_fields(repo),
   filters = my_filters
 ))
-#> Called from: f(res)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#44: ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#45: ap_filters <- if (!is.null(ap_call$filters)) {
-#>     eval(ap_call$filters, parent.frame())
-#> } else {
-#>     global_filters()
-#> }
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#46: eval(ap_call$filters, parent.frame())
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#55: is_risk_filter <- function(name) name == "risk_filter"
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#56: idx_self_filter <- Position(is_risk_filter, names(ap_filters), 
-#>     1L)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#57: prior_filters <- utils::head(ap_filters, idx_self_filter - 1L)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#60: ap_call$filters <- prior_filters
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#61: ap_call$fields <- eval(ap_call$fields, envir = parent.frame())
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#62: ap_call$fields <- unique(c(ap_call$fields, req_fields))
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#63: prior_pkgs <- eval(ap_call, envir = parent.frame())
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#69: dplyr::filter(tibble::as_tibble(prior_pkgs), !!!conditions)
 #> # A tibble: 6 × 34
 #>   Package   Version Priority Depends Imports LinkingTo Suggests Enhances License
 #>   <chr>     <chr>   <chr>    <chr>   <chr>   <chr>     <chr>    <chr>    <chr>  
@@ -143,23 +126,6 @@ options(
 )
 
 nrow(available.packages())
-#> Called from: f(res)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#44: ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#45: ap_filters <- if (!is.null(ap_call$filters)) {
-#>     eval(ap_call$filters, parent.frame())
-#> } else {
-#>     global_filters()
-#> }
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#48: global_filters()
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#55: is_risk_filter <- function(name) name == "risk_filter"
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#56: idx_self_filter <- Position(is_risk_filter, names(ap_filters), 
-#>     1L)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#57: prior_filters <- utils::head(ap_filters, idx_self_filter - 1L)
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#60: ap_call$filters <- prior_filters
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#61: ap_call$fields <- eval(ap_call$fields, envir = parent.frame())
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#62: ap_call$fields <- unique(c(ap_call$fields, req_fields))
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#63: prior_pkgs <- eval(ap_call, envir = parent.frame())
-#> debug at /root/Projects/Programming/pharmapkgs/R/risk_filter.R#69: dplyr::filter(tibble::as_tibble(prior_pkgs), !!!conditions)
 #> [1] 82
 ```
 
@@ -175,5 +141,19 @@ if (pkg %in% rownames(installed.packages()))
   pak::pkg_remove(pkg)
 
 install_stats <- pak::pkg_install(pkg)
+#> ℹ Loading metadata database
+#> ✔ Loading metadata database ... done
+#> 
+#> 
+#> → Will install 1 package.
+#> → Will download 1 package with unknown size.
+#> + colorspace   2.1-0 [dl]
+#> 
+#> ℹ Getting 1 pkg with unknown size
+#> ✔ Got colorspace 2.1-0 (x86_64-pc-linux-gnu-ubuntu-22.04) (2.63 MB)
+#> ✔ Installed colorspace 2.1-0  (73ms)
+#> ✔ 1 pkg: added 1, dld 1 (2.63 MB) [2.9s]
 install_stats$sources
+#> [[1]]
+#> [1] "https://github.com/cran/colorspace/releases/download/2.1-0/colorspace_2.1-0_b1_R4.4_x86_64-pc-linux-gnu-ubuntu-22.04.tar.gz"
 ```
