@@ -108,26 +108,14 @@ nrow(available.packages())
 #> [1] 106
 ```
 
-For ease of use, modify `available.packages` to globally take a default
-value from `options(available_packages_fields)`, allowing the use of
-those fields within `risk_filter()`.
-
-This allows `pak` to leverage the same internal mechanisms for fetching
-packages and ensuring, at the time of download, that packages adhere to
-the filters that we specify.
-
-``` r
-formals(available.packages)$fields <-
-  quote(getOption("available_packages_fields", NULL))
-```
+We can provide a filter based on various risk criteria, that will allow `pak` to
+leverage the same internal mechanisms for fetching packages and ensuring, at the
+time of download, that packages adhere to the filters that we specify.
 
 Now apply a filter and observe a reduced subset of available packages.
 
 ``` r
 options(
-  # ensure additional fields are available for risk filters
-  available_packages_fields = risk_fields(repo),
-  # provide a custom package filter
   available_packages_filters = risk_filter(
     RemoteChecks > 0.9,
     HasNews == "1"
