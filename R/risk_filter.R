@@ -14,6 +14,7 @@
 #' @export
 risk_filter <- function(..., fields = NULL) {
   conditions <- rlang::quos(...)
+  id <- paste(as.character(as.raw(sample(0:255, 16))), collapse = "")
 
   if (is.null(fields)) {
     all_fields_files <- list.files(
@@ -34,9 +35,11 @@ risk_filter <- function(..., fields = NULL) {
   # List of a function as needed by `available.packages()` for filtering.
   list(
     add = TRUE,
-    risk_filter = function(pkgs) {
+    risk_filter = structure(function(pkgs) {
       # we'll use the parent call to `available.packages()` to re-evalauate
       # available.packages as though the appropriate risk fields were included
+
+      browser()
 
       # deduce which filters were used when calling available.packages
       ap_call <- match.call(sys.function(-1), sys.call(-1), expand.dots = TRUE)
@@ -46,12 +49,8 @@ risk_filter <- function(..., fields = NULL) {
         global_filters()
       }
 
-      # find any filters that would have been applied up to this point
-      #   TODO: do we need to handle cases where risk_filter() result is
-      #   combined with other filters
-      #   (ie character values, multiple "risk_filters" keys?)
-      is_risk_filter <- function(name) name == "risk_filter"
-      idx_self_filter <- Position(is_risk_filter, names(ap_filters), 1L)
+      is_risk_filter <- function(x) identical(attr(x, "id"), id)
+      idx_self_filter <- Position(is_risk_filter, ap_filters, 1L)
       prior_filters <- utils::head(ap_filters, idx_self_filter - 1L)
 
       # re-calculate our available.packages with required risk fields
@@ -67,7 +66,7 @@ risk_filter <- function(..., fields = NULL) {
       prior_pkgs |>
         tibble::as_tibble() |>
         dplyr::filter(!!!conditions)
-    }
+    }, id = id)
   )
 }
 
