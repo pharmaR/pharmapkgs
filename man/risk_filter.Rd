@@ -4,7 +4,7 @@
 \alias{risk_filter}
 \title{Create a Risk Filter Function}
 \usage{
-risk_filter(..., fields = NULL)
+risk_filter(..., fields = risk_filter_fields(...))
 }
 \arguments{
 \item{...}{Conditions to use when specifying a risk criteria. Uses
