@@ -4,6 +4,7 @@
 # pharmapkgs
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of `{pharmapkgs}` is to facilitate the interfacing with
@@ -101,6 +102,7 @@ Configure a session to leverage a bundled repo.
 repo <- bundled_repos("ubuntu-22.04")
 options(
   # importantly, repo is called CRAN such that pak doesn't insert a CRAN mirror
+  # awaiting feature r-lib/pak#637
   repos = c(CRAN = repo)
 )
 
@@ -108,26 +110,15 @@ nrow(available.packages())
 #> [1] 106
 ```
 
-For ease of use, modify `available.packages` to globally take a default
-value from `options(available_packages_fields)`, allowing the use of
-those fields within `risk_filter()`.
-
-This allows `pak` to leverage the same internal mechanisms for fetching
-packages and ensuring, at the time of download, that packages adhere to
-the filters that we specify.
-
-``` r
-formals(available.packages)$fields <-
-  quote(getOption("available_packages_fields", NULL))
-```
+We can provide a filter based on various risk criteria, that will allow
+`pak` to leverage the same internal mechanisms for fetching packages and
+ensuring, at the time of download, that packages adhere to the filters
+that we specify.
 
 Now apply a filter and observe a reduced subset of available packages.
 
 ``` r
 options(
-  # ensure additional fields are available for risk filters
-  available_packages_fields = risk_fields(repo),
-  # provide a custom package filter
   available_packages_filters = risk_filter(
     RemoteChecks > 0.9,
     HasNews == "1"
@@ -150,5 +141,19 @@ if (pkg %in% rownames(installed.packages()))
   pak::pkg_remove(pkg)
 
 install_stats <- pak::pkg_install(pkg)
+#> ℹ Loading metadata database
+#> ✔ Loading metadata database ... done
+#> 
+#> 
+#> → Will install 1 package.
+#> → Will download 1 package with unknown size.
+#> + colorspace   2.1-0 [dl]
+#> 
+#> ℹ Getting 1 pkg with unknown size
+#> ✔ Got colorspace 2.1-0 (x86_64-pc-linux-gnu-ubuntu-22.04) (2.63 MB)
+#> ✔ Installed colorspace 2.1-0  (73ms)
+#> ✔ 1 pkg: added 1, dld 1 (2.63 MB) [3.3s]
 install_stats$sources
+#> [[1]]
+#> [1] "https://github.com/cran/colorspace/releases/download/2.1-0/colorspace_2.1-0_b1_R4.4_x86_64-pc-linux-gnu-ubuntu-22.04.tar.gz"
 ```
