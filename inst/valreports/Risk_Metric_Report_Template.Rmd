@@ -1,0 +1,413 @@
+---
+title: "<span class='txtasis'>R Package Risk Assessment</span>"
+author: "`r paste0(params$user_name,' (',params$user_role,')')`"
+output:
+  word_document: null
+  html_document:
+    df_print: paged
+always_allow_html: yes
+subtitle: '<span class=''txtasis''>Report for Package: `r params$pkg`</span>'
+params:
+  pkg: pharmapkgs
+  riskmetric_version: NA
+  user_name: "Assesser_Tester 1"
+  user_role: "Risk Assesser"
+  overall_comments: NA
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(flextable)
+library(shiny)
+library(ggplot2)
+library(plotly)
+
+knitr::opts_chunk$set(echo = F, fig.width = 5.5, fig.height = 3.4)
+dm_ind=FALSE
+```
+
+
+
+```{r comment=""}
+# Load the utils package
+library(utils)
+
+# Get the description of the package
+description <- packageDescription(params$pkg)
+
+# Print the description
+## print(description)
+"prettyPrintList" <- function(x, header=NULL, justify="left", sep=":")
+{
+  if (!is.list(x) || is.null(names(x)))
+    stop("x must be a list containing named objects")
+  if (!is.null(header) && (!is.character(header) || length(header) > 1))
+    stop("header must be a single character string")
+  if (!is.character(justify) || length(justify) > 1)
+    stop("justify must be a single character string")
+  if (!is.character(sep) || length(sep) > 1)
+    stop("sep must be a single character string")
+
+  justify <- match.arg(justify, c("none","left","right","decimal"))
+
+  if (!is.null(header))
+    cat(header,"\n", rep("-",nchar(header)),"\n",sep="")
+
+  # prune list of NULL values.
+  # if x <- list("some really large name"=NULL, cat="dog")
+  # the spearator will be spaced way too far to the right
+  # due to the influence of the first entry name. thus,
+  # we eliminate any such NULL entries altogether to
+  # avoid this problem
+  x <- x[!unlist(lapply(x, is.null))]
+
+  if (!length(x))
+    return(invisible(NULL))
+
+  categories <- format(names(x), justify=justify)
+
+  for (i in seq(along=categories)){
+    if (!is.null(x[[i]]))
+      cat(categories[i], sep, x[[i]], "\n", sep=" ")
+  }
+
+  invisible(NULL)
+}
+
+prettyPrintList(description)
+```
+
+
+```{r}
+library(riskmetric)
+riskmetric_pkg_ref <- pkg_ref(params$pkg)
+#print(riskmetric_pkg_ref)
+```
+
+```{r general_pkg_info}
+h2('General Information')
+package_data <- lapply(
+  params$pkg,
+  utils::packageDescription,
+  fields = c("Package", "Title", "Version", "Description", "Built", "Repository")
+) |> 
+  lapply(as, Class = "list") |> 
+  lapply(setNames, c("Package", "Title", "Version", "Description","Built", "Repository")) |> 
+  dplyr::bind_rows() |> t()
+library(flextable)
+## package_data |> knitr::kable()
+package_data %>% as.data.frame |> tibble::rownames_to_column("Info") |> rename(Value=V1) |> flextable::flextable() |> autofit() |> fit_to_width(7.5) |>   mk_par(j = "Info", 
+          value = as_paragraph(
+            as_chunk(Info, 
+                     props = fp_text_default(bold = TRUE))))
+
+```
+### Exported namespace
+
+```{r}
+maint <- pkg_assess(riskmetric_pkg_ref)
+maint$exported_namespace
+```
+
+
+## Maintenance Metric
+
+
+```{r}
+
+pkg_score(pkg_assess(dplyr::as_tibble(pkg_ref(c(params$pkg, "riskmetric"))))) %>% t() %>% knitr::kable()
+```
+
+
+
+
+```{r}
+knitr::opts_chunk$set(echo = F,eval=F, fig.width = 5.5, fig.height = 3.4)
+```
+
+
+
+```{r overall_comments}
+if('Overall Comment' %in% params$report_includes){
+  tagList(
+    br(),
+    h2('Overall Comment', style = "padding-bottom:10px;"),
+    wellPanel(
+      HTML(outputComments(
+        pkg_name = riskmetric_pkg_ref$name,
+        comments = params$overall_comments))
+    )
+  )
+}
+```
+
+```{r pkg_summary}
+if('Package Summary' %in% params$report_includes){
+  tagList(
+    br(),
+    h2('Package Summary', style = "padding-bottom:10px;"),
+    wellPanel(
+      HTML(outputComments(
+        pkg_name = params$pkg$name,
+        comments = params$pkg_summary,
+        none_txt = "No summary"))
+    )
+  )
+}
+```
+
+`r if(any(c('Maintenance Metrics', 'Maintenance Comments') %in% params$report_includes)) {"\\newpage"}`
+
+```{r maintenance_metrics}
+if(any(c('Maintenance Metrics', 'Maintenance Comments') %in% params$report_includes)) {
+tagList(br(), h2('Maintenance Metrics'))
+}
+```
+
+
+```{r maintenance_metrics_table, warning=FALSE, message=FALSE, error=FALSE}
+if('Maintenance Metrics' %in% params$report_includes){
+  params$maint_metrics %>%
+    dplyr::mutate(
+       score = na_if(score, "NA"),        
+       score = na_if(score, "NULL"),
+      `Metric Name` = title,
+      `Metric Description` = desc,
+      `Metric Value` = dplyr::case_when(
+        value %in% c("pkg_metric_error", "NA", NA) ~ "Not found",
+        !(name %in% c('has_bug_reports_url', 'news_current')) ~ value,
+                                 value %in% c("TRUE","1") ~ 'Yes',
+                                 TRUE ~ 'No'),
+      `Metric Score *` = dplyr::case_when(toupper(score) %in% c("NA", "NULL") ~ NA_character_,
+          # flip the label display of the score to mimic the package score...
+          round(as.numeric(score), 2) == 0 ~ "1.0",
+          round(as.numeric(score), 2) == 1 ~ "0.0",
+          TRUE ~ as.character(round(1 - as.numeric(score), 2))
+      )
+    ) %>%
+    dplyr::select(`Metric Name`, `Metric Description`, `Metric Value`, `Metric Score *`) %>%
+    flextable::flextable(cwidth = c(1.5, 2.0, 2.0, 1.25)) %>% 
+    flextable::set_table_properties(align = "left") %>% 
+    flextable::colformat_char(na_str = "NA")
+}
+```
+
+`r if ('Maintenance Metrics' %in% params$report_includes) {"\\* Metrics whose score is NA will not impact the package {riskmetric} score"}`
+
+```{r maintenance_metrics_comments}
+if('Maintenance Comments' %in% params$report_includes){
+  tagList(
+    br(),
+    h2('Comments'),
+    HTML(outputComments(
+      pkg_name = params$pkg$name,
+      comments = params$mm_comments))
+  )
+}
+```
+
+
+`r if(any(c('Community Usage Metrics', 'Community Usage Comments') %in% params$report_includes)) {"\\newpage"}`
+
+```{r community_metrics, warning=FALSE, message=FALSE}
+if(any(c('Community Usage Metrics', 'Community Usage Comments') %in% params$report_includes)) {
+  tagList(br(), h2("Community Usage Metrics"))
+}
+```
+
+
+```{r community_metrics_table, warning=FALSE, message=FALSE, error=FALSE, results='HIDE', echo=FALSE}
+if (!cm_ind) {
+    h6(glue::glue("Community Usage Metrics not avaiable for {params$pkg$name}"),
+       style = "text-align: center; color: gray; padding-top: 50px;")
+} else {
+  if('Community Usage Metrics' %in% params$report_includes){
+    params$com_metrics %>%
+      dplyr::mutate(
+        score = na_if(score, "NA"),        
+        score = na_if(score, "NULL"),
+        `Metric Name` = title,
+        `Metric Description` = desc,
+        `Metric Value` = ifelse(value %in% c("pkg_metric_error", "NA", NA), "Not found", value),
+        `Metric Score *` = dplyr::case_when(toupper(score) %in% c("NA", "NULL") ~ NA_character_,
+          # flip the label display of the score to mimic the package score...
+          round(as.numeric(score), 2) == 0 ~ "1.0",
+          round(as.numeric(score), 2) == 1 ~ "0.0",
+          TRUE ~ as.character(round(1 - as.numeric(score), 2))
+        )
+      ) %>%
+      dplyr::select(`Metric Name`, `Metric Description`, `Metric Value`, `Metric Score *`) %>%
+      flextable::flextable(cwidth = c(1.5, 2.0, 2.0, 1.25)) %>% 
+      flextable::set_table_properties(align = "left") %>% 
+      flextable::colformat_char(na_str = "NA")
+  }
+}
+```
+
+`r if ('Community Usage Metrics' %in% params$report_includes) {"\\* Metrics whose score is NA will not impact the package {riskmetric} score"}`
+
+```{r community_metrics_plot_title, eval=F}
+if('Community Usage Metrics' %in% params$report_includes){
+  tagList(
+    br(),
+    h2('Number of Downloads by Month/Year')
+  )
+}
+```
+
+
+```{r community_metrics_plot, fig.width=10, fig.height=5, eval=F}
+if('Community Usage Metrics' %in% params$report_includes){
+  d <- params$com_metrics_raw %>%
+    dplyr::mutate(day_month_year = glue::glue('1-{month}-{year}')) %>%
+    dplyr::mutate(day_month_year = as.Date(day_month_year, "%d-%m-%Y")) %>%
+    dplyr::mutate(month = month.name[month]) %>%
+    dplyr::arrange(day_month_year) %>%
+    dplyr::distinct(month, year, .keep_all = TRUE)
+  
+  mo <- ceiling(nrow(d) / 9)
+  
+  ggplot(data = d, aes(x = day_month_year, y = downloads)) +
+    geom_point() +
+    geom_line() +
+    scale_x_date(date_breaks = glue::glue("{mo} months"), date_labels = "%m-%Y") +
+    labs(
+      x = 'Month/Year',
+      y = 'Downloads'
+    ) +
+    theme(text = element_text(size = 16), axis.text = element_text(size=16))# angle = 30, vjust = 0.5, hjust=1))
+}
+```
+
+
+```{r community_metrics_comments, eval=F}
+if('Community Usage Comments' %in% params$report_includes){
+  tagList(
+    br(),
+    h2('Comments'),
+    HTML(outputComments(
+      pkg_name = params$pkg$name,
+      comments = params$cm_comments))
+  )
+}
+```
+
+`r if(any(c('Package Dependencies', 'Dependency Comments') %in% params$report_includes)) {"\\newpage"}`
+
+```{r package_dependencies_header}
+  if(any(c('Package Dependencies', 'Dependency Comments') %in% params$report_includes)) {
+    tagList(br(), h2("Package Dependencies"), br())
+  }
+```
+
+```{r package_dependencies_cards}
+  if('Package Dependencies' %in% params$report_includes) {
+     cards <- params$dep_cards %>%
+      dplyr::mutate(
+        score = na_if(score, "NA"),        
+        score = na_if(score, "NULL"),
+        `Metric Name` = title,
+        `Metric Description` = desc,
+        `Metric Value` = ifelse(value %in% c("pkg_metric_error", "NA", NA), "Not found", value),
+        `Metric Score *` = dplyr::case_when(toupper(score) %in% c("NA", "NULL") ~ NA_character_,
+          # flip the label display of the score to mimic the package score...
+          round(as.numeric(score), 2) == 0 ~ "1.0",
+          round(as.numeric(score), 2) == 1 ~ "0.0",
+          TRUE ~ as.character(round(1 - as.numeric(score), 2))
+        )
+      ) %>%
+      dplyr::select(`Metric Name`, `Metric Description`, `Metric Value`, `Metric Score *`) 
+     
+      flextable::flextable(cards, cwidth = c(1.5, 2.0, 2.0, 1.25))  %>% 
+      flextable::set_table_properties(align = "left") %>% 
+      flextable::colformat_char(na_str = "NA")
+  }
+```
+
+`r if ('Package Dependencies' %in% params$report_includes) {"\\* Metrics whose score is NA will not impact the package {riskmetric} score"}`
+
+```{r package_dependencies_table_header}
+  if(any(c('Package Dependencies', 'Dependency Comments') %in% params$report_includes)) {
+    tagList(
+      br(),
+      h3(glue::glue("First Order Dependencies of {params$pkg$name}")),
+    )
+  }
+```
+
+```{r package_dependencies_table, eval=dm_ind}
+  if('Package Dependencies' %in% params$report_includes) {
+    params$dep_table %>%
+      purrr::set_names(tools::toTitleCase(names(.))) %>%
+      flextable::flextable(cwidth = c(1.75, 1.0, 1.0, 1.0, .75, 1.5))  %>% 
+      flextable::set_table_properties(align = "left") 
+  }
+```
+
+
+```{r dependency_comments, eval=dm_ind}
+if('Dependency Comments' %in% params$report_includes){
+  tagList(
+    br(),
+    h2('Comments'),
+    HTML(outputComments(
+      pkg_name = params$pkg$name,
+      comments = params$dep_comments))
+  )
+}
+```
+
+
+
+```{r source_explorer_metrics}
+if(any(c('Source Explorer Comments') %in% params$report_includes)) {
+tagList(
+  br(),
+  h2('Source Explorer'),
+  br(),
+  h6("Source code visuals not available."),
+  br(),
+  h2('Comments'),
+  HTML(outputComments(
+    pkg_name = params$pkg$name,
+    comments = params$se_comments)))
+}
+```
+
+```{r function_explorer_metrics}
+if(any(c('Function Explorer Comments') %in% params$report_includes)) {
+tagList(
+  br(),
+  h2('Function Explorer'),
+  br(),
+  h6("Function code visuals not available."),
+  br(),
+  h2('Comments'),
+  HTML(outputComments(
+    pkg_name = params$pkg$name,
+    comments = params$fe_comments)))
+}
+```
+
+\newpage
+
+```{r about_report_title}
+tagList(br(), h2('About The Report'))
+```
+
+
+```{r about_report}
+
+tagList(
+  strong('{riskassessment} App Version:'), br(), getElement(params, 'app_version'), br(), br(),
+  strong('{riskmetric} Version:'), br(), getElement(params, 'riskmetric_version'), br(), br(),
+  strong('Generated on:'), br(), format(Sys.time(), usetz = TRUE), br(), br(),
+  if('Risk Score' %in% params$report_includes) strong('Metric Weights:') else ""
+)
+
+if('Risk Score' %in% params$report_includes) {
+  params$metric_weights %>%
+    knitr::kable(format = 'pandoc')
+}
+```

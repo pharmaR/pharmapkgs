@@ -1,0 +1,89 @@
+---
+title: "Automated System Testing Report"
+params:
+  accesstoken:
+    label: "Access Token"
+    value: "xxx"
+    input: text
+output:
+  html_document: default
+  word_document: default
+---
+
+## Test Cases Definition
+
+### Test Case 1.1: xxx modelling
+1. Step 1: xxx yyy
+2. Step 2: blabla
+
+### Test Case 1.2: yyy evaluation
+
+1. Step 1: ...
+2. Step 2: zzz
+
+
+
+```{r}
+accesstoken <- params$accesstoken
+token <- accesstoken
+path0 <- here::here()
+saveRDS(accesstoken,file=paste0(path0,"/inst/valreports/accesstoken.rds"))
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, results = "asis")
+library(dplyr)
+
+SummariseResults <- function(res) {
+  res %>% summarise_if(is.numeric, sum) %>% knitr::kable()
+}
+WriteResults <- function(res) {
+  purrr::pwalk(list(res$file, res$Categories), WriteFileResults)
+}
+WriteFileResults <- function(file, categories, ...) {
+  cat("###", file, "\n")
+  purrr::pwalk(list(categories$context, categories$Results), WriteCategoryResults)
+}
+WriteCategoryResults <- function(category, tests, ...) {
+  cat("####", category, "\n")
+  print(knitr::kable(tests))
+}
+path0 <- here::here()
+devtools::load_all(paste0(path0))
+```
+
+```{r GenerateResults,results='hold',message=FALSE,warning=FALSE}
+#file_lists <- list.files(paste0("path0","/inst/SystemTests/SmokeTests"))
+file_lists <- c("ST_TestCase1.1.R")
+testResultsRaw_list <- lapply(file_lists,function(x)testthat::test_file(paste0(path0,"/inst/valreports/",x), reporter = testthat::ListReporter))
+
+testResultsIndividual_list <- lapply(testResultsRaw_list,function(x) x%>%
+  as_tibble() %>%
+  rename(Test = test) %>%
+  group_by(file, context, Test) %>%
+  summarise(NumTests = first(nb),
+            Passed   = sum(passed),
+            Failed   = sum(failed),
+            Warnings = sum(warning),
+            Errors   = sum(as.numeric(error)),
+            Skipped  = sum(as.numeric(skipped)),
+            .groups = "drop"))
+testResultsIndividual<- plyr::ldply(testResultsIndividual_list)##%>%dplyr::select(-context)
+testResultsNested <- testResultsIndividual %>%
+  nest_by(file, context, .key = "Results") %>%
+  nest_by(file, .key = "Categories")
+```
+
+
+## Summary
+```{r WriteSummary}
+SummariseResults(testResultsIndividual)
+```
+
+## Details
+```{r WriteResults}
+WriteResults(testResultsNested)
+## knitr::kable(testResultsIndividual)
+```

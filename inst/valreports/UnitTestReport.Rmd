@@ -1,0 +1,69 @@
+---
+title: "Automated Unit Testing Report"
+output:
+  word_document: default
+  html_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, results = "asis")
+library(dplyr)
+
+SummariseResults <- function(res) {
+  res %>% summarise_if(is.numeric, sum) %>% knitr::kable()
+}
+WriteResults <- function(res) {
+  purrr::pwalk(list(res$file, res$Categories), WriteFileResults)
+}
+WriteFileResults <- function(file, categories, ...) {
+  cat("###", file, "\n")
+  purrr::pwalk(list(categories$context, categories$Results), WriteCategoryResults)
+}
+WriteCategoryResults <- function(category, tests, ...) {
+  cat("####", category, "\n")
+  print(knitr::kable(tests))
+}
+path0 <- here::here()
+
+if(!require(KinGUI)) devtools::load_all(path0)
+library(devtools)
+#library(golem)
+```
+
+```{r include=FALSE}
+devtools::test() ## This block is needed due to produce the correct report. Donot remove it. 
+```
+
+
+
+```{r GenerateResults}
+file_lists <- list.files(paste0(path0,"/tests/testthat/"))
+if("_snaps" %in% file_lists) {file_lists <- file_lists[file_lists!="_snaps"]}
+testResultsRaw_list <- lapply(file_lists,function(x)testthat::test_file(paste0(path0,"/tests/testthat/",x), reporter = testthat::ListReporter))
+
+testResultsIndividual_list <- lapply(testResultsRaw_list,function(x) x%>%
+  as_tibble() %>%
+  rename(Test = test) %>%
+  group_by(file, context, Test) %>%
+  summarise(NumTests = first(nb),
+            Passed   = sum(passed),
+            Failed   = sum(failed),
+            Warnings = sum(warning),
+            Errors   = sum(as.numeric(error)),
+            Skipped  = sum(as.numeric(skipped)),
+            .groups = "drop"))
+testResultsIndividual<- plyr::ldply(testResultsIndividual_list)##%>%dplyr::select(-context)
+testResultsNested <- testResultsIndividual %>%
+  nest_by(file, context, .key = "Results") %>%
+  nest_by(file, .key = "Categories")
+```
+
+## Summary
+```{r WriteSummary}
+SummariseResults(testResultsIndividual)
+```
+
+## Details
+```{r WriteResults}
+WriteResults(testResultsNested)
+## knitr::kable(testResultsIndividual)
+```
