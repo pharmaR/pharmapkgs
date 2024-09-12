@@ -2,13 +2,23 @@
 title: "Automated System Testing Report"
 params:
   accesstoken:
-    label: "Access Token"
-    value: "xxx"
+    label: Access Token
+    value: xxx
     input: text
 output:
-  html_document: default
+  pdf_document: default
   word_document: default
+  html_document: default
 ---
+
+## Purpose and Scope
+
+This system test is to verify the package does xxx modelling and can produce results as in yyy literature. 
+
+## Test Protocol 
+
+
+
 
 ## Test Cases Definition
 
@@ -24,10 +34,9 @@ output:
 
 
 ```{r}
-accesstoken <- params$accesstoken
-token <- accesstoken
+
 path0 <- here::here()
-saveRDS(accesstoken,file=paste0(path0,"/inst/valreports/accesstoken.rds"))
+
 ```
 
 
