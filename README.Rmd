@@ -114,9 +114,26 @@ same that was used to derive the risk metrics.
 pak::cache_clean()
 pkg <- "colorspace"
 
-if (pkg %in% rownames(installed.packages()))
+if (pkg %in% rownames(installed.packages())) {
   pak::pkg_remove(pkg)
+}
 
 install_stats <- pak::pkg_install(pkg)
 install_stats$sources
 ```
+
+## Development
+
+This repository is configured to be used with the
+[devcontainer](https://code.visualstudio.com/docs/devcontainers/containers).
+You can still open it normally in RStudio or any other IDE,
+but the devcontainer provides a consistent development environment for all users.
+
+To get started with the devcontainer, open the repository in Visual Studio Code and click on the "Reopen in Container"
+button that appears in the bottom right corner of the window.
+
+Once the process is completed, you can start using it. If you prefer to use RStudio,
+you may start rstudio server by running `rserver` in the terminal. Then open the web
+browser and navigate to http://localhost:8787.
+
+Devcontainer also allows you to easily open the project in Github Codespaces.
