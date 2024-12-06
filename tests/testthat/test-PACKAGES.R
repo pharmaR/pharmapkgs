@@ -101,4 +101,20 @@ describe("update_packages", {
     expect_equal(actual_output$Package, c("A", "B"))
     expect_equal(actual_output$Version, c("1.1", "2.1"))
   })
+
+  it("works with differing fields", {
+    old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
+    new_local_packages <- data.frame(
+      Package = c("A", "C"),
+      Version = c("1.0", "3.0"),
+      foo = c(1, 3)
+    )
+
+    actual_output <- update_packages(old_local_packages, new_local_packages)
+
+    expect_equal(nrow(actual_output), 3)
+    expect_equal(actual_output$Package, c("A", "B", "C"))
+    expect_equal(actual_output$Version, c("1.0", "2.0", "3.0"))
+    expect_true(all(c("foo") %in% names(actual_output)))
+  })
 })

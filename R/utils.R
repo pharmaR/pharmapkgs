@@ -30,3 +30,20 @@ global_filters <- function() {
     file(path, "r")
   }
 }
+
+#' @keywords internal
+.sync_colnames <- function(df1, df2) {
+  for (col in names(df1)) {
+    if (!col %in% names(df2)) {
+      df2[[col]] <- NA_character_
+    }
+  }
+
+  for (col in names(df2)) {
+    if (!col %in% names(df1)) {
+      df1[[col]] <- NA_character_
+    }
+  }
+
+  list(df1, df2)
+}

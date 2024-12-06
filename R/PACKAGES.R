@@ -182,7 +182,10 @@ score_packages <- function(
       as.data.frame()
   })
 
-  do.call(rbind, scores)
+  Reduce(x = scores, f = function(acc, nxt) {
+    data <- .sync_colnames(acc, nxt)
+    rbind(data[[1]], data[[2]])
+  })
 }
 
 #' Update local PACKAGES info.
@@ -194,10 +197,12 @@ score_packages <- function(
 #'
 #' @export
 update_packages <- function(old_local_packages, new_local_packages) {
-  new_packages <- old_local_packages[
-    !old_local_packages$Package %in% new_local_packages$Package,
-  ]
-  new_packages <- rbind(new_packages, new_local_packages)
+  data <- .sync_colnames(old_local_packages, new_local_packages)
+  old <- data[[1]]
+  new <- data[[2]]
+
+  old_packages <- old[!old$Package %in% new$Package, ]
+  new_packages <- rbind(old_packages, new)
   new_packages[order(new_packages$Package), ]
 }
 
