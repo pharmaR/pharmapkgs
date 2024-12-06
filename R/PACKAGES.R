@@ -94,6 +94,8 @@ RHUB_REPO_PLATFORMS <- c(
 #' @param platform Platform name.
 #' @param r_version R version.
 #'
+#' @return data.frame
+#'
 #' @export
 get_packages <- function(
     base_url = "https://raw.githubusercontent.com/r-hub/repos/main",
