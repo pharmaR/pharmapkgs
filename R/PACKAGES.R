@@ -214,3 +214,19 @@ score_packages <- function(
 
   do.call(rbind, scores)
 }
+
+#' Update local PACKAGES info.
+#'
+#' @param old_local_packages Data frame with PACKAGES info currently stored in the repo.
+#' @param new_local_packages Data frame with scored new PACKAGES info.
+#'
+#' @return data.frame
+#'
+#' @export
+update_packages <- function(old_local_packages, new_local_packages) {
+  new_packages <- old_local_packages[
+    !old_local_packages$Package %in% new_local_packages$Package,
+  ]
+  new_packages <- rbind(new_packages, new_local_packages)
+  new_packages[order(new_packages$Package), ]
+}

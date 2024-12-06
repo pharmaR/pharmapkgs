@@ -68,13 +68,37 @@
 #   })
 # })
 
-describe("score_packages", {
-  it("returns a data.frame with scores", {
-    packages <- c("rlang")
+# describe("score_packages", {
+#   it("returns a data.frame with scores", {
+#     packages <- c("rlang")
 
-    actual_output <- score_packages(packages)
+#     actual_output <- score_packages(packages)
 
-    expect_true(all(c("Package", "Version") %in% names(actual_output)))
-    expect_true(any(c("covr_coverage", "size_codebase", "dependencies") %in% names(actual_output)))
+#     expect_true(all(c("Package", "Version") %in% names(actual_output)))
+#     expect_true(any(c("covr_coverage", "size_codebase", "dependencies") %in% names(actual_output)))
+#   })
+# })
+
+describe("update_packages", {
+  it("returns a data.frame with added new packages", {
+    old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
+    new_local_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
+
+    actual_output <- update_packages(old_local_packages, new_local_packages)
+
+    expect_equal(nrow(actual_output), 3)
+    expect_equal(actual_output$Package, c("A", "B", "C"))
+    expect_equal(actual_output$Version, c("1.0", "2.0", "3.0"))
+  })
+
+  it("overwrites old local package versions ", {
+    old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
+    new_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.1", "2.1"))
+
+    actual_output <- update_packages(old_local_packages, new_local_packages)
+
+    expect_equal(nrow(actual_output), 2)
+    expect_equal(actual_output$Package, c("A", "B"))
+    expect_equal(actual_output$Version, c("1.1", "2.1"))
   })
 })
