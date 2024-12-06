@@ -22,9 +22,12 @@
   })
 
   values$local_packages <- with(values, {
-    utils::contrib.url(
-      repos = values$local_repo,
-      type = .get_repos_type(platform)
+    file.path(
+      utils::contrib.url(
+        repos = values$local_repo,
+        type = .get_repos_type(platform)
+      ),
+      "PACKAGES"
     )
   })
 
