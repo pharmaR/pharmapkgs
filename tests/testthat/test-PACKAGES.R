@@ -11,7 +11,7 @@ describe("get_packages", {
     expect_gt(nrow(packages), 0)
   })
 
-  test_that("fetches the PACKAGES file for a specific platform-version combination", { # nolint
+  test_that("fetches the PACKAGES file for a specific platform-version combination", {
     packages <- get_packages(platform = "ubuntu-22.04-s390x", r_version = "4.1")
     expect_s3_class(packages, "data.frame")
     expect_gt(nrow(packages), 0)
