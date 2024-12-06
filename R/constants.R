@@ -19,12 +19,3 @@ RHUB_BASE_URL <- "https://raw.githubusercontent.com/r-hub/repos/main"
 #' Base URL for the pharmapkgs repository.
 #' @keywords internal
 PHARMAPKGS_BASE_URL <- system.file("repos", package = "pharmapkgs", mustWork = TRUE)
-
-#' Default values to be used when env variables are not found
-#' @keywords internal
-DEFAULT_ENV_VALUES <- list(
-  remote_repo = RHUB_BASE_URL,
-  local_repo = PHARMAPKGS_BASE_URL,
-  platform = "ubuntu-22.04",
-  r_version = "4.4"
-)
