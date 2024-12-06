@@ -1,0 +1,66 @@
+---
+title: "Risk Assessment and Testing Approaches"
+author: "Zhenglei Gao"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+> ⚠️ Status: DRAFT
+> 
+> This is still a very rough draft. 
+
+
+## Risk Assessment
+
+A risk metric report will be generated as a basis for risk assessment. The default criteria for risk categorization can be adjusted to meet the specific needs of each organization.
+
+## Test Approaches
+
+Based on the outcome of the risk assessment, different testing approaches will be employed, and corresponding testing reports will be generated.
+
+- **Low Risk Packages:** For packages categorized as low risk, unit tests are sufficient to verify that the package is installed correctly and functions as expected.
+
+- **Medium Risk Packages:** For medium risk packages, examples or vignettes should be executed to verify the functionalities of the package.
+
+- **High Risk Packages:** For high risk packages, separate system tests must be conducted to ensure comprehensive validation.
+
+
+> 📘 Info: WIP
+> 
+> This is merely a starting point for the full validation report. 
+
+
+## Structure of a validation report folder
+
+Table of contents:
+
+- [ ] Risk metrics report
+- [ ] Risk score / characterization
+- [ ] Unit Test Report
+- [ ] System Test Protocol
+- [ ] Test Cases Definition 
+- [ ] Test Cases Execution Report
+
+Styles: 
+
+- [ ] R Validation Hub logo?
+- [ ] Style of word document? 
+
+
+> 👍 Success
+>
+> The user of this package should be able to generate the necessary documentation as several separte documents or one single combined document. 
+
+# References
+
+- White Paper
+- https://github.com/pharmaR/riskassessment/tree/master/inst/report_downloads
+

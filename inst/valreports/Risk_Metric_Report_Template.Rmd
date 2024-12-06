@@ -1,0 +1,182 @@
+---
+title: "<span class='txtasis'>R Package Risk Assessment</span>"
+author: "`r paste0(params$user_name,' (',params$user_role,')')`"
+output:
+  word_document: 
+    md_extensions: +raw_html-markdown_in_html_blocks
+    pandoc_args: ['--lua-filter', 'riskassessment_report/read_html.lua']
+  html_document:
+    df_print: paged
+    md_extensions: +raw_html-markdown_in_html_blocks
+    pandoc_args: ['--lua-filter', 'riskassessment_report/read_html.lua']
+always_allow_html: yes
+subtitle: '<span class=''txtasis''>Report for Package: `r params$pkg`</span>'
+params:
+  pkg: pharmapkgs
+  riskmetric_version: NA
+  user_name: "Assesser_Tester 1"
+  user_role: "Risk Assesser"
+  overall_comments: NA
+---
+
+## Contents of a risk metric report
+
+Table of contents:
+
+- [x] Description
+- [ ] Metric Lists (Risk score currently) by riskmetric package?
+- [ ] Test Coverage? (examples, tests, vignettes)
+
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(flextable)
+library(shiny)
+library(ggplot2)
+library(plotly)
+
+knitr::opts_chunk$set(echo = F, fig.width = 5.5, fig.height = 3.4)
+dm_ind=FALSE
+```
+
+
+## General Information
+
+
+
+```{r results='asis'}
+# Load the utils package
+library(utils)
+
+# Get the description of the package
+description <- packageDescription(params$pkg)
+
+# Print the description
+## print(description)
+"prettyPrintList" <- function(x, header=NULL, justify="left", sep=":")
+{
+  if (!is.list(x) || is.null(names(x)))
+    stop("x must be a list containing named objects")
+  if (!is.null(header) && (!is.character(header) || length(header) > 1))
+    stop("header must be a single character string")
+  if (!is.character(justify) || length(justify) > 1)
+    stop("justify must be a single character string")
+  if (!is.character(sep) || length(sep) > 1)
+    stop("sep must be a single character string")
+
+  justify <- match.arg(justify, c("none","left","right","decimal"))
+
+  if (!is.null(header))
+    cat(header,"\n", rep("-",nchar(header)),"\n",sep="")
+
+  # prune list of NULL values.
+  # if x <- list("some really large name"=NULL, cat="dog")
+  # the spearator will be spaced way too far to the right
+  # due to the influence of the first entry name. thus,
+  # we eliminate any such NULL entries altogether to
+  # avoid this problem
+  x <- x[!unlist(lapply(x, is.null))]
+
+  if (!length(x))
+    return(invisible(NULL))
+
+  categories <- format(names(x), justify=justify)
+
+  for (i in seq(along=categories)){
+    if (!is.null(x[[i]]))
+      cat("*",categories[i], sep, x[[i]], "\n", sep=" ")
+  }
+
+  invisible(NULL)
+}
+
+prettyPrintList(description)
+```
+
+
+```{r}
+library(riskmetric)
+riskmetric_pkg_ref <- pkg_ref(params$pkg)
+#print(riskmetric_pkg_ref)
+```
+
+
+> ⚠️ Status: WIP
+> 
+> A prettier version of the output above. 
+
+```{r general_pkg_info}
+h2('General Information')
+package_data <- lapply(
+  params$pkg,
+  utils::packageDescription,
+  fields = c("Package", "Title", "Version", "Description", "Built", "Repository")
+) |> 
+  lapply(as, Class = "list") |> 
+  lapply(setNames, c("Package", "Title", "Version", "Description","Built", "Repository")) |> 
+  dplyr::bind_rows() |> t()
+library(flextable)
+## package_data |> knitr::kable()
+package_data %>% as.data.frame |> tibble::rownames_to_column("Info") |> rename(Value=V1) |> flextable::flextable() |> autofit() |> fit_to_width(7.5) |>   mk_par(j = "Info", 
+          value = as_paragraph(
+            as_chunk(Info, 
+                     props = fp_text_default(bold = TRUE))))
+
+```
+
+
+
+## Risk Metric
+
+
+- [x] Maintenance
+- [ ] Community Usage
+- [ ] Package Dependencies (Reverse dependencies?)
+- [ ] What else?
+
+```{r}
+
+pkg_score(pkg_assess(dplyr::as_tibble(pkg_ref(c(params$pkg, "riskmetric"))))) %>% t() %>% knitr::kable()
+```
+
+
+## Test Coverage
+
+```{r}
+library(covr)
+path0 <- here::here()
+## report(package_coverage(path0))
+res <- devtools::test_coverage(path0)
+covr:::to_report_data(res)$file_stats %>% as.data.frame() %>% tibble::rownames_to_column() %>% rename(FileLink=File,File=rowname) %>% dplyr::select(-FileLink) %>% flextable::flextable()
+```
+
+**Exported namespace**
+
+```{r}
+maint <- pkg_assess(riskmetric_pkg_ref)
+maint$exported_namespace
+```
+
+
+## Reporting Stats
+
+
+```{r about_report,eval=T,warning=FALSE}
+
+
+ tbl<-  dplyr::tibble(Info=c("<strong>{riskmetric} Version:</strong>","<strong>Generated on:</strong>"), Value=c(as.character(packageVersion("riskmetric")), as.character(format(Sys.time(), usetz = TRUE))))
+  
+    
+    # print table
+    tbl %>%
+        knitr::kable(escape=FALSE) %>% 
+        kableExtra::kable_styling()
+
+```
+
+
+```{r}
+knitr::opts_chunk$set(echo = F,eval=F, fig.width = 5.5, fig.height = 3.4)
+```
+
