@@ -57,22 +57,6 @@ bundled_PACKAGES <- function(repos) {
   path_to_PACKAGES(path = file.path(repos_path, repos))
 }
 
-.get_repos_type <- function(platform) {
-  if (startsWith(platform, "macos")) {
-    "mac.binary"
-  } else {
-    "source"
-  }
-}
-
-.get_connection <- function(path) {
-  if (startsWith(path, "http")) {
-    url(path)
-  } else {
-    file(path, "r")
-  }
-}
-
 #' Read PACKAGES file from a local or remote repository.
 #'
 #' The goal of this function is not to produce any significant
