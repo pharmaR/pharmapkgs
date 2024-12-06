@@ -159,3 +159,58 @@ diff_packages <- function(remote_packages, local_packages) {
 
   combined_packages[is_new_or_newer > 0, c("Package", "VersionDifference")]
 }
+
+#' Assess packages using riskmetric.
+#'
+#' @param packages Character vector with package names.
+#' @param limit Maximum number of packages to assess.
+#'
+#' @return data.frame
+#'
+#' @export
+score_packages <- function(
+    packages,
+    limit = Inf,
+    repos = file.path(
+      "https://raw.githubusercontent.com/r-hub/repos/main",
+      "ubuntu-22.04",
+      "4.4"
+    )) {
+  if (is.null(limit) || !is.finite(limit)) {
+    limit <- length(packages)
+  } else {
+    limit <- min(limit, length(packages))
+  }
+
+  package_names <- packages[seq_len(limit)]
+
+  # NOTE: there is a bug in riskmetric::pkg_ref
+  # it doesn't respect repos argument when x is a vector,
+  # so we have to iterate manually.
+  package_refs <- sapply(
+    X = package_names,
+    FUN = riskmetric::pkg_ref,
+    source = "pkg_cran_remote",
+    repos = repos
+  )
+
+  scores <- lapply(package_refs, function(ref) {
+    assessment <- suppressMessages(riskmetric::pkg_assess(ref))
+
+    # NOTE: side-effect
+    saveRDS(
+      assessment,
+      file.path(system.file("report", package = "pharmapkgs"), paste0(ref$name, ".rds"))
+    )
+
+    score <- riskmetric::pkg_score(assessment)
+
+    score$Package <- ref$name
+    score$Version <- ref$version
+
+    lapply(score, as.character) |>
+      as.data.frame()
+  })
+
+  do.call(rbind, scores)
+}
