@@ -31,3 +31,39 @@ describe("get_packages", {
     expect_error(get_packages(platform = "i-use-arch-btw"))
   })
 })
+
+describe("diff_packages", {
+  it("returns new packages", {
+    remote_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
+    local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
+
+    actual_output <- diff_packages(remote_packages, local_packages)
+    expected_output <- data.frame(Package = "C", VersionDifference = "3.0 > NA")
+
+    expect_equal(actual_output$Package, expected_output$Package)
+    expect_equal(actual_output$VersionDifference, expected_output$VersionDifference)
+  })
+
+  it("returns newer packages", {
+    remote_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
+    local_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "2.5"))
+
+    actual_output <- diff_packages(remote_packages, local_packages)
+    expected_output <- data.frame(Package = "C", VersionDifference = "3.0 > 2.5")
+
+    expect_equal(actual_output$Package, expected_output$Package)
+    expect_equal(actual_output$VersionDifference, expected_output$VersionDifference)
+  })
+
+  it("returns empty data.frame", {
+    remote_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
+    local_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
+
+    actual_output <- diff_packages(remote_packages, local_packages)
+    expected_output <- data.frame(Package = character(), VersionDifference = character())
+
+    expect_equal(nrow(actual_output), 0)
+    expect_equal(actual_output$Package, expected_output$Package)
+    expect_equal(actual_output$VersionDifference, expected_output$VersionDifference)
+  })
+})

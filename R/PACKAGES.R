@@ -114,3 +114,48 @@ get_packages <- function(
   read.dcf(connection, all = TRUE) |>
     as.data.frame()
 }
+
+#' Identify new or newer packages.
+#'
+#' New packages - are the packages that are present in the remote repository
+#' but not in the local repository.
+#'
+#' Newer packages - are the packages that are present in both repositories,
+#' but the version in the remote repository is newer.
+#'
+#' @param remote_packages Data frame with remote packages.
+#' @param local_packages Data frame with local packages.
+#'
+#' @return data.frame
+#'
+#' @export
+diff_packages <- function(remote_packages, local_packages) {
+  stopifnot(
+    "Package" %in% names(remote_packages),
+    "Package" %in% names(local_packages),
+    "Version" %in% names(remote_packages),
+    "Version" %in% names(local_packages)
+  )
+
+  combined_packages <- merge(
+    x = remote_packages,
+    y = local_packages,
+    all.x = TRUE,
+    by = "Package",
+    suffixes = c("_remote", "_local")
+  )
+
+  is_new_or_newer <- mapply(
+    utils::compareVersion,
+    combined_packages$Version_remote,
+    combined_packages$Version_local
+  )
+
+  combined_packages$VersionDifference <- ifelse(
+    is_new_or_newer > 0,
+    paste(combined_packages$Version_remote, ">", combined_packages$Version_local),
+    combined_packages$Version_local
+  )
+
+  combined_packages[is_new_or_newer > 0, c("Package", "VersionDifference")]
+}
