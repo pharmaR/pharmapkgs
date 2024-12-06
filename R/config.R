@@ -9,7 +9,8 @@
     remote_base = Sys.getenv("PHARMAPKGS_REMOTE_REPO", RHUB_BASE_URL),
     local_base = Sys.getenv("PHARMAPKGS_LOCAL_REPO", PHARMAPKGS_BASE_URL),
     platform = Sys.getenv("PHARMAPKGS_PLATFORM", "ubuntu-22.04"),
-    r_version = Sys.getenv("PHARMAPKGS_R_VERSION", "4.4")
+    r_version = Sys.getenv("PHARMAPKGS_R_VERSION", "4.4"),
+    limit = as.integer(Sys.getenv("PHARMAPKGS_LIMIT", 5))
   )
 
   values$remote_repo <- with(values, {
@@ -18,6 +19,13 @@
 
   values$local_repo <- with(values, {
     file.path(local_base, platform, r_version)
+  })
+
+  values$local_packages <- with(values, {
+    utils::contrib.url(
+      repos = values$local_repo,
+      type = .get_repos_type(platform)
+    )
   })
 
   lapply(names(values), function(name) {

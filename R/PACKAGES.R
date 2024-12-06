@@ -142,9 +142,9 @@ diff_packages <- function(remote_packages, local_packages) {
 #' @export
 score_packages <- function(
     packages,
-    limit = Inf,
+    limit = .config$limit,
     repos = .config$remote_repo) {
-  if (is.null(limit) || !is.finite(limit)) {
+  if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
     limit <- min(limit, length(packages))
@@ -198,4 +198,14 @@ update_packages <- function(old_local_packages, new_local_packages) {
   ]
   new_packages <- rbind(new_packages, new_local_packages)
   new_packages[order(new_packages$Package), ]
+}
+
+#' Save PACKAGES info to the local repository.
+#'
+#' @param packages Data frame with PACKAGES info.
+#' @param path Path where to write new PACKAGES file.
+#'
+#' @export
+write_packages <- function(packages, path = .config$local_packages) {
+  write.dcf(packages, file = path)
 }
