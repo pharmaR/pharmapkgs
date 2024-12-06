@@ -57,18 +57,6 @@ bundled_PACKAGES <- function(repos) {
   path_to_PACKAGES(path = file.path(repos_path, repos))
 }
 
-RHUB_REPO_PLATFORMS <- c(
-  "fedora-36",
-  "fedora-38",
-  "fedora-40",
-  "macos-arm64",
-  "macos-x86_64",
-  "ubuntu-22.04-aarch64",
-  "ubuntu-22.04-s390x",
-  "ubuntu-22.04",
-  "ubuntu-24.04-aarch64"
-)
-
 .get_repos_type <- function(platform) {
   if (startsWith(platform, "macos")) {
     "mac.binary"
@@ -98,9 +86,9 @@ RHUB_REPO_PLATFORMS <- c(
 #'
 #' @export
 get_packages <- function(
-    base_url = "https://raw.githubusercontent.com/r-hub/repos/main",
-    platform = "ubuntu-22.04",
-    r_version = "4.4") {
+    base_url = .config$remote_base,
+    platform = .config$platform,
+    r_version = .config$r_version) {
   platform <- match.arg(platform, RHUB_REPO_PLATFORMS)
 
   full_path <- file.path(base_url, platform, r_version) |>
@@ -171,11 +159,7 @@ diff_packages <- function(remote_packages, local_packages) {
 score_packages <- function(
     packages,
     limit = Inf,
-    repos = file.path(
-      "https://raw.githubusercontent.com/r-hub/repos/main",
-      "ubuntu-22.04",
-      "4.4"
-    )) {
+    repos = .config$remote_repo) {
   if (is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
@@ -197,7 +181,8 @@ score_packages <- function(
   scores <- lapply(package_refs, function(ref) {
     assessment <- suppressMessages(riskmetric::pkg_assess(ref))
 
-    # NOTE: side-effect
+    # NOTE: side-effect. These assessment files are to be reused
+    # by the `riskreport` package.
     saveRDS(
       assessment,
       file.path(system.file("report", package = "pharmapkgs"), paste0(ref$name, ".rds"))
