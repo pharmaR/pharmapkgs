@@ -163,6 +163,7 @@ score_packages <- function(
   )
 
   scores <- lapply(package_refs, function(ref) {
+    message("Scoring: ", ref$name, "_", ref$version)
     assessment <- suppressMessages(riskmetric::pkg_assess(ref))
 
     # NOTE: side-effect. These assessment files are to be reused
