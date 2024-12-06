@@ -56,3 +56,59 @@ bundled_PACKAGES <- function(repos) {
 
   path_to_PACKAGES(path = file.path(repos_path, repos))
 }
+
+RHUB_REPO_PLATFORMS <- c(
+  "fedora-36",
+  "fedora-38",
+  "fedora-40",
+  "macos-arm64",
+  "macos-x86_64",
+  "ubuntu-22.04-aarch64",
+  "ubuntu-22.04-s390x",
+  "ubuntu-22.04",
+  "ubuntu-24.04-aarch64"
+)
+
+.get_repos_type <- function(platform) {
+  if (startsWith(platform, "macos")) {
+    "mac.binary"
+  } else {
+    "source"
+  }
+}
+
+.get_connection <- function(path) {
+  if (startsWith(path, "http")) {
+    url(path)
+  } else {
+    file(path, "r")
+  }
+}
+
+#' Read PACKAGES file from a local or remote repository.
+#'
+#' The goal of this function is not to produce any significant
+#' side effects, but rather read and return
+#'
+#' @param base_url Base URL of the repository. Can be a local dir path.
+#' @param platform Platform name.
+#' @param r_version R version.
+#'
+#' @export
+get_packages <- function(
+    base_url = "https://raw.githubusercontent.com/r-hub/repos/main",
+    platform = "ubuntu-22.04",
+    r_version = "4.4") {
+  platform <- match.arg(platform, RHUB_REPO_PLATFORMS)
+
+  full_path <- file.path(base_url, platform, r_version) |>
+    utils::contrib.url(type = .get_repos_type(platform)) |>
+    file.path("PACKAGES")
+
+  connection <- .get_connection(full_path)
+
+  on.exit(close(connection))
+
+  read.dcf(connection, all = TRUE) |>
+    as.data.frame()
+}
