@@ -39,7 +39,7 @@ get_packages <- function(
 #' @param remote_packages Data frame with remote packages.
 #' @param local_packages Data frame with local packages.
 #'
-#' @return data.frame
+#' @return character()
 #'
 #' @export
 diff_packages <- function(remote_packages, local_packages) {
@@ -64,13 +64,7 @@ diff_packages <- function(remote_packages, local_packages) {
     combined_packages$Version_local
   )
 
-  combined_packages$VersionDifference <- ifelse(
-    is_new_or_newer > 0,
-    paste(combined_packages$Version_remote, ">", combined_packages$Version_local),
-    combined_packages$Version_local
-  )
-
-  combined_packages[is_new_or_newer > 0, c("Package", "VersionDifference")]
+  combined_packages[is_new_or_newer > 0, "Package", drop = TRUE]
 }
 
 #' Assess packages using riskmetric.

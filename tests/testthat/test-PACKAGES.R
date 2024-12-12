@@ -38,10 +38,9 @@ describe("diff_packages", {
     local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
 
     actual_output <- diff_packages(remote_packages, local_packages)
-    expected_output <- data.frame(Package = "C", VersionDifference = "3.0 > NA")
+    expected_output <- c("C")
 
-    expect_equal(actual_output$Package, expected_output$Package)
-    expect_equal(actual_output$VersionDifference, expected_output$VersionDifference)
+    expect_equal(actual_output, expected_output)
   })
 
   it("returns newer packages", {
@@ -49,22 +48,20 @@ describe("diff_packages", {
     local_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "2.5"))
 
     actual_output <- diff_packages(remote_packages, local_packages)
-    expected_output <- data.frame(Package = "C", VersionDifference = "3.0 > 2.5")
+    expected_output <- c("C")
 
-    expect_equal(actual_output$Package, expected_output$Package)
-    expect_equal(actual_output$VersionDifference, expected_output$VersionDifference)
+    expect_equal(actual_output, expected_output)
   })
 
-  it("returns empty data.frame", {
+  it("returns empty vector", {
     remote_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
     local_packages <- data.frame(Package = c("A", "B", "C"), Version = c("1.0", "2.0", "3.0"))
 
     actual_output <- diff_packages(remote_packages, local_packages)
-    expected_output <- data.frame(Package = character(), VersionDifference = character())
+    expected_output <- character()
 
-    expect_equal(nrow(actual_output), 0)
-    expect_equal(actual_output$Package, expected_output$Package)
-    expect_equal(actual_output$VersionDifference, expected_output$VersionDifference)
+    expect_equal(length(actual_output), 0)
+    expect_equal(actual_output, expected_output)
   })
 })
 
