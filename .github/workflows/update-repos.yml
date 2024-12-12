@@ -1,0 +1,39 @@
+name: Update package repositories
+
+on:
+    schedule:
+        - cron: 0 3 * * *
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+env:
+    PHARMAPKGS_REMOTE_REPO: https://raw.githubusercontent.com/r-hub/repos/main
+    PHARMAPKGS_LIMIT: 100
+
+jobs:
+    main:
+        strategy:
+            matrix:
+                platform: [ubuntu-22.04]
+                r_version: ["4.4"]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: r-lib/actions/setup-r@v2
+            - uses: quarto-dev/quarto-actions/setup@v2
+            - uses: r-lib/actions/setup-r-dependencies@v2
+
+            - name: Update package repositories
+              env:
+                  PHARMAPKGS_PLATFORM: ${{ matrix.platform }}
+                  PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
+              shell: Rscript {0}
+              run: |
+                  devtools::load_all()
+                  github_actions()
+
+            - uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                  commit_message: "Auto-update: ${{matrix.platform}}, R-${{matrix.r_version}}"
