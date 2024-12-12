@@ -1,6 +1,6 @@
 Package: pharmapkgs
 Title: Installation of Validated Packages
-Version: 0.0.1.9000
+Version: 0.0.1.9001
 Authors@R: c(
     person("Ramiro", "Magno", , "rmagno@pattern.institute", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5226-3441")),
@@ -13,13 +13,12 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
-    curl,
     dplyr,
     fs,
     methods,
-    riskscore,
+    riskmetric,
     rlang,
-    snakecase,
     tibble
-Remotes:
-    riskscore=github::pharmaR/riskscore
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
