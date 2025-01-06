@@ -1,0 +1,180 @@
+---
+title: "Validation Report - `r params$package_name` v `r params$pacakge_version`"
+date: "`r Sys.time()`"
+date-format: "ddd MMM DD hh:mm:ss A YYYY"
+params:
+  package_name: dplyr
+  package_version: 1.0.0
+  package: NULL
+  image: "rhub/ref-image"
+  assessment_path: "../assessments/dplyr.rds"
+format:
+  html: 
+    toc: true  
+    embed-resources: true
+  # typst:
+  #   toc: true
+  #   section-numbering: 1.1.1
+  #   df-print: default
+  #   margin:
+  #     x: 2cm
+  #     y: 2cm
+---
+
+```{r setup, include = FALSE}
+options(width = 80L, covr.record_tests = TRUE)
+knitr::opts_chunk$set(
+    echo = FALSE,
+    eval = TRUE,
+    error = TRUE,
+    cache = FALSE
+)
+library("tools")
+```
+
+# Context
+
+
+```{r image}
+image <- Sys.getenv("DOCKER_IMAGE", unset = NA)
+is_empty <- function(x) {
+  is.null(x) || is.na(x) || !nzchar(x)
+}
+if (is_empty(image) && !is_empty(params$image)) {
+  image <- params$image
+}
+```
+
+This report is fully automated and builds on `r image` image.
+Documents the installation of this package on an open source R environment, focusing on:
+
+- Installation environment description
+- Testing coverage
+
+It is limited to assess whether unit tests and documentation are present and can execute without error. 
+An assessment would be required that the tests and documentation are meaningful. 
+
+# Installation environment
+
+```{r loading}
+pkg <- params$package
+pkg_name <- params$package_name
+pkg_version <- params$package_version
+risk_path <- params$assessment_path
+```
+
+
+## System Info
+
+```{r execution_info}
+#| tab.cap: "table"
+tt_sys_info_df <- data.frame(
+  Field = c("OS", "Platform", "System", "Execution Time"),
+  Value = c(
+    sessionInfo()$running,
+    R.version$platform,
+    R.version$system,
+    format(Sys.time(), tz = "UTC", usetz = TRUE)
+  ))
+
+knitr::kable(tt_sys_info_df)
+```
+
+## R Session Info
+
+Information about the R environment and capabilities:
+
+```{r session_info}
+sessionInfo()
+```
+
+Platform used:
+
+```{r platform}
+unlist(.Platform)
+```
+
+R's capabilities:
+
+```{r capabilities}
+capabilities()
+```
+
+External software:
+
+```{r external-software}
+extSoftVersion()
+```
+
+Graphics external software:
+
+```{r graphic-software}
+grSoftVersion()
+```
+
+Numerical characteristics of the machine:
+
+```{r machine}
+unlist(.Machine)
+```
+
+
+Random number generation process:
+
+```{r RNGKind}
+RNGkind()
+```
+
+
+## Information about the environment
+
+Environmental and options variables affect how package checks and software in it might behave.
+Here is the environmental variables when running this report
+
+```{r computing}
+riskreports::environ_report(exclude = c("GITHUB_PAT", "APPDATA", 
+                                        "ProgramFiles", "ProgramFiles(x86)",
+                                        "R_USER", "USERNAME", "USERPROFILE", 
+                                        "USERDNSDOMAIN", "USERDOMAIN", 
+                                        "USERDOMAIN_ROAMINGPROFILE", "R_DptShare"              
+                                        ))
+```
+
+These are the options set to generate the report:
+
+```{r options}
+riskreports::options_report(exclude = c("usethis.full_name", "usethis.description", "usethis.destdir"))
+```
+
+
+# Package `r pkg`
+
+## Metric based risk assessment
+
+The following metrics are derived from the `riskmetric` R package.
+
+```{r read-riskmetric, warning=FALSE}
+d_riskmetric <- readRDS(risk_path)
+```
+
+
+```{r general-riskmetric, warning=FALSE}
+#| tab.cap: "**Package general assessment.** Coverage, check results, size, 
+#|  download the last year, reverse dependencies and number of dependencies."
+
+# Assesment produces a data.frame with one row
+r_riskmetric <- riskreports::assessment(d_riskmetric)
+knitr::kable(r_riskmetric) # Use this to have some summary text and report it.
+# d_riskmetric
+```
+
+
+## Dependencies
+
+Overall the package has these dependencies:
+
+```{r dependencies-riskmetric}
+#| tab.cap: "**Package dependencies**"
+
+knitr::kable(d_riskmetric$dependencies)
+```
