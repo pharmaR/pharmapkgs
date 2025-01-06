@@ -1,3 +1,10 @@
+# FIXME: changes required in the riskreports package
+# 1. output_format = "all" for quarto render
+# 2. template_path issue - when using default arg generation fails
+# 3. make changes to the template
+#   - typo in package version
+#   - add gfm to the output format
+# When the problems are fixed, delete this code.
 package_report <- function(
     package_name,
     package_version,
@@ -65,6 +72,7 @@ generate_riskreport <- function(pkg_reference, pkg_assessment) {
 
   saveRDS(pkg_assessment, assessment_path)
 
+  # FIXME: use riskreports::package_report
   outfile <- package_report(
     package_name = pkg_reference$name,
     package_version = pkg_reference$version,
