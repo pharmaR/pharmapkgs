@@ -101,12 +101,8 @@ score_packages <- function(
     message("Scoring: ", ref$name, "_", ref$version)
     assessment <- suppressMessages(riskmetric::pkg_assess(ref))
 
-    # NOTE: side-effect. These assessment files are to be reused
-    # by the `riskreport` package.
-    saveRDS(
-      assessment,
-      file.path(system.file("report", package = "pharmapkgs"), paste0(ref$name, ".rds"))
-    )
+    # NOTE: side-effect. Generate and save riskreports.
+    generate_riskreport(ref, assessment)
 
     score <- riskmetric::pkg_score(assessment)
 
