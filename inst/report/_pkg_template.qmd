@@ -1,5 +1,5 @@
 ---
-title: "Validation Report - `r params$package_name` v `r params$pacakge_version`"
+title: "`r params$package_name`@`r params$package_version`"
 date: "`r Sys.time()`"
 date-format: "ddd MMM DD hh:mm:ss A YYYY"
 params:
@@ -9,16 +9,11 @@ params:
   image: "rhub/ref-image"
   assessment_path: "../assessments/dplyr.rds"
 format:
+  gfm:
+    html-math-method: webtex
   html: 
     toc: true  
     embed-resources: true
-  # typst:
-  #   toc: true
-  #   section-numbering: 1.1.1
-  #   df-print: default
-  #   margin:
-  #     x: 2cm
-  #     y: 2cm
 ---
 
 ```{r setup, include = FALSE}

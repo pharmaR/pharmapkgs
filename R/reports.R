@@ -23,6 +23,7 @@ package_report <- function(
   # Bug on https://github.com/quarto-dev/quarto-cli/issues/5765
   quarto::quarto_render(
     template_path,
+    output_format = "all",
     execute_params = params,
     ...
   )
