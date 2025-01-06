@@ -1,3 +1,48 @@
+package_report <- function(
+    package_name,
+    package_version,
+    package = NULL,
+    template_path = system.file("report/pkg_template.qmd", package = "riskreports"),
+    params = list(),
+    ...) {
+
+  full_name <- paste0(package_name, "_v", package_version)
+  output_file <- paste0("validation_report_", full_name, ".html")
+
+  params$package_name <- package_name
+  params$package_version <- package_version
+
+
+  if (is.null(template_path)) {
+    template_path <- system.file("report/pkg_template.qmd",
+      package = "riskreports"
+    )
+  }
+
+  params$assessment_path <- normalizePath(params$assessment_path)
+  # Bug on https://github.com/quarto-dev/quarto-cli/issues/5765
+  quarto::quarto_render(
+    template_path,
+    execute_params = params,
+    ...
+  )
+
+  lf <- list.files(dirname(template_path), full.names = TRUE)
+  files_template <- lf[!dir.exists(lf)]
+  file_name <- tools::file_path_sans_ext(basename(template_path))
+  files_template <- files_template[startsWith(
+    basename(files_template),
+    file_name
+  )]
+  files_template <- files_template[!endsWith(files_template, ".qmd")]
+  output_file <- paste0(
+    "validation_report_", full_name,
+    ".", tools::file_ext(files_template)
+  )
+  file.rename(files_template, output_file)
+  invisible(output_file)
+}
+
 #' Generate a risk report for a package
 #'
 #' Run riskreport generation, and save the result on disk.
@@ -19,7 +64,7 @@ generate_riskreport <- function(pkg_reference, pkg_assessment) {
 
   saveRDS(pkg_assessment, assessment_path)
 
-  outfile <- riskreports::package_report(
+  outfile <- package_report(
     package_name = pkg_reference$name,
     package_version = pkg_reference$version,
     template_path = system.file("report", "_pkg_template.qmd", package = "pharmapkgs"),
