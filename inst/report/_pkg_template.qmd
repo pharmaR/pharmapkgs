@@ -29,7 +29,6 @@ library("tools")
 
 # Context
 
-
 ```{r image}
 image <- Sys.getenv("DOCKER_IMAGE", unset = NA)
 is_empty <- function(x) {
@@ -40,14 +39,12 @@ if (is_empty(image) && !is_empty(params$image)) {
 }
 ```
 
-This report is fully automated and builds on `r image` image.
-Documents the installation of this package on an open source R environment, focusing on:
+This report is fully automated and builds on `r image` image. Documents the installation of this package on an open source R environment, focusing on:
 
-- Installation environment description
-- Testing coverage
+-   Installation environment description
+-   Testing coverage
 
-It is limited to assess whether unit tests and documentation are present and can execute without error. 
-An assessment would be required that the tests and documentation are meaningful. 
+It is limited to assess whether unit tests and documentation are present and can execute without error. An assessment would be required that the tests and documentation are meaningful.
 
 # Installation environment
 
@@ -57,7 +54,6 @@ pkg_name <- params$package_name
 pkg_version <- params$package_version
 risk_path <- params$assessment_path
 ```
-
 
 ## System Info
 
@@ -113,18 +109,15 @@ Numerical characteristics of the machine:
 unlist(.Machine)
 ```
 
-
 Random number generation process:
 
 ```{r RNGKind}
 RNGkind()
 ```
 
-
 ## Information about the environment
 
-Environmental and options variables affect how package checks and software in it might behave.
-Here is the environmental variables when running this report
+Environmental and options variables affect how package checks and software in it might behave. Here is the environmental variables when running this report
 
 ```{r computing}
 riskreports::environ_report(exclude = c("GITHUB_PAT", "APPDATA", 
@@ -141,7 +134,6 @@ These are the options set to generate the report:
 riskreports::options_report(exclude = c("usethis.full_name", "usethis.description", "usethis.destdir"))
 ```
 
-
 # Package `r pkg`
 
 ## Metric based risk assessment
@@ -152,7 +144,6 @@ The following metrics are derived from the `riskmetric` R package.
 d_riskmetric <- readRDS(risk_path)
 ```
 
-
 ```{r general-riskmetric, warning=FALSE}
 #| tab.cap: "**Package general assessment.** Coverage, check results, size, 
 #|  download the last year, reverse dependencies and number of dependencies."
@@ -162,7 +153,6 @@ r_riskmetric <- riskreports::assessment(d_riskmetric)
 knitr::kable(r_riskmetric) # Use this to have some summary text and report it.
 # d_riskmetric
 ```
-
 
 ## Dependencies
 
