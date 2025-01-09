@@ -6,34 +6,47 @@
 #' @param pkg_assessment output of `riskmetric::pkg_assess`
 #' @param output_dir where to save the report
 #'
-#' @example
+#' @examples
 #' pkg_ref <- riskmetric::pkg_ref("ggplot2", source = "pkg_cran_remote")
 #' pkg_assessment <- riskmetric::pkg_assess(pkg_ref)
 #' generate_riskreport(pkg_ref, pkg_assessment)
 #'
 #' @export
-generate_riskreport <- function(
-    pkg_reference,
-    pkg_assessment,
-    output_dir = system.file("report", package = "pharmapkgs")) {
-  assessment_path <- file.path(
-    output_dir,
-    paste0(pkg_reference$name, ".rds")
-  )
+generate_riskreports <- function(pkg_reference,
+                                 pkg_assessment,
+                                 output_dir = system.file("report", package = "pharmapkgs")) {
+  if (inherits(pkg_reference, "pkg_ref")) {
+    pkg_reference <- list(pkg_reference)
+  }
 
-  saveRDS(pkg_assessment, assessment_path)
+  if (inherits(pkg_assessment, "list_of_pkg_metric")) {
+    pkg_assessment <- list(pkg_assessment)
+  }
 
-  outfile <- riskreports::package_report(
-    package_name = pkg_reference$name,
-    package_version = pkg_reference$version,
-    # FIXME: still doesn't work with the template file from the package
-    template_path = system.file("report/_pkg_template.qmd", package = "pharmapkgs"),
-    params = list(
-      assessment_path = assessment_path
-    ),
-    quiet = TRUE
-  )
+  make_one_report <- function(ref, assessment, outdir) {
+    assessment_path <- file.path(
+      outdir,
+      paste0(ref$name, ".rds")
+    )
 
-  file.copy(outfile, output_dir)
-  file.remove(outfile)
+    saveRDS(assessment, assessment_path)
+
+    outfile <- riskreports::package_report(
+      package_name = ref$name,
+      package_version = ref$version,
+      # FIXME: still doesn't work with the template file from the package
+      template_path = system.file("report/_pkg_template.qmd", package = "pharmapkgs"),
+      params = list(
+        assessment_path = assessment_path
+      ),
+      quiet = TRUE
+    )
+
+    file.copy(outfile, outdir)
+    file.remove(outfile)
+  }
+
+  mapply(pkg_reference, pkg_assessment, FUN = function(ref, assessment) {
+    make_one_report(ref, assessment, output_dir)
+  })
 }

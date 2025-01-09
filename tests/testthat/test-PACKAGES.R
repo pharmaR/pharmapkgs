@@ -66,13 +66,29 @@ describe("diff_packages", {
 })
 
 describe("score_packages", {
-  it("returns a data.frame with scores", {
+  it("returns a list with scoring results", {
     packages <- c("rlang")
 
     actual_output <- score_packages(packages)
 
-    expect_true(all(c("Package", "Version") %in% names(actual_output)))
-    expect_true(any(c("covr_coverage", "size_codebase", "dependencies") %in% names(actual_output)))
+    expect_type(actual_output, "list")
+    expect_true(
+      all(c("scored_packages", "package_refs", "package_assessments") %in% names(actual_output))
+    )
+
+    scored_packages <- actual_output$scored_packages
+    expect_true(
+      all(c("Package", "Version") %in% names(scored_packages))
+    )
+    expect_true(
+      any(c("covr_coverage", "size_codebase", "dependencies") %in% names(scored_packages))
+    )
+
+    package_ref <- actual_output$package_refs[[1]]
+    expect_true(inherits(package_ref, "pkg_ref"))
+
+    package_assessment <- actual_output$package_assessments[[1]]
+    expect_true(inherits(package_assessment, "list_of_pkg_metric"))
   })
 })
 
