@@ -46,7 +46,5 @@ generate_riskreports <- function(pkg_reference,
     file.remove(outfile)
   }
 
-  mapply(pkg_reference, pkg_assessment, FUN = function(ref, assessment) {
-    make_one_report(ref, assessment, output_dir)
-  })
+  mapply(make_one_report, pkg_reference, pkg_assessment, output_dir)
 }
