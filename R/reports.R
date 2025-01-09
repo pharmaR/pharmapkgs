@@ -31,19 +31,29 @@ generate_riskreports <- function(pkg_reference,
 
     saveRDS(assessment, assessment_path)
 
-    outfile <- riskreports::package_report(
-      package_name = ref$name,
-      package_version = ref$version,
-      # FIXME: still doesn't work with the template file from the package
-      template_path = system.file("report/_pkg_template.qmd", package = "pharmapkgs"),
-      params = list(
-        assessment_path = assessment_path
-      ),
-      quiet = TRUE
-    )
+    tryCatch(
+      expr = {
+        outfile <- riskreports::package_report(
+          package_name = ref$name,
+          package_version = ref$version,
+          # FIXME: still doesn't work with the template file from the package
+          template_path = system.file("report/_pkg_template.qmd", package = "pharmapkgs"),
+          params = list(
+            assessment_path = assessment_path
+          ),
+          quiet = TRUE
+        )
 
-    file.copy(outfile, outdir)
-    file.remove(outfile)
+        file.copy(outfile, outdir)
+        file.remove(outfile)
+
+        TRUE
+      },
+      error = function(e) {
+        warning(e)
+        FALSE
+      }
+    )
   }
 
   mapply(make_one_report, pkg_reference, pkg_assessment, output_dir)
