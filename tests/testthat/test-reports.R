@@ -9,6 +9,6 @@ describe("report generation", {
       output_dir = tempdir()
     )
 
-    expect_true(result)
+    expect_true(all(result))
   })
 })
