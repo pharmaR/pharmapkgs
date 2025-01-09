@@ -1,0 +1,24 @@
+name: Unit tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+    PHARMAPKGS_REMOTE_REPO: https://raw.githubusercontent.com/r-hub/repos/main
+    PHARMAPKGS_LIMIT: 5
+
+jobs:
+    main:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: r-lib/actions/setup-r@v2
+        - uses: quarto-dev/quarto-actions/setup@v2
+        - uses: r-lib/actions/setup-r-dependencies@v2
+
+        - name: Run unit tests
+          shell: Rscript {0}
+          run: devtools::test()
