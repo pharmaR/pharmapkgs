@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
+    types: ready_for_review
 
 env:
     PHARMAPKGS_REMOTE_REPO: https://raw.githubusercontent.com/r-hub/repos/main
@@ -12,7 +13,6 @@ env:
 jobs:
     main:
       runs-on: ubuntu-latest
-      if: github.event.pull_request.draft == false
       steps:
         - uses: actions/checkout@v2
         - uses: r-lib/actions/setup-r@v2
