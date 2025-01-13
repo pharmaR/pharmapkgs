@@ -12,7 +12,7 @@ diff_packages(remote_packages, local_packages)
 \item{local_packages}{Data frame with local packages.}
 }
 \value{
-data.frame
+character()
 }
 \description{
 New packages - are the packages that are present in the remote repository

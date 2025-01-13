@@ -97,30 +97,34 @@ score_packages <- function(
     repos = repos
   )
 
-  scores <- lapply(package_refs, function(ref) {
-    message("Scoring: ", ref$name, "_", ref$version)
-    assessment <- suppressMessages(riskmetric::pkg_assess(ref))
+  package_assessments <- suppressMessages(lapply(package_refs, riskmetric::pkg_assess))
 
-    # NOTE: side-effect. These assessment files are to be reused
-    # by the `riskreport` package.
-    saveRDS(
-      assessment,
-      file.path(system.file("report", package = "pharmapkgs"), paste0(ref$name, ".rds"))
-    )
+  scores <- mapply(
+    package_refs,
+    package_assessments,
+    SIMPLIFY = FALSE,
+    FUN = function(ref, assessment) {
+      message("Scoring: ", ref$name, "_", ref$version)
+      score <- riskmetric::pkg_score(assessment)
 
-    score <- riskmetric::pkg_score(assessment)
+      score$Package <- ref$name
+      score$Version <- ref$version
 
-    score$Package <- ref$name
-    score$Version <- ref$version
+      lapply(score, as.character) |>
+        as.data.frame()
+    }
+  )
 
-    lapply(score, as.character) |>
-      as.data.frame()
-  })
-
-  Reduce(x = scores, f = function(acc, nxt) {
+  score_data <- Reduce(x = scores, f = function(acc, nxt) {
     data <- .sync_colnames(acc, nxt)
     rbind(data[[1]], data[[2]])
   })
+
+  list(
+    scored_packages = score_data,
+    package_refs = package_refs,
+    package_assessments = package_assessments
+  )
 }
 
 #' Update local PACKAGES info.

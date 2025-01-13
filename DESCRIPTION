@@ -1,6 +1,6 @@
 Package: pharmapkgs
 Title: Installation of Validated Packages
-Version: 0.0.1.9001
+Version: 0.0.1.9002
 Authors@R: c(
     person("Ramiro", "Magno", , "rmagno@pattern.institute", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5226-3441")),
@@ -17,8 +17,11 @@ Imports:
     fs,
     methods,
     riskmetric,
+    riskreports,
     rlang,
     tibble
 Suggests: 
     testthat (>= 3.0.0)
+Remotes:
+    riskreports=github::pharmaR/riskreports
 Config/testthat/edition: 3
