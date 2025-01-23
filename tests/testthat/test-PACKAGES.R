@@ -92,6 +92,22 @@ describe("score_packages", {
   })
 })
 
+describe("add_score_to_packages", {
+  it("adds score data to package metadata while retaining both", {
+    packages <- data.frame(
+      Package = c("A", "B"),
+      Version = c("1.0", "2.0"),
+      DownloadURL = c("url1", "url2")
+    )
+    scores <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"), score = c(1, 2))
+
+    actual_output <- add_score_to_packages(packages, scores)
+
+    expect_equal(nrow(actual_output), 2)
+    expect_named(actual_output, c("Package", "Version", "DownloadURL", "score"))
+  })
+})
+
 describe("update_packages", {
   it("returns a data.frame with added new packages", {
     old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))

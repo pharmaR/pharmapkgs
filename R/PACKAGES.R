@@ -127,6 +127,15 @@ score_packages <- function(
   )
 }
 
+#' @export
+add_score_to_packages <- function(packages, scores) {
+  merge(
+    x = packages,
+    y = scores,
+    by = c("Package", "Version")
+  )
+}
+
 #' Update local PACKAGES info.
 #'
 #' @param old_local_packages Data frame with PACKAGES info currently stored in the repo.
