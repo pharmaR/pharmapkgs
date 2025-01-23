@@ -19,3 +19,33 @@ RHUB_BASE_URL <- "https://raw.githubusercontent.com/r-hub/repos/main"
 #' Base URL for the pharmapkgs repository.
 #' @keywords internal
 PHARMAPKGS_BASE_URL <- system.file("repos", package = "pharmapkgs", mustWork = TRUE)
+
+#' The default order of PACKAGES fields as in r-hub/repos.
+#' Notice that some fields are duplicated, this is intentional
+#' and is done to account for different naming conventions that
+#' occurred at different times (e.g. `DownloadURL` and `DownloadUrl`).
+#' @keywords internal
+PACKAGES_FIELDS <- c(
+  "Package",
+  "Version",
+  "Depends",
+  "Suggests",
+  "License",
+  "DownloadURL",
+  "DownloadUrl",
+  "OS",
+  "Os",
+  "Arch",
+  "Built",
+  "Filesize",
+  "SHA256",
+  "Sha256",
+  "RVersion",
+  "Platform",
+  "File",
+  "Imports",
+  "GraphicsAPIVersion",
+  "GraphicsApiVersion",
+  "InternalsID",
+  "InternalsId"
+)

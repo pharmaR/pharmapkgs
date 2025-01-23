@@ -47,3 +47,16 @@ global_filters <- function() {
 
   list(df1, df2)
 }
+
+.get_packages_field_order <- function(old_packages, new_packages) {
+  meta_fields <- PACKAGES_FIELDS[
+    PACKAGES_FIELDS %in% names(old_packages) |
+      PACKAGES_FIELDS %in% names(new_packages)
+  ]
+
+  unique(c(
+    meta_fields,
+    names(old_packages),
+    names(new_packages)
+  ))
+}

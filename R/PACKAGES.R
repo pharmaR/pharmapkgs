@@ -149,9 +149,11 @@ update_packages <- function(old_local_packages, new_local_packages) {
   old <- data[[1]]
   new <- data[[2]]
 
+  columns_ordered <- .get_packages_field_order(old, new)
+
   old_packages <- old[!old$Package %in% new$Package, ]
   new_packages <- rbind(old_packages, new)
-  new_packages[order(new_packages$Package), ]
+  new_packages[order(new_packages$Package), columns_ordered]
 }
 
 #' Save PACKAGES info to the local repository.
