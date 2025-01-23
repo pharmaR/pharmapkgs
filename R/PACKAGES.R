@@ -152,5 +152,5 @@ update_packages <- function(old_local_packages, new_local_packages) {
 #'
 #' @export
 write_packages <- function(packages, path = .config$local_packages) {
-  write.dcf(packages, file = path)
+  write.dcf(packages, file = path, width = 1000)
 }
