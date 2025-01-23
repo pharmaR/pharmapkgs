@@ -24,8 +24,10 @@ get_packages <- function(
 
   on.exit(close(connection))
 
-  read.dcf(connection, all = TRUE) |>
-    as.data.frame()
+  tryCatch(
+    as.data.frame(read.dcf(connection, all = TRUE)),
+    error = function(e) data.frame(Package = NA_character_, Version = NA_character_)
+  )
 }
 
 #' Identify new or newer packages.
