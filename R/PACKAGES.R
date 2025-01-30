@@ -4,8 +4,6 @@
 #' side effects, but rather read and return
 #'
 #' @param base_url Base URL of the repository. Can be a local dir path.
-#' @param platform Platform name.
-#' @param r_version R version.
 #'
 #' @return data.frame
 #'

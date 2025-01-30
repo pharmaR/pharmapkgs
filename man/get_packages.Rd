@@ -8,10 +8,6 @@ get_packages(base_url = .config$remote_base)
 }
 \arguments{
 \item{base_url}{Base URL of the repository. Can be a local dir path.}
-
-\item{platform}{Platform name.}
-
-\item{r_version}{R version.}
 }
 \value{
 data.frame
