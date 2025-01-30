@@ -19,7 +19,8 @@ global_filters <- function() {
 #' @return Character scalar with repository type.
 #' @examples
 #' .get_repos_type("ubuntu-22.04")
-#' @keywords internal
+#'
+#' @noRd
 .get_repos_type <- function(platform) {
   if (startsWith(platform, "macos")) {
     "mac.binary"
@@ -37,7 +38,8 @@ global_filters <- function() {
 #' @examples
 #' .get_connection("https://example.com/PACKAGES")
 #' .get_connection("path/to/PACKAGES")
-#' @keywords internal
+#'
+#' @noRd
 .get_connection <- function(path) {
   if (startsWith(path, "http")) {
     url(path)
@@ -54,7 +56,8 @@ global_filters <- function() {
 #' df1 <- data.frame(a = 1, b = 2)
 #' df2 <- data.frame(a = 1, c = 3)
 #' .sync_colnames(df1, df2)
-#' @keywords internal
+#'
+#' @noRd
 .sync_colnames <- function(df1, df2) {
   for (col in names(df1)) {
     if (!col %in% names(df2)) {
@@ -85,7 +88,8 @@ global_filters <- function() {
 #' new_packages <- data.frame(my_metric = 0.999, Package = "rlang", Version = "1.1")
 #' .get_packages_field_order(old_packages, new_packages)
 #' # [1] "Package" "Version" "my_metric"
-#' @keywords internal
+#'
+#' @noRd
 .get_packages_field_order <- function(
     old_packages,
     new_packages,
