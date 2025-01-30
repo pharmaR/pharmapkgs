@@ -24,9 +24,19 @@ get_packages <- function(
 
   on.exit(close(connection))
 
+  has_content <- length(readLines(con = connection, n = 1L)) > 0
+
+  if (!has_content) {
+    warning("Requested PACKAGES file is empty; returning empty data frame.")
+    return(data.frame(Package = NA_character_, Version = NA_character_))
+  }
+
   tryCatch(
     as.data.frame(read.dcf(connection, all = TRUE)),
-    error = function(e) data.frame(Package = NA_character_, Version = NA_character_)
+    error = function(e) {
+      warning("Failed to read PACKAGES file: ", e$message)
+      data.frame(Package = NA_character_, Version = NA_character_)
+    }
   )
 }
 

@@ -30,6 +30,37 @@ describe("get_packages", {
   it("only works with certain platforms", {
     expect_error(get_packages(platform = "i-use-arch-btw"))
   })
+
+  it("throws when PACKAGES file does not exist", {
+    expect_error({
+      suppressWarnings({
+        get_packages(system.file("undefined", package = "pharmapkgs"))
+      })
+    })
+  })
+
+  it("does not fail with empty PACKAGES file", {
+    base_url <- tempdir()
+    on.exit(unlink(base_url, recursive = TRUE, force = TRUE))
+
+    platform <- "ubuntu-22.04"
+    r_version <- "4.4"
+
+    full_path <- utils::contrib.url(file.path(base_url, platform, r_version))
+
+    dir.create(full_path, recursive = TRUE)
+    file.create(file.path(full_path, "PACKAGES"))
+
+    expect_warning(regexp = "file is empty", {
+      packages <- get_packages(
+        base_url = base_url,
+        platform = platform,
+        r_version = r_version
+      )
+    })
+    expect_s3_class(packages, "data.frame")
+    expect_equal(nrow(packages), 1)
+  })
 })
 
 describe("diff_packages", {
