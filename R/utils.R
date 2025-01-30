@@ -1,9 +1,9 @@
-`%||%` <- function(lhs, rhs) {
+`%||%` <- function(lhs, rhs) { # nolint
   if (is.null(lhs)) rhs else lhs
 }
 
 #' Retrieve global available packages filters
-#' 
+#'
 #' @noRd
 global_filters <- function() {
   getOption(
