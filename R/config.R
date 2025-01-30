@@ -6,7 +6,7 @@
 #' @keywords internal
 .init_config_values <- function() {
   values <- list(
-    remote_base = Sys.getenv("PHARMAPKGS_REMOTE_REPO", CRAN_BASE_URL),
+    remote_base = Sys.getenv("PHARMAPKGS_REMOTE_REPO", REMOTE_REPO_BASE_URL),
     local_base = Sys.getenv("PHARMAPKGS_LOCAL_REPO", PHARMAPKGS_BASE_URL),
     limit = as.integer(Sys.getenv("PHARMAPKGS_LIMIT", 5))
   )
