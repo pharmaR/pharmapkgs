@@ -10,14 +10,9 @@
 #' @return data.frame
 #'
 #' @export
-get_packages <- function(
-    base_url = .config$remote_base,
-    platform = .config$platform,
-    r_version = .config$r_version) {
-  platform <- match.arg(platform, RHUB_REPO_PLATFORMS)
-
-  full_path <- file.path(base_url, platform, r_version) |>
-    utils::contrib.url(type = .get_repos_type(platform)) |>
+get_packages <- function(base_url = .config$remote_base) {
+  full_path <- file.path(base_url) |>
+    utils::contrib.url(type = "source") |>
     file.path("PACKAGES")
 
   connection <- .get_connection(full_path)
@@ -90,7 +85,7 @@ diff_packages <- function(remote_packages, local_packages) {
 score_packages <- function(
     packages,
     limit = .config$limit,
-    repos = .config$remote_repo) {
+    repos = .config$remote_base) {
   if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {

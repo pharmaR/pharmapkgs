@@ -13,22 +13,6 @@ global_filters <- function() {
   )
 }
 
-#' Based on the platform, determine whether source or binary
-#' packages should be used.
-#' @param platform Character scalar with platform name.
-#' @return Character scalar with repository type.
-#' @examples
-#' .get_repos_type("ubuntu-22.04")
-#'
-#' @noRd
-.get_repos_type <- function(platform) {
-  if (startsWith(platform, "macos")) {
-    "mac.binary"
-  } else {
-    "source"
-  }
-}
-
 #' Retrieve the connection object based on the path.
 #' This function provides a layer of abstraction that allows
 #' to have a single interface for working with both local
@@ -93,7 +77,7 @@ global_filters <- function() {
 .get_packages_field_order <- function(
     old_packages,
     new_packages,
-    core_fields = RHUB_PACKAGES_FIELDS) {
+    core_fields = CRAN_PACKAGES_FIELDS) {
   meta_fields <- core_fields[
     core_fields %in% names(old_packages) |
       core_fields %in% names(new_packages)

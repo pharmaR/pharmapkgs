@@ -16,6 +16,10 @@ RHUB_REPO_PLATFORMS <- c(
 #' @keywords internal
 RHUB_BASE_URL <- "https://raw.githubusercontent.com/r-hub/repos/main"
 
+#' Base URL for the CRAN repository.
+#' @keywords internal
+CRAN_BASE_URL <- "https://cloud.r-project.org/"
+
 #' Base URL for the pharmapkgs repository.
 #' @keywords internal
 PHARMAPKGS_BASE_URL <- system.file("repos", package = "pharmapkgs", mustWork = TRUE)
