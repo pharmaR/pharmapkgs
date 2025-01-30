@@ -77,15 +77,28 @@ global_filters <- function() {
 .get_packages_field_order <- function(
     old_packages,
     new_packages,
-    core_fields = CRAN_PACKAGES_FIELDS) {
-  meta_fields <- core_fields[
-    core_fields %in% names(old_packages) |
-      core_fields %in% names(new_packages)
-  ]
+    core_fields = c(CRAN_PACKAGES_FIELDS, PAK_SPECIAL_FIELDS)) {
 
   unique(c(
-    meta_fields,
+    core_fields,
     names(old_packages),
     names(new_packages)
   ))
+}
+
+#' Current implementation is strongly coupled with
+#' - r-hub's CRAN mirror on github
+#' - pak installation of packages
+#' @param package_name character scalar with the package name.
+#' @param package_version character scalar with the package version.
+#' @return character scalar with the download URL.
+#' @examples
+#' .construct_download_url("rlang", "1.0.0")
+#' @noRd
+.construct_download_url <- function(package_name, package_version) {
+  sprintf(
+    "https://github.com/cran/%s/archive/refs/tags/%s.tar.gz",
+    package_name,
+    package_version
+  )
 }

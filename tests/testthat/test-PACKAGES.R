@@ -153,4 +153,15 @@ describe("update_packages", {
     expect_equal(actual_output$Version, c("1.0", "2.0", "3.0"))
     expect_true(all(c("foo") %in% names(actual_output)))
   })
+
+  it("adds DownloadURL field with correct order", {
+    old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
+    new_local_packages <- data.frame(
+      Package = c("A", "B"), Version = c("1.1", "2.1"), metric = c(0.5, 0.6)
+    )
+
+    actual_output <- update_packages(old_local_packages, new_local_packages)
+
+    expect_named(actual_output, c("Package", "Version", "DownloadURL", "metric"))
+  })
 })

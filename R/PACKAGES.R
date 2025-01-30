@@ -160,7 +160,16 @@ update_packages <- function(old_local_packages, new_local_packages) {
 
   old_packages <- old[!old$Package %in% new$Package, ]
   new_packages <- rbind(old_packages, new)
-  new_packages[order(new_packages$Package), columns_ordered]
+
+  # NOTE: filtering needed in case the initial PACKAGES file was empty
+  new_packages <- new_packages[!is.na(new_packages$Package), ]
+
+  new_packages$DownloadURL <- .construct_download_url(new_packages$Package, new_packages$Version)
+
+  new_packages[
+    order(new_packages$Package),
+    intersect(columns_ordered, names(new_packages))
+  ]
 }
 
 #' Save PACKAGES info to the local repository.

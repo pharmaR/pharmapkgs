@@ -78,6 +78,11 @@ CRAN_PACKAGES_FIELDS <- c(
   "Path"
 )
 
+#' Special fields that are not present in the PACKAGES file,
+#' but are required for pak to do its magic.
+#' @keywords internal
+PAK_SPECIAL_FIELDS <- c("DownloadURL")
+
 #' The order of PACKAGES fields as in R-universe.
 #' @keywords internal
 RUNIVERSE_PACKAGES_FIELDS <- c(
