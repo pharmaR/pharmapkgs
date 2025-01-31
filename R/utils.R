@@ -13,22 +13,6 @@ global_filters <- function() {
   )
 }
 
-#' Based on the platform, determine whether source or binary
-#' packages should be used.
-#' @param platform Character scalar with platform name.
-#' @return Character scalar with repository type.
-#' @examples
-#' .get_repos_type("ubuntu-22.04")
-#'
-#' @noRd
-.get_repos_type <- function(platform) {
-  if (startsWith(platform, "macos")) {
-    "mac.binary"
-  } else {
-    "source"
-  }
-}
-
 #' Retrieve the connection object based on the path.
 #' This function provides a layer of abstraction that allows
 #' to have a single interface for working with both local
@@ -93,15 +77,28 @@ global_filters <- function() {
 .get_packages_field_order <- function(
     old_packages,
     new_packages,
-    core_fields = RHUB_PACKAGES_FIELDS) {
-  meta_fields <- core_fields[
-    core_fields %in% names(old_packages) |
-      core_fields %in% names(new_packages)
-  ]
+    core_fields = c(CRAN_PACKAGES_FIELDS, PAK_SPECIAL_FIELDS)) {
 
   unique(c(
-    meta_fields,
+    core_fields,
     names(old_packages),
     names(new_packages)
   ))
+}
+
+#' Current implementation is strongly coupled with
+#' - r-hub's CRAN mirror on github
+#' - pak installation of packages
+#' @param package_name character scalar with the package name.
+#' @param package_version character scalar with the package version.
+#' @return character scalar with the download URL.
+#' @examples
+#' .construct_download_url("rlang", "1.0.0")
+#' @noRd
+.construct_download_url <- function(package_name, package_version) {
+  sprintf(
+    "https://github.com/cran/%s/archive/refs/tags/%s.tar.gz",
+    package_name,
+    package_version
+  )
 }
