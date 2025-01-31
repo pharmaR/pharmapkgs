@@ -1,9 +1,9 @@
-`%||%` <- function(lhs, rhs) {
+`%||%` <- function(lhs, rhs) { # nolint
   if (is.null(lhs)) rhs else lhs
 }
 
 #' Retrieve global available packages filters
-#' 
+#'
 #' @noRd
 global_filters <- function() {
   getOption(
@@ -13,7 +13,14 @@ global_filters <- function() {
   )
 }
 
-#' @keywords internal
+#' Based on the platform, determine whether source or binary
+#' packages should be used.
+#' @param platform Character scalar with platform name.
+#' @return Character scalar with repository type.
+#' @examples
+#' .get_repos_type("ubuntu-22.04")
+#'
+#' @noRd
 .get_repos_type <- function(platform) {
   if (startsWith(platform, "macos")) {
     "mac.binary"
@@ -22,7 +29,17 @@ global_filters <- function() {
   }
 }
 
-#' @keywords internal
+#' Retrieve the connection object based on the path.
+#' This function provides a layer of abstraction that allows
+#' to have a single interface for working with both local
+#' and remote files, i.e. URLs.
+#' @param path Character scalar with the path or url to the PACKAGES file.
+#' @return Connection object.
+#' @examples
+#' .get_connection("https://example.com/PACKAGES")
+#' .get_connection("path/to/PACKAGES")
+#'
+#' @noRd
 .get_connection <- function(path) {
   if (startsWith(path, "http")) {
     url(path)
@@ -31,7 +48,16 @@ global_filters <- function() {
   }
 }
 
-#' @keywords internal
+#' For two given data.frames ensure that they have the same set of columns.
+#' @param df1 data.frame
+#' @param df2 data.frame
+#' @return List with two data.frames
+#' @examples
+#' df1 <- data.frame(a = 1, b = 2)
+#' df2 <- data.frame(a = 1, c = 3)
+#' .sync_colnames(df1, df2)
+#'
+#' @noRd
 .sync_colnames <- function(df1, df2) {
   for (col in names(df1)) {
     if (!col %in% names(df2)) {
@@ -46,4 +72,36 @@ global_filters <- function() {
   }
 
   list(df1, df2)
+}
+
+#' Get the standardized order of PACKAGES fields.
+#' This function allows to ensure more-or-less consistent order
+#' of fields in PACKAGES file by first placing the fields
+#' from the base repo's PACKAGES file - so called "core fields".
+#' This practice is useful for producing meaningful git diffs.
+#' @param old_packages data.frame with old packages.
+#' @param new_packages data.frame with new packages.
+#' @param core_fields character vector with core fields.
+#' @return character vector with field names.
+#' @examples
+#' old_packages <- data.frame(Package = "rlang", Version = "1.0")
+#' new_packages <- data.frame(my_metric = 0.999, Package = "rlang", Version = "1.1")
+#' .get_packages_field_order(old_packages, new_packages)
+#' # [1] "Package" "Version" "my_metric"
+#'
+#' @noRd
+.get_packages_field_order <- function(
+    old_packages,
+    new_packages,
+    core_fields = RHUB_PACKAGES_FIELDS) {
+  meta_fields <- core_fields[
+    core_fields %in% names(old_packages) |
+      core_fields %in% names(new_packages)
+  ]
+
+  unique(c(
+    meta_fields,
+    names(old_packages),
+    names(new_packages)
+  ))
 }

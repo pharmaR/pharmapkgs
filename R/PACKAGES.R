@@ -24,8 +24,20 @@ get_packages <- function(
 
   on.exit(close(connection))
 
-  read.dcf(connection, all = TRUE) |>
-    as.data.frame()
+  has_content <- length(readLines(con = connection, n = 1L)) > 0
+
+  if (!has_content) {
+    warning("Requested PACKAGES file is empty; returning empty data frame.")
+    return(data.frame(Package = NA_character_, Version = NA_character_))
+  }
+
+  tryCatch(
+    as.data.frame(read.dcf(connection, all = TRUE)),
+    error = function(e) {
+      warning("Failed to read PACKAGES file: ", e$message)
+      data.frame(Package = NA_character_, Version = NA_character_)
+    }
+  )
 }
 
 #' Identify new or newer packages.
@@ -127,6 +139,15 @@ score_packages <- function(
   )
 }
 
+#' @export
+add_score_to_packages <- function(packages, scores) {
+  merge(
+    x = packages,
+    y = scores,
+    by = c("Package", "Version")
+  )
+}
+
 #' Update local PACKAGES info.
 #'
 #' @param old_local_packages Data frame with PACKAGES info currently stored in the repo.
@@ -140,9 +161,11 @@ update_packages <- function(old_local_packages, new_local_packages) {
   old <- data[[1]]
   new <- data[[2]]
 
+  columns_ordered <- .get_packages_field_order(old, new)
+
   old_packages <- old[!old$Package %in% new$Package, ]
   new_packages <- rbind(old_packages, new)
-  new_packages[order(new_packages$Package), ]
+  new_packages[order(new_packages$Package), columns_ordered]
 }
 
 #' Save PACKAGES info to the local repository.
