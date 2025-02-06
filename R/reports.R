@@ -9,7 +9,7 @@
 #' @examples
 #' pkg_ref <- riskmetric::pkg_ref("ggplot2", source = "pkg_cran_remote")
 #' pkg_assessment <- riskmetric::pkg_assess(pkg_ref)
-#' generate_riskreport(pkg_ref, pkg_assessment)
+#' generate_riskreports(pkg_ref, pkg_assessment)
 #'
 #' @export
 generate_riskreports <- function(pkg_reference,
@@ -36,8 +36,6 @@ generate_riskreports <- function(pkg_reference,
         outfile <- riskreports::package_report(
           package_name = ref$name,
           package_version = ref$version,
-          # FIXME: still doesn't work with the template file from the package
-          template_path = system.file("report/_pkg_template.qmd", package = "pharmapkgs"),
           params = list(
             assessment_path = assessment_path
           ),
