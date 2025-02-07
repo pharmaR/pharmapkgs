@@ -10,7 +10,7 @@ permissions:
 
 env:
     PHARMAPKGS_REMOTE_REPO: https://cloud.r-project.org/
-    PHARMAPKGS_LIMIT: 100
+    PHARMAPKGS_LIMIT: ${{ vars.PHARMAPKGS_LIMIT || 100}}
     LOGGER_LOG_LEVEL: DEBUG
 
 jobs:
