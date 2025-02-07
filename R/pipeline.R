@@ -1,6 +1,8 @@
 #' Run the entire pipeline of updating local repo
 #' @export
 github_actions <- function() {
+  logger::log_info("Github pipeline has started", namespace = "pharmapkgs")
+
   remote_packages <- get_packages()
   local_packages <- get_packages(base_url = .config$local_base)
   new_packages <- diff_packages(remote_packages, local_packages)
