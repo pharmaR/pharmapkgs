@@ -51,12 +51,26 @@ generate_riskreports <- function(pkg_reference,
 
         # Workaround for the fact that Quarto reads _quarto.yml file (which has website config)
         # and forcefully moves generated files to _site directory
-        file.copy(
-          from = list.files("_site/inst/report", full.names = TRUE),
-          to = outdir,
-          overwrite = TRUE
-        )
-        file.remove(list.files("_site/inst/report", full.names = TRUE))
+        report_files <- list.files("_site/inst/report", full.names = TRUE)
+        copy_result <- file.copy(from = report_files, to = outdir, overwrite = TRUE)
+
+        if (any(!copy_result)) {
+          logger::log_error(
+            "Failed to copy report file '{report_files[!copy_result]}' to the output directory '{outdir}'", # nolint
+            namespace = "pharmapkgs"
+          )
+          stop("Failed to copy report files to the output directory")
+        }
+
+        remove_result <- file.remove(report_files)
+
+        if (any(!remove_result)) {
+          logger::log_error(
+            "Failed to remove report file '{report_files[!remove_result]}'",
+            namespace = "pharmapkgs"
+          )
+          stop("Failed to remove report files")
+        }
 
         TRUE
       },
