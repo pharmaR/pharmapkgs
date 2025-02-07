@@ -5,30 +5,37 @@ describe("get_packages", {
     expect_gt(nrow(packages), 0)
   })
 
-  it("fetches the PACKAGES file for a specific platform", {
-    packages <- get_packages(platform = "fedora-38")
-    expect_s3_class(packages, "data.frame")
-    expect_gt(nrow(packages), 0)
-  })
-
-  it("fetches the PACKAGES file for a specific platform-version combination", {
-    packages <- get_packages(platform = "ubuntu-22.04-s390x", r_version = "4.1")
-    expect_s3_class(packages, "data.frame")
-    expect_gt(nrow(packages), 0)
-  })
-
   it("works with local repository", {
     packages <- get_packages(
-      base_url = system.file("repos", package = "pharmapkgs", mustWork = TRUE),
-      platform = "ubuntu-22.04",
-      r_version = "4.4"
+      base_url = system.file("repos", package = "pharmapkgs", mustWork = TRUE)
     )
     expect_s3_class(packages, "data.frame")
     expect_gt(nrow(packages), 0)
   })
 
-  it("only works with certain platforms", {
-    expect_error(get_packages(platform = "i-use-arch-btw"))
+
+  it("throws when PACKAGES file does not exist", {
+    expect_error({
+      suppressWarnings({
+        get_packages(system.file("undefined", package = "pharmapkgs"))
+      })
+    })
+  })
+
+  it("does not fail with empty PACKAGES file", {
+    base_url <- tempdir()
+    on.exit(unlink(base_url, recursive = TRUE, force = TRUE))
+
+    full_path <- utils::contrib.url(file.path(base_url))
+
+    dir.create(full_path, recursive = TRUE)
+    file.create(file.path(full_path, "PACKAGES"))
+
+    expect_warning(regexp = "file is empty", {
+      packages <- get_packages(base_url = base_url)
+    })
+    expect_s3_class(packages, "data.frame")
+    expect_equal(nrow(packages), 1)
   })
 })
 
@@ -92,6 +99,22 @@ describe("score_packages", {
   })
 })
 
+describe("add_score_to_packages", {
+  it("adds score data to package metadata while retaining both", {
+    packages <- data.frame(
+      Package = c("A", "B"),
+      Version = c("1.0", "2.0"),
+      DownloadURL = c("url1", "url2")
+    )
+    scores <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"), score = c(1, 2))
+
+    actual_output <- add_score_to_packages(packages, scores)
+
+    expect_equal(nrow(actual_output), 2)
+    expect_named(actual_output, c("Package", "Version", "DownloadURL", "score"))
+  })
+})
+
 describe("update_packages", {
   it("returns a data.frame with added new packages", {
     old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
@@ -129,5 +152,16 @@ describe("update_packages", {
     expect_equal(actual_output$Package, c("A", "B", "C"))
     expect_equal(actual_output$Version, c("1.0", "2.0", "3.0"))
     expect_true(all(c("foo") %in% names(actual_output)))
+  })
+
+  it("adds DownloadURL field with correct order", {
+    old_local_packages <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"))
+    new_local_packages <- data.frame(
+      Package = c("A", "B"), Version = c("1.1", "2.1"), metric = c(0.5, 0.6)
+    )
+
+    actual_output <- update_packages(old_local_packages, new_local_packages)
+
+    expect_named(actual_output, c("Package", "Version", "DownloadURL", "metric"))
   })
 })

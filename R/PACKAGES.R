@@ -4,28 +4,33 @@
 #' side effects, but rather read and return
 #'
 #' @param base_url Base URL of the repository. Can be a local dir path.
-#' @param platform Platform name.
-#' @param r_version R version.
 #'
 #' @return data.frame
 #'
 #' @export
-get_packages <- function(
-    base_url = .config$remote_base,
-    platform = .config$platform,
-    r_version = .config$r_version) {
-  platform <- match.arg(platform, RHUB_REPO_PLATFORMS)
-
-  full_path <- file.path(base_url, platform, r_version) |>
-    utils::contrib.url(type = .get_repos_type(platform)) |>
+get_packages <- function(base_url = .config$remote_base) {
+  full_path <- file.path(base_url) |>
+    utils::contrib.url(type = "source") |>
     file.path("PACKAGES")
 
   connection <- .get_connection(full_path)
 
   on.exit(close(connection))
 
-  read.dcf(connection, all = TRUE) |>
-    as.data.frame()
+  has_content <- length(readLines(con = connection, n = 1L)) > 0
+
+  if (!has_content) {
+    warning("Requested PACKAGES file is empty; returning empty data frame.")
+    return(data.frame(Package = NA_character_, Version = NA_character_))
+  }
+
+  tryCatch(
+    as.data.frame(read.dcf(connection, all = TRUE)),
+    error = function(e) {
+      warning("Failed to read PACKAGES file: ", e$message)
+      data.frame(Package = NA_character_, Version = NA_character_)
+    }
+  )
 }
 
 #' Identify new or newer packages.
@@ -78,7 +83,7 @@ diff_packages <- function(remote_packages, local_packages) {
 score_packages <- function(
     packages,
     limit = .config$limit,
-    repos = .config$remote_repo) {
+    repos = .config$remote_base) {
   if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
@@ -127,6 +132,15 @@ score_packages <- function(
   )
 }
 
+#' @export
+add_score_to_packages <- function(packages, scores) {
+  merge(
+    x = packages,
+    y = scores,
+    by = c("Package", "Version")
+  )
+}
+
 #' Update local PACKAGES info.
 #'
 #' @param old_local_packages Data frame with PACKAGES info currently stored in the repo.
@@ -140,9 +154,20 @@ update_packages <- function(old_local_packages, new_local_packages) {
   old <- data[[1]]
   new <- data[[2]]
 
+  columns_ordered <- .get_packages_field_order(old, new)
+
   old_packages <- old[!old$Package %in% new$Package, ]
   new_packages <- rbind(old_packages, new)
-  new_packages[order(new_packages$Package), ]
+
+  # NOTE: filtering needed in case the initial PACKAGES file was empty
+  new_packages <- new_packages[!is.na(new_packages$Package), , drop = FALSE]
+
+  new_packages$DownloadURL <- .construct_download_url(new_packages$Package, new_packages$Version)
+
+  new_packages[
+    order(new_packages$Package),
+    intersect(columns_ordered, names(new_packages))
+  , drop = FALSE]
 }
 
 #' Save PACKAGES info to the local repository.

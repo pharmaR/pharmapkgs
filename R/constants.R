@@ -1,21 +1,33 @@
-#' Platforms present in the R-hub repository.
+#' Base URL for the CRAN repository.
 #' @keywords internal
-RHUB_REPO_PLATFORMS <- c(
-  "fedora-36",
-  "fedora-38",
-  "fedora-40",
-  "macos-arm64",
-  "macos-x86_64",
-  "ubuntu-22.04-aarch64",
-  "ubuntu-22.04-s390x",
-  "ubuntu-22.04",
-  "ubuntu-24.04-aarch64"
-)
-
-#' Base URL for the R-hub repository.
-#' @keywords internal
-RHUB_BASE_URL <- "https://raw.githubusercontent.com/r-hub/repos/main"
+REMOTE_REPO_BASE_URL <- "https://cloud.r-project.org/"
 
 #' Base URL for the pharmapkgs repository.
 #' @keywords internal
 PHARMAPKGS_BASE_URL <- system.file("repos", package = "pharmapkgs", mustWork = TRUE)
+
+#' The order of PACKAGES fields as in CRAN.
+#' @keywords internal
+CRAN_PACKAGES_FIELDS <- c(
+  "Package",
+  "Version",
+  "Depends",
+  "Suggests",
+  "License",
+  "MD5sum",
+  "NeedsCompilation",
+  "Imports",
+  "LinkingTo",
+  "Enhances",
+  "License_restricts_use",
+  "OS_type",
+  "Priority",
+  "License_is_FOSS",
+  "Archs",
+  "Path"
+)
+
+#' Special fields that are not present in the PACKAGES file,
+#' but are required for pak to do its magic.
+#' @keywords internal
+PAK_SPECIAL_FIELDS <- c("DownloadURL")
