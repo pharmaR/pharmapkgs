@@ -17,7 +17,8 @@ get_packages <- function(base_url = .config$remote_base) {
 
   on.exit(close(connection))
 
-  has_content <- length(readLines(con = connection, n = 1L)) > 0
+  # For a local file check if it has content
+  has_content <- startsWith(base_url, "http") || isTRUE(file.size(full_path) > 0)
 
   if (!has_content) {
     warning("Requested PACKAGES file is empty; returning empty data frame.")
