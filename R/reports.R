@@ -28,6 +28,13 @@ generate_riskreports <- function(pkg_reference,
   make_one_report <- function(ref, assessment, outdir) {
     logger::log_debug("\tReporting: {ref$name}@{ref$version}", namespace = "pharmapkgs")
 
+    template_files <- list.files(
+      system.file("report", package = "pharmapkgs"),
+      pattern = ".*\\.qmd$",
+      full.names = TRUE
+    )
+    file.remove(template_files)
+
     assessment_path <- file.path(
       outdir,
       paste0(ref$name, ".rds")
