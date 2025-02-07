@@ -1,0 +1,29 @@
+project:
+    type: website
+    resources: []
+
+website:
+    title: "pharmapkgs: riskreports"
+    site-url: https://pharmar.github.io/pharmapkgs
+    description: List of validated R packages.
+
+    repo-url: https://github.com/pharmaR/pharmapkgs
+    repo-actions: [issue]
+
+    open-graph: false
+
+    navbar:
+        right:
+            - icon: github
+              href: https://github.com/pharmaR/pharmapkgs
+              aria-label: GitHub repo
+
+format:
+    html:
+        theme:
+            light: [litera]
+            dark: [darkly]
+        highlight-style: a11y-dark
+        mainfont: "Atkinson Hyperlegible"
+        code-copy: true
+        code-overflow: wrap

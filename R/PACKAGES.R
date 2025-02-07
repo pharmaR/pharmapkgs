@@ -17,7 +17,8 @@ get_packages <- function(base_url = .config$remote_base) {
 
   on.exit(close(connection))
 
-  has_content <- length(readLines(con = connection, n = 1L)) > 0
+  # For a local file check if it has content
+  has_content <- startsWith(base_url, "http") || isTRUE(file.size(full_path) > 0)
 
   if (!has_content) {
     warning("Requested PACKAGES file is empty; returning empty data frame.")
@@ -166,8 +167,9 @@ update_packages <- function(old_local_packages, new_local_packages) {
 
   new_packages[
     order(new_packages$Package),
-    intersect(columns_ordered, names(new_packages))
-  , drop = FALSE]
+    intersect(columns_ordered, names(new_packages)),
+    drop = FALSE
+  ]
 }
 
 #' Save PACKAGES info to the local repository.
@@ -177,5 +179,5 @@ update_packages <- function(old_local_packages, new_local_packages) {
 #'
 #' @export
 write_packages <- function(packages, path = .config$local_packages) {
-  write.dcf(packages, file = path)
+  write.dcf(packages, file = path, width = 1000)
 }

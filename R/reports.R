@@ -24,6 +24,8 @@ generate_riskreports <- function(pkg_reference,
   }
 
   make_one_report <- function(ref, assessment, outdir) {
+    message("Generating report: ", ref$name, "_", ref$version)
+
     assessment_path <- file.path(
       outdir,
       paste0(ref$name, ".rds")
@@ -33,19 +35,26 @@ generate_riskreports <- function(pkg_reference,
 
     tryCatch(
       expr = {
-        outfile <- riskreports::package_report(
-          package_name = ref$name,
-          package_version = ref$version,
-          # FIXME: still doesn't work with the template file from the package
-          template_path = system.file("report/_pkg_template.qmd", package = "pharmapkgs"),
-          params = list(
-            assessment_path = assessment_path
-          ),
-          quiet = TRUE
+        withr::with_options(
+          c(riskreports_output_dir = system.file("report", package = "pharmapkgs")),
+          riskreports::package_report(
+            package_name = ref$name,
+            package_version = ref$version,
+            params = list(
+              assessment_path = assessment_path
+            ),
+            quiet = TRUE
+          )
         )
 
-        file.copy(outfile, outdir)
-        file.remove(outfile)
+        # Workaround for the fact that Quarto reads _quarto.yml file (which has website config)
+        # and forcefully moves generated files to _site directory
+        file.copy(
+          from = list.files("_site/inst/report", full.names = TRUE),
+          to = outdir,
+          overwrite = TRUE
+        )
+        file.remove(list.files("_site/inst/report", full.names = TRUE))
 
         TRUE
       },
