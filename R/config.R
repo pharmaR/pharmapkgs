@@ -20,6 +20,12 @@
     set_config_value(name, values[[name]])
   })
 
+  logger::log_info("Config values initialized.", namespace = "pharmapkgs")
+  logger::log_debug(
+    "{jsonlite::toJSON(as.list(.config), auto_unbox = TRUE, pretty = TRUE)}",
+    namespace = "pharmapkgs"
+  )
+
   invisible()
 }
 
