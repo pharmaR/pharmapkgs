@@ -167,8 +167,9 @@ update_packages <- function(old_local_packages, new_local_packages) {
 
   new_packages[
     order(new_packages$Package),
-    intersect(columns_ordered, names(new_packages))
-  , drop = FALSE]
+    intersect(columns_ordered, names(new_packages)),
+    drop = FALSE
+  ]
 }
 
 #' Save PACKAGES info to the local repository.
