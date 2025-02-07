@@ -4,20 +4,13 @@
 #' side effects, but rather read and return
 #'
 #' @param base_url Base URL of the repository. Can be a local dir path.
-#' @param platform Platform name.
-#' @param r_version R version.
 #'
 #' @return data.frame
 #'
 #' @export
-get_packages <- function(
-    base_url = .config$remote_base,
-    platform = .config$platform,
-    r_version = .config$r_version) {
-  platform <- match.arg(platform, RHUB_REPO_PLATFORMS)
-
-  full_path <- file.path(base_url, platform, r_version) |>
-    utils::contrib.url(type = .get_repos_type(platform)) |>
+get_packages <- function(base_url = .config$remote_base) {
+  full_path <- file.path(base_url) |>
+    utils::contrib.url(type = "source") |>
     file.path("PACKAGES")
 
   connection <- .get_connection(full_path)
@@ -90,7 +83,7 @@ diff_packages <- function(remote_packages, local_packages) {
 score_packages <- function(
     packages,
     limit = .config$limit,
-    repos = .config$remote_repo) {
+    repos = .config$remote_base) {
   if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
@@ -165,7 +158,16 @@ update_packages <- function(old_local_packages, new_local_packages) {
 
   old_packages <- old[!old$Package %in% new$Package, ]
   new_packages <- rbind(old_packages, new)
-  new_packages[order(new_packages$Package), columns_ordered]
+
+  # NOTE: filtering needed in case the initial PACKAGES file was empty
+  new_packages <- new_packages[!is.na(new_packages$Package), , drop = FALSE]
+
+  new_packages$DownloadURL <- .construct_download_url(new_packages$Package, new_packages$Version)
+
+  new_packages[
+    order(new_packages$Package),
+    intersect(columns_ordered, names(new_packages))
+  , drop = FALSE]
 }
 
 #' Save PACKAGES info to the local repository.
