@@ -9,6 +9,8 @@
 #'
 #' @export
 get_packages <- function(base_url = .config$remote_base) {
+  logger::log_info("Reading PACKAGES file from: {base_url}", namespace = "pharmapkgs")
+
   full_path <- file.path(base_url) |>
     utils::contrib.url(type = "source") |>
     file.path("PACKAGES")
@@ -49,6 +51,8 @@ get_packages <- function(base_url = .config$remote_base) {
 #'
 #' @export
 diff_packages <- function(remote_packages, local_packages) {
+  logger::log_info("Identifying new or newer packages", namespace = "pharmapkgs")
+
   stopifnot(
     "Package" %in% names(remote_packages),
     "Package" %in% names(local_packages),
@@ -85,6 +89,8 @@ score_packages <- function(
     packages,
     limit = .config$limit,
     repos = .config$remote_base) {
+  logger::log_info("Scoring packages", namespace = "pharmapkgs")
+
   if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
@@ -103,14 +109,17 @@ score_packages <- function(
     repos = repos
   )
 
-  package_assessments <- suppressMessages(lapply(package_refs, riskmetric::pkg_assess))
+  package_assessments <- list()
 
   scores <- mapply(
     package_refs,
-    package_assessments,
     SIMPLIFY = FALSE,
     FUN = function(ref, assessment) {
-      message("Scoring: ", ref$name, "_", ref$version)
+      logger::log_debug("\tScoring {ref$name}@{ref$version}", namespace = "pharmapkgs")
+
+      assessment <- riskmetric::pkg_assess(ref)
+      package_assessments <<- c(package_assessments, list(assessment))
+
       score <- riskmetric::pkg_score(assessment)
 
       score$Package <- ref$name
@@ -135,6 +144,8 @@ score_packages <- function(
 
 #' @export
 add_score_to_packages <- function(packages, scores) {
+  logger::log_info("Adding score to packages", namespace = "pharmapkgs")
+
   merge(
     x = packages,
     y = scores,
@@ -151,6 +162,8 @@ add_score_to_packages <- function(packages, scores) {
 #'
 #' @export
 update_packages <- function(old_local_packages, new_local_packages) {
+  logger::log_info("Updating packages", namespace = "pharmapkgs")
+
   data <- .sync_colnames(old_local_packages, new_local_packages)
   old <- data[[1]]
   new <- data[[2]]
@@ -179,5 +192,7 @@ update_packages <- function(old_local_packages, new_local_packages) {
 #'
 #' @export
 write_packages <- function(packages, path = .config$local_packages) {
+  logger::log_info("Writing PACKAGES file to: {path}", namespace = "pharmapkgs")
+
   write.dcf(packages, file = path, width = 1000)
 }

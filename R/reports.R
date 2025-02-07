@@ -15,6 +15,8 @@
 generate_riskreports <- function(pkg_reference,
                                  pkg_assessment,
                                  output_dir = system.file("report", package = "pharmapkgs")) {
+  logger::log_info("Generating reports", namespace = "pharmapkgs")
+
   if (inherits(pkg_reference, "pkg_ref")) {
     pkg_reference <- list(pkg_reference)
   }
@@ -24,7 +26,7 @@ generate_riskreports <- function(pkg_reference,
   }
 
   make_one_report <- function(ref, assessment, outdir) {
-    message("Generating report: ", ref$name, "_", ref$version)
+    logger::log_debug("\tReporting: {ref$name}@{ref$version}", namespace = "pharmapkgs")
 
     assessment_path <- file.path(
       outdir,
