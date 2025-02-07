@@ -117,7 +117,7 @@ score_packages <- function(
     FUN = function(ref, assessment) {
       logger::log_debug("\tScoring {ref$name}@{ref$version}", namespace = "pharmapkgs")
 
-      assessment <- riskmetric::pkg_assess(ref)
+      assessment <- suppressMessages(riskmetric::pkg_assess(ref))
       package_assessments <<- c(package_assessments, list(assessment))
 
       score <- riskmetric::pkg_score(assessment)
