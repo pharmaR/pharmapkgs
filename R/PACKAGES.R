@@ -124,10 +124,8 @@ score_packages <- function(
 
   package_assessments <- list()
 
-  # TODO: configure metrics to be excluded
   metrics <- riskmetric::all_assessments()
-  excluded_metrics <- c("assess_covr_coverage", "assess_r_cmd_check")
-  for (key in excluded_metrics) {
+  for (key in .config$excluded_riskmetric_assessments) {
     metrics[[key]] <- NULL
   }
 

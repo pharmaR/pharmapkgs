@@ -31,3 +31,11 @@ CRAN_PACKAGES_FIELDS <- c(
 #' but are required for pak to do its magic.
 #' @keywords internal
 PAK_SPECIAL_FIELDS <- c("DownloadURL")
+
+#' List of riskmetric assessment names not to run during the scoring.
+#' @keywords internal
+PHARMAPKGS_EXCLUDED_METRICS <- paste(
+  "assess_covr_coverage", # takes forever to compute
+  "assess_r_cmd_check", # takes forever to compute
+  sep = ","
+)
