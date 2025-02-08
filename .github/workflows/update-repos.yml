@@ -45,5 +45,6 @@ jobs:
               name: Publish to GitHub Pages (and render)
               with:
                 target: gh-pages
+                path: inst/report
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
