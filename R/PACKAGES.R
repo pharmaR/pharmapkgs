@@ -210,22 +210,3 @@ write_packages <- function(packages, path = .config$local_packages) {
 
   write.dcf(packages, file = path, width = 1000)
 }
-
-res_remote <- riskmetric::pkg_ref("A3") |>
-  riskmetric::pkg_assess() |>
-  riskreports::assessment()
-res_remote$export_help
-
-res_local <- riskmetric::pkg_ref("inst/source/A3") |>
-  riskmetric::pkg_assess() |>
-  riskreports::assessment()
-res_local$export_help
-
-
-r_local <- riskmetric::pkg_ref("inst/source/A3")
-a_local <- riskmetric::pkg_assess(r_local, assessments = list(riskmetric::assess_export_help))
-a_local
-
-r_remote <- riskmetric:::pkg_cran("A3")
-a_remote <- riskmetric::pkg_assess(r_remote, assessments = list(riskmetric::assess_export_help))
-a_remote
