@@ -48,7 +48,7 @@ generate_riskreports <- function(pkg_reference,
           c(riskreports_output_dir = output_dir),
           riskreports::package_report(
             package_name = ref$name,
-            package_version = ref$version,
+            package_version = as.character(ref$version),
             output_format = "gfm",
             params = list(
               assessment_path = assessment_path
