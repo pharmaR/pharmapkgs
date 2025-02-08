@@ -89,8 +89,6 @@ score_packages <- function(
     packages,
     limit = .config$limit,
     repos = .config$remote_base) {
-  logger::log_info("Scoring packages", namespace = "pharmapkgs")
-
   if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
@@ -99,18 +97,32 @@ score_packages <- function(
 
   package_names <- packages[seq_len(limit)]
 
-  # NOTE: there is a bug in riskmetric::pkg_ref
-  # it doesn't respect repos argument when x is a vector,
-  # so we have to iterate manually.
-  package_refs <- sapply(
-    X = package_names,
-    FUN = riskmetric::pkg_ref,
-    source = "pkg_cran_remote",
+  logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
+  download_result <- download.packages(
+    pkgs = package_names,
+    destdir = file.path(.config$project_path, "inst", "source"),
     repos = repos
   )
 
+  if (NROW(download_result) != length(package_names)) {
+    missing_packages <- setdiff(package_names, download_result[, 1]) # nolint
+    logger::log_fatal(
+      "Failed to do download package: {missing_packages}",
+      namespace = "pharmapkgs"
+    )
+  }
+
+  logger::log_info("Unzipping packages", namespace = "pharmapkgs")
+  for (tarball in download_result[, 2]) {
+    logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
+    untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
+  }
+
+  package_refs <- riskmetric::pkg_ref(download_result[, 1])
+
   package_assessments <- list()
 
+  logger::log_info("Scoring packages", namespace = "pharmapkgs")
   scores <- mapply(
     package_refs,
     SIMPLIFY = FALSE,
