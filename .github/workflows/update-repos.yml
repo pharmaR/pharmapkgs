@@ -11,7 +11,7 @@ permissions:
 env:
     PHARMAPKGS_REMOTE_REPO: https://cloud.r-project.org/
     PHARMAPKGS_LIMIT: ${{ vars.PHARMAPKGS_LIMIT || 100}}
-    PHARMAPKGS_EXCLUDED_METRICS: ${{ vars.PHARMAPKGS_EXCLUDED_METRICS || "assess_covr_coverage,assess_r_cmd_check" }}
+    PHARMAPKGS_EXCLUDED_METRICS: ${{ vars.PHARMAPKGS_EXCLUDED_METRICS || 'assess_covr_coverage,assess_r_cmd_check' }}
     LOGGER_LOG_LEVEL: DEBUG
 
 jobs:
