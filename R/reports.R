@@ -42,7 +42,7 @@ generate_riskreports <- function(pkg_reference,
 
     saveRDS(assessment, assessment_path)
 
-    tryCatch(
+    report_result <- tryCatch(
       expr = {
         withr::with_options(
           c(riskreports_output_dir = output_dir),
@@ -62,6 +62,14 @@ generate_riskreports <- function(pkg_reference,
         FALSE
       }
     )
+
+    if (!report_result) {
+      logger::log_error(
+        "Failed to generate report for {ref$name}@{ref$version}",
+        namespace = "pharmapkgs"
+      )
+      stop("Failed to generate report")
+    }
 
     # Due to _quarto.yml config file, reports are always moved into
     # _site directory. We need to copy them back to the output directory.
