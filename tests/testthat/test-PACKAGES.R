@@ -74,7 +74,7 @@ describe("diff_packages", {
 
 describe("score_packages", {
   it("returns a list with scoring results", {
-    packages <- c("rlang")
+    packages <- c("rlang", "arrow", "dplyr")
 
     actual_output <- score_packages(packages)
 
