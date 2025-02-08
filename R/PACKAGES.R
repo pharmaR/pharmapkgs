@@ -124,6 +124,13 @@ score_packages <- function(
 
   package_assessments <- list()
 
+  # TODO: configure metrics to be excluded
+  metrics <- riskmetric::all_assessments()
+  excluded_metrics <- c("assess_covr_coverage", "assess_r_cmd_check")
+  for (key in excluded_metrics) {
+    metrics[[key]] <- NULL
+  }
+
   logger::log_info("Scoring packages", namespace = "pharmapkgs")
   scores <- mapply(
     package_refs,
@@ -131,7 +138,7 @@ score_packages <- function(
     FUN = function(ref, assessment) {
       logger::log_debug("\tScoring {ref$name}@{ref$version}", namespace = "pharmapkgs")
 
-      assessment <- suppressMessages(riskmetric::pkg_assess(ref))
+      assessment <- suppressMessages(riskmetric::pkg_assess(ref, assessments = metrics))
       package_assessments <<- c(package_assessments, list(assessment))
 
       score <- riskmetric::pkg_score(assessment)
