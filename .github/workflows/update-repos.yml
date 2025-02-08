@@ -41,6 +41,9 @@ jobs:
               with:
                   commit_message: "Auto-update: ${{matrix.platform}}, R-${{matrix.r_version}}"
 
+            - name: Remove untracked files
+              run: git clean -fdx
+
             - uses: quarto-dev/quarto-actions/publish@v2
               name: Publish to GitHub Pages (and render)
               with:
