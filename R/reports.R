@@ -29,7 +29,7 @@ generate_riskreports <- function(pkg_reference,
     logger::log_debug("\tReporting: {ref$name}@{ref$version}", namespace = "pharmapkgs")
 
     template_files <- list.files(
-      system.file("report", package = "pharmapkgs"),
+      output_dir,
       pattern = ".*\\.qmd$",
       full.names = TRUE
     )
@@ -45,7 +45,7 @@ generate_riskreports <- function(pkg_reference,
     tryCatch(
       expr = {
         withr::with_options(
-          c(riskreports_output_dir = system.file("report", package = "pharmapkgs")),
+          c(riskreports_output_dir = output_dir),
           riskreports::package_report(
             package_name = ref$name,
             package_version = ref$version,
@@ -56,9 +56,15 @@ generate_riskreports <- function(pkg_reference,
           )
         )
 
+        # Due to _quarto.yml config file, reports are always moved into
+        # _site directory. We need to copy them back to the output directory.
+        full_output_dir <- unlist(strsplit(normalizePath(outdir, mustWork = TRUE), "/"))
+        full_site_dir <- unlist(strsplit(normalizePath("_site", mustWork = FALSE), "/"))
+        site_subdir <- setdiff(full_output_dir, full_site_dir)
+
         # Workaround for the fact that Quarto reads _quarto.yml file (which has website config)
         # and forcefully moves generated files to _site directory
-        report_files <- list.files("_site/inst/report", full.names = TRUE)
+        report_files <- list.files(file.path("_site", site_subdir), full.names = TRUE)
         copy_result <- file.copy(from = report_files, to = outdir, overwrite = TRUE)
 
         if (any(!copy_result)) {
