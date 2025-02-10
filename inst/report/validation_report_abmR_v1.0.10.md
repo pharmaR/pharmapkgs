@@ -1,4 +1,4 @@
-# Validation Report - abd@0.2.8
+# Validation Report - abmR@1.0.10
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package abd
+# Package abmR
 
 ## Metric based risk assessment
 
@@ -23,19 +23,19 @@ The following metrics are derived from the `riskmetric` R package.
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
 | has_news             | 0                                                    |
-| exported_namespace   | 4                                                    |
+| exported_namespace   | 9                                                    |
 | has_vignettes        | 0                                                    |
-| export_help          | 4                                                    |
+| export_help          | 9                                                    |
 | has_website          | FALSE                                                |
-| has_maintainer       | Kevin M. Middleton <middletonk@missouri.edu>         |
+| has_maintainer       | Benjamin Gochanour <ben.gochanour@gmail.com>         |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
-| size_codebase        | 254                                                  |
+| size_codebase        | 852                                                  |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 16862                                                |
-| reverse_dependencies | 1                                                    |
+| downloads_1yr        | 6790                                                 |
+| reverse_dependencies | 0                                                    |
 | has_examples         | 1                                                    |
-| dependencies         | 4                                                    |
-| license              | GPL-2                                                |
+| dependencies         | 18                                                   |
+| license              | GPL (\>= 3)                                          |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -44,31 +44,47 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package | type    |
-|:----|:--------|:--------|
-| 1   | nlme    | Depends |
-| 2   | lattice | Depends |
-| 3   | grid    | Depends |
-| 4   | mosaic  | Depends |
+|     | package       | type    |
+|:----|:--------------|:--------|
+| 1   | sp            | Imports |
+| 2   | table1        | Imports |
+| 3   | googledrive   | Imports |
+| 4   | swfscMisc     | Imports |
+| 5   | geosphere     | Imports |
+| 6   | kableExtra    | Imports |
+| 7   | gtsummary     | Imports |
+| 8   | ggplot2       | Imports |
+| 9   | gstat         | Imports |
+| 10  | purrr         | Imports |
+| 11  | sf            | Imports |
+| 12  | tmap          | Imports |
+| 13  | raster        | Imports |
+| 14  | utils         | Imports |
+| 15  | stats         | Imports |
+| 16  | methods       | Imports |
+| 17  | rnaturalearth | Imports |
+| 18  | maps          | Imports |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 1 reverse dependencies:
-
-tigerstats
+Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 4 exported objects. 4 are documented:
+Overall the package has 9 exported objects. 9 are documented:
 
-       abdData    col.abd histochart  theme.abd 
-          TRUE       TRUE       TRUE       TRUE 
+          as.species        energySIM energySIM_helper        energyVIZ 
+                TRUE             TRUE             TRUE             TRUE 
+         get_ex_data          moveSIM   moveSIM_helper          moveVIZ 
+                TRUE             TRUE             TRUE             TRUE 
+        tidy_results 
+                TRUE 
 
 ### Examples
 
-There are 148 help pages with examples, from 148 (100.00 %).
+There are 10 help pages with examples, from 10 (100.00 %).
 
 ### NEWS
 
@@ -88,7 +104,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-10 03:16:01 UTC |
+| Execution Time | 2025-02-10 03:16:17 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -329,7 +345,7 @@ running this report
                             /tmp/RtmpNqNKOG
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1e914aaa910f_1739157360
+    PROCESSX_PS1e9169842ad7_1739157376
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -356,7 +372,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpHen9LQ
+    R_SESSION_TMPDIR        /tmp/RtmpZfrCbe
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -424,7 +440,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55993bc3a9c0>
+    <bytecode: 0x55a60cb719c0>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -463,7 +479,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55993ccf5808>
+    <bytecode: 0x55a60dc2c808>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -630,7 +646,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55993b103520>
+    <environment: 0x55a60c03a520>
 
 
     $str.dendrogram.last
@@ -640,7 +656,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_abd_v0.2.8-tikzDictionary"
+    [1] "validation_report_abmR_v1.0.10-tikzDictionary"
 
     $timeout
     [1] 60

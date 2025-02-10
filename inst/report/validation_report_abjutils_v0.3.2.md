@@ -1,4 +1,4 @@
-# Validation Report - abd@0.2.8
+# Validation Report - abjutils@0.3.2
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package abd
+# Package abjutils
 
 ## Metric based risk assessment
 
@@ -22,20 +22,22 @@ The following metrics are derived from the `riskmetric` R package.
 
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 4                                                    |
+| has_news             | 1                                                    |
+| news_current         | TRUE                                                 |
+| exported_namespace   | 26                                                   |
 | has_vignettes        | 0                                                    |
-| export_help          | 4                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kevin M. Middleton <middletonk@missouri.edu>         |
+| export_help          | 26                                                   |
+| has_website          | TRUE                                                 |
+| has_maintainer       | Caio Lente <clente@abj.org.br>                       |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
-| size_codebase        | 254                                                  |
+| size_codebase        | 378                                                  |
+| has_source_control   | https://github.com/abjur/abjutils                    |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 16862                                                |
+| downloads_1yr        | 7807                                                 |
 | reverse_dependencies | 1                                                    |
 | has_examples         | 1                                                    |
-| dependencies         | 4                                                    |
-| license              | GPL-2                                                |
+| dependencies         | 8                                                    |
+| license              | MIT + file LICENSE                                   |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -44,12 +46,16 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package | type    |
-|:----|:--------|:--------|
-| 1   | nlme    | Depends |
-| 2   | lattice | Depends |
-| 3   | grid    | Depends |
-| 4   | mosaic  | Depends |
+|     | package    | type    |
+|:----|:-----------|:--------|
+| 1   | dplyr      | Imports |
+| 2   | magrittr   | Imports |
+| 3   | purrr      | Imports |
+| 4   | rlang      | Imports |
+| 5   | rstudioapi | Imports |
+| 6   | stringi    | Imports |
+| 7   | stringr    | Imports |
+| 8   | tidyr      | Imports |
 
 **Package dependencies**
 
@@ -57,18 +63,28 @@ Overall the package has these dependencies:
 
 Overall the package has 1 reverse dependencies:
 
-tigerstats
+speechbr
 
 ## Namespace
 
-Overall the package has 4 exported objects. 4 are documented:
+Overall the package has 26 exported objects. 25 are documented:
 
-       abdData    col.abd histochart  theme.abd 
-          TRUE       TRUE       TRUE       TRUE 
+                %>%        build_id        calc_dig   carf_build_id   carf_calc_dig 
+              FALSE            TRUE            TRUE            TRUE            TRUE 
+     carf_check_dig       check_dig   check_dig_vet  chrome_to_body       clean_cnj 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
+           clean_id  escape_unicode   extract_parts   file_sans_ext gather_subjects 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
+               lsos     pattern_cnj       precision           reais       rm_accent 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
+         sample_cnj    separate_cnj          tabela        test_fun      verify_cnj 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
+         write_data 
+               TRUE 
 
 ### Examples
 
-There are 148 help pages with examples, from 148 (100.00 %).
+There are 26 help pages with examples, from 26 (100.00 %).
 
 ### NEWS
 
@@ -88,7 +104,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-10 03:16:01 UTC |
+| Execution Time | 2025-02-10 03:16:12 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -329,7 +345,7 @@ running this report
                             /tmp/RtmpNqNKOG
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1e914aaa910f_1739157360
+    PROCESSX_PS1e911763c75d_1739157370
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -356,7 +372,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpHen9LQ
+    R_SESSION_TMPDIR        /tmp/RtmpySkVDe
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -424,7 +440,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55993bc3a9c0>
+    <bytecode: 0x55e800c069c0>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -463,7 +479,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55993ccf5808>
+    <bytecode: 0x55e801cc1808>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -630,7 +646,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55993b103520>
+    <environment: 0x55e8000cf520>
 
 
     $str.dendrogram.last
@@ -640,7 +656,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_abd_v0.2.8-tikzDictionary"
+    [1] "validation_report_abjutils_v0.3.2-tikzDictionary"
 
     $timeout
     [1] 60
