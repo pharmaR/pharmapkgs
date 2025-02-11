@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>validation_report_abd_v0.2.8 – pharmapkgs: riskreports</title>
+<title>validation_report_abrsqol_v1.0.0 – pharmapkgs: riskreports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,8 +114,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="validation-report---abd0.2.8" class="level1">
-<h1>Validation Report - abd@0.2.8</h1>
+<section id="validation-report---abrsqol1.0.0" class="level1">
+<h1>Validation Report - ABRSQOL@1.0.0</h1>
 </section>
 <section id="context" class="level1">
 <h1>Context</h1>
@@ -126,8 +126,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>It is limited to assess whether unit tests and documentation are present and can execute without error. An assessment would be required that the tests and documentation are meaningful.</p>
 </section>
-<section id="package-abd" class="level1">
-<h1>Package abd</h1>
+<section id="package-abrsqol" class="level1">
+<h1>Package ABRSQOL</h1>
 <section id="metric-based-risk-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="metric-based-risk-assessment">Metric based risk assessment</h2>
 <p>The following metrics are derived from the <code>riskmetric</code> R package.</p>
@@ -139,7 +139,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">exported_namespace</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_vignettes</td>
@@ -147,35 +147,35 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">export_help</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_website</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">has_maintainer</td>
-<td style="text-align: left;">Kevin M. Middleton <a href="mailto:middletonk@missouri.edu" class="email">middletonk@missouri.edu</a></td>
+<td style="text-align: left;">Max von Mylius <a href="mailto:max.mylius@hu-berlin.de" class="email">max.mylius@hu-berlin.de</a></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">bugs_status</td>
-<td style="text-align: left;">package DESCRIPTION does not have a BugReports field</td>
+<td style="text-align: left;">size_codebase</td>
+<td style="text-align: left;">90</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">size_codebase</td>
-<td style="text-align: left;">254</td>
+<td style="text-align: left;">has_source_control</td>
+<td style="text-align: left;">https://github.com/Ahlfeldt/ABRSQOL-toolkit#readme</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_bug_reports_url</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">downloads_1yr</td>
-<td style="text-align: left;">16878</td>
+<td style="text-align: left;">1919</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">reverse_dependencies</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">has_examples</td>
@@ -183,11 +183,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">dependencies</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">license</td>
-<td style="text-align: left;">GPL-2</td>
+<td style="text-align: left;">MIT + file LICENSE</td>
 </tr>
 </tbody>
 </table>
@@ -196,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
 <p>Overall the package has these dependencies:</p>
-<table class="caption-top table">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -205,43 +205,22 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">nlme</td>
-<td style="text-align: left;">Depends</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">lattice</td>
-<td style="text-align: left;">Depends</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">grid</td>
-<td style="text-align: left;">Depends</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">mosaic</td>
-<td style="text-align: left;">Depends</td>
-</tr>
 </tbody>
 </table>
 <p><strong>Package dependencies</strong></p>
 </section>
 <section id="reverse-dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="reverse-dependencies">Reverse dependencies</h2>
-<p>Overall the package has 1 reverse dependencies:</p>
-<p>tigerstats</p>
+<p>Overall the package has 0 reverse dependencies:</p>
 </section>
 <section id="namespace" class="level2">
 <h2 class="anchored" data-anchor-id="namespace">Namespace</h2>
-<p>Overall the package has 4 exported objects. 4 are documented:</p>
-<pre><code>   abdData    col.abd histochart  theme.abd 
-      TRUE       TRUE       TRUE       TRUE </code></pre>
+<p>Overall the package has 1 exported objects. 1 are documented:</p>
+<pre><code>ABRSQOL 
+   TRUE </code></pre>
 <section id="examples" class="level3">
 <h3 class="anchored" data-anchor-id="examples">Examples</h3>
-<p>There are 148 help pages with examples, from 148 (100.00 %).</p>
+<p>There are 1 help pages with examples, from 1 (100.00 %).</p>
 </section>
 <section id="news" class="level3">
 <h3 class="anchored" data-anchor-id="news">NEWS</h3>
@@ -283,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Execution Time</td>
-<td style="text-align: left;">2025-02-11 03:15:13 UTC</td>
+<td style="text-align: left;">2025-02-11 03:15:25 UTC</td>
 </tr>
 </tbody>
 </table>
@@ -509,7 +488,7 @@ PKGLOAD_PARENT_TEMPDIR
                         /tmp/RtmpBqhnZr
 POWERSHELL_DISTRIBUTION_CHANNEL
                         GitHub-Actions-ubuntu24
-PROCESSX_PS1e4435874302_1739243712
+PROCESSX_PS1e4450d4b247_1739243724
                         YES
 PWD                     /home/runner/work/pharmapkgs/pharmapkgs
 QUARTO_BIN_PATH         /opt/quarto/bin
@@ -536,7 +515,7 @@ R_PDFVIEWER             /usr/bin/xdg-open
 R_PLATFORM              x86_64-pc-linux-gnu
 R_PRINTCMD              /usr/bin/lpr
 R_RD4PDF                times,inconsolata,hyper
-R_SESSION_TMPDIR        /tmp/RtmpNXznRF
+R_SESSION_TMPDIR        /tmp/RtmpOerTpq
 R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
 R_STRIP_SHARED_LIB      strip --strip-unneeded
 R_STRIP_STATIC_LIB      strip --strip-debug
@@ -602,7 +581,7 @@ function (msg)
         cli_server_default(msg)
     }
 }
-&lt;bytecode: 0x56233cca09c0&gt;
+&lt;bytecode: 0x564c3754d9c0&gt;
 &lt;environment: namespace:cli&gt;
 
 $catch.script.errors
@@ -641,7 +620,7 @@ function (width = 7, height = 7, ...)
 {
     grDevices::pdf(NULL, width, height, ...)
 }
-&lt;bytecode: 0x56233dd5b808&gt;
+&lt;bytecode: 0x564c38608808&gt;
 &lt;environment: namespace:knitr&gt;
 
 $device.ask.default
@@ -808,7 +787,7 @@ $str$drop.deparse.attr
 $str$formatNum
 function (x, ...) 
 format(x, trim = TRUE, drop0trailing = TRUE, ...)
-&lt;environment: 0x56233c169520&gt;
+&lt;environment: 0x564c36a16520&gt;
 
 
 $str.dendrogram.last
@@ -818,7 +797,7 @@ $texi2dvi
 [1] "/usr/bin/texi2dvi"
 
 $tikzMetricsDictionary
-[1] "validation_report_abd_v0.2.8-tikzDictionary"
+[1] "validation_report_ABRSQOL_v1.0.0-tikzDictionary"
 
 $timeout
 [1] 60

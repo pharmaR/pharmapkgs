@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>validation_report_abd_v0.2.8 – pharmapkgs: riskreports</title>
+<title>validation_report_abn_v3.1.1 – pharmapkgs: riskreports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,8 +114,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="validation-report---abd0.2.8" class="level1">
-<h1>Validation Report - abd@0.2.8</h1>
+<section id="validation-report---abn3.1.1" class="level1">
+<h1>Validation Report - abn@3.1.1</h1>
 </section>
 <section id="context" class="level1">
 <h1>Context</h1>
@@ -126,8 +126,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>It is limited to assess whether unit tests and documentation are present and can execute without error. An assessment would be required that the tests and documentation are meaningful.</p>
 </section>
-<section id="package-abd" class="level1">
-<h1>Package abd</h1>
+<section id="package-abn" class="level1">
+<h1>Package abn</h1>
 <section id="metric-based-risk-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="metric-based-risk-assessment">Metric based risk assessment</h2>
 <p>The following metrics are derived from the <code>riskmetric</code> R package.</p>
@@ -139,55 +139,59 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">exported_namespace</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">57</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_vignettes</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;">22</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">export_help</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">57</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_website</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">has_maintainer</td>
-<td style="text-align: left;">Kevin M. Middleton <a href="mailto:middletonk@missouri.edu" class="email">middletonk@missouri.edu</a></td>
+<td style="text-align: left;">Matteo Delucchi <a href="mailto:matteo.delucchi@math.uzh.ch" class="email">matteo.delucchi@math.uzh.ch</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bugs_status</td>
-<td style="text-align: left;">package DESCRIPTION does not have a BugReports field</td>
+<td style="text-align: left;">0.9</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">size_codebase</td>
-<td style="text-align: left;">254</td>
+<td style="text-align: left;">6136</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">has_source_control</td>
+<td style="text-align: left;">https://github.com/furrer-lab/abn</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">has_bug_reports_url</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">downloads_1yr</td>
+<td style="text-align: left;">7789</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">reverse_dependencies</td>
 <td style="text-align: left;">0</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">downloads_1yr</td>
-<td style="text-align: left;">16878</td>
-</tr>
 <tr class="odd">
-<td style="text-align: left;">reverse_dependencies</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">has_examples</td>
-<td style="text-align: left;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">dependencies</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">0.9908257</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">dependencies</td>
+<td style="text-align: left;">13</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">license</td>
-<td style="text-align: left;">GPL-2</td>
+<td style="text-align: left;">GPL (&gt;= 3)</td>
 </tr>
 </tbody>
 </table>
@@ -207,23 +211,68 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">nlme</td>
-<td style="text-align: left;">Depends</td>
+<td style="text-align: left;">doParallel</td>
+<td style="text-align: left;">Imports</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">lattice</td>
-<td style="text-align: left;">Depends</td>
+<td style="text-align: left;">foreach</td>
+<td style="text-align: left;">Imports</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">grid</td>
-<td style="text-align: left;">Depends</td>
+<td style="text-align: left;">graph</td>
+<td style="text-align: left;">Imports</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: left;">mosaic</td>
-<td style="text-align: left;">Depends</td>
+<td style="text-align: left;">lme4</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">mclogit</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">methods</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">nnet</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Rcpp</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Rgraphviz</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">rjags</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">stringi</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Rcpp</td>
+<td style="text-align: left;">LinkingTo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">RcppArmadillo</td>
+<td style="text-align: left;">LinkingTo</td>
 </tr>
 </tbody>
 </table>
@@ -231,17 +280,52 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="reverse-dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="reverse-dependencies">Reverse dependencies</h2>
-<p>Overall the package has 1 reverse dependencies:</p>
-<p>tigerstats</p>
+<p>Overall the package has 0 reverse dependencies:</p>
 </section>
 <section id="namespace" class="level2">
 <h2 class="anchored" data-anchor-id="namespace">Namespace</h2>
-<p>Overall the package has 4 exported objects. 4 are documented:</p>
-<pre><code>   abdData    col.abd histochart  theme.abd 
-      TRUE       TRUE       TRUE       TRUE </code></pre>
+<p>Overall the package has 57 exported objects. 57 are documented:</p>
+<pre><code>              abn.version                 bern_bugs             build.control 
+                     TRUE                      TRUE                      TRUE 
+          buildScoreCache          categorical_bugs                compareDag 
+                     TRUE                      TRUE                      TRUE 
+             createAbnDag            discretization               entropyData 
+                     TRUE                      TRUE                      TRUE 
+           essentialGraph          eval.across.grid                     expit 
+                     TRUE                      TRUE                      TRUE 
+                expit_cpp                 factorial            factorial_fast 
+                     TRUE                      TRUE                      TRUE 
+         find.next.left.x               fit.control                    fitAbn 
+                     TRUE                      TRUE                      TRUE 
+      forLoopContentBayes               formula_abn                gauss_bugs 
+                     TRUE                      TRUE                      TRUE 
+            get.quantiles              getMargsINLA             getModeVector 
+                     TRUE                      TRUE                      TRUE 
+                  infoDag         irls_binomial_cpp      irls_binomial_cpp_br 
+                     TRUE                      TRUE                      TRUE 
+   irls_binomial_cpp_fast irls_binomial_cpp_fast_br         irls_gaussian_cpp 
+                     TRUE                      TRUE                      TRUE 
+   irls_gaussian_cpp_fast          irls_poisson_cpp     irls_poisson_cpp_fast 
+                     TRUE                      TRUE                      TRUE 
+             linkStrength                     logit                 logit_cpp 
+                     TRUE                      TRUE                      TRUE 
+                 makebugs             makebugsGroup                        mb 
+                     TRUE                      TRUE                      TRUE 
+                   mi_cpp                    miData              mostProbable 
+                     TRUE                      TRUE                      TRUE 
+                     odds                        or                   plotAbn 
+                     TRUE                      TRUE                      TRUE 
+                pois_bugs                  rank_cpp         scoreContribution 
+                     TRUE                      TRUE                      TRUE 
+          searchHeuristic         searchHillClimber               simulateAbn 
+                     TRUE                      TRUE                      TRUE 
+              simulateDag                  skewness       std.area.under.grid 
+                     TRUE                      TRUE                      TRUE 
+                strsplits                tidy.cache                toGraphviz 
+                     TRUE                      TRUE                      TRUE </code></pre>
 <section id="examples" class="level3">
 <h3 class="anchored" data-anchor-id="examples">Examples</h3>
-<p>There are 148 help pages with examples, from 148 (100.00 %).</p>
+<p>There are 108 help pages with examples, from 109 (99.08 %).</p>
 </section>
 <section id="news" class="level3">
 <h3 class="anchored" data-anchor-id="news">NEWS</h3>
@@ -283,7 +367,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Execution Time</td>
-<td style="text-align: left;">2025-02-11 03:15:13 UTC</td>
+<td style="text-align: left;">2025-02-11 03:15:17 UTC</td>
 </tr>
 </tbody>
 </table>
@@ -509,7 +593,7 @@ PKGLOAD_PARENT_TEMPDIR
                         /tmp/RtmpBqhnZr
 POWERSHELL_DISTRIBUTION_CHANNEL
                         GitHub-Actions-ubuntu24
-PROCESSX_PS1e4435874302_1739243712
+PROCESSX_PS1e446bb052a6_1739243716
                         YES
 PWD                     /home/runner/work/pharmapkgs/pharmapkgs
 QUARTO_BIN_PATH         /opt/quarto/bin
@@ -536,7 +620,7 @@ R_PDFVIEWER             /usr/bin/xdg-open
 R_PLATFORM              x86_64-pc-linux-gnu
 R_PRINTCMD              /usr/bin/lpr
 R_RD4PDF                times,inconsolata,hyper
-R_SESSION_TMPDIR        /tmp/RtmpNXznRF
+R_SESSION_TMPDIR        /tmp/RtmpIel1iT
 R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
 R_STRIP_SHARED_LIB      strip --strip-unneeded
 R_STRIP_STATIC_LIB      strip --strip-debug
@@ -602,7 +686,7 @@ function (msg)
         cli_server_default(msg)
     }
 }
-&lt;bytecode: 0x56233cca09c0&gt;
+&lt;bytecode: 0x55d6e8bc79c0&gt;
 &lt;environment: namespace:cli&gt;
 
 $catch.script.errors
@@ -641,7 +725,7 @@ function (width = 7, height = 7, ...)
 {
     grDevices::pdf(NULL, width, height, ...)
 }
-&lt;bytecode: 0x56233dd5b808&gt;
+&lt;bytecode: 0x55d6e9c82808&gt;
 &lt;environment: namespace:knitr&gt;
 
 $device.ask.default
@@ -808,7 +892,7 @@ $str$drop.deparse.attr
 $str$formatNum
 function (x, ...) 
 format(x, trim = TRUE, drop0trailing = TRUE, ...)
-&lt;environment: 0x56233c169520&gt;
+&lt;environment: 0x55d6e8090520&gt;
 
 
 $str.dendrogram.last
@@ -818,7 +902,7 @@ $texi2dvi
 [1] "/usr/bin/texi2dvi"
 
 $tikzMetricsDictionary
-[1] "validation_report_abd_v0.2.8-tikzDictionary"
+[1] "validation_report_abn_v3.1.1-tikzDictionary"
 
 $timeout
 [1] 60
