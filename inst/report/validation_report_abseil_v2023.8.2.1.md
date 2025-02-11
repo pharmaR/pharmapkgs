@@ -1,4 +1,4 @@
-# Validation Report - abind@1.4.8
+# Validation Report - abseil@2023.8.2.1
 
 
 # Context
@@ -14,28 +14,28 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package abind
+# Package abseil
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 5                                                    |
-| has_vignettes        | 0                                                    |
-| export_help          | 5                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Tony Plate <tplate@acm.org>                          |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| size_codebase        | 427                                                  |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 4052867                                              |
-| reverse_dependencies | 305                                                  |
-| has_examples         | 1                                                    |
-| dependencies         | 2                                                    |
-| license              | MIT + file LICENSE                                   |
+|                      |                                       |
+|:---------------------|:--------------------------------------|
+| has_news             | 1                                     |
+| news_current         | TRUE                                  |
+| exported_namespace   | 0                                     |
+| has_vignettes        | 0                                     |
+| export_help          | 0                                     |
+| has_website          | TRUE                                  |
+| has_maintainer       | Xingchi Li <anthony.li@stat.tamu.edu> |
+| bugs_status          | 1                                     |
+| size_codebase        | 1                                     |
+| has_source_control   | https://github.com/doccstat/abseil-r  |
+| has_bug_reports_url  | 1                                     |
+| downloads_1yr        | 3907                                  |
+| reverse_dependencies | 0                                     |
+| license              | Apache License (\>= 2)                |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -44,72 +44,26 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package | type    |
-|:----|:--------|:--------|
-| 1   | methods | Imports |
-| 2   | utils   | Imports |
+    Error in deps$package: $ operator is invalid for atomic vectors
+
+|     | x   |
+|:----|:----|
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 305 reverse dependencies:
-
-abctools, aihuman, AlignLV, alleHap, Anthropometry, Apollonius, arm,
-Arothron, autoBagging, autoimage, autoMFA, autonomics, baker, bamp,
-BATSS, BayesComm, BayesDLMfMRI, BayesfMRI, bayesPop, BayesRGMM, BayesS5,
-baySeq, BCBCSF, BCClong, BEclear, berryFunctions, BGGM, BGVAR, BigVAR,
-bioimagetools, biomod2, bootnet, boral, brainGraph, brms, camtrapR,
-cape, car, Cascade, CatsCradle, CFC, changepoints, chkptstanr, cito,
-CNORdt, codez, cogirt, colordistance, cols4all, communication, COMPASS,
-conos, cope, copre, copula, CoTiMA, CPMCGLM, crrcbcv, crunch, CSTools,
-curvir, cypress, detrendr, diceR, dmbc, drake, dynamAedes, easyNCDF,
-EBImage, EBMAforecast, EMC2, EventPointer, eventstream, factoextra,
-FactorCopula, fastcpd, fect, fic, FISHalyseR, fishpond, flocker,
-flowcatchR, fmerPack, forestplot, fractaldim, funData, funLBM, gapfill,
-gasmodel, GenericML, GeomArchetypal, georob, geostatsp, ggimg,
-ggspatial, GGUM, Gmisc, grec, greta, greta.dynamics, gsynth, GWEX, h5vc,
-hdiVAR, HH, hilbertSimilarity, HiLDA, Hmisc, Hmsc, IAcsSPCR, iCARH,
-ijtiff, imcRtools, iNEXT.beta3D, integIRTy, interplot, IPMbook, ISLET,
-isoWater, jenga, kamila, Karen, kgschart, kyotil, lacunr, lambdaTS,
-latentnet, lavaSearch2, ldsep, LeMaRns, LifeInsureR, limorhyde2, lolR,
-LOMAR, long2lstmarray, LSDinterface, LSDirf, LSDsensitivity,
-MachineShop, magclass, magic, mariner, mashr, MAST, mbest, mcmcderive,
-mcmcr, mcmsupply, merTools, meshed, MFPCA, mgc, micemd, MicroMoB,
-mimager, mlma, mlogitBMA, mlVAR, MM, mMARCH.AC, modnets, MonteCarlo,
-mpower, mrfDepth, MSEtool, multilevelcoda, MultiPhen, multipol,
-multivator, mvmesh, mvProbit, mvSLOUCH, nandb, ncdf4.helpers, ncdfCF,
-NetRep, NetworkChange, neurobase, neuroim, nlist, oceanmap, OncoBayes2,
-openCR, OpenRepGrid, OPI, ordbetareg, origami, oro.nifti, PAIRADISE,
-paleomorph, PartialNetwork, patternize, Patterns, pcalg, PCMBase,
-PCMBaseCpp, plfm, PLMIX, plyr, poliscidata, polyqtlR, pop.lion,
-pop.wolf, population, posterior, postGGIR, postpack, pressuRe, profoc,
-projpred, proteus, PStrata, psychonetrics, qgraph, qtlpoly, quantspec,
-quest, r.jive, R2jags, RBesT, Rcmdr, RcmdrMisc, RcmdrPlugin.EACSPIR,
-RcmdrPlugin.EBM, RcmdrPlugin.EZR, RcmdrPlugin.NMBU, recolorize,
-rerddapXtracto, resourcecode, rfPermute, riboSeqR, RItools, RLumCarlo,
-rma.exact, RNAinteract, RNCEP, rofanova, rosm, rpm, rrscale, rSHAPE,
-rtide, s2dv, S4Arrays, SAMGEP, SAMtool, scpi, scTensor, secr,
-secrdesign, segmentSeq, SelectBoost, sharp, sjSDM, smacpod, smcfcs,
-smfsb, snfa, SOMMD, SoundShape, spAbundance, spagmix, spant,
-SparseTSCGM, spatPomp, spatstat.explore, spatstat.model,
-spatstat.sparse, SpecDetec, specieschrom, SphericalCubature, spinner,
-spNetwork, spOccupancy, ssdtools, StabMap, stars, starsTileServer,
-startR, stfit, str2str, stratastats, swfscMisc, telefit, telescope,
-templateICAr, tensorBSS, TensorClustering, TensorTest2D, tensorTS,
-tetragon, tfhub, torchvision, treeclim, TSLSTMplus, tsmarch, twig,
-Umatrix, uniformly, viewpoly, wavScalogram, webSDM, xLLiM, zoib, ZVCV
+Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 5 exported objects. 5 are documented:
+Overall the package has 0 exported objects. 0 are documented:
 
-      abind   acorn   adrop afill<-    asub 
-       TRUE    TRUE    TRUE    TRUE    TRUE 
+    named logical(0)
 
 ### Examples
 
-There are 4 help pages with examples, from 4 (100.00 %).
+There are help pages with examples, from (? %).
 
 ### NEWS
 
@@ -129,7 +83,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-11 03:15:15 UTC |
+| Execution Time | 2025-02-11 03:15:27 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -370,7 +324,7 @@ running this report
                             /tmp/RtmpBqhnZr
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1e4427fc4a03_1739243714
+    PROCESSX_PS1e445e13cf4c_1739243725
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -397,7 +351,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpExT9eA
+    R_SESSION_TMPDIR        /tmp/RtmpINMnJi
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -465,7 +419,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x555e764ed9c0>
+    <bytecode: 0x55a20a7249c0>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -504,7 +458,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x555e775a8808>
+    <bytecode: 0x55a20b7df808>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -671,7 +625,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x555e759b6520>
+    <environment: 0x55a209bed520>
 
 
     $str.dendrogram.last
@@ -681,7 +635,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_abind_v1.4.8-tikzDictionary"
+    [1] "validation_report_abseil_v2023.8.2.1-tikzDictionary"
 
     $timeout
     [1] 60
