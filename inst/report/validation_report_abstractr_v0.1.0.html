@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>validation_report_aalenjohansen_v1.0 – pharmapkgs: riskreports</title>
+<title>validation_report_abstractr_v0.1.0 – pharmapkgs: riskreports</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -114,8 +114,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="validation-report---aalenjohansen1.0" class="level1">
-<h1>Validation Report - AalenJohansen@1.0</h1>
+<section id="validation-report---abstractr0.1.0" class="level1">
+<h1>Validation Report - abstractr@0.1.0</h1>
 </section>
 <section id="context" class="level1">
 <h1>Context</h1>
@@ -126,8 +126,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>It is limited to assess whether unit tests and documentation are present and can execute without error. An assessment would be required that the tests and documentation are meaningful.</p>
 </section>
-<section id="package-aalenjohansen" class="level1">
-<h1>Package AalenJohansen</h1>
+<section id="package-abstractr" class="level1">
+<h1>Package abstractr</h1>
 <section id="metric-based-risk-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="metric-based-risk-assessment">Metric based risk assessment</h2>
 <p>The following metrics are derived from the <code>riskmetric</code> R package.</p>
@@ -139,23 +139,23 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">exported_namespace</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_vignettes</td>
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">export_help</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_website</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">has_maintainer</td>
-<td style="text-align: left;">Martin Bladt <a href="mailto:martinbladt@math.ku.dk" class="email">martinbladt@math.ku.dk</a></td>
+<td style="text-align: left;">Matthew Kumar <a href="mailto:mattkumar@gmail.com" class="email">mattkumar@gmail.com</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bugs_status</td>
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">size_codebase</td>
-<td style="text-align: left;">159</td>
+<td style="text-align: left;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">has_bug_reports_url</td>
@@ -171,19 +171,19 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: left;">downloads_1yr</td>
-<td style="text-align: left;">5617</td>
+<td style="text-align: left;">3306</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">reverse_dependencies</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">has_examples</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;">dependencies</td>
+<td style="text-align: left;">7</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">license</td>
-<td style="text-align: left;">GPL (&gt;= 2)</td>
+<td style="text-align: left;">GPL-3</td>
 </tr>
 </tbody>
 </table>
@@ -192,15 +192,50 @@ ul.task-list li input[type="checkbox"] {
 <section id="dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
 <p>Overall the package has these dependencies:</p>
-<pre><code>Error in deps$package: $ operator is invalid for atomic vectors</code></pre>
-<table class="caption-top">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: left;">x</th>
+<th style="text-align: left;">package</th>
+<th style="text-align: left;">type</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">shiny (&gt;= 1.2.0)</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">ggplot2 (&gt;= 3.0.0)</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">gridExtra (&gt;= 2.3.0)</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">colourpicker</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">shinythemes</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">emojifont</td>
+<td style="text-align: left;">Imports</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">rintrojs</td>
+<td style="text-align: left;">Imports</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Package dependencies</strong></p>
@@ -211,12 +246,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="namespace" class="level2">
 <h2 class="anchored" data-anchor-id="namespace">Namespace</h2>
-<p>Overall the package has 3 exported objects. 3 are documented:</p>
-<pre><code>aalen_johansen        prodint       sim_path 
-          TRUE           TRUE           TRUE </code></pre>
+<p>Overall the package has 1 exported objects. 1 are documented:</p>
+<pre><code>abstractr 
+     TRUE </code></pre>
 <section id="examples" class="level3">
 <h3 class="anchored" data-anchor-id="examples">Examples</h3>
-<p>There are 3 help pages with examples, from 3 (100.00 %).</p>
+<p>There are help pages with examples, from (? %).</p>
 </section>
 <section id="news" class="level3">
 <h3 class="anchored" data-anchor-id="news">NEWS</h3>
@@ -258,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Execution Time</td>
-<td style="text-align: left;">2025-02-08 15:36:08 UTC</td>
+<td style="text-align: left;">2025-02-12 03:14:31 UTC</td>
 </tr>
 </tbody>
 </table>
@@ -403,18 +438,18 @@ GITHUB_ACTION_REF
 GITHUB_ACTION_REPOSITORY
                         
 GITHUB_ACTIONS          true
-GITHUB_ACTOR            Gotfrid
-GITHUB_ACTOR_ID         8464262
+GITHUB_ACTOR            llrs-roche
+GITHUB_ACTOR_ID         185338939
 GITHUB_API_URL          https://api.github.com
 GITHUB_BASE_REF         
-GITHUB_ENV              /home/runner/work/_temp/_runner_file_commands/set_env_e5fc94ec-8680-48d1-9a93-54b75d34aaff
-GITHUB_EVENT_NAME       workflow_dispatch
+GITHUB_ENV              /home/runner/work/_temp/_runner_file_commands/set_env_4c598a7d-966f-41be-a945-4030d9a043ba
+GITHUB_EVENT_NAME       schedule
 GITHUB_EVENT_PATH       /home/runner/work/_temp/_github_workflow/event.json
 GITHUB_GRAPHQL_URL      https://api.github.com/graphql
 GITHUB_HEAD_REF         
 GITHUB_JOB              main
-GITHUB_OUTPUT           /home/runner/work/_temp/_runner_file_commands/set_output_e5fc94ec-8680-48d1-9a93-54b75d34aaff
-GITHUB_PATH             /home/runner/work/_temp/_runner_file_commands/add_path_e5fc94ec-8680-48d1-9a93-54b75d34aaff
+GITHUB_OUTPUT           /home/runner/work/_temp/_runner_file_commands/set_output_4c598a7d-966f-41be-a945-4030d9a043ba
+GITHUB_PATH             /home/runner/work/_temp/_runner_file_commands/add_path_4c598a7d-966f-41be-a945-4030d9a043ba
 GITHUB_REF              refs/heads/main
 GITHUB_REF_NAME         main
 GITHUB_REF_PROTECTED    false
@@ -427,21 +462,21 @@ GITHUB_REPOSITORY_OWNER_ID
                         42115094
 GITHUB_RETENTION_DAYS   90
 GITHUB_RUN_ATTEMPT      1
-GITHUB_RUN_ID           13217007020
-GITHUB_RUN_NUMBER       77
+GITHUB_RUN_ID           13277261375
+GITHUB_RUN_NUMBER       81
 GITHUB_SERVER_URL       https://github.com
-GITHUB_SHA              8898c12de4e6b544807b951bd50589200f5326b3
-GITHUB_STATE            /home/runner/work/_temp/_runner_file_commands/save_state_e5fc94ec-8680-48d1-9a93-54b75d34aaff
-GITHUB_STEP_SUMMARY     /home/runner/work/_temp/_runner_file_commands/step_summary_e5fc94ec-8680-48d1-9a93-54b75d34aaff
+GITHUB_SHA              eeae0885c1dd17065a4f2f4d74fb7bafe4bc7acd
+GITHUB_STATE            /home/runner/work/_temp/_runner_file_commands/save_state_4c598a7d-966f-41be-a945-4030d9a043ba
+GITHUB_STEP_SUMMARY     /home/runner/work/_temp/_runner_file_commands/step_summary_4c598a7d-966f-41be-a945-4030d9a043ba
 GITHUB_TRIGGERING_ACTOR
-                        Gotfrid
+                        llrs-roche
 GITHUB_WORKFLOW         Update package repositories
 GITHUB_WORKFLOW_REF     pharmaR/pharmapkgs/.github/workflows/update-repos.yml@refs/heads/main
-GITHUB_WORKFLOW_SHA     8898c12de4e6b544807b951bd50589200f5326b3
+GITHUB_WORKFLOW_SHA     eeae0885c1dd17065a4f2f4d74fb7bafe4bc7acd
 GITHUB_WORKSPACE        /home/runner/work/pharmapkgs/pharmapkgs
 GOROOT_1_21_X64         /opt/hostedtoolcache/go/1.21.13/x64
-GOROOT_1_22_X64         /opt/hostedtoolcache/go/1.22.11/x64
-GOROOT_1_23_X64         /opt/hostedtoolcache/go/1.23.5/x64
+GOROOT_1_22_X64         /opt/hostedtoolcache/go/1.22.12/x64
+GOROOT_1_23_X64         /opt/hostedtoolcache/go/1.23.6/x64
 GRADLE_HOME             /usr/share/gradle-8.12.1
 HOME                    /home/runner
 HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS
@@ -449,14 +484,14 @@ HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS
 HOMEBREW_NO_AUTO_UPDATE
                         1
 ImageOS                 ubuntu24
-ImageVersion            20250202.1.0
-INVOCATION_ID           15c8e09276654708a2ec0a2c095d65dc
+ImageVersion            20250209.1.0
+INVOCATION_ID           302b22b18b0746d28d15db5d28d0c35d
 JAVA_HOME               /usr/lib/jvm/temurin-17-jdk-amd64
 JAVA_HOME_11_X64        /usr/lib/jvm/temurin-11-jdk-amd64
 JAVA_HOME_17_X64        /usr/lib/jvm/temurin-17-jdk-amd64
 JAVA_HOME_21_X64        /usr/lib/jvm/temurin-21-jdk-amd64
 JAVA_HOME_8_X64         /usr/lib/jvm/temurin-8-jdk-amd64
-JOURNAL_STREAM          8:7317
+JOURNAL_STREAM          8:7737
 LANG                    C.UTF-8
 LD_LIBRARY_PATH         /opt/R/4.4.2/lib/R/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/temurin-17-jdk-amd64/lib/server:/opt/R/4.4.2/lib/R/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/temurin-17-jdk-amd64/lib/server
 LN_S                    ln -s
@@ -481,10 +516,10 @@ PIPX_BIN_DIR            /opt/pipx_bin
 PIPX_HOME               /opt/pipx
 PKGCACHE_HTTP_VERSION   2
 PKGLOAD_PARENT_TEMPDIR
-                        /tmp/Rtmp2p5usN
+                        /tmp/RtmpftfMNU
 POWERSHELL_DISTRIBUTION_CHANNEL
                         GitHub-Actions-ubuntu24
-PROCESSX_PS1e6836f8952_1739028967
+PROCESSX_PS1bbe396aeedb_1739330070
                         YES
 PWD                     /home/runner/work/pharmapkgs/pharmapkgs
 QUARTO_BIN_PATH         /opt/quarto/bin
@@ -511,7 +546,7 @@ R_PDFVIEWER             /usr/bin/xdg-open
 R_PLATFORM              x86_64-pc-linux-gnu
 R_PRINTCMD              /usr/bin/lpr
 R_RD4PDF                times,inconsolata,hyper
-R_SESSION_TMPDIR        /tmp/Rtmp5QnsR0
+R_SESSION_TMPDIR        /tmp/Rtmpi3BMKf
 R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
 R_STRIP_SHARED_LIB      strip --strip-unneeded
 R_STRIP_STATIC_LIB      strip --strip-debug
@@ -520,12 +555,12 @@ R_UNZIPCMD              /usr/bin/unzip
 R_ZIPCMD                /usr/bin/zip
 RUNNER_ARCH             X64
 RUNNER_ENVIRONMENT      github-hosted
-RUNNER_NAME             GitHub Actions 12
+RUNNER_NAME             GitHub Actions 17
 RUNNER_OS               Linux
 RUNNER_PERFLOG          /home/runner/perflog
 RUNNER_TEMP             /home/runner/work/_temp
 RUNNER_TOOL_CACHE       /opt/hostedtoolcache
-RUNNER_TRACKING_ID      github_eeb9d4a1-3e87-4542-842b-d95ab641e06e
+RUNNER_TRACKING_ID      github_cd08638a-1373-4d47-9fe3-338cf73d7be3
 RUNNER_USER             runner
 RUNNER_WORKSPACE        /home/runner/work/pharmapkgs
 SED                     /usr/bin/sed
@@ -577,7 +612,7 @@ function (msg)
         cli_server_default(msg)
     }
 }
-&lt;bytecode: 0x5643e2dae9c0&gt;
+&lt;bytecode: 0x5572e5f169c0&gt;
 &lt;environment: namespace:cli&gt;
 
 $catch.script.errors
@@ -616,7 +651,7 @@ function (width = 7, height = 7, ...)
 {
     grDevices::pdf(NULL, width, height, ...)
 }
-&lt;bytecode: 0x5643e3e69808&gt;
+&lt;bytecode: 0x5572e6fd1840&gt;
 &lt;environment: namespace:knitr&gt;
 
 $device.ask.default
@@ -783,7 +818,7 @@ $str$drop.deparse.attr
 $str$formatNum
 function (x, ...) 
 format(x, trim = TRUE, drop0trailing = TRUE, ...)
-&lt;environment: 0x5643e2277520&gt;
+&lt;environment: 0x5572e53df520&gt;
 
 
 $str.dendrogram.last
@@ -793,7 +828,7 @@ $texi2dvi
 [1] "/usr/bin/texi2dvi"
 
 $tikzMetricsDictionary
-[1] "validation_report_AalenJohansen_v1.0-tikzDictionary"
+[1] "validation_report_abstractr_v0.1.0-tikzDictionary"
 
 $timeout
 [1] 60
