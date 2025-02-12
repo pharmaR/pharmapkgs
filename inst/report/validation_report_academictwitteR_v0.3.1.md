@@ -1,4 +1,4 @@
-# Validation Report - abd@0.2.8
+# Validation Report - academictwitteR@0.3.1
 
 
 # Context
@@ -14,28 +14,30 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package abd
+# Package academictwitteR
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 4                                                    |
-| has_vignettes        | 0                                                    |
-| export_help          | 4                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kevin M. Middleton <middletonk@missouri.edu>         |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| size_codebase        | 254                                                  |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 16867                                                |
-| reverse_dependencies | 1                                                    |
-| has_examples         | 1                                                    |
-| dependencies         | 4                                                    |
-| license              | GPL-2                                                |
+|                      |                                                  |
+|:---------------------|:-------------------------------------------------|
+| has_news             | 1                                                |
+| news_current         | TRUE                                             |
+| exported_namespace   | 38                                               |
+| has_vignettes        | 13                                               |
+| export_help          | 38                                               |
+| has_website          | TRUE                                             |
+| has_maintainer       | Christopher Barrie <christopher.barrie@ed.ac.uk> |
+| bugs_status          | 0.7333333                                        |
+| size_codebase        | 1165                                             |
+| has_source_control   | https://github.com/cjbarrie/academictwitteR      |
+| has_bug_reports_url  | 1                                                |
+| downloads_1yr        | 5917                                             |
+| reverse_dependencies | 0                                                |
+| has_examples         | 1                                                |
+| dependencies         | 12                                               |
+| license              | MIT + file LICENSE                               |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -44,31 +46,61 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package | type    |
-|:----|:--------|:--------|
-| 1   | nlme    | Depends |
-| 2   | lattice | Depends |
-| 3   | grid    | Depends |
-| 4   | mosaic  | Depends |
+|     | package           | type    |
+|:----|:------------------|:--------|
+| 1   | dplyr (\>= 1.0.0) | Imports |
+| 2   | httr              | Imports |
+| 3   | jsonlite          | Imports |
+| 4   | magrittr          | Imports |
+| 5   | lubridate         | Imports |
+| 6   | usethis           | Imports |
+| 7   | tibble            | Imports |
+| 8   | tidyr             | Imports |
+| 9   | tidyselect        | Imports |
+| 10  | purrr             | Imports |
+| 11  | rlang             | Imports |
+| 12  | utils             | Imports |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 1 reverse dependencies:
-
-tigerstats
+Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 4 exported objects. 4 are documented:
+Overall the package has 38 exported objects. 37 are documented:
 
-       abdData    col.abd histochart  theme.abd 
-          TRUE       TRUE       TRUE       TRUE 
+                      %>%      bind_tweet_jsons           bind_tweets 
+                    FALSE                  TRUE                  TRUE 
+          bind_user_jsons           build_query          convert_json 
+                     TRUE                  TRUE                  TRUE 
+         count_all_tweets create_compliance_job        get_all_tweets 
+                     TRUE                  TRUE                  TRUE 
+          get_bbox_tweets            get_bearer get_compliance_result 
+                     TRUE                  TRUE                  TRUE 
+       get_country_tweets        get_geo_tweets      get_image_tweets 
+                     TRUE                  TRUE                  TRUE 
+          get_lang_tweets      get_liked_tweets      get_liking_users 
+                     TRUE                  TRUE                  TRUE 
+         get_media_tweets   get_mentions_tweets      get_place_tweets 
+                     TRUE                  TRUE                  TRUE 
+        get_radius_tweets      get_retweeted_by  get_retweets_of_user 
+                     TRUE                  TRUE                  TRUE 
+            get_to_tweets        get_url_tweets    get_user_followers 
+                     TRUE                  TRUE                  TRUE 
+       get_user_following           get_user_id      get_user_profile 
+                     TRUE                  TRUE                  TRUE 
+        get_user_timeline       get_user_tweets      get_video_tweets 
+                     TRUE                  TRUE                  TRUE 
+           hydrate_tweets  list_compliance_jobs     resume_collection 
+                     TRUE                  TRUE                  TRUE 
+               set_bearer     update_collection 
+                     TRUE                  TRUE 
 
 ### Examples
 
-There are 148 help pages with examples, from 148 (100.00 %).
+There are 37 help pages with examples, from 37 (100.00 %).
 
 ### NEWS
 
@@ -88,7 +120,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-12 03:14:28 UTC |
+| Execution Time | 2025-02-12 03:14:44 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -329,7 +361,7 @@ running this report
                             /tmp/RtmpftfMNU
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1bbe69176581_1739330066
+    PROCESSX_PS1bbe57ded300_1739330082
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -356,7 +388,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpEqMNPs
+    R_SESSION_TMPDIR        /tmp/RtmpMbnGQD
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -424,7 +456,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55805800a9c0>
+    <bytecode: 0x560bef7a29c0>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -463,7 +495,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x5580590c5840>
+    <bytecode: 0x560bf085d840>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -630,7 +662,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x5580574d3520>
+    <environment: 0x560beec6b520>
 
 
     $str.dendrogram.last
@@ -640,7 +672,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_abd_v0.2.8-tikzDictionary"
+    [1] "validation_report_academictwitteR_v0.3.1-tikzDictionary"
 
     $timeout
     [1] 60

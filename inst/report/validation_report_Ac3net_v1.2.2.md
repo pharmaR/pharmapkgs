@@ -1,4 +1,4 @@
-# Validation Report - abd@0.2.8
+# Validation Report - Ac3net@1.2.2
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package abd
+# Package Ac3net
 
 ## Metric based risk assessment
 
@@ -23,19 +23,19 @@ The following metrics are derived from the `riskmetric` R package.
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
 | has_news             | 0                                                    |
-| exported_namespace   | 4                                                    |
+| exported_namespace   | 0                                                    |
 | has_vignettes        | 0                                                    |
-| export_help          | 4                                                    |
+| export_help          | 0                                                    |
 | has_website          | FALSE                                                |
-| has_maintainer       | Kevin M. Middleton <middletonk@missouri.edu>         |
+| has_maintainer       | Gokmen Altay <altaylabs@gmail.com>                   |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
-| size_codebase        | 254                                                  |
+| size_codebase        | 225                                                  |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 16867                                                |
-| reverse_dependencies | 1                                                    |
+| downloads_1yr        | 3797                                                 |
+| reverse_dependencies | 0                                                    |
 | has_examples         | 1                                                    |
-| dependencies         | 4                                                    |
-| license              | GPL-2                                                |
+| dependencies         | 1                                                    |
+| license              | GPL (\>= 3)                                          |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -44,31 +44,25 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package | type    |
-|:----|:--------|:--------|
-| 1   | nlme    | Depends |
-| 2   | lattice | Depends |
-| 3   | grid    | Depends |
-| 4   | mosaic  | Depends |
+|     | package    | type    |
+|:----|:-----------|:--------|
+| 1   | data.table | Depends |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 1 reverse dependencies:
-
-tigerstats
+Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 4 exported objects. 4 are documented:
+Overall the package has 0 exported objects. 0 are documented:
 
-       abdData    col.abd histochart  theme.abd 
-          TRUE       TRUE       TRUE       TRUE 
+    named logical(0)
 
 ### Examples
 
-There are 148 help pages with examples, from 148 (100.00 %).
+There are 11 help pages with examples, from 11 (100.00 %).
 
 ### NEWS
 
@@ -88,7 +82,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-12 03:14:28 UTC |
+| Execution Time | 2025-02-12 03:14:38 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -329,7 +323,7 @@ running this report
                             /tmp/RtmpftfMNU
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1bbe69176581_1739330066
+    PROCESSX_PS1bbe26bbe487_1739330077
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -356,7 +350,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpEqMNPs
+    R_SESSION_TMPDIR        /tmp/Rtmpb7AXhE
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -424,7 +418,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55805800a9c0>
+    <bytecode: 0x5583804b99c0>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -463,7 +457,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x5580590c5840>
+    <bytecode: 0x558381574840>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -630,7 +624,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x5580574d3520>
+    <environment: 0x55837f982520>
 
 
     $str.dendrogram.last
@@ -640,7 +634,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_abd_v0.2.8-tikzDictionary"
+    [1] "validation_report_Ac3net_v1.2.2-tikzDictionary"
 
     $timeout
     [1] 60
