@@ -142,24 +142,20 @@ score_packages <- function(
   }
 
   logger::log_info("Scoring packages", namespace = "pharmapkgs")
-  scores <- mapply(
-    package_refs,
-    SIMPLIFY = FALSE,
-    FUN = function(ref, assessment) {
-      logger::log_debug("\tScoring {ref$name}@{ref$version}", namespace = "pharmapkgs")
+  scores <- lapply(package_refs, function(ref) {
+    logger::log_debug("\tScoring {ref$name}@{ref$version}", namespace = "pharmapkgs")
 
-      assessment <- suppressMessages(riskmetric::pkg_assess(ref, assessments = metrics))
-      package_assessments <<- c(package_assessments, list(assessment))
+    assessment <- suppressMessages(riskmetric::pkg_assess(ref, assessments = metrics))
+    package_assessments <<- c(package_assessments, list(assessment))
 
-      score <- riskmetric::pkg_score(assessment)
+    score <- riskmetric::pkg_score(assessment)
 
-      score$Package <- ref$name
-      score$Version <- ref$version
+    score$Package <- ref$name
+    score$Version <- ref$version
 
-      lapply(score, as.character) |>
-        as.data.frame()
-    }
-  )
+    lapply(score, as.character) |>
+      as.data.frame()
+  })
 
   score_data <- Reduce(x = scores, f = function(acc, nxt) {
     data <- .sync_colnames(acc, nxt)
