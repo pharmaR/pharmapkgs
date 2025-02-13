@@ -5,7 +5,7 @@
 \alias{.config}
 \title{Config storage to reuse values across the package}
 \format{
-An object of class \code{environment} of length 4.
+An object of class \code{environment} of length 6.
 }
 \usage{
 .config
