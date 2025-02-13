@@ -111,6 +111,18 @@ describe("score_packages", {
     package_assessment <- actual_output$package_assessments[[1]]
     expect_true(inherits(package_assessment, "list_of_pkg_metric"))
   })
+
+  it("handles single package scoring", {
+    packages <- c("rlang")
+    actual_output <- score_packages(packages)
+    expect_type(actual_output, "list")
+  })
+
+  it("handles data-only packages", {
+    packages <- c("acss.data")
+    actual_output <- score_packages(packages)
+    expect_identical(actual_output, NULL)
+  })
 })
 
 describe("add_score_to_packages", {
