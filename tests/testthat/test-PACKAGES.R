@@ -37,6 +37,20 @@ describe("get_packages", {
     expect_s3_class(packages, "data.frame")
     expect_equal(nrow(packages), 1)
   })
+
+  it("standardizes versioning semantics", {
+    actual_version <- "1.1-12"
+    expected_version <- "1.1.12"
+
+    temp_dir <- tempdir()
+    on.exit(unlink(temp_dir, TRUE, TRUE))
+    dir.create(utils::contrib.url(temp_dir), recursive = TRUE)
+    packages_file <- file.path(utils::contrib.url(temp_dir), "PACKAGES")
+    write.dcf(data.frame(Package = "hello", Version = actual_version), packages_file)
+
+    packages <- get_packages(base_url = temp_dir)
+    expect_identical(packages$Version, expected_version)
+  })
 })
 
 describe("diff_packages", {
