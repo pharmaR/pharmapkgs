@@ -133,6 +133,9 @@ score_packages <- function(
   package_refs <- riskmetric::pkg_ref(
     file.path(.config$project_path, "inst", "source", download_result[, 1])
   )
+  if (inherits(package_refs,, "pkg_ref")) {
+    package_refs <- list(package_refs)
+  }
 
   package_assessments <- list()
 
