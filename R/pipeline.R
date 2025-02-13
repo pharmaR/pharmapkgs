@@ -7,6 +7,10 @@ github_actions <- function() {
   local_packages <- get_packages(base_url = .config$local_base)
   new_packages <- diff_packages(remote_packages, local_packages)
   scoring_result <- score_packages(new_packages)
+  if (is.null(scoring_result)) {
+    logger::log_info("No new packages to score", namespace = "pharmapkgs")
+    return()
+  }
   scored_packages <- add_score_to_packages(remote_packages, scoring_result$scored_packages)
   new_local_packages <- update_packages(local_packages, scored_packages)
   generate_riskreports(scoring_result$package_refs, scoring_result$package_assessments)
