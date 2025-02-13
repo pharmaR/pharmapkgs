@@ -1,4 +1,4 @@
-# Validation Report - abind@1.4.8
+# Validation Report - acc@1.3.3
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package abind
+# Package acc
 
 ## Metric based risk assessment
 
@@ -23,19 +23,19 @@ The following metrics are derived from the `riskmetric` R package.
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
 | has_news             | 0                                                    |
-| exported_namespace   | 5                                                    |
+| exported_namespace   | 15                                                   |
 | has_vignettes        | 0                                                    |
-| export_help          | 5                                                    |
+| export_help          | 15                                                   |
 | has_website          | FALSE                                                |
-| has_maintainer       | Tony Plate <tplate@acm.org>                          |
+| has_maintainer       | Jaejoon Song <jjsong2@mdanderson.org>                |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
-| size_codebase        | 427                                                  |
+| size_codebase        | 1595                                                 |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 4061806                                              |
-| reverse_dependencies | 305                                                  |
-| has_examples         | 1                                                    |
-| dependencies         | 2                                                    |
-| license              | MIT + file LICENSE                                   |
+| downloads_1yr        | 4345                                                 |
+| reverse_dependencies | 0                                                    |
+| has_examples         | 0.9444444                                            |
+| dependencies         | 15                                                   |
+| license              | GPL (\>= 2)                                          |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -44,72 +44,44 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package | type    |
-|:----|:--------|:--------|
-| 1   | methods | Imports |
-| 2   | utils   | Imports |
+|     | package          | type      |
+|:----|:-----------------|:----------|
+| 1   | mhsmm            | Depends   |
+| 2   | zoo              | Imports   |
+| 3   | PhysicalActivity | Imports   |
+| 4   | nleqslv          | Imports   |
+| 5   | plyr             | Imports   |
+| 6   | methods          | Imports   |
+| 7   | DBI              | Imports   |
+| 8   | RSQLite          | Imports   |
+| 9   | circlize         | Imports   |
+| 10  | ggplot2          | Imports   |
+| 11  | R.utils          | Imports   |
+| 12  | iterators        | Imports   |
+| 13  | Rcpp             | Imports   |
+| 14  | Rcpp             | LinkingTo |
+| 15  | RcppArmadillo    | LinkingTo |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 305 reverse dependencies:
-
-abctools, aihuman, AlignLV, alleHap, Anthropometry, Apollonius, arm,
-Arothron, autoBagging, autoimage, autoMFA, autonomics, baker, bamp,
-BATSS, BayesComm, BayesDLMfMRI, BayesfMRI, bayesPop, BayesRGMM, BayesS5,
-baySeq, BCBCSF, BCClong, BEclear, berryFunctions, BGGM, BGVAR, BigVAR,
-bioimagetools, biomod2, bootnet, boral, brainGraph, brms, camtrapR,
-cape, car, Cascade, CatsCradle, CFC, changepoints, chkptstanr, cito,
-CNORdt, codez, cogirt, colordistance, cols4all, communication, COMPASS,
-conos, cope, copre, copula, CoTiMA, CPMCGLM, crrcbcv, crunch, CSTools,
-curvir, cypress, detrendr, diceR, dmbc, drake, dynamAedes, easyNCDF,
-EBImage, EBMAforecast, EMC2, EventPointer, eventstream, factoextra,
-FactorCopula, fastcpd, fect, fic, FISHalyseR, fishpond, flocker,
-flowcatchR, fmerPack, forestplot, fractaldim, funData, funLBM, gapfill,
-gasmodel, GenericML, GeomArchetypal, georob, geostatsp, ggimg,
-ggspatial, GGUM, Gmisc, grec, greta, greta.dynamics, gsynth, GWEX, h5vc,
-hdiVAR, HH, hilbertSimilarity, HiLDA, Hmisc, Hmsc, IAcsSPCR, iCARH,
-ijtiff, imcRtools, iNEXT.beta3D, integIRTy, interplot, IPMbook, ISLET,
-isoWater, jenga, kamila, Karen, kgschart, kyotil, lacunr, lambdaTS,
-latentnet, lavaSearch2, ldsep, LeMaRns, LifeInsureR, limorhyde2, lolR,
-LOMAR, long2lstmarray, LSDinterface, LSDirf, LSDsensitivity,
-MachineShop, magclass, magic, mariner, mashr, MAST, mbest, mcmcderive,
-mcmcr, mcmsupply, merTools, meshed, MFPCA, mgc, micemd, MicroMoB,
-mimager, mlma, mlogitBMA, mlVAR, MM, mMARCH.AC, modnets, MonteCarlo,
-mpower, mrfDepth, MSEtool, multilevelcoda, MultiPhen, multipol,
-multivator, mvmesh, mvProbit, mvSLOUCH, nandb, ncdf4.helpers, ncdfCF,
-NetRep, NetworkChange, neurobase, neuroim, nlist, oceanmap, OncoBayes2,
-openCR, OpenRepGrid, OPI, ordbetareg, origami, oro.nifti, PAIRADISE,
-paleomorph, PartialNetwork, patternize, Patterns, pcalg, PCMBase,
-PCMBaseCpp, plfm, PLMIX, plyr, poliscidata, polyqtlR, pop.lion,
-pop.wolf, population, posterior, postGGIR, postpack, pressuRe, profoc,
-projpred, proteus, PStrata, psychonetrics, qgraph, qtlpoly, quantspec,
-quest, r.jive, R2jags, RBesT, Rcmdr, RcmdrMisc, RcmdrPlugin.EACSPIR,
-RcmdrPlugin.EBM, RcmdrPlugin.EZR, RcmdrPlugin.NMBU, recolorize,
-rerddapXtracto, resourcecode, rfPermute, riboSeqR, RItools, RLumCarlo,
-rma.exact, RNAinteract, RNCEP, rofanova, rosm, rpm, rrscale, rSHAPE,
-rtide, s2dv, S4Arrays, SAMGEP, SAMtool, scpi, scTensor, secr,
-secrdesign, segmentSeq, SelectBoost, sharp, sjSDM, smacpod, smcfcs,
-smfsb, snfa, SOMMD, SoundShape, spAbundance, spagmix, spant,
-SparseTSCGM, spatPomp, spatstat.explore, spatstat.model,
-spatstat.sparse, SpecDetec, specieschrom, SphericalCubature, spinner,
-spNetwork, spOccupancy, ssdtools, StabMap, stars, starsTileServer,
-startR, stfit, str2str, stratastats, swfscMisc, telefit, telescope,
-templateICAr, tensorBSS, TensorClustering, TensorTest2D, tensorTS,
-tetragon, tfhub, torchvision, treeclim, TSLSTMplus, tsmarch, twig,
-Umatrix, uniformly, viewpoly, wavScalogram, webSDM, xLLiM, zoib, ZVCV
+Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 5 exported objects. 5 are documented:
+Overall the package has 15 exported objects. 15 are documented:
 
-      abind   acorn   adrop afill<-    asub 
-       TRUE    TRUE    TRUE    TRUE    TRUE 
+                acc        accBatch      accSummary             aee          aeefit 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
+            aeexfit          aggAcc         plotAcc        racePlot      readCounts 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
+    readCountsBatch         readRaw          simAcc           simPA        visGroup 
+               TRUE            TRUE            TRUE            TRUE            TRUE 
 
 ### Examples
 
-There are 4 help pages with examples, from 4 (100.00 %).
+There are 17 help pages with examples, from 18 (94.44 %).
 
 ### NEWS
 
@@ -129,7 +101,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-13 03:14:53 UTC |
+| Execution Time | 2025-02-13 03:14:55 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -370,7 +342,7 @@ running this report
                             /tmp/RtmpXZQfLO
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1c1515e9a193_1739416492
+    PROCESSX_PS1c1579cd3cf0_1739416494
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -397,7 +369,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpWjcpSO
+    R_SESSION_TMPDIR        /tmp/RtmpJFIcdT
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -465,7 +437,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55f65e71d9c0>
+    <bytecode: 0x55e5638009c0>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -504,7 +476,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55f65f7d8840>
+    <bytecode: 0x55e5648bb840>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -671,7 +643,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55f65dbe6520>
+    <environment: 0x55e562cc9520>
 
 
     $str.dendrogram.last
@@ -681,7 +653,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_abind_v1.4.8-tikzDictionary"
+    [1] "validation_report_acc_v1.3.3-tikzDictionary"
 
     $timeout
     [1] 60
