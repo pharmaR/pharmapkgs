@@ -2,6 +2,8 @@ name: Unit tests
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
     types: ready_for_review
