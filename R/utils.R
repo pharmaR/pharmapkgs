@@ -119,7 +119,6 @@ global_filters <- function() {
   logger::log_info("Checking the source code", namespace = "pharmapkgs")
   verified_packages <- packages
   for (package in verified_packages) {
-    package <- "bimets"
     source_files <- list.files(
       path = file.path(.config$project_path, "inst", "source", package, "R"),
       ignore.case = TRUE,
