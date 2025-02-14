@@ -121,7 +121,8 @@ describe("score_packages", {
   it("handles data-only packages", {
     packages <- c("acss.data")
     actual_output <- score_packages(packages)
-    expect_identical(actual_output, NULL)
+    expect_type(actual_output, "list")
+    expect_named(actual_output, c("scored_packages", "package_refs", "package_assessments"))
   })
 })
 
