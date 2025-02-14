@@ -58,11 +58,12 @@ get_packages <- function(base_url = .config$remote_base) {
 #'
 #' @param remote_packages Data frame with remote packages.
 #' @param local_packages Data frame with local packages.
+#' @param exemptions Character vector with package names to exclude.
 #'
 #' @return character()
 #'
 #' @export
-diff_packages <- function(remote_packages, local_packages) {
+diff_packages <- function(remote_packages, local_packages, exemptions = EXCLUDED_PACKAGES) {
   logger::log_info("Identifying new or newer packages", namespace = "pharmapkgs")
 
   stopifnot(
@@ -86,7 +87,9 @@ diff_packages <- function(remote_packages, local_packages) {
     combined_packages$Version_local
   )
 
-  combined_packages[is_new_or_newer > 0, "Package", drop = TRUE]
+  new_packages <- combined_packages[is_new_or_newer > 0, "Package", drop = TRUE]
+
+  new_packages[!new_packages %in% exemptions]
 }
 
 #' Assess packages using riskmetric.
@@ -146,6 +149,11 @@ score_packages <- function(
       logger::log_warn(
         "\tNo source code found for package: {package} - skipping scoring",
         namespace = "pharmapkgs"
+      )
+      write(
+        x = package,
+        file = system.file("config", "excluded-packages.txt", package = "pharmapkgs"),
+        append = TRUE
       )
       packages <- packages[packages != package]
     }
