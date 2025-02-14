@@ -133,31 +133,8 @@ score_packages <- function(
     untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
   }
 
-
-  # Packages without source code break pkg_assess() function
-  # See: https://github.com/pharmaR/riskmetric/issues/362
-  logger::log_info("Checking for source code", namespace = "pharmapkgs")
-  packages <- download_result[, 1]
-  for (package in packages) {
-    source_code <- list.files(
-      path = file.path(.config$project_path, "inst", "source", package),
-      pattern = "\\.R$",
-      ignore.case = TRUE,
-      recursive = TRUE
-    )
-    if (length(source_code) == 0) {
-      logger::log_warn(
-        "\tNo source code found for package: {package} - skipping scoring",
-        namespace = "pharmapkgs"
-      )
-      write(
-        x = package,
-        file = system.file("config", "excluded-packages.txt", package = "pharmapkgs"),
-        append = TRUE
-      )
-      packages <- packages[packages != package]
-    }
-  }
+  # Only keep packages digestible by riskmetric
+  packages <- .verify_package_source_code(download_result[, 1])
 
   if (length(packages) == 0) {
     logger::log_warn("No packages to score", namespace = "pharmapkgs")

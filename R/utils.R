@@ -102,3 +102,54 @@ global_filters <- function() {
     package_version
   )
 }
+
+#' Check if the package source code is available.
+#'
+#' This addresses a currently present issue with riskmetric
+#' described & solved here: https://github.com/pharmaR/riskmetric/pull/363
+#'
+#' @param packages character vector with package names.
+#'
+#' @examples
+#' output <- verify_package_source_code(c("bimets", "rlang"))
+#' identical(output, "rlang")
+#'
+#' @value character vector with package names that have source code available.
+.verify_package_source_code <- function(packages) {
+  logger::log_info("Checking the source code", namespace = "pharmapkgs")
+  verified_packages <- packages
+  for (package in verified_packages) {
+    package <- "bimets"
+    source_files <- list.files(
+      path = file.path(.config$project_path, "inst", "source", package, "R"),
+      ignore.case = TRUE,
+      recursive = TRUE
+    )
+    if (length(source_files) == 0) {
+      logger::log_warn(
+        "\tNo source code found for package: {package}",
+        namespace = "pharmapkgs"
+      )
+      write(
+        x = package,
+        file = system.file("config", "excluded-packages.txt", package = "pharmapkgs"),
+        append = TRUE
+      )
+      verified_packages <- verified_packages[verified_packages != package]
+    }
+
+    if (any(!endsWith(source_files, ".R"))) {
+      logger::log_warn(
+        "\tNon-R source files found for package: {package}",
+        namespace = "pharmapkgs"
+      )
+      write(
+        x = package,
+        file = system.file("config", "excluded-packages.txt", package = "pharmapkgs"),
+        append = TRUE
+      )
+      verified_packages <- verified_packages[verified_packages != package]
+    }
+  }
+  verified_packages
+}
