@@ -109,7 +109,7 @@ global_filters <- function() {
 #' 1. Exclude certain metrics provided in the config
 #' 2. Overwrite problematic metrics with custom implementations
 #' 3. Add new metrics
-#' @value List with assessments.
+#' @returns List with assessments.
 #' @noRd
 .get_assessments <- function() {
   logger::log_info("Getting assessments", namespace = "pharmapkgs")
