@@ -103,52 +103,44 @@ global_filters <- function() {
   )
 }
 
-#' Check if the package source code is available.
+#' Get the list of assessments to run.
 #'
-#' This addresses a currently present issue with riskmetric
-#' described & solved here: https://github.com/pharmaR/riskmetric/pull/363
-#'
-#' @param packages character vector with package names.
-#'
-#' @examples
-#' output <- verify_package_source_code(c("bimets", "rlang"))
-#' identical(output, "rlang")
-#'
-#' @value character vector with package names that have source code available.
-.verify_package_source_code <- function(packages) {
-  logger::log_info("Checking the source code", namespace = "pharmapkgs")
-  verified_packages <- packages
-  for (package in verified_packages) {
-    source_files <- list.files(
-      path = file.path(.config$project_path, "inst", "source", package, "R"),
-      ignore.case = TRUE,
-      recursive = TRUE
-    )
-    if (length(source_files) == 0) {
-      logger::log_warn(
-        "\tNo source code found for package: {package}",
-        namespace = "pharmapkgs"
-      )
-      write(
-        x = package,
-        file = system.file("config", "excluded-packages.txt", package = "pharmapkgs"),
-        append = TRUE
-      )
-      verified_packages <- verified_packages[verified_packages != package]
-    }
+#' This internal function has several purposes:
+#' 1. Exclude certain metrics provided in the config
+#' 2. Overwrite problematic metrics with custom implementations
+#' 3. Add new metrics
+#' @value List with assessments.
+#' @noRd
+.get_assessments <- function() {
+  logger::log_info("Getting assessments", namespace = "pharmapkgs")
 
-    if (any(!endsWith(source_files, ".R"))) {
-      logger::log_warn(
-        "\tNon-R source files found for package: {package}",
-        namespace = "pharmapkgs"
-      )
-      write(
-        x = package,
-        file = system.file("config", "excluded-packages.txt", package = "pharmapkgs"),
-        append = TRUE
-      )
-      verified_packages <- verified_packages[verified_packages != package]
-    }
+  metrics <- riskmetric::all_assessments()
+  for (key in .config$excluded_riskmetric_assessments) {
+    metrics[[key]] <- NULL
   }
-  verified_packages
+
+  # FIXME: remove this if https://github.com/pharmaR/riskmetric/pull/363 is merged
+  logger::log_debug("\tSubstituting assess_size_codebase", namespace = "pharmapkgs")
+  metrics[["assess_size_codebase"]] <- function(x) {
+    riskmetric::pkg_metric_eval(class = "pkg_metric_size_codebase", {
+      files <- list.files(
+        path = file.path(x$path, "R"),
+        pattern = "\\.R$",
+        full.names = TRUE,
+        ignore.case = TRUE
+      )
+      count_lines <- function(x) {
+        code_base <- readLines(x)
+        n_tot <- length(code_base)
+        n_head <- length(grep("^#+", code_base))
+        n_comment <- length(grep("^\\s+#+", code_base))
+        n_break <- length(grep("^\\s*$", code_base))
+        n_tot - (n_head + n_comment + n_break)
+      }
+      nloc <- sapply(files, count_lines)
+      sum(nloc)
+    })
+  }
+
+  metrics
 }

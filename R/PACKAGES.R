@@ -58,12 +58,11 @@ get_packages <- function(base_url = .config$remote_base) {
 #'
 #' @param remote_packages Data frame with remote packages.
 #' @param local_packages Data frame with local packages.
-#' @param exemptions Character vector with package names to exclude.
 #'
 #' @return character()
 #'
 #' @export
-diff_packages <- function(remote_packages, local_packages, exemptions = EXCLUDED_PACKAGES) {
+diff_packages <- function(remote_packages, local_packages) {
   logger::log_info("Identifying new or newer packages", namespace = "pharmapkgs")
 
   stopifnot(
@@ -87,9 +86,7 @@ diff_packages <- function(remote_packages, local_packages, exemptions = EXCLUDED
     combined_packages$Version_local
   )
 
-  new_packages <- combined_packages[is_new_or_newer > 0, "Package", drop = TRUE]
-
-  new_packages[!new_packages %in% exemptions]
+  combined_packages[is_new_or_newer > 0, "Package", drop = TRUE]
 }
 
 #' Assess packages using riskmetric.
@@ -133,8 +130,7 @@ score_packages <- function(
     untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
   }
 
-  # Only keep packages digestible by riskmetric
-  packages <- .verify_package_source_code(download_result[, 1])
+  packages <- download_result[, 1]
 
   if (length(packages) == 0) {
     logger::log_warn("No packages to score", namespace = "pharmapkgs")
@@ -150,11 +146,7 @@ score_packages <- function(
   }
 
   package_assessments <- list()
-
-  metrics <- riskmetric::all_assessments()
-  for (key in .config$excluded_riskmetric_assessments) {
-    metrics[[key]] <- NULL
-  }
+  metrics <- .get_assessments()
 
   logger::log_info("Scoring packages", namespace = "pharmapkgs")
   scores <- lapply(package_refs, function(ref) {

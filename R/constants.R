@@ -39,10 +39,3 @@ PHARMAPKGS_EXCLUDED_METRICS <- paste(
   "assess_r_cmd_check", # takes forever to compute
   sep = ","
 )
-
-#' List of packages to exclude from the assessment.
-#' For example, packages that fail to be assessed by the riskmetric.
-#' @keywords internal
-EXCLUDED_PACKAGES <- readLines(
-  system.file("config", "excluded-packages.txt", package = "pharmapkgs")
-)
