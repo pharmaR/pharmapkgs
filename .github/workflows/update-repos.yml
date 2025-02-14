@@ -44,10 +44,3 @@ jobs:
 
             - name: Remove untracked files
               run: git clean -fdx
-
-            - uses: quarto-dev/quarto-actions/publish@v2
-              name: Publish to GitHub Pages (and render)
-              with:
-                target: gh-pages
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
