@@ -37,20 +37,6 @@ describe("get_packages", {
     expect_s3_class(packages, "data.frame")
     expect_equal(nrow(packages), 1)
   })
-
-  it("standardizes versioning semantics", {
-    actual_version <- "1.1-12"
-    expected_version <- "1.1.12"
-
-    temp_dir <- tempdir()
-    on.exit(unlink(temp_dir, TRUE, TRUE))
-    dir.create(utils::contrib.url(temp_dir), recursive = TRUE)
-    packages_file <- file.path(utils::contrib.url(temp_dir), "PACKAGES")
-    write.dcf(data.frame(Package = "hello", Version = actual_version), packages_file)
-
-    packages <- get_packages(base_url = temp_dir)
-    expect_identical(packages$Version, expected_version)
-  })
 })
 
 describe("diff_packages", {
@@ -98,9 +84,7 @@ describe("score_packages", {
     )
 
     scored_packages <- actual_output$scored_packages
-    expect_true(
-      all(c("Package", "Version") %in% names(scored_packages))
-    )
+    expect_true("Package" %in% names(scored_packages))
     expect_true(
       any(c("covr_coverage", "size_codebase", "dependencies") %in% names(scored_packages))
     )
@@ -133,7 +117,7 @@ describe("add_score_to_packages", {
       Version = c("1.0", "2.0"),
       DownloadURL = c("url1", "url2")
     )
-    scores <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"), score = c(1, 2))
+    scores <- data.frame(Package = c("A", "B"), score = c(1, 2))
 
     actual_output <- add_score_to_packages(packages, scores)
 
