@@ -148,7 +148,6 @@ score_packages <- function(
     score <- riskmetric::pkg_score(assessment)
 
     score$Package <- ref$name
-    score$Version <- ref$version
 
     lapply(score, as.character) |>
       as.data.frame()
@@ -173,7 +172,7 @@ add_score_to_packages <- function(packages, scores) {
   merge(
     x = packages,
     y = scores,
-    by = c("Package", "Version")
+    by = "Package"
   )
 }
 
