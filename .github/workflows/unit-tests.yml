@@ -3,13 +3,13 @@ name: Unit tests
 on:
   workflow_dispatch:
   push:
+    branches: [main]
   pull_request:
     branches: [main]
     types: ready_for_review
 
 env:
-    PHARMAPKGS_REMOTE_REPO: https://cloud.r-project.org/
-    LOGGER_LOG_LEVEL: DEBUG
+    PHARMAPKGS_REMOTE_REPO: https://raw.githubusercontent.com/r-hub/repos/main
     PHARMAPKGS_LIMIT: 5
 
 jobs:
