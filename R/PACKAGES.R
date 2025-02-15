@@ -3,14 +3,6 @@
 #' The goal of this function is not to produce any significant
 #' side effects, but rather read and return
 #'
-#' Please note, that in order to avoid discrepancies in versioning
-#' semantics, the version field is coerced to `base::package_version`.
-#' For example, `sf` uses 1.0-19, but the majority of packages would
-#' use 1.0.19. `base::package_version("1.0-19")` will return "1.0.19".
-#' Main reason for this is the fact that riskmetric changes the version
-#' of a package from x.y-z to x.y.z, and because of that we can't merge
-#' old existing and new scored packages.
-#'
 #' @param base_url Base URL of the repository. Can be a local dir path.
 #'
 #' @return data.frame
@@ -37,9 +29,7 @@ get_packages <- function(base_url = .config$remote_base) {
 
   tryCatch(
     expr = {
-      packages <- as.data.frame(read.dcf(connection, all = TRUE))
-      packages$Version <- as.character(package_version(packages$Version))
-      packages
+      as.data.frame(read.dcf(connection, all = TRUE))
     },
     error = function(e) {
       warning("Failed to read PACKAGES file: ", e$message)
