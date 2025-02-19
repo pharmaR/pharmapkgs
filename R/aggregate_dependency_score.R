@@ -2,9 +2,10 @@ library(dplyr)
 library(ggplot2)
 library(igraph)
 library(magrittr)
+library(microbenchmark)
+library(parallel)
 library(purrr)
 library(r2r)
-library(rbenchmark)
 
 # Find the latest version of each available package and assign unique IDs
 package <- available.packages() %>%
@@ -43,7 +44,7 @@ package_dependency <- mapply(
   function(a, b) {
     x <- c(a, b)
     paste(x[!is.na(x)],
-          collapse = ", "
+      collapse = ", "
     )
   },
   package$Depends, package$Imports,
@@ -97,7 +98,7 @@ set.seed(123)
 vertex_attr <- package %>%
   magrittr::set_rownames(.$id) %>%
   dplyr::filter((id %in% package_dependency_aug$from) |
-                  (id %in% package_dependency_aug$to)) %>%
+    (id %in% package_dependency_aug$to)) %>%
   dplyr::select(-c("Depends", "Imports", "Suggests")) %>%
   dplyr::select(id, colnames(.)) %>%
   dplyr::mutate(score = stats::runif(nrow(.), 0, 1))
@@ -134,7 +135,7 @@ calculate_average_score <- function(graph) {
 
       if (!visited[current]) {
         visited[current] <- TRUE
-        scores <- c(scores, V(graph)[current]$score)
+        scores <- c(scores, igraph::V(graph)[current]$score)
 
         ancestors <- igraph::neighbors(graph, current, mode = "in")
         for (ancestor in ancestors) {
@@ -151,29 +152,29 @@ calculate_average_score <- function(graph) {
   }
 
   # Apply DFS to each vertex
-  for (vertex in V(graph)) {
+  for (vertex in igraph::V(graph)) {
     if (!calculated[vertex]) {
       iterative_dfs(graph, vertex)
     }
   }
 
   # Assign the average scores as a new attribute
-  V(graph)$average_score <- average_scores
+  igraph::V(graph)$average_score <- average_scores
 
   graph
 }
 
-# Function to get the subgraph containing all ancestors of given nodes
-get_ancestors_subgraph <- function(graph, nodes) {
-  # Get the ancestors of all nodes
-  all_ancestors <- unique(unlist(lapply(nodes, function(node) {
-    igraph::subcomponent(graph, node, mode = "in")
+# Function to get the subgraph containing all descendants of given nodes
+get_descendants_subgraph <- function(graph, nodes) {
+  # Get the descendants of all nodes
+  all_descendants <- unique(unlist(lapply(nodes, function(node) {
+    igraph::subcomponent(graph, node, mode = "out")
   })))
 
   # Include the original nodes in the subgraph
-  all_nodes <- unique(c(nodes, all_ancestors))
+  all_nodes <- unique(c(nodes, all_descendants))
 
-  # Create the subgraph containing the nodes and their ancestors
+  # Create the subgraph containing the nodes and their descendants
   subgraph <- igraph::induced_subgraph(graph, all_nodes)
 
   return(subgraph)
@@ -181,64 +182,123 @@ get_ancestors_subgraph <- function(graph, nodes) {
 
 # Benchmark the recursive scoring of the subgraph containing n random nodes
 # and their ancestors
-to_benchmark <- function(n) {
-  # vec <- sample.int(dim(package)[1], n)
-  vec <- 1:n
-  nodes <- which(V(package_dependency_gr)$Package %in% package[vec, "Package"])
-  ancestors_subgraph <- get_ancestors_subgraph(package_dependency_gr, nodes)
-  scored <- calculate_average_score(ancestors_subgraph)
-  return(list(size = length(V(ancestors_subgraph)), scored = scored))
+init_seed <- 12345
+nb_rep <- 30
+nb_pkg_bench <- c(1, 50, 100, 150, 250)
+to_benchmark <- function(n, seed = NA_integer_) {
+  if (!is.na(seed)) {
+    set.seed(seed)
+  }
+  vec <- sample.int(dim(package)[1], n)
+  nodes <- which(igraph::V(package_dependency_gr)$Package
+    %in% package[vec, "Package"])
+  descendants_subgraph <- get_descendants_subgraph(package_dependency_gr, nodes)
+  scored <- calculate_average_score(descendants_subgraph)
+  return(list(size = length(igraph::V(descendants_subgraph)), scored = scored))
 }
-benchmarked <- rbenchmark::benchmark(
-  replications = 1,
-  "1" = {
-    to_benchmark(1)
-  },
-  "10" = {
-    to_benchmark(10)
-  },
-  "100" = {
-    to_benchmark(100)
-  },
-  "200" = {
-    to_benchmark(200)
-  },
-  "500" = {
-    to_benchmark(500)
-  },
-  "1000" = {
-    to_benchmark(1000)
+seeds <- init_seed + seq_len(nb_rep)
+benchmark_expressions <- purrr::map(nb_pkg_bench, function(n) {
+  purrr::map2(seeds, seq_along(seeds), function(seed, i) {
+    substitute(to_benchmark(.x, seed = .y), list(.x = n, .y = seed))
+  })
+}) %>%
+  purrr::set_names(nb_pkg_bench) %>%
+  purrr::list_flatten()
+run_benchmark <- function(expr) {
+  eval(expr)
+}
+cl <- parallel::makeCluster(parallel::detectCores())
+parallel::clusterEvalQ(cl, library(igraph))
+parallel::clusterEvalQ(cl, library(microbenchmark))
+parallel::clusterExport(cl, c(
+  "to_benchmark", "package",
+  "package_dependency_gr", "get_descendants_subgraph",
+  "calculate_average_score", "run_benchmark"
+))
+benchmark_results <- parallel::parLapply(
+  cl, benchmark_expressions,
+  function(expr) {
+    microbenchmark::microbenchmark(run_benchmark(expr), times = 1)
   }
 )
-benchmarked_aug <- benchmarked %>%
-  dplyr::select(test, elapsed) %>%
-  dplyr::mutate(test = as.numeric(test)) %>%
-  dplyr::arrange(test) %>%
-  dplyr::mutate(graph_size = sapply(test, function(n) {
-    nodes <- which(V(package_dependency_gr)$Package
-                   %in% package[1:n, "Package"])
-    ancestors_subgraph <- get_ancestors_subgraph(package_dependency_gr, nodes)
-    length(V(ancestors_subgraph))
-  }))
+stopCluster(cl)
+benchmarked <- benchmark_results %>%
+  purrr::map(as.data.frame) %>%
+  dplyr::bind_rows(.id = "groups") %>%
+  dplyr::mutate(
+    time = time / 1000000000
+  ) %>%
+  dplyr::bind_cols({
+    .$group %>%
+      strsplit("_") %>%
+      purrr::map(t) %>%
+      purrr::map(as.data.frame) %>%
+      dplyr::bind_rows()
+  }) %>%
+  dplyr::mutate(
+    nb_targets = as.numeric(V1)
+  ) %>%
+  dplyr::select(-c(expr, groups, V2)) %>%
+  dplyr::group_by(nb_targets) %>%
+  dplyr::summarize(
+    min_time = min(time),
+    max_time = max(time),
+    q1_time = quantile(time, 0.25),
+    q3_time = quantile(time, 0.75),
+    median_time = median(time)
+  ) %>%
+  dplyr::arrange(nb_targets)
 
-# Plot elapsed time by number of target packages
-ggplot2::ggplot(benchmarked_aug, aes(x = test, y = elapsed)) +
-  ggplot2::geom_line() +
-  ggplot2::geom_point() +
+# Plot the results
+ggplot2::ggplot(benchmarked, ggplot2::aes(x = nb_targets)) +
+  ggplot2::geom_ribbon(
+    ggplot2::aes(ymin = min_time, ymax = max_time, fill = "Min-Max Range"),
+    alpha = 0.3
+  ) +
+  ggplot2::geom_ribbon(
+    ggplot2::aes(ymin = q1_time, ymax = q3_time, fill = "Q1-Q3 Range"),
+    alpha = 0.5
+  ) +
+  ggplot2::geom_line(
+    ggplot2::aes(y = median_time, color = "Median Time"),
+    linewidth = 1
+  ) +
+  ggplot2::scale_fill_manual(
+    name = "Ranges",
+    values = c("Min-Max Range" = "grey80", "Q1-Q3 Range" = "grey50")
+  ) +
+  ggplot2::scale_color_manual(
+    name = "Line",
+    values = c("Median Time" = "blue")
+  ) +
   ggplot2::labs(
-    title = "Elapsed Time by Number of Target Packages",
+    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies",
     x = "Number of Target Packages",
-    y = "Elapsed Time (s)"
+    y = "Elapsed Time (seconds)"
   ) +
   ggplot2::theme_minimal()
 
-# Plot elapsed time by graph size
-ggplot2::ggplot(benchmarked_aug, aes(x = graph_size, y = elapsed)) +
-  ggplot2::geom_line(color = "red") +
-  ggplot2::geom_point(color = "red") +
+ggplot2::ggplot(benchmarked, ggplot2::aes(x = nb_targets)) +
+  ggplot2::geom_ribbon(
+    ggplot2::aes(ymin = q1_time, ymax = q3_time, fill = "Q1-Q3 Range"),
+    alpha = 0.5
+  ) +
+  ggplot2::geom_line(
+    ggplot2::aes(y = median_time, color = "Median Time"),
+    linewidth = 1
+  ) +
+  ggplot2::scale_fill_manual(
+    name = "Ranges",
+    values = c("Q1-Q3 Range" = "grey50")
+  ) +
+  ggplot2::scale_color_manual(
+    name = "Line",
+    values = c("Median Time" = "blue")
+  ) +
   ggplot2::labs(
-    title = "Elapsed Time by Graph Size",
-    x = "Number of Target Packages and Dependencies",
-    y = "Elapsed Time (s)"
+    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies",
+    x = "Number of Target Packages",
+    y = "Elapsed Time (seconds)"
   ) +
   ggplot2::theme_minimal()
+
