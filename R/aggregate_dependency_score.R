@@ -6,6 +6,7 @@ library(microbenchmark)
 library(parallel)
 library(purrr)
 library(r2r)
+library(tidymodels)
 
 # Find the latest version of each available package and assign unique IDs
 package <- available.packages() %>%
@@ -194,26 +195,38 @@ subgraph <- get_descendants_and_ancestors_subgraph(
 )
 targets_subgr <- which(igraph::V(subgraph)$Package %in% c("shiny", "admiral"))
 reverse_scored_gr <- mean_descendants_from_ancestors(
-  subgraph, targets_subgr, "score")
+  subgraph, targets_subgr, "score"
+)
 
 # Benchmark the recursive scoring of the subgraph containing n random vertices
-# and their ancestors
+# and their ancestors, in parallel, and store the results
 init_seed <- 12345
 nb_rep <- 30
 nb_pkg_bench <- c(1, 50, 100, 150, 250)
+dir_results <- "./scored_graphs/"
 to_benchmark <- function(n, seed = NA_integer_) {
+  # Sample target packages
   if (!is.na(seed)) {
     set.seed(seed)
   }
   vec <- sample.int(dim(package)[1], n)
-  vertices <- which(igraph::V(package_dependency_gr)$Package
+
+  # Score sampled packages and their reverse dependencies
+  targets <- which(igraph::V(package_dependency_gr)$Package
     %in% package[vec, "Package"])
   subgraph <- get_descendants_and_ancestors_subgraph(
     package_dependency_gr,
-    vertices
+    targets
   )
-  scored <- calculate_average_score(subgraph)
-  return(list(size = length(igraph::V(subgraph)), scored = scored))
+  targets_subgr <- which(igraph::V(subgraph)$Package
+    %in% package[vec, "Package"])
+  scored <- mean_descendants_from_ancestors(subgraph, targets_subgr, "score")
+
+  # Save the results
+  saveRDS(
+    list(size = length(igraph::V(subgraph)), scored = scored),
+    paste0(dir_results, "gr_", n, "_", seed, ".RDS")
+  )
 }
 seeds <- init_seed + seq_len(nb_rep)
 benchmark_expressions <- purrr::map(nb_pkg_bench, function(n) {
@@ -231,17 +244,52 @@ parallel::clusterEvalQ(cl, library(igraph))
 parallel::clusterEvalQ(cl, library(microbenchmark))
 parallel::clusterExport(cl, c(
   "to_benchmark", "package",
-  "package_dependency_gr", "get_descendants_subgraph",
-  "calculate_average_score", "run_benchmark"
+  "package_dependency_gr", "get_descendants_and_ancestors_subgraph",
+  "mean_descendants_from_ancestors", "run_benchmark"
 ))
-benchmark_results <- parallel::parLapply(
+benchmark_results_ <- parallel::parLapply(
   cl, benchmark_expressions,
   function(expr) {
     microbenchmark::microbenchmark(run_benchmark(expr), times = 1)
   }
 )
 stopCluster(cl)
-benchmarked <- benchmark_results %>%
+saveRDS(benchmark_results_, "benchmark_results.RDS")
+
+# Dataframe with graph metrics from the scoring
+files_results <- list.files(dir_results, pattern = ".RDS")
+scored_subgraph_metrics <- files_results %>%
+  purrr::map(function(x) readRDS(paste0(dir_results, x))) %>%
+  purrr::map(function(x) {
+    data.frame(
+      subgraph_size = x$size,
+      nb_scored = length(igraph::V(x$scored))
+    )
+  }) %>%
+  dplyr::bind_rows() %>%
+  dplyr::bind_cols({
+    files_results %>%
+      {
+        gsub("gr_", "", .)
+      } %>%
+      {
+        gsub("\\.RDS", "", .)
+      } %>%
+      strsplit("_") %>%
+      purrr::map(t) %>%
+      purrr::map(as.data.frame) %>%
+      dplyr::bind_rows()
+  }) %>%
+  dplyr::mutate(
+    nb_target = as.integer(V1),
+    replicate_seed = as.integer(V2),
+    nb_only_dependency = subgraph_size - nb_scored
+  ) %>%
+  dplyr::select(-c(V1, V2))
+
+# Merge benchmarking times with metrics from the scored sub-graphs
+benchmark_results <- readRDS("benchmark_results.RDS")
+benchmarks_and_subgrmetrics <- benchmark_results %>%
   purrr::map(as.data.frame) %>%
   dplyr::bind_rows(.id = "groups") %>%
   dplyr::mutate(
@@ -255,10 +303,18 @@ benchmarked <- benchmark_results %>%
       dplyr::bind_rows()
   }) %>%
   dplyr::mutate(
-    nb_targets = as.numeric(V1)
+    nb_target = as.integer(V1),
+    replicate_seed = purrr::map_int(as.integer(V2), function(x) seeds[x])
   ) %>%
-  dplyr::select(-c(expr, groups, V2)) %>%
-  dplyr::group_by(nb_targets) %>%
+  dplyr::select(-c(expr, groups, V1, V2)) %>%
+  dplyr::left_join(scored_subgraph_metrics,
+    by = c("nb_target", "replicate_seed")
+  ) %>%
+  dplyr::arrange(nb_target, replicate_seed)
+
+# Aggregate by number of target packages
+aggr_results <- benchmarks_and_subgrmetrics %>%
+  dplyr::group_by(nb_target) %>%
   dplyr::summarize(
     min_time = min(time),
     max_time = max(time),
@@ -266,10 +322,10 @@ benchmarked <- benchmark_results %>%
     q3_time = quantile(time, 0.75),
     median_time = median(time)
   ) %>%
-  dplyr::arrange(nb_targets)
+  dplyr::arrange(nb_target)
 
-# Plot the results
-ggplot2::ggplot(benchmarked, ggplot2::aes(x = nb_targets)) +
+# Plot the results the elapsed time by number of target packages
+ggplot2::ggplot(aggr_results, ggplot2::aes(x = nb_target)) +
   ggplot2::geom_ribbon(
     ggplot2::aes(ymin = min_time, ymax = max_time, fill = "Min-Max Range"),
     alpha = 0.3
@@ -297,26 +353,26 @@ ggplot2::ggplot(benchmarked, ggplot2::aes(x = nb_targets)) +
   ) +
   ggplot2::theme_minimal()
 
-ggplot2::ggplot(benchmarked, ggplot2::aes(x = nb_targets)) +
-  ggplot2::geom_ribbon(
-    ggplot2::aes(ymin = q1_time, ymax = q3_time, fill = "Q1-Q3 Range"),
-    alpha = 0.5
-  ) +
-  ggplot2::geom_line(
-    ggplot2::aes(y = median_time, color = "Median Time"),
-    linewidth = 1
-  ) +
-  ggplot2::scale_fill_manual(
-    name = "Ranges",
-    values = c("Q1-Q3 Range" = "grey50")
-  ) +
-  ggplot2::scale_color_manual(
-    name = "Line",
-    values = c("Median Time" = "blue")
-  ) +
+# Plot the results the elapsed time by subgraph size
+ggplot2::ggplot(benchmarks_and_subgrmetrics, ggplot2::aes(subgraph_size, time)) +
+  ggplot2::geom_point() +
+  ggplot2::geom_smooth(ggplot2::aes(colour = "Mean"), se = F) +
   ggplot2::labs(
-    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies (zoomed on Q1-Q3)",
-    x = "Number of Target Packages",
+    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies",
+    x = "Total Number of Packages in Input Subgraph",
     y = "Elapsed Time (seconds)"
   ) +
+  ggplot2::scale_colour_manual(name = "Legend", values = c("blue")) +
+  ggplot2::theme_minimal()
+
+# Plot the results the elapsed time by number of reverse dependencies
+ggplot2::ggplot(benchmarks_and_subgrmetrics, ggplot2::aes(nb_scored, time)) +
+  ggplot2::geom_point() +
+  ggplot2::geom_smooth(ggplot2::aes(colour = "Mean"), se = F) +
+  ggplot2::labs(
+    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies",
+    x = "Number of Reverse Dependencies Scored",
+    y = "Elapsed Time (seconds)"
+  ) +
+  ggplot2::scale_colour_manual(name = "Legend", values = c("blue")) +
   ggplot2::theme_minimal()
