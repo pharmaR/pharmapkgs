@@ -17,9 +17,6 @@ package <- available.packages() %>%
   dplyr::mutate(id = seq.int(nrow(.))) %>%
   as.data.frame()
 
-# Define the root ID for the graph
-root_id <- max(package$id) + 1
-
 # Function to convert a data frame to a hashmap
 df_to_hashmap <- function(df) {
   df %>%
@@ -83,77 +80,101 @@ package_dependency <- mapply(
   igraph::graph_from_adj_list(mode = "in") %>%
   igraph::as_long_data_frame()
 
-# Augment the package dependency data frame with the root node
-package_dependency_aug <- package %>%
-  dplyr::select(id) %>%
-  dplyr::rename(from = id) %>%
-  dplyr::mutate(to = root_id) %>%
-  {
-    dplyr::bind_rows(package_dependency, .)
-  }
-
 # Set a seed for reproducibility and create vertex attributes, including a
 # random score
 set.seed(123)
 vertex_attr <- package %>%
   magrittr::set_rownames(.$id) %>%
-  dplyr::filter((id %in% package_dependency_aug$from) |
-    (id %in% package_dependency_aug$to)) %>%
+  dplyr::filter((id %in% package_dependency$from) |
+    (id %in% package_dependency$to)) %>%
   dplyr::select(-c("Depends", "Imports", "Suggests")) %>%
   dplyr::select(id, colnames(.)) %>%
-  dplyr::mutate(score = stats::runif(nrow(.), 0, 1))
-
-# Augment vertex attributes with the root node
-vertex_attr_aug <- dplyr::tibble(id = c(root_id), Package = c("_root_")) %>%
-  {
-    x <- .
-    x[setdiff(colnames(vertex_attr), colnames(x))] <- NA
-    x
-  } %>%
-  dplyr::bind_rows(vertex_attr) %>%
-  dplyr::arrange(id)
+  dplyr::mutate(score = stats::runif(nrow(.), 0.2, 1))
 
 # Create the package dependency graph
-package_dependency_gr <- package_dependency_aug %>%
-  igraph::graph_from_data_frame(vertices = vertex_attr_aug)
+package_dependency_gr <- package_dependency %>%
+  igraph::graph_from_data_frame(vertices = vertex_attr)
 
-# Function to calculate the average score for each vertex and its ancestors
-calculate_average_score <- function(graph) {
+# Function to get the subgraph containing all descendants of given vertices,
+# the ancestors of the given vertices, and the ancestors of all descendants
+get_descendants_and_ancestors_subgraph <- function(graph, vertices) {
+  # Get the descendants of all vertices
+  all_descendants <- unique(unlist(lapply(vertices, function(vertex) {
+    igraph::subcomponent(graph, vertex, mode = "out")
+  })))
+
+  # Get the ancestors of the given vertices
+  all_ancestors <- unique(unlist(lapply(vertices, function(vertex) {
+    igraph::subcomponent(graph, vertex, mode = "in")
+  })))
+
+  # Get the ancestors of all descendants
+  all_descendants_ancestors <- unique(unlist(lapply(
+    all_descendants,
+    function(vertex) {
+      igraph::subcomponent(graph, vertex, mode = "in")
+    }
+  )))
+
+  # Combine all vertices
+  all_vertices <- unique(c(
+    vertices, all_descendants, all_ancestors,
+    all_descendants_ancestors
+  ))
+
+  # Create the subgraph containing the vertices, their descendants, and all
+  # ancestors
+  subgraph <- igraph::induced_subgraph(graph, all_vertices)
+
+  return(subgraph)
+}
+
+# Function to calculate the average of an attribute for each target
+# and its descendants
+mean_descendants_from_ancestors <- function(graph, target_vertices, attr) {
   # Initialize a vector to store the average scores
-  average_scores <- numeric(vcount(graph))
-  calculated <- rep(FALSE, vcount(graph))
+  average_scores <- rep(NA_real_, igraph::vcount(graph))
+  visited <- rep(FALSE, igraph::vcount(graph))
 
-  # Iterative DFS function
+  # Iterative DFS function to explore descendants
   iterative_dfs <- function(graph, vertex) {
     stack <- list(vertex)
-    visited <- rep(FALSE, vcount(graph))
-    scores <- numeric()
 
     while (length(stack) > 0) {
       current <- stack[[1]]
       stack <- stack[-1]
 
       if (!visited[current]) {
-        visited[current] <- TRUE
-        scores <- c(scores, igraph::V(graph)[current]$score)
+        visited[current] <<- TRUE
 
-        ancestors <- igraph::neighbors(graph, current, mode = "in")
-        for (ancestor in ancestors) {
-          if (!visited[ancestor]) {
-            stack <- c(ancestor, stack)
+        # Calculate the mean score from ancestors
+        ancestors <- igraph::subcomponent(graph, current, mode = "in")
+        ancestor_scores <- igraph::get.vertex.attribute(graph, attr)[ancestors]
+        average_score <- mean(ancestor_scores, na.rm = FALSE)
+        average_scores[current] <<- average_score
+
+        # Add descendants to the stack
+        descendants <- igraph::neighbors(graph, current, mode = "out")
+        for (descendant in descendants) {
+          if (!visited[descendant]) {
+            stack <- c(descendant, stack)
           }
         }
       }
     }
-
-    average_score <- mean(scores, na.rm = TRUE)
-    average_scores[vertex] <<- average_score
-    calculated[vertex] <<- TRUE
   }
 
-  # Apply DFS to each vertex
-  for (vertex in igraph::V(graph)) {
-    if (!calculated[vertex]) {
+  # Get all descendants of the target vertices
+  all_descendants <- unique(unlist(lapply(target_vertices, function(vertex) {
+    igraph::subcomponent(graph, vertex, mode = "out")
+  })))
+
+  # Combine target vertices and their descendants
+  vertices_to_score <- unique(c(target_vertices, all_descendants))
+
+  # Apply DFS to each vertex in the combined list
+  for (vertex in vertices_to_score) {
+    if (!visited[vertex]) {
       iterative_dfs(graph, vertex)
     }
   }
@@ -161,26 +182,21 @@ calculate_average_score <- function(graph) {
   # Assign the average scores as a new attribute
   igraph::V(graph)$average_score <- average_scores
 
-  graph
+  return(igraph::induced_subgraph(graph, vertices_to_score))
 }
 
-# Function to get the subgraph containing all descendants of given nodes
-get_descendants_subgraph <- function(graph, nodes) {
-  # Get the descendants of all nodes
-  all_descendants <- unique(unlist(lapply(nodes, function(node) {
-    igraph::subcomponent(graph, node, mode = "out")
-  })))
+# Example use
+targets <- which(igraph::V(package_dependency_gr)$Package
+  %in% c("shiny", "admiral"))
+subgraph <- get_descendants_and_ancestors_subgraph(
+  package_dependency_gr,
+  targets
+)
+targets_subgr <- which(igraph::V(subgraph)$Package %in% c("shiny", "admiral"))
+reverse_scored_gr <- mean_descendants_from_ancestors(
+  subgraph, targets_subgr, "score")
 
-  # Include the original nodes in the subgraph
-  all_nodes <- unique(c(nodes, all_descendants))
-
-  # Create the subgraph containing the nodes and their descendants
-  subgraph <- igraph::induced_subgraph(graph, all_nodes)
-
-  return(subgraph)
-}
-
-# Benchmark the recursive scoring of the subgraph containing n random nodes
+# Benchmark the recursive scoring of the subgraph containing n random vertices
 # and their ancestors
 init_seed <- 12345
 nb_rep <- 30
@@ -190,11 +206,14 @@ to_benchmark <- function(n, seed = NA_integer_) {
     set.seed(seed)
   }
   vec <- sample.int(dim(package)[1], n)
-  nodes <- which(igraph::V(package_dependency_gr)$Package
+  vertices <- which(igraph::V(package_dependency_gr)$Package
     %in% package[vec, "Package"])
-  descendants_subgraph <- get_descendants_subgraph(package_dependency_gr, nodes)
-  scored <- calculate_average_score(descendants_subgraph)
-  return(list(size = length(igraph::V(descendants_subgraph)), scored = scored))
+  subgraph <- get_descendants_and_ancestors_subgraph(
+    package_dependency_gr,
+    vertices
+  )
+  scored <- calculate_average_score(subgraph)
+  return(list(size = length(igraph::V(subgraph)), scored = scored))
 }
 seeds <- init_seed + seq_len(nb_rep)
 benchmark_expressions <- purrr::map(nb_pkg_bench, function(n) {
@@ -296,9 +315,8 @@ ggplot2::ggplot(benchmarked, ggplot2::aes(x = nb_targets)) +
     values = c("Median Time" = "blue")
   ) +
   ggplot2::labs(
-    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies",
+    title = "Benchmarking Results for Recursive Scoring of Reverse Dependencies (zoomed on Q1-Q3)",
     x = "Number of Target Packages",
     y = "Elapsed Time (seconds)"
   ) +
   ggplot2::theme_minimal()
-
