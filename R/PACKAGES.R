@@ -66,7 +66,7 @@ diff_packages <- function(remote_packages, local_packages) {
     x = remote_packages,
     y = local_packages,
     all.x = TRUE,
-    by = "Package",
+    by = c("Package", "Version"),
     suffixes = c("_remote", "_local")
   )
 
