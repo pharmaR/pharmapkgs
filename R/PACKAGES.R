@@ -66,7 +66,7 @@ diff_packages <- function(remote_packages, local_packages) {
     x = remote_packages,
     y = local_packages,
     all.x = TRUE,
-    by = c("Package", "Version"),
+    by = "Package",
     suffixes = c("_remote", "_local")
   )
 
@@ -176,7 +176,7 @@ add_score_to_packages <- function(packages, scores) {
   merge(
     x = packages,
     y = scores,
-    by = "Package"
+    by = c("Package", "Version")
   )
 }
 
