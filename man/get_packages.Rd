@@ -16,12 +16,3 @@ data.frame
 The goal of this function is not to produce any significant
 side effects, but rather read and return
 }
-\details{
-Please note, that in order to avoid discrepancies in versioning
-semantics, the version field is coerced to \code{base::package_version}.
-For example, \code{sf} uses 1.0-19, but the majority of packages would
-use 1.0.19. \code{base::package_version("1.0-19")} will return "1.0.19".
-Main reason for this is the fact that riskmetric changes the version
-of a package from x.y-z to x.y.z, and because of that we can't merge
-old existing and new scored packages.
-}
