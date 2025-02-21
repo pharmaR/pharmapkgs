@@ -140,14 +140,18 @@ score_packages <- function(
 
   logger::log_info("Scoring packages", namespace = "pharmapkgs")
   scores <- lapply(package_refs, function(ref) {
-    logger::log_debug("\tScoring {ref$name}@{ref$version}", namespace = "pharmapkgs")
+    .package <- ref$description[, "Package"]
+    .version <- ref$description[, "Version"]
+
+    logger::log_debug("\tScoring {.package}@{.version}", namespace = "pharmapkgs")
 
     assessment <- suppressMessages(riskmetric::pkg_assess(ref, assessments = metrics))
     package_assessments <<- c(package_assessments, list(assessment))
 
     score <- riskmetric::pkg_score(assessment)
 
-    score$Package <- ref$name
+    score$Package <- .package
+    score$Version <- .version
 
     lapply(score, as.character) |>
       as.data.frame()
