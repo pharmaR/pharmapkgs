@@ -1,4 +1,4 @@
-# Validation Report - boot@1.3.31
+# Validation Report - bayesPop@11.0.2
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package boot
+# Package bayesPop
 
 ## Metric based risk assessment
 
@@ -23,18 +23,18 @@ The following metrics are derived from the `riskmetric` R package.
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
 | has_news             | 0                                                    |
-| exported_namespace   | 36                                                   |
+| exported_namespace   | 46                                                   |
 | has_vignettes        | 0                                                    |
-| export_help          | 36                                                   |
-| has_website          | FALSE                                                |
-| has_maintainer       | Alessandra R. Brazzale <brazzale@stat.unipd.it>      |
+| export_help          | 46                                                   |
+| has_website          | TRUE                                                 |
+| has_maintainer       | Hana Sevcikova <hanas@uw.edu>                        |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 944507                                               |
-| reverse_dependencies | 399                                                  |
-| has_examples         | 0.9195402                                            |
-| dependencies         | 2                                                    |
-| license              | Unlimited                                            |
+| downloads_1yr        | 9027                                                 |
+| reverse_dependencies | 0                                                    |
+| has_examples         | 0.9545455                                            |
+| dependencies         | 17                                                   |
+| license              | GPL-3 \| file LICENSE                                |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,100 +43,86 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package  | type    |
-|:----|:---------|:--------|
-| 1   | graphics | Depends |
-| 2   | stats    | Depends |
+|     | package               | type    |
+|:----|:----------------------|:--------|
+| 1   | bayesTFR (\>= 7.1-0)  | Depends |
+| 2   | bayesLife (\>= 5.0-0) | Depends |
+| 3   | MortCast (\>= 2.6-1)  | Depends |
+| 4   | parallel              | Imports |
+| 5   | abind                 | Imports |
+| 6   | data.table            | Imports |
+| 7   | wpp2019               | Imports |
+| 8   | wpp2012               | Imports |
+| 9   | graphics              | Imports |
+| 10  | grDevices             | Imports |
+| 11  | stats                 | Imports |
+| 12  | utils                 | Imports |
+| 13  | rworldmap             | Imports |
+| 14  | fields                | Imports |
+| 15  | googleVis             | Imports |
+| 16  | reshape2              | Imports |
+| 17  | plyr                  | Imports |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 399 reverse dependencies:
-
-abd, abima, abn, acde, addhaz, adegenet, adjROC, adventr, AER, aggTrees,
-AgroReg, aides, aod, aods3, apaTables, ArCo, argo, ARGOS, asbio,
-AssetCorr, autoReg, BACprior, bandit, bayesboot,
-BayesianPlatformDesignTimeTrend, BCEE, bcROCsurface, bda, betaselectr,
-BioCor, biotools, bispdep, bistablehistory, blrm, boot.pval, bootES,
-bootLR, bootPLS, brainGraph, briKmeans, brlrmr, broom, BSagri, BSTZINB,
-btergm, CaDENCE, calibmsm, car, cardidates, cases, cassandRa,
-CausalModels, childsds, ChIPseeker, chngpt, CIfinder, CircStats,
-circular, circumplex, ciTools, CleaningValidation, climextRemes,
-clustAnalytics, cocotest, Comp2ROC, Compind, complmrob, cond, confintr,
-contingencytables, CopulaCenR, CorrBin, Countr, cramer, Cronbach, crs,
-CsChange, cv, DAAG, dabestr, dagitty, dartR.base, datawizard, dawai,
-DCluster, deming, dendroTools, DescTools, dhglm, did2s, dineq,
-discharge, disprofas, dissever, distdichoR, doBy, dominanceanalysis,
-dplR, DSAIRM, Durga, dwp, eatRep, echo.find, ed50, ed50simulation,
-EDOIF, effectsize, eggCounts, emdi, emplik, ems, energy, EnMCB, enmSdmX,
-EnvStats, episensr, EQUALSTATS, equivalence, EstimationTools, estprod,
-EvaluateCore, EValue, evoper, experiment, extremeIndex, extremogram,
-ezCutoffs, facmodTS, finalfit, fishmethods, flexsurvcure, flocker,
-frailtypack, frair, frechet, ftsa, funmediation, fwb, gamRR, gb,
-GeneralOaxaca, GEVcdn, glmmTMB, glmnetSE, globaltest, gMCP, gmGeostats,
-GofCens, graphPAF, Greg, gsaot, gsubfn, h2otools, HanStat, hdpca,
-horseshoenlm, HSAUR, HSAUR2, HSAUR3, hsem, ic.infer, ICED, iClick,
-incubate, InformativeCensoring, Infusion, insight, interactionRCS,
-investr, iNZightPlots, IOLS, ipw, ISEtools, isobar, its.analysis,
-jaatha, jocre, JOPS, jtools, Kendall, kim, KMD, L2DensityGoFtest,
-laeken, LambertW, lancor, LCAextend, LEGIT, les, lme4, logmult,
-LorenzRegression, LSDinterface, LSDirf, LUCIDus, lulab.utils, maicplus,
-MAICtools, manymome, marg, marginaleffects, MarginalMediation, mase,
-MatchIt, MaxMC, MBESS, mcradds, mdhglm, mdpeer, MDSGUI, meboot, medflex,
-mediateP, mediation, mem, Mestim, metafor, metaplus, mev, mgc, mhazard,
-MIIVsem, mirt, MisRepARMA, misty, mixcure, MixedPsy, MKinfer,
-modifiedmk, ModStatR, ModTools, moveHMM, MplusAutomation, mpower,
-MSEtool, mudfold, multilevelmediation, multiROC, multiverse,
-multiwayvcov, MVN, MWASTools, NegBinBetaBinreg, netdiffuseR, nlraa,
-nlreg, np, npsm, OLStrajr, Oncotree, OptimaRegion, optmatch,
-ordinalCont, pairwiseCI, panelhetero, papaja, parameters, paramtest,
-pastecs, paths, PCRA, performance, perspectev, pgirmess, PharmacoGx,
-phase1RMD, phenesse, phylosignal, plsgenomics, plsRbeta, plsRglm,
-PointFore, polyapost, PopED, poppr, povmap, PoweREST, proftools, PRSim,
-psBayesborrow, psm3mkv, psychmeta, pubmed.mineR, QFASA, Qindex, Qtools,
-QuantPsyc, quest, R2HTML, R2OpenBUGS, R2WinBUGS, r4lineups,
-random.polychor.pa, randomLCA, raptr, Rcmdr, RcmdrMisc, rcompanion,
-Rcurvep, reappraised, referenceIntervals, refund, reglogit, regmedint,
-relaimpo, rempsyc, repmod, reportRmd, RESI, restriktor, reverseR,
-rgsepd, RHRV, riskCommunicator, riskRegression, risks, rms, Rnits,
-robmed, robmixglm, robustbase, ROCpAI, ROntoTools, RPESE, RPPASPACE,
-rstatix, rtip, rTPC, rtrend, RVAideMemoire, safestats, SAME, sampcompR,
-satuRn, SCBmeanfd, sccomp, scdhlm, scone, seedreg, sem, semEff,
-SEMgraph, semhelpinghands, sensitivity, sensobol, Sequential, serosv,
-sevenC, shotGroups, simboot, simhelpers, simmr, simpleboot, SimplyAgree,
-simTool, sisal, SiZer, smiles, soilphysics, SongEvo, SortedEffects,
-spaMM, spatialreg, SpatialVx, spdep, spsurvey, StackImpute, stdmod,
-subscore, superb, SynDI, table1, tablet, tbea, tbrf, tectonicr,
-texteffect, ThresholdROCsurvival, tidybulk, tlm, TraMineR, treeclim,
-TRexSelector, tRigon, truncSP, tsBSS, UNDO, uotm, verification, vimp,
-visualFields, Wats, welo, wrappedtools, wrMisc, wrTopDownFrag, YEAB,
-yhat, yuima
+Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 36 exported objects. 36 are documented:
+Overall the package has 46 exported objects. 46 are documented:
 
-             abc.ci            boot      boot.array         boot.ci        censboot 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-            control            corr            cum3          cv.glm     EEF.profile 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-         EL.profile          empinf        envelope        exp.tilt      freq.array 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-           glm.diag  glm.diag.plots     imp.moments        imp.prob    imp.quantile 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-        imp.weights       inv.logit jack.after.boot       k3.linear          lik.CI 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-      linear.approx           logit     nested.corr         norm.ci          saddle 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-       saddle.distn         simplex        smooth.f       tilt.boot          tsboot 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-         var.linear 
-               TRUE 
+          age.specific.migration                      cohorts 
+                            TRUE                         TRUE 
+         extract.trajectories.eq      extract.trajectories.ge 
+                            TRUE                         TRUE 
+         extract.trajectories.le             get.bPop.pyramid 
+                            TRUE                         TRUE 
+                         get.pop          get.pop.aggregation 
+                            TRUE                         TRUE 
+                      get.pop.ex                 get.pop.exba 
+                            TRUE                         TRUE 
+          get.pop.map.parameters           get.pop.prediction 
+                            TRUE                         TRUE 
+          get.trajectory.indices           has.pop.prediction 
+                            TRUE                         TRUE 
+                     LifeTableMx               LifeTableMxCol 
+                            TRUE                         TRUE 
+                  mac.expression              mac.expression1 
+                            TRUE                         TRUE 
+                 mac.expression5         migration.totals2age 
+                            TRUE                         TRUE 
+                peak.probability                pop.aggregate 
+                            TRUE                         TRUE 
+            pop.aggregate.subnat               pop.byage.plot 
+                            TRUE                         TRUE 
+               pop.byage.plotAll              pop.byage.table 
+                            TRUE                         TRUE 
+               pop.cleanup.cache             pop.cohorts.plot 
+                            TRUE                         TRUE 
+                       pop.ggmap                      pop.map 
+                            TRUE                         TRUE 
+                    pop.map.gvis                  pop.predict 
+                            TRUE                         TRUE 
+              pop.predict.subnat                  pop.pyramid 
+                            TRUE                         TRUE 
+                  pop.pyramidAll             pop.trajectories 
+                            TRUE                         TRUE 
+           pop.trajectories.plot     pop.trajectories.plotAll 
+                            TRUE                         TRUE 
+        pop.trajectories.pyramid  pop.trajectories.pyramidAll 
+                            TRUE                         TRUE 
+          pop.trajectories.table                project.pasfr 
+                            TRUE                         TRUE 
+              project.pasfr.traj             rcastro.schedule 
+                            TRUE                         TRUE 
+    write.pop.projection.summary       write.pop.trajectories 
+                            TRUE                         TRUE 
 
 ### Examples
 
-There are 80 help pages with examples, from 87 (91.95 %).
+There are 21 help pages with examples, from 22 (95.45 %).
 
 ### NEWS
 
@@ -156,7 +142,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-22 03:18:27 UTC |
+| Execution Time | 2025-02-22 03:14:11 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -397,7 +383,7 @@ running this report
                             /tmp/RtmpazFpm9
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1dbb18a6ff42_1740194303
+    PROCESSX_PS1dbb2a273515_1740194047
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -424,7 +410,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/Rtmp79Mduc
+    R_SESSION_TMPDIR        /tmp/RtmpCkPwpn
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -492,7 +478,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55df9605c910>
+    <bytecode: 0x557d2c1a5910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -531,7 +517,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55df9571f738>
+    <bytecode: 0x557d2b867f58>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -698,7 +684,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55df95534520>
+    <environment: 0x557d2b67d520>
 
 
     $str.dendrogram.last
@@ -708,7 +694,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_boot_v1.3.31-tikzDictionary"
+    [1] "validation_report_bayesPop_v11.0.2-tikzDictionary"
 
     $timeout
     [1] 60

@@ -1,4 +1,4 @@
-# Validation Report - boot@1.3.31
+# Validation Report - bipartite@2.21
 
 
 # Context
@@ -14,27 +14,28 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package boot
+# Package bipartite
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 36                                                   |
-| has_vignettes        | 0                                                    |
-| export_help          | 36                                                   |
-| has_website          | FALSE                                                |
-| has_maintainer       | Alessandra R. Brazzale <brazzale@stat.unipd.it>      |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 944507                                               |
-| reverse_dependencies | 399                                                  |
-| has_examples         | 0.9195402                                            |
-| dependencies         | 2                                                    |
-| license              | Unlimited                                            |
+|  |  |
+|:---|:---|
+| has_news | 0 |
+| exported_namespace | 80 |
+| has_vignettes | 6 |
+| export_help | 80 |
+| has_website | TRUE |
+| has_maintainer | Carsten F. Dormann <carsten.dormann@biom.uni-freiburg.de> |
+| bugs_status | package DESCRIPTION does not have a BugReports field |
+| has_source_control | https://github.com/biometry/bipartite |
+| has_bug_reports_url | 0 |
+| downloads_1yr | 48919 |
+| reverse_dependencies | 16 |
+| has_examples | 1 |
+| dependencies | 9 |
+| license | GPL |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,100 +44,90 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package  | type    |
-|:----|:---------|:--------|
-| 1   | graphics | Depends |
-| 2   | stats    | Depends |
+|     | package      | type    |
+|:----|:-------------|:--------|
+| 1   | R(\>= 3.5.0) | Depends |
+| 2   | sna          | Depends |
+| 3   | vegan        | Depends |
+| 4   | corpcor      | Imports |
+| 5   | fields       | Imports |
+| 6   | igraph       | Imports |
+| 7   | MASS         | Imports |
+| 8   | methods      | Imports |
+| 9   | permute      | Imports |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 399 reverse dependencies:
+Overall the package has 16 reverse dependencies:
 
-abd, abima, abn, acde, addhaz, adegenet, adjROC, adventr, AER, aggTrees,
-AgroReg, aides, aod, aods3, apaTables, ArCo, argo, ARGOS, asbio,
-AssetCorr, autoReg, BACprior, bandit, bayesboot,
-BayesianPlatformDesignTimeTrend, BCEE, bcROCsurface, bda, betaselectr,
-BioCor, biotools, bispdep, bistablehistory, blrm, boot.pval, bootES,
-bootLR, bootPLS, brainGraph, briKmeans, brlrmr, broom, BSagri, BSTZINB,
-btergm, CaDENCE, calibmsm, car, cardidates, cases, cassandRa,
-CausalModels, childsds, ChIPseeker, chngpt, CIfinder, CircStats,
-circular, circumplex, ciTools, CleaningValidation, climextRemes,
-clustAnalytics, cocotest, Comp2ROC, Compind, complmrob, cond, confintr,
-contingencytables, CopulaCenR, CorrBin, Countr, cramer, Cronbach, crs,
-CsChange, cv, DAAG, dabestr, dagitty, dartR.base, datawizard, dawai,
-DCluster, deming, dendroTools, DescTools, dhglm, did2s, dineq,
-discharge, disprofas, dissever, distdichoR, doBy, dominanceanalysis,
-dplR, DSAIRM, Durga, dwp, eatRep, echo.find, ed50, ed50simulation,
-EDOIF, effectsize, eggCounts, emdi, emplik, ems, energy, EnMCB, enmSdmX,
-EnvStats, episensr, EQUALSTATS, equivalence, EstimationTools, estprod,
-EvaluateCore, EValue, evoper, experiment, extremeIndex, extremogram,
-ezCutoffs, facmodTS, finalfit, fishmethods, flexsurvcure, flocker,
-frailtypack, frair, frechet, ftsa, funmediation, fwb, gamRR, gb,
-GeneralOaxaca, GEVcdn, glmmTMB, glmnetSE, globaltest, gMCP, gmGeostats,
-GofCens, graphPAF, Greg, gsaot, gsubfn, h2otools, HanStat, hdpca,
-horseshoenlm, HSAUR, HSAUR2, HSAUR3, hsem, ic.infer, ICED, iClick,
-incubate, InformativeCensoring, Infusion, insight, interactionRCS,
-investr, iNZightPlots, IOLS, ipw, ISEtools, isobar, its.analysis,
-jaatha, jocre, JOPS, jtools, Kendall, kim, KMD, L2DensityGoFtest,
-laeken, LambertW, lancor, LCAextend, LEGIT, les, lme4, logmult,
-LorenzRegression, LSDinterface, LSDirf, LUCIDus, lulab.utils, maicplus,
-MAICtools, manymome, marg, marginaleffects, MarginalMediation, mase,
-MatchIt, MaxMC, MBESS, mcradds, mdhglm, mdpeer, MDSGUI, meboot, medflex,
-mediateP, mediation, mem, Mestim, metafor, metaplus, mev, mgc, mhazard,
-MIIVsem, mirt, MisRepARMA, misty, mixcure, MixedPsy, MKinfer,
-modifiedmk, ModStatR, ModTools, moveHMM, MplusAutomation, mpower,
-MSEtool, mudfold, multilevelmediation, multiROC, multiverse,
-multiwayvcov, MVN, MWASTools, NegBinBetaBinreg, netdiffuseR, nlraa,
-nlreg, np, npsm, OLStrajr, Oncotree, OptimaRegion, optmatch,
-ordinalCont, pairwiseCI, panelhetero, papaja, parameters, paramtest,
-pastecs, paths, PCRA, performance, perspectev, pgirmess, PharmacoGx,
-phase1RMD, phenesse, phylosignal, plsgenomics, plsRbeta, plsRglm,
-PointFore, polyapost, PopED, poppr, povmap, PoweREST, proftools, PRSim,
-psBayesborrow, psm3mkv, psychmeta, pubmed.mineR, QFASA, Qindex, Qtools,
-QuantPsyc, quest, R2HTML, R2OpenBUGS, R2WinBUGS, r4lineups,
-random.polychor.pa, randomLCA, raptr, Rcmdr, RcmdrMisc, rcompanion,
-Rcurvep, reappraised, referenceIntervals, refund, reglogit, regmedint,
-relaimpo, rempsyc, repmod, reportRmd, RESI, restriktor, reverseR,
-rgsepd, RHRV, riskCommunicator, riskRegression, risks, rms, Rnits,
-robmed, robmixglm, robustbase, ROCpAI, ROntoTools, RPESE, RPPASPACE,
-rstatix, rtip, rTPC, rtrend, RVAideMemoire, safestats, SAME, sampcompR,
-satuRn, SCBmeanfd, sccomp, scdhlm, scone, seedreg, sem, semEff,
-SEMgraph, semhelpinghands, sensitivity, sensobol, Sequential, serosv,
-sevenC, shotGroups, simboot, simhelpers, simmr, simpleboot, SimplyAgree,
-simTool, sisal, SiZer, smiles, soilphysics, SongEvo, SortedEffects,
-spaMM, spatialreg, SpatialVx, spdep, spsurvey, StackImpute, stdmod,
-subscore, superb, SynDI, table1, tablet, tbea, tbrf, tectonicr,
-texteffect, ThresholdROCsurvival, tidybulk, tlm, TraMineR, treeclim,
-TRexSelector, tRigon, truncSP, tsBSS, UNDO, uotm, verification, vimp,
-visualFields, Wats, welo, wrappedtools, wrMisc, wrTopDownFrag, YEAB,
-yhat, yuima
+bioregion, bipartiteD3, bootPLS, cassandRa, econetwork, econullnetr,
+HiveR, leiden, NIMAA, nos, PhageCocktail, plsRbeta, plsRglm, primer,
+RPANDA, tapnet
 
 ## Namespace
 
-Overall the package has 36 exported objects. 36 are documented:
+Overall the package has 80 exported objects. 69 are documented:
 
-             abc.ci            boot      boot.array         boot.ci        censboot 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-            control            corr            cum3          cv.glm     EEF.profile 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-         EL.profile          empinf        envelope        exp.tilt      freq.array 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-           glm.diag  glm.diag.plots     imp.moments        imp.prob    imp.quantile 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-        imp.weights       inv.logit jack.after.boot       k3.linear          lik.CI 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-      linear.approx           logit     nested.corr         norm.ci          saddle 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-       saddle.distn         simplex        smooth.f       tilt.boot          tsboot 
-               TRUE            TRUE            TRUE            TRUE            TRUE 
-         var.linear 
-               TRUE 
+                 array2linkmx               as.one.mode                   as.tnet 
+                         TRUE                      TRUE                      TRUE 
+                           BC                 betalinkr           betalinkr_multi 
+                        FALSE                      TRUE                      TRUE 
+                betweenness_w                   C.score                        CC 
+                         TRUE                      TRUE                     FALSE 
+                  closeness_w             clustering_tm                   compart 
+                         TRUE                      TRUE                      TRUE 
+               computeModules         convert2moduleWeb                  czvalues 
+                         TRUE                      TRUE                      TRUE 
+              decimalr2dtable               degreedistr                      dfun 
+                         TRUE                      TRUE                      TRUE 
+             DIRT_LPA_wb_plus               discrepancy                     empty 
+                         TRUE                      TRUE                      TRUE 
+                     endpoint                extinction                        fc 
+                         TRUE                      TRUE                      TRUE 
+                   frame2webs                    genweb                grouplevel 
+                         TRUE                      TRUE                      TRUE 
+                        H2fun                 linklevel     listModuleInformation 
+                         TRUE                      TRUE                      TRUE 
+                  LPA_wb_plus        metaComputeModules                      mgen 
+                         TRUE                      TRUE                      TRUE 
+           module2constraints                        ND                 nest.smdm 
+                         TRUE                     FALSE                      TRUE 
+                       nested        nestedcontribution                nestedness 
+                         TRUE                      TRUE                      TRUE 
+                   nestedrank              networklevel                  nodespec 
+                         TRUE                      TRUE                      TRUE 
+                          NOS                  npartite                null.distr 
+                        FALSE                      TRUE                      TRUE 
+                  null.t.test                 nullmodel                       PAC 
+                         TRUE                     FALSE                     FALSE 
+                          PDI                 plot.wine                plotmatrix 
+                         TRUE                     FALSE                      TRUE 
+                plotModuleWeb                   plotPAC                   plotweb 
+                         TRUE                      TRUE                      TRUE 
+                     plotweb2 printoutModuleInformation             projecting_tm 
+                        FALSE                      TRUE                      TRUE 
+                  r2dexternal            restrictednull                robustness 
+                         TRUE                      TRUE                     FALSE 
+               second.extinct               shuffle.web           slope.bipartite 
+                         TRUE                      TRUE                      TRUE 
+                   sortmatrix                   sortweb              specieslevel 
+                         TRUE                      TRUE                      TRUE 
+              spectral.radius                  strength                  swap.web 
+                         TRUE                      TRUE                      TRUE 
+                 symmetrise_w               tnet_igraph              togetherness 
+                         TRUE                      TRUE                      TRUE 
+                      V.ratio                   vaznull           vaznullexternal 
+                         TRUE                     FALSE                      TRUE 
+                   versionlog                    visweb                 web2edges 
+                         TRUE                      TRUE                      TRUE 
+                   webs2array                      wine 
+                         TRUE                     FALSE 
 
 ### Examples
 
-There are 80 help pages with examples, from 87 (91.95 %).
+There are 98 help pages with examples, from 98 (100.00 %).
 
 ### NEWS
 
@@ -156,7 +147,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-22 03:18:27 UTC |
+| Execution Time | 2025-02-22 03:17:14 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -397,7 +388,7 @@ running this report
                             /tmp/RtmpazFpm9
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1dbb18a6ff42_1740194303
+    PROCESSX_PS1dbb46a23188_1740194230
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -424,7 +415,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/Rtmp79Mduc
+    R_SESSION_TMPDIR        /tmp/RtmpCpCqmF
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -492,7 +483,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55df9605c910>
+    <bytecode: 0x56467498a910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -531,7 +522,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55df9571f738>
+    <bytecode: 0x56467404d118>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -698,7 +689,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55df95534520>
+    <environment: 0x564673e62520>
 
 
     $str.dendrogram.last
@@ -708,7 +699,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_boot_v1.3.31-tikzDictionary"
+    [1] "validation_report_bipartite_v2.21-tikzDictionary"
 
     $timeout
     [1] 60
