@@ -1,4 +1,4 @@
-# Validation Report - ClusTCR2@1.7.3.1
+# Validation Report - CodelistGenerator@3.4.0
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package ClusTCR2
+# Package CodelistGenerator
 
 ## Metric based risk assessment
 
@@ -22,19 +22,20 @@ The following metrics are derived from the `riskmetric` R package.
 
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 9                                                    |
-| has_vignettes        | 2                                                    |
-| export_help          | 9                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kerry A. Mullan <Kerry.Mullan@uantwerpen.be>         |
+| has_news             | 1                                                    |
+| news_current         | FALSE                                                |
+| exported_namespace   | 40                                                   |
+| has_vignettes        | 16                                                   |
+| export_help          | 40                                                   |
+| has_website          | TRUE                                                 |
+| has_maintainer       | Edward Burn <edward.burn@ndorms.ox.ac.uk>            |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 1810                                                 |
-| reverse_dependencies | 0                                                    |
+| downloads_1yr        | 11521                                                |
+| reverse_dependencies | 9                                                    |
 | has_examples         | 1                                                    |
-| dependencies         | 10                                                   |
-| license              | GPL (\>= 3)                                          |
+| dependencies         | 15                                                   |
+| license              | Apache License (\>= 2)                               |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,39 +44,70 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package      | type    |
-|:----|:-------------|:--------|
-| 1   | DescTools    | Imports |
-| 2   | ggplot2      | Imports |
-| 3   | ggseqlogo    | Imports |
-| 4   | network      | Imports |
-| 5   | plyr         | Imports |
-| 6   | RColorBrewer | Imports |
-| 7   | stringr      | Imports |
-| 8   | scales       | Imports |
-| 9   | sna          | Imports |
-| 10  | VLF          | Imports |
+|     | package                     | type    |
+|:----|:----------------------------|:--------|
+| 1   | checkmate (\>= 2.0.0)       | Imports |
+| 2   | DBI (\>= 1.1.0)             | Imports |
+| 3   | dplyr (\>= 1.1.0)           | Imports |
+| 4   | omopgenerics (\>= 1.0.0)    | Imports |
+| 5   | rlang (\>= 1.0.0)           | Imports |
+| 6   | glue (\>= 1.5.0)            | Imports |
+| 7   | stringr (\>= 1.4.0)         | Imports |
+| 8   | stringi (\>= 1.8.1)         | Imports |
+| 9   | tidyr (\>= 1.2.0)           | Imports |
+| 10  | cli (\>= 3.1.0)             | Imports |
+| 11  | purrr                       | Imports |
+| 12  | lubridate                   | Imports |
+| 13  | PatientProfiles (\>= 1.2.3) | Imports |
+| 14  | vctrs                       | Imports |
+| 15  | RJSONIO                     | Imports |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 0 reverse dependencies:
+Overall the package has 9 reverse dependencies:
+
+CohortCharacteristics, CohortConstructor, CohortSurvival,
+CohortSymmetry, DrugUtilisation, OmopSketch, OmopViewer,
+PatientProfiles, PhenotypeR
 
 ## Namespace
 
-Overall the package has 9 exported objects. 9 are documented:
+Overall the package has 40 exported objects. 40 are documented:
 
-                    ClusTCR           ClusTCR_Large                  ggnet2 
-                       TRUE                    TRUE                    TRUE 
-                mcl_cluster       mcl_cluster_large Motif_from_cluster_file 
-                       TRUE                    TRUE                    TRUE 
-                 motif_plot        motif_plot_large        netplot_ClusTCR2 
-                       TRUE                    TRUE                    TRUE 
+                availableATC           availableICD10     availableIngredients 
+                        TRUE                     TRUE                     TRUE 
+             codesFromCohort      codesFromConceptSet               codesInUse 
+                        TRUE                     TRUE                     TRUE 
+            compareCodelists              getATCCodes        getCandidateCodes 
+                        TRUE                     TRUE                     TRUE 
+           getConceptClassId           getDescendants               getDomains 
+                        TRUE                     TRUE                     TRUE 
+                 getDoseForm              getDoseUnit   getDrugIngredientCodes 
+                        TRUE                     TRUE                     TRUE 
+       getICD10StandardCodes              getMappings        getRelationshipId 
+                        TRUE                     TRUE                     TRUE 
+          getRouteCategories          getVocabularies          getVocabVersion 
+                        TRUE                     TRUE                     TRUE 
+                mockVocabRef         sourceCodesInUse        stratifyByConcept 
+                        TRUE                     TRUE                     TRUE 
+          stratifyByDoseUnit  stratifyByRouteCategory           subsetOnDomain 
+                        TRUE                     TRUE                     TRUE 
+            subsetOnDoseUnit    subsetOnRouteCategory       subsetToCodesInUse 
+                        TRUE                     TRUE                     TRUE 
+    summariseAchillesCodeUse         summariseCodeUse   summariseCohortCodeUse 
+                        TRUE                     TRUE                     TRUE 
+        summariseOrphanCodes   summariseUnmappedCodes     tableAchillesCodeUse 
+                        TRUE                     TRUE                     TRUE 
+                tableCodeUse       tableCohortCodeUse         tableOrphanCodes 
+                        TRUE                     TRUE                     TRUE 
+          tableUnmappedCodes 
+                        TRUE 
 
 ### Examples
 
-There are 9 help pages with examples, from 9 (100.00 %).
+There are 41 help pages with examples, from 41 (100.00 %).
 
 ### NEWS
 
@@ -95,7 +127,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-23 03:22:55 UTC |
+| Execution Time | 2025-02-23 03:24:36 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -336,7 +368,7 @@ running this report
                             /tmp/RtmpLGutsB
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d251584d712_1740280972
+    PROCESSX_PS1d25638ebba_1740281073
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -363,7 +395,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpOoI2G5
+    R_SESSION_TMPDIR        /tmp/RtmpqoPjdo
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -431,7 +463,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55ab57951910>
+    <bytecode: 0x56154f4af910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -470,7 +502,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55ab5700f298>
+    <bytecode: 0x56154eb6d2d0>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -637,7 +669,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55ab56e29520>
+    <environment: 0x56154e987520>
 
 
     $str.dendrogram.last
@@ -647,7 +679,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_ClusTCR2_v1.7.3.1-tikzDictionary"
+    [1] "validation_report_CodelistGenerator_v3.4.0-tikzDictionary"
 
     $timeout
     [1] 60

@@ -1,4 +1,4 @@
-# Validation Report - ClusTCR2@1.7.3.1
+# Validation Report - CDMConnector@2.0.0
 
 
 # Context
@@ -14,27 +14,29 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package ClusTCR2
+# Package CDMConnector
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 9                                                    |
-| has_vignettes        | 2                                                    |
-| export_help          | 9                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kerry A. Mullan <Kerry.Mullan@uantwerpen.be>         |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 1810                                                 |
-| reverse_dependencies | 0                                                    |
-| has_examples         | 1                                                    |
-| dependencies         | 10                                                   |
-| license              | GPL (\>= 3)                                          |
+|                      |                                           |
+|:---------------------|:------------------------------------------|
+| has_news             | 1                                         |
+| news_current         | TRUE                                      |
+| exported_namespace   | 53                                        |
+| has_vignettes        | 11                                        |
+| export_help          | 53                                        |
+| has_website          | TRUE                                      |
+| has_maintainer       | Adam Black <black@ohdsi.org>              |
+| bugs_status          | 0.9666667                                 |
+| has_source_control   | https://github.com/darwin-eu/CDMConnector |
+| has_bug_reports_url  | 1                                         |
+| downloads_1yr        | 15590                                     |
+| reverse_dependencies | 14                                        |
+| has_examples         | 0.9714286                                 |
+| dependencies         | 19                                        |
+| license              | Apache License (\>= 2)                    |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,39 +45,83 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package      | type    |
-|:----|:-------------|:--------|
-| 1   | DescTools    | Imports |
-| 2   | ggplot2      | Imports |
-| 3   | ggseqlogo    | Imports |
-| 4   | network      | Imports |
-| 5   | plyr         | Imports |
-| 6   | RColorBrewer | Imports |
-| 7   | stringr      | Imports |
-| 8   | scales       | Imports |
-| 9   | sna          | Imports |
-| 10  | VLF          | Imports |
+|     | package                  | type    |
+|:----|:-------------------------|:--------|
+| 1   | dplyr                    | Imports |
+| 2   | dbplyr (\>= 2.5.0)       | Imports |
+| 3   | DBI (\>= 0.3.0)          | Imports |
+| 4   | checkmate                | Imports |
+| 5   | cli                      | Imports |
+| 6   | purrr                    | Imports |
+| 7   | rlang                    | Imports |
+| 8   | tidyselect               | Imports |
+| 9   | glue                     | Imports |
+| 10  | methods                  | Imports |
+| 11  | withr                    | Imports |
+| 12  | lifecycle                | Imports |
+| 13  | stringr                  | Imports |
+| 14  | stringi                  | Imports |
+| 15  | generics                 | Imports |
+| 16  | tidyr                    | Imports |
+| 17  | jsonlite                 | Imports |
+| 18  | readr                    | Imports |
+| 19  | omopgenerics (\>= 1.0.0) | Imports |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 0 reverse dependencies:
+Overall the package has 14 reverse dependencies:
+
+CodelistGenerator, CohortCharacteristics, CohortConstructor,
+CohortSurvival, CohortSymmetry, DrugExposureDiagnostics,
+DrugUtilisation, IncidencePrevalence, OmopSketch, OmopViewer,
+PatientProfiles, PhenotypeR, TestGenerator, TreatmentPatterns
 
 ## Namespace
 
-Overall the package has 9 exported objects. 9 are documented:
+Overall the package has 53 exported objects. 52 are documented:
 
-                    ClusTCR           ClusTCR_Large                  ggnet2 
-                       TRUE                    TRUE                    TRUE 
-                mcl_cluster       mcl_cluster_large Motif_from_cluster_file 
-                       TRUE                    TRUE                    TRUE 
-                 motif_plot        motif_plot_large        netplot_ClusTCR2 
-                       TRUE                    TRUE                    TRUE 
+                         %>%          appendPermanent                   asDate 
+                       FALSE                     TRUE                     TRUE 
+                   attrition    benchmarkCDMConnector                     bind 
+                        TRUE                     TRUE                     TRUE 
+                      cdmCon            cdmDisconnect               cdmFlatten 
+                        TRUE                     TRUE                     TRUE 
+                  cdmFromCon            cdmFromTables                  cdmName 
+                        TRUE                     TRUE                     TRUE 
+                   cdmSample                cdmSelect                cdmSubset 
+                        TRUE                     TRUE                     TRUE 
+             cdmSubsetCohort               cdmVersion           cdmWriteSchema 
+                        TRUE                     TRUE                     TRUE 
+              cohortCodelist              cohortCount                  compute 
+                        TRUE                     TRUE                     TRUE 
+                computeQuery                copyCdmTo                  dateadd 
+                        TRUE                     TRUE                     TRUE 
+                    datediff                 datepart                     dbms 
+                        TRUE                     TRUE                     TRUE 
+                    dbSource      downloadEunomiaData          dropSourceTable 
+                        TRUE                     TRUE                     TRUE 
+                   dropTable         dropTable.db_cdm               eunomiaDir 
+                        TRUE                     TRUE                     TRUE 
+          eunomiaIsAvailable          exampleDatasets        generateCohortSet 
+                        TRUE                     TRUE                     TRUE 
+    generateConceptCohortSet                 inSchema              insertCdmTo 
+                        TRUE                     TRUE                     TRUE 
+                 insertTable         listSourceTables               listTables 
+                        TRUE                     TRUE                     TRUE 
+              newCohortTable            readCohortSet          readSourceTable 
+                        TRUE                     TRUE                     TRUE 
+       recordCohortAttrition           requireEunomia                 settings 
+                        TRUE                     TRUE                     TRUE 
+                    snapshot        summariseQuantile                 tblGroup 
+                        TRUE                     TRUE                     TRUE 
+             uniqueTableName                  version 
+                        TRUE                     TRUE 
 
 ### Examples
 
-There are 9 help pages with examples, from 9 (100.00 %).
+There are 34 help pages with examples, from 35 (97.14 %).
 
 ### NEWS
 
@@ -95,7 +141,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-23 03:22:55 UTC |
+| Execution Time | 2025-02-23 03:20:04 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -336,7 +382,7 @@ running this report
                             /tmp/RtmpLGutsB
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d251584d712_1740280972
+    PROCESSX_PS1d2552658ff9_1740280801
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -363,7 +409,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpOoI2G5
+    R_SESSION_TMPDIR        /tmp/RtmpHvLa8l
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -431,7 +477,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55ab57951910>
+    <bytecode: 0x5572925f2910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -470,7 +516,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55ab5700f298>
+    <bytecode: 0x557291cafe70>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -637,7 +683,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55ab56e29520>
+    <environment: 0x557291aca520>
 
 
     $str.dendrogram.last
@@ -647,7 +693,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_ClusTCR2_v1.7.3.1-tikzDictionary"
+    [1] "validation_report_CDMConnector_v2.0.0-tikzDictionary"
 
     $timeout
     [1] 60

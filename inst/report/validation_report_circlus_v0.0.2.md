@@ -1,4 +1,4 @@
-# Validation Report - ClusTCR2@1.7.3.1
+# Validation Report - circlus@0.0.2
 
 
 # Context
@@ -14,27 +14,27 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package ClusTCR2
+# Package circlus
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 9                                                    |
-| has_vignettes        | 2                                                    |
-| export_help          | 9                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kerry A. Mullan <Kerry.Mullan@uantwerpen.be>         |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 1810                                                 |
-| reverse_dependencies | 0                                                    |
-| has_examples         | 1                                                    |
-| dependencies         | 10                                                   |
-| license              | GPL (\>= 3)                                          |
+|                      |                                     |
+|:---------------------|:------------------------------------|
+| has_news             | 0                                   |
+| exported_namespace   | 8                                   |
+| has_vignettes        | 0                                   |
+| export_help          | 8                                   |
+| has_website          | TRUE                                |
+| has_maintainer       | Lukas Sablica <lsablica@wu.ac.at>   |
+| has_source_control   | https://github.com/lsablica/circlus |
+| has_bug_reports_url  | 1                                   |
+| downloads_1yr        | 839                                 |
+| reverse_dependencies | 0                                   |
+| has_examples         | 1                                   |
+| dependencies         | 7                                   |
+| license              | GPL-3                               |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,18 +43,15 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package      | type    |
-|:----|:-------------|:--------|
-| 1   | DescTools    | Imports |
-| 2   | ggplot2      | Imports |
-| 3   | ggseqlogo    | Imports |
-| 4   | network      | Imports |
-| 5   | plyr         | Imports |
-| 6   | RColorBrewer | Imports |
-| 7   | stringr      | Imports |
-| 8   | scales       | Imports |
-| 9   | sna          | Imports |
-| 10  | VLF          | Imports |
+|     | package            | type      |
+|:----|:-------------------|:----------|
+| 1   | Rcpp (\>= 0.12.18) | Imports   |
+| 2   | Tinflex (\>= 1.8)  | Imports   |
+| 3   | flexmix            | Imports   |
+| 4   | torch              | Imports   |
+| 5   | methods            | Imports   |
+| 6   | Rcpp               | LinkingTo |
+| 7   | RcppArmadillo      | LinkingTo |
 
 **Package dependencies**
 
@@ -64,18 +61,16 @@ Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 9 exported objects. 9 are documented:
+Overall the package has 8 exported objects. 8 are documented:
 
-                    ClusTCR           ClusTCR_Large                  ggnet2 
-                       TRUE                    TRUE                    TRUE 
-                mcl_cluster       mcl_cluster_large Motif_from_cluster_file 
-                       TRUE                    TRUE                    TRUE 
-                 motif_plot        motif_plot_large        netplot_ClusTCR2 
-                       TRUE                    TRUE                    TRUE 
+             dpkb     dspcauchy      FLXMCpkb FLXMCspcauchy      FLXMRpkb 
+             TRUE          TRUE          TRUE          TRUE          TRUE 
+    FLXMRspcauchy          rpkb     rspcauchy 
+             TRUE          TRUE          TRUE 
 
 ### Examples
 
-There are 9 help pages with examples, from 9 (100.00 %).
+There are 11 help pages with examples, from 11 (100.00 %).
 
 ### NEWS
 
@@ -95,7 +90,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-23 03:22:55 UTC |
+| Execution Time | 2025-02-23 03:21:41 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -336,7 +331,7 @@ running this report
                             /tmp/RtmpLGutsB
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d251584d712_1740280972
+    PROCESSX_PS1d2557eaeeea_1740280897
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -363,7 +358,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpOoI2G5
+    R_SESSION_TMPDIR        /tmp/RtmppdVDql
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -431,7 +426,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55ab57951910>
+    <bytecode: 0x55d11aa71910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -470,7 +465,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55ab5700f298>
+    <bytecode: 0x55d11a12f260>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -637,7 +632,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55ab56e29520>
+    <environment: 0x55d119f49520>
 
 
     $str.dendrogram.last
@@ -647,7 +642,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_ClusTCR2_v1.7.3.1-tikzDictionary"
+    [1] "validation_report_circlus_v0.0.2-tikzDictionary"
 
     $timeout
     [1] 60

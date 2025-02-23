@@ -1,4 +1,4 @@
-# Validation Report - ClusTCR2@1.7.3.1
+# Validation Report - codelist@0.1.0
 
 
 # Context
@@ -14,7 +14,7 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package ClusTCR2
+# Package codelist
 
 ## Metric based risk assessment
 
@@ -23,18 +23,18 @@ The following metrics are derived from the `riskmetric` R package.
 |                      |                                                      |
 |:---------------------|:-----------------------------------------------------|
 | has_news             | 0                                                    |
-| exported_namespace   | 9                                                    |
-| has_vignettes        | 2                                                    |
-| export_help          | 9                                                    |
+| exported_namespace   | 20                                                   |
+| has_vignettes        | 3                                                    |
+| export_help          | 20                                                   |
 | has_website          | FALSE                                                |
-| has_maintainer       | Kerry A. Mullan <Kerry.Mullan@uantwerpen.be>         |
+| has_maintainer       | Jan van der Laan <r@eoos.dds.nl>                     |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 1810                                                 |
+| downloads_1yr        | 20                                                   |
 | reverse_dependencies | 0                                                    |
-| has_examples         | 1                                                    |
-| dependencies         | 10                                                   |
-| license              | GPL (\>= 3)                                          |
+| has_examples         | 0.9                                                  |
+| dependencies         | 2                                                    |
+| license              | GPL-3                                                |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,18 +43,10 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package      | type    |
-|:----|:-------------|:--------|
-| 1   | DescTools    | Imports |
-| 2   | ggplot2      | Imports |
-| 3   | ggseqlogo    | Imports |
-| 4   | network      | Imports |
-| 5   | plyr         | Imports |
-| 6   | RColorBrewer | Imports |
-| 7   | stringr      | Imports |
-| 8   | scales       | Imports |
-| 9   | sna          | Imports |
-| 10  | VLF          | Imports |
+|     | package | type    |
+|:----|:--------|:--------|
+| 1   | utils   | Imports |
+| 2   | methods | Imports |
 
 **Package dependencies**
 
@@ -64,18 +56,20 @@ Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 9 exported objects. 9 are documented:
+Overall the package has 20 exported objects. 20 are documented:
 
-                    ClusTCR           ClusTCR_Large                  ggnet2 
-                       TRUE                    TRUE                    TRUE 
-                mcl_cluster       mcl_cluster_large Motif_from_cluster_file 
-                       TRUE                    TRUE                    TRUE 
-                 motif_plot        motif_plot_large        netplot_ClusTCR2 
-                       TRUE                    TRUE                    TRUE 
+        as.code as.codelist    as.label          cl   cl_filter cl_is_valid 
+           TRUE        TRUE        TRUE        TRUE        TRUE        TRUE 
+      cl_levels   cl_locale  cl_nlevels        code    codelist       codes 
+           TRUE        TRUE        TRUE        TRUE        TRUE        TRUE 
+      in_labels     is.code is.codelist  is.missing labels.code   levelcast 
+           TRUE        TRUE        TRUE        TRUE        TRUE        TRUE 
+       to_codes   to_labels 
+           TRUE        TRUE 
 
 ### Examples
 
-There are 9 help pages with examples, from 9 (100.00 %).
+There are 18 help pages with examples, from 20 (90.00 %).
 
 ### NEWS
 
@@ -95,7 +89,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-23 03:22:55 UTC |
+| Execution Time | 2025-02-23 03:24:32 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -336,7 +330,7 @@ running this report
                             /tmp/RtmpLGutsB
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d251584d712_1740280972
+    PROCESSX_PS1d2539ef1ae4_1740281068
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -363,7 +357,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpOoI2G5
+    R_SESSION_TMPDIR        /tmp/RtmpuIWfyA
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -431,7 +425,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55ab57951910>
+    <bytecode: 0x5594edcec910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -470,7 +464,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55ab5700f298>
+    <bytecode: 0x5594ed3aa298>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -637,7 +631,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55ab56e29520>
+    <environment: 0x5594ed1c4520>
 
 
     $str.dendrogram.last
@@ -647,7 +641,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_ClusTCR2_v1.7.3.1-tikzDictionary"
+    [1] "validation_report_codelist_v0.1.0-tikzDictionary"
 
     $timeout
     [1] 60

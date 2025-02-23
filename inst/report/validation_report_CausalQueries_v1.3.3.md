@@ -1,4 +1,4 @@
-# Validation Report - ClusTCR2@1.7.3.1
+# Validation Report - CausalQueries@1.3.3
 
 
 # Context
@@ -14,27 +14,28 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package ClusTCR2
+# Package CausalQueries
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 9                                                    |
-| has_vignettes        | 2                                                    |
-| export_help          | 9                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kerry A. Mullan <Kerry.Mullan@uantwerpen.be>         |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 1810                                                 |
-| reverse_dependencies | 0                                                    |
-| has_examples         | 1                                                    |
-| dependencies         | 10                                                   |
-| license              | GPL (\>= 3)                                          |
+|                      |                                   |
+|:---------------------|:----------------------------------|
+| has_news             | 1                                 |
+| news_current         | TRUE                              |
+| exported_namespace   | 33                                |
+| has_vignettes        | 49                                |
+| export_help          | 33                                |
+| has_website          | TRUE                              |
+| has_maintainer       | Till Tietz <ttietz2014@gmail.com> |
+| bugs_status          | 0.9333333                         |
+| has_bug_reports_url  | 1                                 |
+| downloads_1yr        | 8769                              |
+| reverse_dependencies | 1                                 |
+| has_examples         | 1                                 |
+| dependencies         | 20                                |
+| license              | MIT + file LICENSE                |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,39 +44,67 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package      | type    |
-|:----|:-------------|:--------|
-| 1   | DescTools    | Imports |
-| 2   | ggplot2      | Imports |
-| 3   | ggseqlogo    | Imports |
-| 4   | network      | Imports |
-| 5   | plyr         | Imports |
-| 6   | RColorBrewer | Imports |
-| 7   | stringr      | Imports |
-| 8   | scales       | Imports |
-| 9   | sna          | Imports |
-| 10  | VLF          | Imports |
+|     | package                   | type      |
+|:----|:--------------------------|:----------|
+| 1   | methods                   | Depends   |
+| 2   | dplyr                     | Imports   |
+| 3   | dirmult (\>= 0.1.3-4)     | Imports   |
+| 4   | stats (\>= 4.1.1)         | Imports   |
+| 5   | rlang (\>= 0.2.0)         | Imports   |
+| 6   | rstan (\>= 2.26.0)        | Imports   |
+| 7   | rstantools (\>= 2.0.0)    | Imports   |
+| 8   | stringr (\>= 1.4.0)       | Imports   |
+| 9   | latex2exp (\>= 0.9.4)     | Imports   |
+| 10  | knitr (\>= 1.45)          | Imports   |
+| 11  | ggplot2 (\>= 3.3.5)       | Imports   |
+| 12  | lifecycle (\>= 1.0.1)     | Imports   |
+| 13  | ggraph (\>= 2.2.0)        | Imports   |
+| 14  | Rcpp (\>= 0.12.0)         | Imports   |
+| 15  | Rcpp (\>= 0.12.0)         | LinkingTo |
+| 16  | BH (\>= 1.66.0)           | LinkingTo |
+| 17  | RcppArmadillo             | LinkingTo |
+| 18  | RcppEigen (\>= 0.3.3.3.0) | LinkingTo |
+| 19  | rstan (\>= 2.26.0)        | LinkingTo |
+| 20  | StanHeaders (\>= 2.26.0)  | LinkingTo |
 
 **Package dependencies**
 
 ## Reverse dependencies
 
-Overall the package has 0 reverse dependencies:
+Overall the package has 1 reverse dependencies:
+
+rdss
 
 ## Namespace
 
-Overall the package has 9 exported objects. 9 are documented:
+Overall the package has 33 exported objects. 33 are documented:
 
-                    ClusTCR           ClusTCR_Large                  ggnet2 
+              collapse_data             complements              decreasing 
                        TRUE                    TRUE                    TRUE 
-                mcl_cluster       mcl_cluster_large Motif_from_cluster_file 
+           draw_causal_type             expand_data      get_all_data_types 
                        TRUE                    TRUE                    TRUE 
-                 motif_plot        motif_plot_large        netplot_ClusTCR2 
+    get_event_probabilities         get_query_types                    grab 
+                       TRUE                    TRUE                    TRUE 
+                 increasing                 inspect               interacts 
+                       TRUE                    TRUE                    TRUE 
+             interpret_type               make_data             make_events 
+                       TRUE                    TRUE                    TRUE 
+                 make_model         make_parameters             make_priors 
+                       TRUE                    TRUE                    TRUE 
+             non_decreasing          non_increasing              plot_model 
+                       TRUE                    TRUE                    TRUE 
+         query_distribution             query_model        realise_outcomes 
+                       TRUE                    TRUE                    TRUE 
+               set_confound    set_parameter_matrix          set_parameters 
+                       TRUE                    TRUE                    TRUE 
+     set_prior_distribution              set_priors        set_restrictions 
+                       TRUE                    TRUE                    TRUE 
+                substitutes                      te            update_model 
                        TRUE                    TRUE                    TRUE 
 
 ### Examples
 
-There are 9 help pages with examples, from 9 (100.00 %).
+There are 50 help pages with examples, from 50 (100.00 %).
 
 ### NEWS
 
@@ -95,7 +124,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-23 03:22:55 UTC |
+| Execution Time | 2025-02-23 03:19:51 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -336,7 +365,7 @@ running this report
                             /tmp/RtmpLGutsB
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d251584d712_1740280972
+    PROCESSX_PS1d25310c1ff3_1740280787
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -363,7 +392,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpOoI2G5
+    R_SESSION_TMPDIR        /tmp/Rtmpuraddt
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -431,7 +460,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55ab57951910>
+    <bytecode: 0x5560400b5910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -470,7 +499,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55ab5700f298>
+    <bytecode: 0x55603f772e38>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -637,7 +666,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55ab56e29520>
+    <environment: 0x55603f58d520>
 
 
     $str.dendrogram.last
@@ -647,7 +676,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_ClusTCR2_v1.7.3.1-tikzDictionary"
+    [1] "validation_report_CausalQueries_v1.3.3-tikzDictionary"
 
     $timeout
     [1] 60

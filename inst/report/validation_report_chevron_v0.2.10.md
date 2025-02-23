@@ -1,4 +1,4 @@
-# Validation Report - ClusTCR2@1.7.3.1
+# Validation Report - chevron@0.2.10
 
 
 # Context
@@ -14,27 +14,29 @@ It is limited to assess whether unit tests and documentation are present
 and can execute without error. An assessment would be required that the
 tests and documentation are meaningful.
 
-# Package ClusTCR2
+# Package chevron
 
 ## Metric based risk assessment
 
 The following metrics are derived from the `riskmetric` R package.
 
-|                      |                                                      |
-|:---------------------|:-----------------------------------------------------|
-| has_news             | 0                                                    |
-| exported_namespace   | 9                                                    |
-| has_vignettes        | 2                                                    |
-| export_help          | 9                                                    |
-| has_website          | FALSE                                                |
-| has_maintainer       | Kerry A. Mullan <Kerry.Mullan@uantwerpen.be>         |
-| bugs_status          | package DESCRIPTION does not have a BugReports field |
-| has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 1810                                                 |
-| reverse_dependencies | 0                                                    |
-| has_examples         | 1                                                    |
-| dependencies         | 10                                                   |
-| license              | GPL (\>= 3)                                          |
+|                      |                                                 |
+|:---------------------|:------------------------------------------------|
+| has_news             | 1                                               |
+| news_current         | TRUE                                            |
+| exported_namespace   | 222                                             |
+| has_vignettes        | 6                                               |
+| export_help          | 231                                             |
+| has_website          | TRUE                                            |
+| has_maintainer       | Joe Zhu <joe.zhu@roche.com>                     |
+| bugs_status          | 0.7                                             |
+| has_source_control   | https://github.com/insightsengineering/chevron/ |
+| has_bug_reports_url  | 1                                               |
+| downloads_1yr        | 5783                                            |
+| reverse_dependencies | 0                                               |
+| has_examples         | 0.9932432                                       |
+| dependencies         | 21                                              |
+| license              | Apache License 2.0                              |
 
 **Package general assessment:** Coverage, check results, size, download
 the last year, reverse dependencies and number of dependencies.
@@ -43,18 +45,29 @@ the last year, reverse dependencies and number of dependencies.
 
 Overall the package has these dependencies:
 
-|     | package      | type    |
-|:----|:-------------|:--------|
-| 1   | DescTools    | Imports |
-| 2   | ggplot2      | Imports |
-| 3   | ggseqlogo    | Imports |
-| 4   | network      | Imports |
-| 5   | plyr         | Imports |
-| 6   | RColorBrewer | Imports |
-| 7   | stringr      | Imports |
-| 8   | scales       | Imports |
-| 9   | sna          | Imports |
-| 10  | VLF          | Imports |
+|     | package                 | type    |
+|:----|:------------------------|:--------|
+| 1   | checkmate (\>= 2.1.0)   | Imports |
+| 2   | dplyr (\>= 1.1.0)       | Imports |
+| 3   | dunlin (\>= 0.1.8)      | Imports |
+| 4   | forcats (\>= 1.0.0)     | Imports |
+| 5   | formatters (\>= 0.5.10) | Imports |
+| 6   | ggplot2 (\>= 3.4.0)     | Imports |
+| 7   | glue (\>= 1.0.0)        | Imports |
+| 8   | grid                    | Imports |
+| 9   | lifecycle (\>= 0.2.0)   | Imports |
+| 10  | lubridate (\>= 1.7.8)   | Imports |
+| 11  | magrittr (\>= 1.5)      | Imports |
+| 12  | methods                 | Imports |
+| 13  | nestcolor (\>= 0.1.1)   | Imports |
+| 14  | purrr (\>= 0.3.0)       | Imports |
+| 15  | rlang (\>= 1.0.0)       | Imports |
+| 16  | rlistings (\>= 0.2.10)  | Imports |
+| 17  | rtables (\>= 0.6.11)    | Imports |
+| 18  | stringr (\>= 1.4.1)     | Imports |
+| 19  | tern (\>= 0.9.7)        | Imports |
+| 20  | tibble (\>= 2.0.0)      | Imports |
+| 21  | utils                   | Imports |
 
 **Package dependencies**
 
@@ -64,18 +77,160 @@ Overall the package has 0 reverse dependencies:
 
 ## Namespace
 
-Overall the package has 9 exported objects. 9 are documented:
+Overall the package has 222 exported objects. 231 are documented:
 
-                    ClusTCR           ClusTCR_Large                  ggnet2 
-                       TRUE                    TRUE                    TRUE 
-                mcl_cluster       mcl_cluster_large Motif_from_cluster_file 
-                       TRUE                    TRUE                    TRUE 
-                 motif_plot        motif_plot_large        netplot_ClusTCR2 
-                       TRUE                    TRUE                    TRUE 
+              ael01_nollt      ael01_nollt_main       ael01_nollt_pre 
+                     TRUE                  TRUE                  TRUE 
+                    ael02            ael02_main             ael02_pre 
+                     TRUE                  TRUE                  TRUE 
+                    ael03            ael03_main             ael03_pre 
+                     TRUE                  TRUE                  TRUE 
+                    aet01            aet01_aesi       aet01_aesi_main 
+                     TRUE                  TRUE                  TRUE 
+          aet01_aesi_post        aet01_aesi_pre            aet01_main 
+                     TRUE                  TRUE                  TRUE 
+               aet01_post             aet01_pre                 aet02 
+                     TRUE                  TRUE                  TRUE 
+              aet02_label            aet02_main            aet02_post 
+                     TRUE                  TRUE                  TRUE 
+                aet02_pre                 aet03            aet03_main 
+                     TRUE                  TRUE                  TRUE 
+               aet03_post             aet03_pre                 aet04 
+                     TRUE                  TRUE                  TRUE 
+               aet04_main            aet04_post             aet04_pre 
+                     TRUE                  TRUE                  TRUE 
+                    aet05             aet05_all         aet05_all_pre 
+                     TRUE                  TRUE                  TRUE 
+               aet05_main            aet05_post             aet05_pre 
+                     TRUE                  TRUE                  TRUE 
+                    aet10            aet10_main            aet10_post 
+                     TRUE                  TRUE                  TRUE 
+                aet10_pre               args_ls   assert_single_value 
+                     TRUE                  TRUE                  TRUE 
+         assert_valid_var assert_valid_variable                cfbt01 
+                     TRUE                  TRUE                  TRUE 
+              cfbt01_main           cfbt01_post            cfbt01_pre 
+                     TRUE                  TRUE                  TRUE 
+                chevron_g             chevron_l        chevron_simple 
+                     TRUE                  TRUE                  TRUE 
+                chevron_t             cml02a_gl        cml02a_gl_main 
+                     TRUE                  TRUE                  TRUE 
+            cml02a_gl_pre           cmt01_label                cmt01a 
+                     TRUE                  TRUE                  TRUE 
+              cmt01a_main           cmt01a_post            cmt01a_pre 
+                     TRUE                  TRUE                  TRUE 
+                 cmt02_pt         cmt02_pt_main         cmt02_pt_post 
+                     TRUE                  TRUE                  TRUE 
+             cmt02_pt_pre      convert_to_month                coxt01 
+                     TRUE                  TRUE                  TRUE 
+              coxt01_main           coxt01_post            coxt01_pre 
+                     TRUE                  TRUE                  TRUE 
+                   coxt02           coxt02_main    create_id_listings 
+                     TRUE                  TRUE                  TRUE 
+                    dmt01            dmt01_main            dmt01_post 
+                     TRUE                  TRUE                  TRUE 
+                dmt01_pre      dose_change_rule                 dst01 
+                     TRUE                  TRUE                  TRUE 
+               dst01_main            dst01_post             dst01_pre 
+                     TRUE                  TRUE                  TRUE 
+                   dtht01           dtht01_main           dtht01_post 
+                     TRUE                  TRUE                  TRUE 
+               dtht01_pre        dummy_template                 egt01 
+                     TRUE                  TRUE                  TRUE 
+               egt01_main             egt01_pre               egt02_1 
+                     TRUE                  TRUE                  TRUE 
+             egt02_1_main               egt02_2          egt02_2_main 
+                     TRUE                  TRUE                  TRUE 
+               egt02_post             egt02_pre                 egt03 
+                     TRUE                  TRUE                  TRUE 
+               egt03_main            egt03_post             egt03_pre 
+                     TRUE                  TRUE                  TRUE 
+              egt05_qtcat      egt05_qtcat_main      egt05_qtcat_post 
+                     TRUE                  TRUE                  TRUE 
+          egt05_qtcat_pre            empty_rule                 ext01 
+                     TRUE                  TRUE                  TRUE 
+               ext01_main            ext01_post             ext01_pre 
+                     TRUE                  TRUE                  TRUE 
+              format_date                fstg01           fstg01_main 
+                     TRUE                  TRUE                  TRUE 
+               fstg01_pre                fstg02           fstg02_main 
+                     TRUE                  TRUE                  TRUE 
+               fstg02_pre               get_arg        get_grade_rule 
+                     TRUE                  TRUE                  TRUE 
+          get_section_div               gg_list      gg_theme_chevron 
+                     TRUE                  TRUE                  TRUE 
+                grob_list          h_format_dec                 kmg01 
+                     TRUE                  TRUE                  TRUE 
+               kmg01_main             kmg01_pre lab_paramcd_precision 
+                     TRUE                  TRUE                  TRUE 
+                    lbt01            lbt01_main             lbt01_pre 
+                     TRUE                  TRUE                  TRUE 
+                    lbt04            lbt04_main            lbt04_post 
+                     TRUE                  TRUE                  TRUE 
+                lbt04_pre                 lbt05            lbt05_main 
+                     TRUE                  TRUE                  TRUE 
+               lbt05_post             lbt05_pre                 lbt06 
+                     TRUE                  TRUE                  TRUE 
+               lbt06_main            lbt06_post             lbt06_pre 
+                     TRUE                  TRUE                  TRUE 
+                    lbt07            lbt07_main            lbt07_post 
+                     TRUE                  TRUE                  TRUE 
+                lbt07_pre                 lbt14            lbt14_main 
+                     TRUE                  TRUE                  TRUE 
+               lbt14_post             lbt14_pre                 lbt15 
+                     TRUE                  TRUE                  TRUE 
+                lbt15_pre                  lvls                  main 
+                     TRUE                  TRUE                  TRUE 
+                   main<-                 mht01           mht01_label 
+                     TRUE                  TRUE                  TRUE 
+               mht01_main            mht01_post             mht01_pre 
+                     TRUE                  TRUE                  TRUE 
+             missing_rule                 mng01            mng01_main 
+                     TRUE                  TRUE                  TRUE 
+                mng01_pre              nocoding          outcome_rule 
+                     TRUE                  TRUE                  TRUE 
+                    pdt01            pdt01_main            pdt01_post 
+                     TRUE                  TRUE                  TRUE 
+                pdt01_pre                 pdt02            pdt02_main 
+                     TRUE                  TRUE                  TRUE 
+               pdt02_post             pdt02_pre           postprocess 
+                     TRUE                  TRUE                  TRUE 
+            postprocess<-            preprocess          preprocess<- 
+                     TRUE                  TRUE                  TRUE 
+                 reformat           report_null                rmpt01 
+                     TRUE                  TRUE                  TRUE 
+              rmpt01_main           rmpt01_post            rmpt01_pre 
+                     TRUE                  TRUE                  TRUE 
+                   rmpt03           rmpt03_main            rmpt03_pre 
+                     TRUE                  TRUE                  TRUE 
+                   rmpt04           rmpt04_main            rmpt04_pre 
+                     TRUE                  TRUE                  TRUE 
+                   rmpt05           rmpt05_main            rmpt05_pre 
+                     TRUE                  TRUE                  TRUE 
+                   rmpt06           rmpt06_main           rmpt06_post 
+                     TRUE                  TRUE                  TRUE 
+               rmpt06_pre                rspt01           rspt01_main 
+                     TRUE                  TRUE                  TRUE 
+              rspt01_post            rspt01_pre                   run 
+                     TRUE                  TRUE                  TRUE 
+              script_funs       set_section_div  standard_null_report 
+                     TRUE                  TRUE                  TRUE 
+       std_postprocessing                ttet01           ttet01_main 
+                     TRUE                  TRUE                  TRUE 
+              ttet01_post            ttet01_pre         unwrap_layout 
+                     TRUE                  TRUE                  TRUE 
+           var_labels_for                 vst01            vst01_main 
+                     TRUE                  TRUE                  TRUE 
+                vst01_pre               vst02_1          vst02_1_main 
+                     TRUE                  TRUE                  TRUE 
+                  vst02_2          vst02_2_main            vst02_post 
+                     TRUE                  TRUE                  TRUE 
+                vst02_pre            with_label           yes_no_rule 
+                     TRUE                  TRUE                  TRUE 
 
 ### Examples
 
-There are 9 help pages with examples, from 9 (100.00 %).
+There are 147 help pages with examples, from 148 (99.32 %).
 
 ### NEWS
 
@@ -95,7 +250,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-23 03:22:55 UTC |
+| Execution Time | 2025-02-23 03:21:01 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -336,7 +491,7 @@ running this report
                             /tmp/RtmpLGutsB
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d251584d712_1740280972
+    PROCESSX_PS1d25e6c38ce_1740280858
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -363,7 +518,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpOoI2G5
+    R_SESSION_TMPDIR        /tmp/RtmpvIgUQm
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -431,7 +586,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55ab57951910>
+    <bytecode: 0x559cce1ca910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -470,7 +625,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55ab5700f298>
+    <bytecode: 0x559ccd887f88>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -637,7 +792,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55ab56e29520>
+    <environment: 0x559ccd6a2520>
 
 
     $str.dendrogram.last
@@ -647,7 +802,7 @@ These are the options set to generate the report:
     [1] "/usr/bin/texi2dvi"
 
     $tikzMetricsDictionary
-    [1] "validation_report_ClusTCR2_v1.7.3.1-tikzDictionary"
+    [1] "validation_report_chevron_v0.2.10-tikzDictionary"
 
     $timeout
     [1] 60
