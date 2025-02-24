@@ -10,6 +10,8 @@ score_packages(packages, limit = .config$limit, repos = .config$remote_base)
 \item{packages}{Character vector with package names.}
 
 \item{limit}{Maximum number of packages to assess.}
+
+\item{repos}{Repository to download packages from.}
 }
 \value{
 data.frame

@@ -83,6 +83,7 @@ diff_packages <- function(remote_packages, local_packages) {
 #'
 #' @param packages Character vector with package names.
 #' @param limit Maximum number of packages to assess.
+#' @param repos Repository to download packages from.
 #'
 #' @return data.frame
 #'
@@ -175,6 +176,13 @@ score_packages <- function(
   )
 }
 
+#' Join PACKAGES meta info with their respective scores (metrics).
+#'
+#' @param packages data.frame with the PACKAGES contents.
+#' @param scores data.frame with the scores.
+#'
+#' @return data.frame
+#'
 #' @export
 add_score_to_packages <- function(packages, scores) {
   logger::log_info("Adding score to packages", namespace = "pharmapkgs")
