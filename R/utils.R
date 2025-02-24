@@ -122,7 +122,7 @@ global_filters <- function() {
   # FIXME: remove this if https://github.com/pharmaR/riskmetric/pull/363 is merged
   logger::log_debug("\tSubstituting assess_size_codebase", namespace = "pharmapkgs")
   metrics[["assess_size_codebase"]] <- function(x) {
-    riskmetric::pkg_metric_eval(class = "pkg_metric_size_codebase", {
+    riskmetric:::pkg_metric_eval(class = "pkg_metric_size_codebase", {
       files <- list.files(
         path = file.path(x$path, "R"),
         pattern = "\\.R$",
