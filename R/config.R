@@ -25,11 +25,10 @@
     set_config_value(name, values[[name]])
   })
 
-  logger::log_info("Config values initialized.", namespace = "pharmapkgs")
-  logger::log_debug(
-    "{jsonlite::toJSON(as.list(.config), auto_unbox = TRUE, pretty = TRUE)}",
-    namespace = "pharmapkgs"
-  )
+  packageStartupMessage("Pharmapkgs: config values loaded")
+  if (logger::log_threshold() >= logger::DEBUG) {
+    packageStartupMessage(jsonlite::toJSON(as.list(.config), auto_unbox = TRUE, pretty = TRUE))
+  }
 
   invisible()
 }
@@ -62,6 +61,6 @@ set_config_value <- function(key, value) {
     default_log_level
   }
 
-  logger::log_info("Pharmapkgs log level: {log_level}", namespace = "pharmapkgs")
   logger::log_threshold(log_level, namespace = "pharmapkgs")
+  packageStartupMessage("Pharmapkgs log level:", log_level)
 }
