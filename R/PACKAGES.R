@@ -100,9 +100,15 @@ score_packages <- function(
   package_names <- packages[seq_len(limit)]
 
   logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
+
+  destination_directory <- file.path(.config$project_path, "inst", "source")
+  if (!dir.exists(destination_directory)) {
+    dir.create(destination_directory, recursive = TRUE)
+  }
+
   download_result <- download.packages(
     pkgs = package_names,
-    destdir = file.path(.config$project_path, "inst", "source"),
+    destdir = destination_directory,
     repos = repos
   )
 
