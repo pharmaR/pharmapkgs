@@ -4,12 +4,12 @@ PACKAGE <- "bayesPop"
 SOURCE_DIR <- "inst/source"
 
 if (!dir.exists(file.path(SOURCE_DIR, PACKAGE))) {
-  download_result <- download.packages(
+  download_result <- utils::download.packages(
     pkgs = PACKAGE,
     destdir = SOURCE_DIR,
     repos = "https://cloud.r-project.org"
   )
-  untar(download_result[, 2], exdir = SOURCE_DIR)
+  utils::untar(download_result[, 2], exdir = SOURCE_DIR)
 }
 
 package_reference <- pkg_ref(file.path(SOURCE_DIR, PACKAGE))

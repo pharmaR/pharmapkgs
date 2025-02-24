@@ -106,7 +106,7 @@ score_packages <- function(
     dir.create(destination_directory, recursive = TRUE)
   }
 
-  download_result <- download.packages(
+  download_result <- utils::download.packages(
     pkgs = package_names,
     destdir = destination_directory,
     repos = repos
@@ -123,7 +123,7 @@ score_packages <- function(
   logger::log_info("Unzipping packages", namespace = "pharmapkgs")
   for (tarball in download_result[, 2]) {
     logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
-    untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
+    utils::untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
   }
 
   packages <- download_result[, 1]
