@@ -111,7 +111,7 @@ risk_filter_with_inserted_fields <- function(f, fields) {
       prior_filters <- prior_filters[!is_add]
       # if no filters remain, use defaults
       if (length(prior_filters) <= 0) {
-        prior_filters <- utils:::available_packages_filters_default
+        prior_filters <- utils::getFromNamespace("available_packages_filters_default", "utils")
       }
     }
 
