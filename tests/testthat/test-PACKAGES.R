@@ -117,7 +117,7 @@ describe("add_score_to_packages", {
       Version = c("1.0", "2.0"),
       DownloadURL = c("url1", "url2")
     )
-    scores <- data.frame(Package = c("A", "B"), score = c(1, 2))
+    scores <- data.frame(Package = c("A", "B"), Version = c("1.0", "2.0"), score = c(1, 2))
 
     actual_output <- add_score_to_packages(packages, scores)
 
