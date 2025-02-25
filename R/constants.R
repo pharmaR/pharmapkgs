@@ -10,7 +10,7 @@ REMOTE_REPO_BASE_URL <- "https://cloud.r-project.org/"
 #' function seems to be a workaround for that issue.
 #'
 #' @keywords internal
-PHARMAPKGS_BASE_URL <- \() system.file("repos", package = "pharmapkgs", mustWork = TRUE)
+PHARMAPKGS_BASE_URL <- function() system.file("repos", package = "pharmapkgs", mustWork = TRUE)
 
 #' The order of PACKAGES fields as in CRAN.
 #' @keywords internal
