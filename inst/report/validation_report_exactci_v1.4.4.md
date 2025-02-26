@@ -30,7 +30,7 @@ The following metrics are derived from the `riskmetric` R package.
 | has_maintainer       | Michael P. Fay <mfay@niaid.nih.gov>                  |
 | bugs_status          | package DESCRIPTION does not have a BugReports field |
 | has_bug_reports_url  | 0                                                    |
-| downloads_1yr        | 26569                                                |
+| downloads_1yr        | 26417                                                |
 | reverse_dependencies | 6                                                    |
 | has_examples         | 1                                                    |
 | dependencies         | 3                                                    |
@@ -90,7 +90,7 @@ The package uses .
 | OS             | Ubuntu 24.04.1 LTS      |
 | Platform       | x86_64-pc-linux-gnu     |
 | System         | x86_64, linux-gnu       |
-| Execution Time | 2025-02-19 04:45:56 UTC |
+| Execution Time | 2025-02-26 03:22:18 UTC |
 
 **System information**. Table about the system used to check the
 package.
@@ -123,8 +123,8 @@ Information about the R environment and capabilities:
     loaded via a namespace (and not attached):
      [1] riskreports_0.0.0.9003 compiler_4.4.2         fastmap_1.2.0         
      [4] cli_3.6.4              htmltools_0.5.8.1      yaml_2.3.10           
-     [7] rmarkdown_2.29         knitr_1.49             jsonlite_1.8.9        
-    [10] xfun_0.50              digest_0.6.37          rlang_1.1.5           
+     [7] rmarkdown_2.29         knitr_1.49             jsonlite_1.9.0        
+    [10] xfun_0.51              digest_0.6.37          rlang_1.1.5           
     [13] evaluate_1.0.3        
 
 Platform used:
@@ -254,14 +254,14 @@ running this report
     GITHUB_ACTOR_ID         185338939
     GITHUB_API_URL          https://api.github.com
     GITHUB_BASE_REF         
-    GITHUB_ENV              /home/runner/work/_temp/_runner_file_commands/set_env_c412a26f-cd8a-499e-b689-b0767882aa5e
+    GITHUB_ENV              /home/runner/work/_temp/_runner_file_commands/set_env_8807fc0a-ee37-4b0f-8ae1-4b290d4abaaa
     GITHUB_EVENT_NAME       schedule
     GITHUB_EVENT_PATH       /home/runner/work/_temp/_github_workflow/event.json
     GITHUB_GRAPHQL_URL      https://api.github.com/graphql
     GITHUB_HEAD_REF         
     GITHUB_JOB              main
-    GITHUB_OUTPUT           /home/runner/work/_temp/_runner_file_commands/set_output_c412a26f-cd8a-499e-b689-b0767882aa5e
-    GITHUB_PATH             /home/runner/work/_temp/_runner_file_commands/add_path_c412a26f-cd8a-499e-b689-b0767882aa5e
+    GITHUB_OUTPUT           /home/runner/work/_temp/_runner_file_commands/set_output_8807fc0a-ee37-4b0f-8ae1-4b290d4abaaa
+    GITHUB_PATH             /home/runner/work/_temp/_runner_file_commands/add_path_8807fc0a-ee37-4b0f-8ae1-4b290d4abaaa
     GITHUB_REF              refs/heads/main
     GITHUB_REF_NAME         main
     GITHUB_REF_PROTECTED    false
@@ -274,17 +274,17 @@ running this report
                             42115094
     GITHUB_RETENTION_DAYS   90
     GITHUB_RUN_ATTEMPT      1
-    GITHUB_RUN_ID           13404668958
-    GITHUB_RUN_NUMBER       96
+    GITHUB_RUN_ID           13535774286
+    GITHUB_RUN_NUMBER       106
     GITHUB_SERVER_URL       https://github.com
-    GITHUB_SHA              a8b95a62e6dc098bb3af41043304208245a9ed4a
-    GITHUB_STATE            /home/runner/work/_temp/_runner_file_commands/save_state_c412a26f-cd8a-499e-b689-b0767882aa5e
-    GITHUB_STEP_SUMMARY     /home/runner/work/_temp/_runner_file_commands/step_summary_c412a26f-cd8a-499e-b689-b0767882aa5e
+    GITHUB_SHA              3243e25f06b00e8c13d27f3e0f7995dcfbcfd47d
+    GITHUB_STATE            /home/runner/work/_temp/_runner_file_commands/save_state_8807fc0a-ee37-4b0f-8ae1-4b290d4abaaa
+    GITHUB_STEP_SUMMARY     /home/runner/work/_temp/_runner_file_commands/step_summary_8807fc0a-ee37-4b0f-8ae1-4b290d4abaaa
     GITHUB_TRIGGERING_ACTOR
                             llrs-roche
     GITHUB_WORKFLOW         Update package repositories
     GITHUB_WORKFLOW_REF     pharmaR/pharmapkgs/.github/workflows/update-repos.yml@refs/heads/main
-    GITHUB_WORKFLOW_SHA     a8b95a62e6dc098bb3af41043304208245a9ed4a
+    GITHUB_WORKFLOW_SHA     3243e25f06b00e8c13d27f3e0f7995dcfbcfd47d
     GITHUB_WORKSPACE        /home/runner/work/pharmapkgs/pharmapkgs
     GOROOT_1_21_X64         /opt/hostedtoolcache/go/1.21.13/x64
     GOROOT_1_22_X64         /opt/hostedtoolcache/go/1.22.12/x64
@@ -297,13 +297,13 @@ running this report
                             1
     ImageOS                 ubuntu24
     ImageVersion            20250209.1.0
-    INVOCATION_ID           8bd4b7db4d15432e8df0477a564753c1
+    INVOCATION_ID           df9462a36a91417099a14ac2f3785fea
     JAVA_HOME               /usr/lib/jvm/temurin-17-jdk-amd64
     JAVA_HOME_11_X64        /usr/lib/jvm/temurin-11-jdk-amd64
     JAVA_HOME_17_X64        /usr/lib/jvm/temurin-17-jdk-amd64
     JAVA_HOME_21_X64        /usr/lib/jvm/temurin-21-jdk-amd64
     JAVA_HOME_8_X64         /usr/lib/jvm/temurin-8-jdk-amd64
-    JOURNAL_STREAM          8:7410
+    JOURNAL_STREAM          8:7720
     LANG                    C.UTF-8
     LD_LIBRARY_PATH         /opt/R/4.4.2/lib/R/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/temurin-17-jdk-amd64/lib/server:/opt/R/4.4.2/lib/R/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/temurin-17-jdk-amd64/lib/server
     LN_S                    ln -s
@@ -319,7 +319,7 @@ running this report
                             RUNNER_PERFLOG
     PHARMAPKGS_EXCLUDED_METRICS
                             assess_covr_coverage,assess_r_cmd_check
-    PHARMAPKGS_LIMIT        1000
+    PHARMAPKGS_LIMIT        100
     PHARMAPKGS_PLATFORM     ubuntu-22.04
     PHARMAPKGS_R_VERSION    4.4
     PHARMAPKGS_REMOTE_REPO
@@ -328,10 +328,10 @@ running this report
     PIPX_HOME               /opt/pipx
     PKGCACHE_HTTP_VERSION   2
     PKGLOAD_PARENT_TEMPDIR
-                            /tmp/RtmpZYt03y
+                            /tmp/RtmpFUUBR1
     POWERSHELL_DISTRIBUTION_CHANNEL
                             GitHub-Actions-ubuntu24
-    PROCESSX_PS1d453d42fafd_1739940350
+    PROCESSX_PS1d081afd5bc1_1740540134
                             YES
     PWD                     /home/runner/work/pharmapkgs/pharmapkgs
     QUARTO_BIN_PATH         /opt/quarto/bin
@@ -358,7 +358,7 @@ running this report
     R_PLATFORM              x86_64-pc-linux-gnu
     R_PRINTCMD              /usr/bin/lpr
     R_RD4PDF                times,inconsolata,hyper
-    R_SESSION_TMPDIR        /tmp/RtmpnL5aIg
+    R_SESSION_TMPDIR        /tmp/RtmpXFpIBe
     R_SHARE_DIR             /opt/R/4.4.2/lib/R/share
     R_STRIP_SHARED_LIB      strip --strip-unneeded
     R_STRIP_STATIC_LIB      strip --strip-debug
@@ -367,12 +367,12 @@ running this report
     R_ZIPCMD                /usr/bin/zip
     RUNNER_ARCH             X64
     RUNNER_ENVIRONMENT      github-hosted
-    RUNNER_NAME             GitHub Actions 2
+    RUNNER_NAME             GitHub Actions 5
     RUNNER_OS               Linux
     RUNNER_PERFLOG          /home/runner/perflog
     RUNNER_TEMP             /home/runner/work/_temp
     RUNNER_TOOL_CACHE       /opt/hostedtoolcache
-    RUNNER_TRACKING_ID      github_40220c0a-4f03-4847-8b7e-3a374b87939a
+    RUNNER_TRACKING_ID      github_c4e6bc98-4d75-41e0-a984-60a18a02290b
     RUNNER_USER             runner
     RUNNER_WORKSPACE        /home/runner/work/pharmapkgs
     SED                     /usr/bin/sed
@@ -392,7 +392,7 @@ running this report
     STATS_VMD               true
     STATS_VMFE              true
     SWIFT_PATH              /usr/share/swift/usr/bin
-    SYSTEMD_EXEC_PID        837
+    SYSTEMD_EXEC_PID        843
     TAR                     /usr/bin/tar
     TZ                      UTC
     USER                    runner
@@ -426,7 +426,7 @@ These are the options set to generate the report:
             cli_server_default(msg)
         }
     }
-    <bytecode: 0x55a6178df910>
+    <bytecode: 0x5586a7da1910>
     <environment: namespace:cli>
 
     $catch.script.errors
@@ -465,7 +465,7 @@ These are the options set to generate the report:
     {
         grDevices::pdf(NULL, width, height, ...)
     }
-    <bytecode: 0x55a616d3b7f0>
+    <bytecode: 0x5586a7458000>
     <environment: namespace:knitr>
 
     $device.ask.default
@@ -632,7 +632,7 @@ These are the options set to generate the report:
     $str$formatNum
     function (x, ...) 
     format(x, trim = TRUE, drop0trailing = TRUE, ...)
-    <environment: 0x55a616db7520>
+    <environment: 0x5586a7279520>
 
 
     $str.dendrogram.last
