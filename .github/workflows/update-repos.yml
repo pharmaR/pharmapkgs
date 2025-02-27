@@ -29,6 +29,12 @@ jobs:
                 version: 1.7.13
             - uses: r-lib/actions/setup-r-dependencies@v2
 
+            - name: Unpack existing reports
+              working-directory: inst/report
+              run: |
+                tar xzf reports.tar.gz
+                rm reports.tar.gz
+
             - name: Update package repositories
               env:
                   PHARMAPKGS_PLATFORM: ${{ matrix.platform }}
@@ -37,6 +43,12 @@ jobs:
               run: |
                   devtools::load_all()
                   github_actions()
+
+            - name: Compress reports
+              working-directory: inst/report
+              run: |
+                tar czf reports.tar.gz *.md
+                rm *.md
 
             - uses: stefanzweifel/git-auto-commit-action@v5
               with:

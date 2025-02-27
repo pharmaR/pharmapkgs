@@ -12,6 +12,11 @@ jobs:
     - uses: quarto-dev/quarto-actions/setup@v2
       with:
         version: 1.7.13
+    - name: Unpack existing reports
+      working-directory: inst/report
+      run: |
+        tar xzf reports.tar.gz
+        rm reports.tar.gz
     - uses: quarto-dev/quarto-actions/publish@v2
       name: Publish to GitHub Pages (and render)
       with:
