@@ -83,6 +83,7 @@ diff_packages <- function(remote_packages, local_packages) {
 #'
 #' @param packages Character vector with package names.
 #' @param limit Maximum number of packages to assess.
+#' @param repos Repository to download packages from.
 #'
 #' @return data.frame
 #'
@@ -100,9 +101,15 @@ score_packages <- function(
   package_names <- packages[seq_len(limit)]
 
   logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
-  download_result <- download.packages(
+
+  destination_directory <- file.path(.config$project_path, "inst", "source")
+  if (!dir.exists(destination_directory)) {
+    dir.create(destination_directory, recursive = TRUE)
+  }
+
+  download_result <- utils::download.packages(
     pkgs = package_names,
-    destdir = file.path(.config$project_path, "inst", "source"),
+    destdir = destination_directory,
     repos = repos
   )
 
@@ -117,7 +124,7 @@ score_packages <- function(
   logger::log_info("Unzipping packages", namespace = "pharmapkgs")
   for (tarball in download_result[, 2]) {
     logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
-    untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
+    utils::untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
   }
 
   packages <- download_result[, 1]
@@ -169,6 +176,13 @@ score_packages <- function(
   )
 }
 
+#' Join PACKAGES meta info with their respective scores (metrics).
+#'
+#' @param packages data.frame with the PACKAGES contents.
+#' @param scores data.frame with the scores.
+#'
+#' @return data.frame
+#'
 #' @export
 add_score_to_packages <- function(packages, scores) {
   logger::log_info("Adding score to packages", namespace = "pharmapkgs")

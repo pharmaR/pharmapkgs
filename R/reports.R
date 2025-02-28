@@ -8,8 +8,8 @@
 #'
 #' @examples
 #' pkg_ref <- riskmetric::pkg_ref("ggplot2", source = "pkg_cran_remote")
-#' pkg_assessment <- riskmetric::pkg_assess(pkg_ref)
-#' generate_riskreport(pkg_ref, pkg_assessment)
+#' pkg_assessment <- suppressMessages(riskmetric::pkg_assess(pkg_ref))
+#' generate_riskreports(pkg_ref, pkg_assessment)
 #'
 #' @export
 generate_riskreports <- function(pkg_reference,

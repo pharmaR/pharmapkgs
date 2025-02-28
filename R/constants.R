@@ -3,8 +3,14 @@
 REMOTE_REPO_BASE_URL <- "https://cloud.r-project.org/"
 
 #' Base URL for the pharmapkgs repository.
+#'
+#' NOTE: there is an R CMD check issue with a hard-coded path,
+#' that is apparently not available when installing the package
+#' into a temporary directory. Wrapping this in an anonymous
+#' function seems to be a workaround for that issue.
+#'
 #' @keywords internal
-PHARMAPKGS_BASE_URL <- system.file("repos", package = "pharmapkgs", mustWork = TRUE)
+PHARMAPKGS_BASE_URL <- function() system.file("repos", package = "pharmapkgs", mustWork = TRUE)
 
 #' The order of PACKAGES fields as in CRAN.
 #' @keywords internal

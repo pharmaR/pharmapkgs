@@ -9,7 +9,7 @@ global_filters <- function() {
   getOption(
     "available_packages_filters",
     # TODO: find alternative that doesn't use internal function, hardcode?
-    utils:::available_packages_filters_default
+    utils::getFromNamespace("available_packages_filters_default", "utils")
   )
 }
 
@@ -122,7 +122,8 @@ global_filters <- function() {
   # FIXME: remove this if https://github.com/pharmaR/riskmetric/pull/363 is merged
   logger::log_debug("\tSubstituting assess_size_codebase", namespace = "pharmapkgs")
   metrics[["assess_size_codebase"]] <- function(x) {
-    riskmetric::pkg_metric_eval(class = "pkg_metric_size_codebase", {
+    pkg_metric_eval <- utils::getFromNamespace("pkg_metric_eval", "riskmetric")
+    pkg_metric_eval(class = "pkg_metric_size_codebase", {
       files <- list.files(
         path = file.path(x$path, "R"),
         pattern = "\\.R$",

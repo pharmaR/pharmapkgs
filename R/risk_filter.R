@@ -32,7 +32,7 @@ risk_filter <- function(..., fields = risk_filter_fields(...)) {
 risk_filter_fields <- function(...) {
   all_used_names <- unlist(lapply(substitute(...()), all.names))
   all_fields_files <- list.files(
-    system.file(package = packageName()),
+    system.file(package = utils::packageName()),
     pattern = "RISKFIELDS",
     recursive = TRUE,
     full.names = TRUE
@@ -111,7 +111,7 @@ risk_filter_with_inserted_fields <- function(f, fields) {
       prior_filters <- prior_filters[!is_add]
       # if no filters remain, use defaults
       if (length(prior_filters) <= 0) {
-        prior_filters <- utils:::available_packages_filters_default
+        prior_filters <- utils::getFromNamespace("available_packages_filters_default", "utils")
       }
     }
 
