@@ -22,12 +22,14 @@ jobs:
         tar xzf reports.tar.gz
         rm reports.tar.gz
 
+    - name: Create _site directory
+      run: mkdir -p _site
+
     - name: Render html pages
       uses: quarto-dev/quarto-actions/render@v2
 
     - name: Remove search.json file
-      run: |
-        rm _site/search.json
+      run: rm _site/search.json
 
     - uses: quarto-dev/quarto-actions/publish@v2
       name: Publish to GitHub Pages (and render)
