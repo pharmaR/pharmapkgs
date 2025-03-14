@@ -40,13 +40,13 @@ jobs:
               env:
                   PHARMAPKGS_PLATFORM: ${{ matrix.platform }}
                   PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
-              shell: R CMD build .
+              run: R CMD build .
 
             - name: Install pharmapkgs
               env:
                   PHARMAPKGS_PLATFORM: ${{ matrix.platform }}
                   PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
-              shell: R CMD install pharmapkgs*.tar.gz
+              run: R CMD install pharmapkgs*.tar.gz
 
             - name: Update package repositories
               env:
