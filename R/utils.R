@@ -119,29 +119,5 @@ global_filters <- function() {
     metrics[[key]] <- NULL
   }
 
-  # FIXME: remove this if https://github.com/pharmaR/riskmetric/pull/363 is merged
-  logger::log_debug("\tSubstituting assess_size_codebase", namespace = "pharmapkgs")
-  metrics[["assess_size_codebase"]] <- function(x) {
-    pkg_metric_eval <- utils::getFromNamespace("pkg_metric_eval", "riskmetric")
-    pkg_metric_eval(class = "pkg_metric_size_codebase", {
-      files <- list.files(
-        path = file.path(x$path, "R"),
-        pattern = "\\.R$",
-        full.names = TRUE,
-        ignore.case = TRUE
-      )
-      count_lines <- function(x) {
-        code_base <- readLines(x)
-        n_tot <- length(code_base)
-        n_head <- length(grep("^#+", code_base))
-        n_comment <- length(grep("^\\s+#+", code_base))
-        n_break <- length(grep("^\\s*$", code_base))
-        n_tot - (n_head + n_comment + n_break)
-      }
-      nloc <- sapply(files, count_lines)
-      sum(nloc)
-    })
-  }
-
   metrics
 }
