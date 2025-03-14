@@ -53,7 +53,7 @@ generate_riskreports <- function(pkg_reference,
             params = list(
               assessment_path = assessment_path
             ),
-            quiet = FALSE
+            quiet = TRUE
           )
         )
         TRUE
