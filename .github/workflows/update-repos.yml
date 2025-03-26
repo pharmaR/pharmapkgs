@@ -24,16 +24,29 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: r-lib/actions/setup-r@v2
+            - uses: r-lib/actions/setup-r-dependencies@v2
+              with:
+                install-quarto: false
             - uses: quarto-dev/quarto-actions/setup@v2
               with:
                 version: 1.7.13
-            - uses: r-lib/actions/setup-r-dependencies@v2
 
             - name: Unpack existing reports
               working-directory: inst/report
               run: |
                 tar xzf reports.tar.gz
                 rm reports.tar.gz
+            - name: Build pharmapkgs
+              env:
+                  PHARMAPKGS_PLATFORM: ${{ matrix.platform }}
+                  PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
+              run: R CMD build .
+
+            - name: Install pharmapkgs
+              env:
+                  PHARMAPKGS_PLATFORM: ${{ matrix.platform }}
+                  PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
+              run: R CMD INSTALL pharmapkgs*.tar.gz
 
             - name: Update package repositories
               env:
@@ -41,7 +54,7 @@ jobs:
                   PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
               shell: Rscript {0}
               run: |
-                  devtools::load_all()
+                  library("pharmapkgs")
                   github_actions()
 
             - name: Compress reports
