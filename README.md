@@ -25,8 +25,9 @@ options(
     repos = "https://raw.githubusercontent.com/pharmaR/pharmapkgs/refs/heads/main/inst/repos",
     pkgType = "source"
 )
-available_packages <- available_packages()
+available_packages <- available.packages()
 nrow(available_packages)
+#> [1] 7336
 ```
 
 Once set, calling `available.packages()` will list the packages
@@ -69,8 +70,19 @@ can define custom filters for selecting packages.
 my_filters <- pharmapkgs::risk_filter(
     dependencies > 0.6
 )
+#> Pharmapkgs log level:DEBUG
+#> Pharmapkgs: config values loaded
+#> {
+#>   "excluded_riskmetric_assessments": ["assess_covr_coverage", "assess_r_cmd_check"],
+#>   "local_packages": "/tmp/RtmpdQIMZX/temp_libpath135476963f2d/pharmapkgs/repos/src/contrib/PACKAGES",
+#>   "project_path": "/workspaces/pharmapkgs",
+#>   "local_base": "/tmp/RtmpdQIMZX/temp_libpath135476963f2d/pharmapkgs/repos",
+#>   "remote_base": "https://cloud.r-project.org/",
+#>   "limit": 5
+#> }
 filtered_packages <- available.packages(filters = my_filters, fields = "dependencies")
 nrow(filtered_packages)
+#> [1] 3070
 ```
 
 This command filters packages where the `dependencies` is greater than

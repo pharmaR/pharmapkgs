@@ -29,12 +29,12 @@ pharmapkgs serves a dual purpose:
 Pharma Packages provides a repository that users can point to without installing the pharmapkgs R package. This can be achieved by setting the repository to the pharmapkgs repository hosted on GitHub.
 
 ### Setting the Repository
-```r
+```{r, eval=TRUE}
 options(
     repos = "https://raw.githubusercontent.com/pharmaR/pharmapkgs/refs/heads/main/inst/repos",
     pkgType = "source"
 )
-available_packages <- available_packages()
+available_packages <- available.packages()
 nrow(available_packages)
 ```
 
@@ -44,7 +44,7 @@ Once set, calling `available.packages()` will list the packages available in the
 The pharmapkgs repository differs from a traditional CRAN repository. It does not store package tarballs but instead relies on a `download_url` field that links to the CRAN mirror on GitHub. Base R's `install.packages()` expects package tarballs within the same repository, so it does not work natively with pharmapkgs. Instead, users should use **pak** to install packages from this repository.
 
 ## Installation via `pak`
-```r
+```{r, eval=FALSE}
 options(
     repos = "https://raw.githubusercontent.com/pharmaR/pharmapkgs/refs/heads/main/inst/repos",
     pkgType = "source"
@@ -58,7 +58,7 @@ The `pak` package understands the `download_url` field and fetches the package s
 pharmapkgs enhances the standard `available.packages()` functionality by allowing users to filter packages based on additional metadata. Users can define custom filters for selecting packages.
 
 ### Example: Filtering by Dependencies
-```r
+```{r, eval=TRUE}
 my_filters <- pharmapkgs::risk_filter(
     dependencies > 0.6
 )
