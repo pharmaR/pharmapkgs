@@ -14,7 +14,7 @@ pharmapkgs serves a dual purpose:
 
 ## Repository Functionality
 
-Pharma Packages provides a repository that users can point to without
+pharmapkgs provides a repository that users can point to without
 installing the pharmapkgs R package. This can be achieved by setting the
 repository to the pharmapkgs repository hosted on GitHub.
 
@@ -74,9 +74,9 @@ my_filters <- pharmapkgs::risk_filter(
 #> Pharmapkgs: config values loaded
 #> {
 #>   "excluded_riskmetric_assessments": ["assess_covr_coverage", "assess_r_cmd_check"],
-#>   "local_packages": "/tmp/RtmpdQIMZX/temp_libpath135476963f2d/pharmapkgs/repos/src/contrib/PACKAGES",
+#>   "local_packages": "/tmp/RtmpdQIMZX/temp_libpath13546913d055/pharmapkgs/repos/src/contrib/PACKAGES",
 #>   "project_path": "/workspaces/pharmapkgs",
-#>   "local_base": "/tmp/RtmpdQIMZX/temp_libpath135476963f2d/pharmapkgs/repos",
+#>   "local_base": "/tmp/RtmpdQIMZX/temp_libpath13546913d055/pharmapkgs/repos",
 #>   "remote_base": "https://cloud.r-project.org/",
 #>   "limit": 5
 #> }
