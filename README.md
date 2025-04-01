@@ -60,9 +60,8 @@ package source accordingly.
 
 ## Filtering Packages
 
-pharmapkgs enhances the standard `available.packages()` functionality by
-allowing users to filter packages based on additional metadata. Users
-can define custom filters for selecting packages.
+pharmapkgs enhances the standard `PACKAGES` file by adding additional
+metadata. Users can define custom filters for selecting packages.
 
 ### Example: Filtering by Dependencies
 
@@ -74,9 +73,9 @@ my_filters <- pharmapkgs::risk_filter(
 #> Pharmapkgs: config values loaded
 #> {
 #>   "excluded_riskmetric_assessments": ["assess_covr_coverage", "assess_r_cmd_check"],
-#>   "local_packages": "/tmp/RtmpdQIMZX/temp_libpath13546913d055/pharmapkgs/repos/src/contrib/PACKAGES",
+#>   "local_packages": "/tmp/RtmpdQIMZX/temp_libpath1354e8a6171/pharmapkgs/repos/src/contrib/PACKAGES",
 #>   "project_path": "/workspaces/pharmapkgs",
-#>   "local_base": "/tmp/RtmpdQIMZX/temp_libpath13546913d055/pharmapkgs/repos",
+#>   "local_base": "/tmp/RtmpdQIMZX/temp_libpath1354e8a6171/pharmapkgs/repos",
 #>   "remote_base": "https://cloud.r-project.org/",
 #>   "limit": 5
 #> }

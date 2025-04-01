@@ -55,7 +55,8 @@ pak::pkg_install("<package_name>")
 The `pak` package understands the `download_url` field and fetches the package source accordingly.
 
 ## Filtering Packages
-pharmapkgs enhances the standard `available.packages()` functionality by allowing users to filter packages based on additional metadata. Users can define custom filters for selecting packages.
+pharmapkgs enhances the standard `PACKAGES` file by adding additional metadata. 
+Users can define custom filters for selecting packages.
 
 ### Example: Filtering by Dependencies
 ```{r, eval=TRUE}
