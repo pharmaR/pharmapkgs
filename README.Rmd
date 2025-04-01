@@ -18,109 +18,81 @@ options(
 )
 ```
 
-# pharmapkgs
+## Overview
+pharmapkgs serves a dual purpose:
 
-<!-- badges: start -->
-<!-- badges: end -->
+1. **Repository for R Packages**: A curated repository of R packages that is structured similarly to CRAN but with additional metadata.
 
-The goal of `{pharmapkgs}` is to facilitate the interfacing with CRAN-like
-repositories of validated packages with risk metrics.
+2. **R Package for Installation**: An R package that allows users to install packages from this repository using specialized filtering options.
 
-## Installation
+## Repository Functionality
+pharmapkgs provides a repository that users can point to without installing the pharmapkgs R package. This can be achieved by setting the repository to the pharmapkgs repository hosted on GitHub.
 
-_using `devtools`_
-
-```r
-# install.packages("devtools")
-devtools::install_github("pharmaR/pharmapkgs")
-```
-
-_using `pak`_
-
-```r
-# install.packages("pak")
-pak::pkg_install("github::pharmaR/pharmapkgs")
-```
-
-## Bare Bones Demo
-
-All available packages from local repository.
-
-```{r}
-library(pharmapkgs)
-
-# local snapshot, bundled with pharmapkgs
-repo <- bundled_repos("ubuntu-22.04")
-
-available.packages(repos = repo, fields = risk_fields(repo)) |>
-  tibble::as_tibble()
-```
-
-Packages filtered using `{riskmetrics}` criteria.
-
-```{r}
-# Fancy criteria.
-my_filters <- risk_filter(
-  ReverseDependencies < 0.5,
-  HasNews == "1",
-  RemoteChecks > 0.9
-)
-
-# Apply filter when inspecting packages
-tibble::as_tibble(available.packages(
-  repos = repo,
-  fields = risk_fields(repo),
-  filters = my_filters
-))
-```
-
-## Filtered Available Packages Workflow
-
-Configure a session to leverage a bundled repo.
-
-```{r}
-repo <- bundled_repos("ubuntu-22.04")
+### Setting the Repository
+```{r, eval=TRUE}
 options(
-  # importantly, repo is called CRAN such that pak doesn't insert a CRAN mirror
-  # awaiting feature r-lib/pak#637
-  repos = c(CRAN = repo)
+    repos = "https://raw.githubusercontent.com/pharmaR/pharmapkgs/refs/heads/main/inst/repos",
+    pkgType = "source"
 )
-
-nrow(available.packages())
+available_packages <- available.packages()
+nrow(available_packages)
 ```
 
-We can provide a filter based on various risk criteria, that will allow `pak` to
-leverage the same internal mechanisms for fetching packages and ensuring, at the
-time of download, that packages adhere to the filters that we specify.
+Once set, calling `available.packages()` will list the packages available in the pharmapkgs repository. The repository currently contains around 7,000 packages, a subset of CRAN's nearly 30,000 packages.
 
-Now apply a filter and observe a reduced subset of available packages.
+### Installation Limitations
+The pharmapkgs repository differs from a traditional CRAN repository. It does not store package tarballs but instead relies on a `download_url` field that links to the CRAN mirror on GitHub. Base R's `install.packages()` expects package tarballs within the same repository, so it does not work natively with pharmapkgs. Instead, users should use **pak** to install packages from this repository.
 
-```{r}
+## Installation via `pak`
+```{r, eval=FALSE}
 options(
-  available_packages_filters = risk_filter(
-    RemoteChecks > 0.9,
-    HasNews == "1"
-  )
+    repos = "https://raw.githubusercontent.com/pharmaR/pharmapkgs/refs/heads/main/inst/repos",
+    pkgType = "source"
 )
-
-nrow(available.packages())
+install.packages("pak")
+pak::pkg_install("<package_name>")
 ```
+The `pak` package understands the `download_url` field and fetches the package source accordingly.
 
-Install a package, and confirm that the package was pulled from the bundled
-download location, ensuring that the downloaded version of the package is the
-same that was used to derive the risk metrics.
+## Filtering Packages
+pharmapkgs enhances the standard `PACKAGES` file by adding additional metadata. 
+Users can define custom filters for selecting packages.
 
-```{r}
-pak::cache_clean()
-pkg <- "colorspace"
-
-if (pkg %in% rownames(installed.packages())) {
-  pak::pkg_remove(pkg)
-}
-
-install_stats <- pak::pkg_install(pkg)
-install_stats$sources
+### Example: Filtering by Dependencies
+```{r, eval=TRUE}
+my_filters <- pharmapkgs::risk_filter(
+    dependencies > 0.6
+)
+filtered_packages <- available.packages(filters = my_filters, fields = "dependencies")
+nrow(filtered_packages)
 ```
+This command filters packages where the `dependencies` is greater than 0.6.
+
+Notice how `filtered_packages` has less rows than `available_packages`.
+
+## Handling Dependencies
+Since the pharmapkgs repository is incomplete, some dependencies may not be available. To mitigate this, users can specify multiple repositories so that missing packages are fetched from CRAN.
+```r
+options(repos = c(Pharma = "https://raw.githubusercontent.com/pharmaR/pharmapkgs/refs/heads/main/inst/repos", CRAN = "https://cran.r-project.org"))
+```
+This setup allows pak to first check pharmapkgs, then fall back to CRAN if a package is missing.
+
+## Technical Details
+### Repository Structure
+- The repository contains a `PACKAGES` file with metadata.
+- Instead of hosting package tarballs, the `download_url` field points to the GitHub CRAN mirror.
+
+### Why Not Use CRAN Directly?
+CRAN changes URLs for archived packages, making direct linking unreliable. The GitHub CRAN mirror is more stable as each package version is stored as a tagged release.
+
+### GitHub Actions
+A GitHub Actions pipeline updates the repository and generates reports. However, report generation is secondary to package validation and is prone to failures. Incremental site builds in Quarto are not yet supported, requiring full site rebuilds.
+
+## Known Issues and Future Work
+- Package installation only works with `pak`, not `install.packages()`.
+- The repository is incomplete and being updated slowly.
+- The GitHub Actions pipeline occasionally fails due to report generation issues.
+- Future work includes optimizing package validation and improving repository completeness.
 
 ## Development
 
