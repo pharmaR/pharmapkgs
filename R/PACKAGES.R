@@ -98,7 +98,8 @@ score_packages <- function(
     limit <- min(limit, length(packages))
   }
 
-  package_names <- packages[seq_len(limit)]
+  # package_names <- packages[seq_len(limit)]
+  package_names <- "ggh4x"
 
   logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
 
