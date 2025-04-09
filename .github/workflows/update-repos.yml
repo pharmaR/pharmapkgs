@@ -67,5 +67,5 @@ jobs:
               with:
                   commit_message: "Auto-update: ${{matrix.platform}}, R-${{matrix.r_version}}"
 
-            - name: Remove untracked files
-              run: git clean -fdx
+            - name: Remove untracked md files
+              run: git clean -f -e '*' -e '!*.md'
