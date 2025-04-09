@@ -40,7 +40,8 @@ generate_riskreports <- function(pkg_reference,
       paste0(ref$name, ".rds")
     )
 
-    saveRDS(unlist(assessment), assessment_path)
+    assessment$export_help <- unlist(assessment$export_help)
+    saveRDS(assessment, assessment_path)
 
     report_result <- tryCatch(
       expr = {
