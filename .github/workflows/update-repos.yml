@@ -54,8 +54,19 @@ jobs:
                   PHARMAPKGS_R_VERSION: ${{ matrix.r_version }}
               shell: Rscript {0}
               run: |
+                tryCatch({
                   library("pharmapkgs")
                   github_actions()
+                }, error = function(e) {
+                  message("ERROR IN github_actions(): ", e$message)
+                })
+
+            - name: Upload assessment RDS file
+              if: failure() || success()  # always try to upload
+              uses: actions/upload-artifact@v4
+              with:
+                name: assessment-rds
+                path: inst/report/*.rds
 
             - name: Compress reports
               working-directory: inst/report
