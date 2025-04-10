@@ -36,7 +36,7 @@ generate_riskreports <- function(pkg_reference,
     file.remove(template_files)
 
     assessment_path <- file.path(
-      outdir,
+      "inst/report",
       paste0(ref$name, ".rds")
     )
 
