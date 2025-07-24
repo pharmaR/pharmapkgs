@@ -8,7 +8,7 @@
 #' @return data.frame
 #'
 #' @export
-get_packages <- function(base_url = .config$remote_base) {
+get_packages <- function(base_url = .config$remote_repo) {
   logger::log_info("Reading PACKAGES file from: {base_url}", namespace = "pharmapkgs")
 
   full_path <- file.path(base_url) |>
@@ -91,7 +91,7 @@ diff_packages <- function(remote_packages, local_packages) {
 score_packages <- function(
     packages,
     limit = .config$limit,
-    repos = .config$remote_base) {
+    repos = .config$remote_repo) {
   if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
     limit <- length(packages)
   } else {
@@ -102,7 +102,7 @@ score_packages <- function(
 
   logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
 
-  destination_directory <- file.path(.config$project_path, "inst", "source")
+  destination_directory <- file.path(.config$local_repo, "inst", "source")
   if (!dir.exists(destination_directory)) {
     dir.create(destination_directory, recursive = TRUE)
   }
@@ -124,7 +124,7 @@ score_packages <- function(
   logger::log_info("Unzipping packages", namespace = "pharmapkgs")
   for (tarball in download_result[, 2]) {
     logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
-    utils::untar(tarball, exdir = file.path(.config$project_path, "inst", "source"))
+    utils::untar(tarball, exdir = file.path(.config$local_repo, "inst", "source"))
   }
 
   packages <- download_result[, 1]
@@ -135,7 +135,7 @@ score_packages <- function(
   }
 
   package_refs <- riskmetric::pkg_ref(
-    file.path(.config$project_path, "inst", "source", packages)
+    file.path(.config$local_repo, "inst", "source", packages)
   )
 
   if (inherits(package_refs, "pkg_ref")) {

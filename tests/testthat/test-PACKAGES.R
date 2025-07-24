@@ -97,13 +97,13 @@ describe("score_packages", {
   })
 
   it("handles single package scoring", {
-    packages <- c("rlang")
+    packages <- "rlang"
     actual_output <- score_packages(packages)
     expect_type(actual_output, "list")
   })
 
   it("handles data-only packages", {
-    packages <- c("acss.data")
+    packages <- "acss.data"
     actual_output <- score_packages(packages)
     expect_type(actual_output, "list")
     expect_named(actual_output, c("scored_packages", "package_refs", "package_assessments"))

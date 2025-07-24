@@ -6,10 +6,9 @@
 #' @keywords internal
 .init_config_values <- function() {
   values <- list(
-    remote_base = Sys.getenv("PHARMAPKGS_REMOTE_REPO", REMOTE_REPO_BASE_URL),
-    local_base = Sys.getenv("PHARMAPKGS_LOCAL_REPO", PHARMAPKGS_BASE_URL()),
+    remote_repo = Sys.getenv("PHARMAPKGS_REMOTE_REPO", REMOTE_REPO_BASE_URL),
+    local_repo = Sys.getenv("PHARMAPKGS_LOCAL_REPO", PHARMAPKGS_PATH()),
     limit = as.integer(Sys.getenv("PHARMAPKGS_LIMIT", 5)),
-    project_path = getwd(),
     excluded_riskmetric_assessments = {
       metrics <- Sys.getenv("PHARMAPKGS_EXCLUDED_METRICS", PHARMAPKGS_EXCLUDED_METRICS)
       unlist(strsplit(metrics, ","))
@@ -17,7 +16,7 @@
   )
 
   values$local_packages <- file.path(
-    utils::contrib.url(repos = values$local_base),
+    utils::contrib.url(repos = values$local_repo),
     "PACKAGES"
   )
 
@@ -35,11 +34,17 @@
 
 #' Set config value
 #'
+#' Control how and where the repository and the reports are generated.
+#'
+#' Accepted keys are:
+#'  - remote_repo: URL to a remote repository.
+#'  - local_repo: Path to where the repo should be.
+#'  - limit: Number of packages to add.
+#'  - local_packages: Path to where the PACKAGES files is placed.
+#'  - excluded_riskmetric_assessments: Excluded assessments.
 #' @param key Name of the config entry.
 #' @param value Value of the config entry.
-#'
 #' @return NULL
-#'
 #' @export
 set_config_value <- function(key, value) {
   assign(key, value, envir = .config)
