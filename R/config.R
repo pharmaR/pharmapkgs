@@ -7,7 +7,7 @@
 .init_config_values <- function() {
   values <- list(
     remote_repo = Sys.getenv("PHARMAPKGS_REMOTE_REPO", REMOTE_REPO_BASE_URL),
-    local_repo = Sys.getenv("PHARMAPKGS_LOCAL_REPO", PHARMAPKGS_PATH()),
+    local_repo = Sys.getenv("PHARMAPKGS_LOCAL_REPO", getwd()),
     limit = as.integer(Sys.getenv("PHARMAPKGS_LIMIT", 5)),
     excluded_riskmetric_assessments = {
       metrics <- Sys.getenv("PHARMAPKGS_EXCLUDED_METRICS", PHARMAPKGS_EXCLUDED_METRICS)

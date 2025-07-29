@@ -2,18 +2,6 @@
 #' @keywords internal
 REMOTE_REPO_BASE_URL <- "https://cloud.r-project.org/"
 
-#' Base URL for the pharmapkgs repository.
-#'
-#' NOTE: there is an R CMD check issue with a hard-coded path,
-#' that is apparently not available when installing the package
-#' into a temporary directory. Wrapping this in an anonymous
-#' function seems to be a workaround for that issue.
-#'
-#' @keywords internal
-PHARMAPKGS_PATH <- function() {
-  getwd()
-}
-
 #' The order of PACKAGES fields as in CRAN.
 #' @keywords internal
 CRAN_PACKAGES_FIELDS <- c(
@@ -38,7 +26,7 @@ CRAN_PACKAGES_FIELDS <- c(
 #' Special fields that are not present in the PACKAGES file,
 #' but are required for pak to do its magic.
 #' @keywords internal
-PAK_SPECIAL_FIELDS <- c("DownloadURL")
+PAK_SPECIAL_FIELDS <- "DownloadURL"
 
 #' List of riskmetric assessment names not to run during the scoring.
 #' @keywords internal
