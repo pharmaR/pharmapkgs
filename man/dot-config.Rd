@@ -13,4 +13,7 @@ An object of class \code{environment} of length 5.
 \description{
 Config storage to reuse values across the package
 }
+\seealso{
+\code{\link[=set_config_value]{set_config_value()}} for which variables are set
+}
 \keyword{internal}

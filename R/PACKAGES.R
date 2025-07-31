@@ -102,16 +102,19 @@ score_packages <- function(
 
   logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
 
-  destination_directory <- file.path(.config$local_repo, "inst", "source")
+  destination_directory <- file.path(.config$local_repo, "src", "contrib", "Meta")
   if (!dir.exists(destination_directory)) {
     dir.create(destination_directory, recursive = TRUE)
   }
 
   download_result <- utils::download.packages(
     pkgs = package_names,
-    destdir = destination_directory,
+    destdir = .config$local_repo,
     repos = repos
   )
+  # Removing package build files even if normal R repos would keep them.
+  # We use a specific field to download the packages
+  on.exit(unlink(download_result[, 2], recursive = TRUE, force = TRUE), add = TRUE)
 
   if (NROW(download_result) != length(package_names)) {
     missing_packages <- setdiff(package_names, download_result[, 1]) # nolint
@@ -124,7 +127,7 @@ score_packages <- function(
   logger::log_info("Unzipping packages", namespace = "pharmapkgs")
   for (tarball in download_result[, 2]) {
     logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
-    utils::untar(tarball, exdir = file.path(.config$local_repo, "inst", "source"))
+    utils::untar(tarball, exdir = destination_directory)
   }
 
   packages <- download_result[, 1]
@@ -134,9 +137,10 @@ score_packages <- function(
     return(NULL)
   }
 
-  package_refs <- riskmetric::pkg_ref(
-    file.path(.config$local_repo, "inst", "source", packages)
-  )
+  packages_source <- file.path(destination_directory, packages)
+  # Clean directory from downloaded files
+  on.exit(unlink(packages_source, recursive = TRUE, force = TRUE), add = TRUE)
+  package_refs <- riskmetric::pkg_ref(packages_source)
 
   if (inherits(package_refs, "pkg_ref")) {
     package_refs <- list(package_refs)

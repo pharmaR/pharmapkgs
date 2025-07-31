@@ -7,7 +7,7 @@
 generate_riskreports(
   pkg_reference,
   pkg_assessment,
-  output_dir = system.file("report", package = "pharmapkgs")
+  output_dir = file.path(.config$local_repo, "src", "contrib", "Meta")
 )
 }
 \arguments{

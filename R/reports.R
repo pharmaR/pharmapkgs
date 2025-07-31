@@ -14,7 +14,7 @@
 #' @export
 generate_riskreports <- function(pkg_reference,
                                  pkg_assessment,
-                                 output_dir = system.file("report", package = "pharmapkgs")) {
+                                 output_dir = file.path(.config$local_repo, "src", "contrib", "Meta")) {
   logger::log_info("Generating reports", namespace = "pharmapkgs")
 
   if (inherits(pkg_reference, "pkg_ref")) {
@@ -23,6 +23,11 @@ generate_riskreports <- function(pkg_reference,
 
   if (inherits(pkg_assessment, "list_of_pkg_metric")) {
     pkg_assessment <- list(pkg_assessment)
+  }
+
+  # Create reports for the repository in the Meta directory of the repository
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir, recursive = TRUE)
   }
 
   make_one_report <- function(ref, assessment, outdir) {

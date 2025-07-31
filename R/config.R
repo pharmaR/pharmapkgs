@@ -1,5 +1,6 @@
 #' Config storage to reuse values across the package
 #' @keywords internal
+#' @seealso [set_config_value()] for which variables are set
 .config <- new.env()
 
 #' Initialize config values from environment variables
@@ -40,7 +41,7 @@
 #'  - remote_repo: URL to a remote repository.
 #'  - local_repo: Path to where the repo should be.
 #'  - limit: Number of packages to add.
-#'  - local_packages: Path to where the PACKAGES files is placed.
+#'  - local_packages: Path to where the PACKAGES files is placed (at local_repo/src/contrib by default).
 #'  - excluded_riskmetric_assessments: Excluded assessments.
 #' @param key Name of the config entry.
 #' @param value Value of the config entry.
