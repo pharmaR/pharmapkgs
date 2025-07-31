@@ -79,16 +79,17 @@ generate_riskreports <- function(pkg_reference,
 
     # Due to _quarto.yml config file, reports are always moved into
     # _site directory. We need to copy them back to the output directory.
-    full_output_dir <- unlist(strsplit(normalizePath(outdir, mustWork = TRUE), "/"))
-    full_site_dir <- unlist(strsplit(normalizePath("_site", mustWork = FALSE), "/"))
+    # set separator to be compatible with all OS (not just unix)
+    path_sep <- .Platform$file.sep
+    full_output_dir <- unlist(strsplit(normalizePath(outdir, mustWork = TRUE, winslash = path_sep), path_sep))
+    full_site_dir <- unlist(strsplit(normalizePath("_site", mustWork = FALSE, winslash = path_sep), path_sep))
     site_subdir <- setdiff(full_output_dir, full_site_dir) |>
-      paste(collapse = .Platform$file.sep)
+      paste(collapse = path_sep)
 
     # Workaround for the fact that Quarto reads _quarto.yml file (which has website config)
     # and forcefully moves generated files to _site directory
     report_files <- list.files(file.path("_site", site_subdir), full.names = TRUE)
     copy_result <- file.copy(from = report_files, to = outdir, overwrite = TRUE)
-
     if (any(!copy_result)) {
       logger::log_error(
         "Failed to copy report file '{report_files[!copy_result]}' to the output directory '{outdir}'", # nolint
