@@ -4,7 +4,7 @@ github_actions <- function() {
   logger::log_info("Github pipeline has started", namespace = "pharmapkgs")
 
   remote_packages <- get_packages()
-  local_packages <- get_packages(base_url = .config$local_base)
+  local_packages <- get_packages(base_url = .config$local_repo)
   new_packages <- diff_packages(remote_packages, local_packages)
   scoring_result <- score_packages(new_packages)
   if (is.null(scoring_result)) {

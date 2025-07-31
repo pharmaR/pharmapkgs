@@ -29,11 +29,9 @@ jobs:
               with:
                 install-quarto: false
             - uses: quarto-dev/quarto-actions/setup@v2
-              with:
-                version: 1.7.13
 
             - name: Unpack existing reports
-              working-directory: inst/report
+              working-directory: src/contrib/Meta
               run: |
                 tar xzf reports.tar.gz
                 rm reports.tar.gz
@@ -59,7 +57,7 @@ jobs:
                   github_actions()
 
             - name: Compress reports
-              working-directory: inst/report
+              working-directory: src/contrib/Meta
               run: |
                 tar czf reports.tar.gz *.md
                 rm *.md
