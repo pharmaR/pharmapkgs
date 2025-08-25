@@ -27,8 +27,10 @@ global_filters <- function() {
 .get_connection <- function(path) {
   if (startsWith(path, "http")) {
     url(path)
-  } else {
+  } else if (file.exists(path)){
     file(path, "r")
+  } else {
+    stop("ERROR path not found")
   }
 }
 
