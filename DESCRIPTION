@@ -1,6 +1,6 @@
 Package: pharmapkgs
 Title: Installation of Validated Packages
-Version: 0.1.5
+Version: 0.1.5.9000
 Authors@R: c(
     person("Ramiro", "Magno", , "rmagno@pattern.institute", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5226-3441")),
@@ -9,9 +9,8 @@ Authors@R: c(
   )
 Description: Routines to list, install and filter risk-assessed packages.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+Depends: 
+    R (>= 4.1.0)
 Imports: 
     dplyr,
     fs,
@@ -25,6 +24,9 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Remotes:
-    github::pharmaR/riskreports,
-    github::pharmaR/riskmetric
+    github::pharmaR/riskmetric,
+    github::pharmaR/riskreports
 Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

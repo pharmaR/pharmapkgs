@@ -5,12 +5,15 @@
 \alias{.config}
 \title{Config storage to reuse values across the package}
 \format{
-An object of class \code{environment} of length 6.
+An object of class \code{environment} of length 5.
 }
 \usage{
 .config
 }
 \description{
 Config storage to reuse values across the package
+}
+\seealso{
+\code{\link[=set_config_value]{set_config_value()}} for which variables are set
 }
 \keyword{internal}

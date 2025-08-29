@@ -12,5 +12,15 @@ set_config_value(key, value)
 \item{value}{Value of the config entry.}
 }
 \description{
-Set config value
+Control how and where the repository and the reports are generated.
+}
+\details{
+Accepted keys are:
+\itemize{
+\item remote_repo: URL to a remote repository.
+\item local_repo: Path to where the repo should be.
+\item limit: Number of packages to add.
+\item local_packages: Path to where the PACKAGES files is placed.
+\item excluded_riskmetric_assessments: Excluded assessments.
+}
 }
