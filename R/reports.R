@@ -14,7 +14,7 @@
 #' @export
 generate_riskreports <- function(pkg_reference,
                                  pkg_assessment,
-                                 output_dir = system.file("report", package = "pharmapkgs")) {
+                                 output_dir = file.path(.config$local_repo, "src", "contrib", "Meta")) {
   logger::log_info("Generating reports", namespace = "pharmapkgs")
 
   if (inherits(pkg_reference, "pkg_ref")) {
@@ -23,6 +23,11 @@ generate_riskreports <- function(pkg_reference,
 
   if (inherits(pkg_assessment, "list_of_pkg_metric")) {
     pkg_assessment <- list(pkg_assessment)
+  }
+
+  # Create reports for the repository in the Meta directory of the repository
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir, recursive = TRUE)
   }
 
   make_one_report <- function(ref, assessment, outdir) {
@@ -53,7 +58,7 @@ generate_riskreports <- function(pkg_reference,
             params = list(
               assessment_path = assessment_path
             ),
-            quiet = TRUE
+            quiet = FALSE
           )
         )
         TRUE
@@ -74,16 +79,17 @@ generate_riskreports <- function(pkg_reference,
 
     # Due to _quarto.yml config file, reports are always moved into
     # _site directory. We need to copy them back to the output directory.
-    full_output_dir <- unlist(strsplit(normalizePath(outdir, mustWork = TRUE), "/"))
-    full_site_dir <- unlist(strsplit(normalizePath("_site", mustWork = FALSE), "/"))
+    # set separator to be compatible with all OS (not just unix)
+    path_sep <- .Platform$file.sep
+    full_output_dir <- unlist(strsplit(normalizePath(outdir, mustWork = TRUE, winslash = path_sep), path_sep))
+    full_site_dir <- unlist(strsplit(normalizePath("_site", mustWork = FALSE, winslash = path_sep), path_sep))
     site_subdir <- setdiff(full_output_dir, full_site_dir) |>
-      paste(collapse = .Platform$file.sep)
+      paste(collapse = path_sep)
 
     # Workaround for the fact that Quarto reads _quarto.yml file (which has website config)
     # and forcefully moves generated files to _site directory
     report_files <- list.files(file.path("_site", site_subdir), full.names = TRUE)
     copy_result <- file.copy(from = report_files, to = outdir, overwrite = TRUE)
-
     if (any(!copy_result)) {
       logger::log_error(
         "Failed to copy report file '{report_files[!copy_result]}' to the output directory '{outdir}'", # nolint

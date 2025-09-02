@@ -15,7 +15,7 @@
 risk_filter <- function(..., fields = risk_filter_fields(...)) {
   risk_filter_fn <- risk_filter_from_conditions(...)
 
-  # For older version of R, use non-standard evaluation to automatically 
+  # For older version of R, use non-standard evaluation to automatically
   # insert additional repository fields
   if (!has_available_packages_field_option()) {
     risk_filter_fn <- risk_filter_with_inserted_fields(risk_filter_fn, fields)
@@ -26,7 +26,7 @@ risk_filter <- function(..., fields = risk_filter_fields(...)) {
 }
 
 #' Retrieve all known risk fields
-#' 
+#'
 #' @name risk-filter-helpers
 #' @export
 risk_filter_fields <- function(...) {
@@ -43,14 +43,14 @@ risk_filter_fields <- function(...) {
 }
 
 #' Session uses the "available_packages_field" global option
-#' 
-#' Test whether the current session makes use of the 
-#' global option, as discussed in the 
+#'
+#' Test whether the current session makes use of the
+#' global option, as discussed in the
 #' [`R-devel` mailing list](https://stat.ethz.ch/pipermail/r-devel/2024-June/083477.html).
 #' When used, it is expected that this global option is configured to permit
 #' additional fields to be used by filters. This test can be replaced by an
 #' exact version number once available.
-#' 
+#'
 #' @name risk-filter-helpers
 has_available_packages_field_option <- function() {
   # to be changed to patch version upon release
@@ -59,7 +59,7 @@ has_available_packages_field_option <- function() {
 }
 
 #' Generate a random id for a risk filter
-#' 
+#'
 #' @name risk-filter-helpers
 risk_filter_id <- function() {
   paste(as.character(as.raw(sample(0:255, 16))), collapse = "")
@@ -86,7 +86,7 @@ risk_filter_from_conditions <- function(...) {
 #'
 #' @param f A [`utils::available.packages()`] filter function
 #' @inheritParams risk_filter
-#' 
+#'
 #' @name risk-filter-helpers
 risk_filter_with_inserted_fields <- function(f, fields) {
   force(f)

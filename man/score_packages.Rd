@@ -4,7 +4,7 @@
 \alias{score_packages}
 \title{Assess packages using riskmetric.}
 \usage{
-score_packages(packages, limit = .config$limit, repos = .config$remote_base)
+score_packages(packages, limit = .config$limit, repos = .config$remote_repo)
 }
 \arguments{
 \item{packages}{Character vector with package names.}

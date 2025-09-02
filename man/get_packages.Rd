@@ -4,7 +4,7 @@
 \alias{get_packages}
 \title{Read PACKAGES file from a local or remote repository.}
 \usage{
-get_packages(base_url = .config$remote_base)
+get_packages(base_url = .config$remote_repo)
 }
 \arguments{
 \item{base_url}{Base URL of the repository. Can be a local dir path.}
