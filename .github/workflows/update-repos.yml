@@ -62,10 +62,10 @@ jobs:
                 tar czf reports.tar.gz *.md
                 rm *.md
 
-            - name: Setup tmate session
-              if: ${{ failure() }}
-              uses: mxschmitt/action-tmate@v3
-              timeout-minutes: 15
+            # - name: Setup tmate session
+            #   if: ${{ failure() }}
+            #   uses: mxschmitt/action-tmate@v3
+            #   timeout-minutes: 15
 
             - uses: stefanzweifel/git-auto-commit-action@v5
               with:
