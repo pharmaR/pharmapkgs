@@ -106,7 +106,8 @@ describe("score_packages", {
     packages <- "acss.data"
     actual_output <- score_packages(packages)
     expect_type(actual_output, "list")
-    expect_named(actual_output, c("scored_packages", "package_refs", "package_assessments"))
+    expect_named(actual_output, c("scored_packages", "package_refs", "package_assessments",
+                                  "failed_packages"))
   })
 })
 

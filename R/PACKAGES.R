@@ -124,6 +124,8 @@ score_packages <- function(
     destdir = .config$local_repo,
     repos = repos
   )
+  # Removing package build files even if normal R repos would keep them.
+  # We use a specific field to download the packages
   on.exit(unlink(download_result[, 2], recursive = TRUE, force = TRUE), add = TRUE)
 
   missing_packages <- setdiff(package_names, download_result[, 1])
