@@ -70,6 +70,8 @@ jobs:
             - uses: stefanzweifel/git-auto-commit-action@v5
               with:
                   commit_message: "Auto-update: ${{matrix.platform}}, R-${{matrix.r_version}}"
+                  file_pattern: ${{ github.workspace }}/src/contrib/Meta/*.tar.gz ${{ github.workspace }}/src/contrib/PACKAGES
+                  add_options: '-u'
 
             - name: Remove untracked files
               run: git clean -fdx
