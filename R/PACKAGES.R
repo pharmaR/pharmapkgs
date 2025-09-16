@@ -79,25 +79,35 @@ diff_packages <- function(remote_packages, local_packages) {
   combined_packages[is_new_or_newer > 0, "Package", drop = TRUE]
 }
 
-#' Assess packages using riskmetric.
+#' Assess and score CRAN packages using riskmetric.
 #'
-#' @param packages Character vector with package names.
-#' @param limit Maximum number of packages to assess.
-#' @param repos Repository to download packages from.
+#' This function downloads source tarballs for a set of CRAN packages,
+#' unzips them, and evaluates them using a set of predefined metrics from
+#' the `riskmetric` package. It is designed to be fault-tolerant, skipping
+#' packages that fail during download, extraction, or scoring.
 #'
-#' @return data.frame
+#' Current implementation is strongly coupled with:
+#' - CRAN-style repositories and tarball structure
+#' - `utils::download.packages()` for retrieval
+#' - `riskmetric` for assessment and scoring
+#'
+#' @param packages Character vector of package names to assess.
+#' @param limit Maximum number of packages to assess. Defaults to `.config$limit`.
+#' @param repos CRAN-like repository URL to download packages from. Defaults to
+#'    `.config$remote_repo`.
+#'
+#' @return A list containing:
+#'   - `scored_packages`: data.frame of scored metrics per package
+#'   - `package_refs`: list of `pkg_ref` objects
+#'   - `package_assessments`: list of `pkg_assess` results
+#'   - `failed_packages`: named list of packages that failed with error messages
 #'
 #' @export
 score_packages <- function(
     packages,
     limit = .config$limit,
     repos = .config$remote_repo) {
-  if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
-    limit <- length(packages)
-  } else {
-    limit <- min(limit, length(packages))
-  }
-
+  limit <- .resolve_limit(limit, packages)
   package_names <- packages[seq_len(limit)]
 
   logger::log_info("Downloading packages source code", namespace = "pharmapkgs")
@@ -106,6 +116,8 @@ score_packages <- function(
   if (!dir.exists(destination_directory)) {
     dir.create(destination_directory, recursive = TRUE)
   }
+
+  # Download packages
 
   download_result <- utils::download.packages(
     pkgs = package_names,
@@ -116,57 +128,63 @@ score_packages <- function(
   # We use a specific field to download the packages
   on.exit(unlink(download_result[, 2], recursive = TRUE, force = TRUE), add = TRUE)
 
-  if (NROW(download_result) != length(package_names)) {
-    missing_packages <- setdiff(package_names, download_result[, 1]) # nolint
-    logger::log_fatal(
-      "Failed to do download package: {missing_packages}",
-      namespace = "pharmapkgs"
-    )
+  missing_packages <- setdiff(package_names, download_result[, 1])
+  if (length(missing_packages) > 0) {
+    logger::log_warn("Some packages failed to download: {missing_packages}",
+                     namespace = "pharmapkgs")
   }
 
-  logger::log_info("Unzipping packages", namespace = "pharmapkgs")
-  for (tarball in download_result[, 2]) {
-    logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
-    utils::untar(tarball, exdir = destination_directory)
-  }
-
-  packages <- download_result[, 1]
-
-  if (length(packages) == 0) {
+  if (nrow(download_result) == 0) {
     logger::log_warn("No packages to score", namespace = "pharmapkgs")
     return(NULL)
   }
 
-  packages_source <- file.path(destination_directory, packages)
-  # Clean directory from downloaded files
-  on.exit(unlink(packages_source, recursive = TRUE, force = TRUE), add = TRUE)
-  package_refs <- riskmetric::pkg_ref(packages_source)
+  # Unzip packages
 
-  if (inherits(package_refs, "pkg_ref")) {
-    package_refs <- list(package_refs)
+  unzipped <- .unzip_downloaded_packages(download_result, destination_directory)
+  if (is.null(unzipped)) return(NULL)
+
+  successful_packages <- unzipped$successful
+  failed_packages <- unzipped$failed
+
+  # Score packages
+
+  packages_source <- file.path(destination_directory, successful_packages)
+  on.exit(unlink(packages_source, recursive = TRUE, force = TRUE), add = TRUE)
+
+  package_refs <- list()
+  package_assessments <- list()
+  scores <- list()
+
+  metrics <- .get_assessments()
+  logger::log_info("Scoring packages", namespace = "pharmapkgs")
+
+  for (pkg_path in packages_source) {
+    pkg_name <- basename(pkg_path)
+
+    tryCatch({
+      ref <- unlist(riskmetric::pkg_ref(pkg_path))
+
+      assessment <- suppressMessages(riskmetric::pkg_assess(ref, assessments = metrics))
+      package_assessments <- c(package_assessments, list(assessment))
+
+      score <- riskmetric::pkg_score(assessment)
+      score$Package <- pkg_name
+      score$Version <- ref$description[, "Version"]
+
+      scores <- c(scores, list(as.data.frame(lapply(score, as.character))))
+      package_refs <- c(package_refs, ref)
+    }, error = function(e) {
+      logger::log_error("Failed to score {pkg_name}: {conditionMessage(e)}",
+                        namespace = "pharmapkgs")
+      failed_packages[[pkg_name]] <- conditionMessage(e)
+    })
   }
 
-  package_assessments <- list()
-  metrics <- .get_assessments()
-
-  logger::log_info("Scoring packages", namespace = "pharmapkgs")
-  scores <- lapply(package_refs, function(ref) {
-    .package <- ref$description[, "Package"]
-    .version <- ref$description[, "Version"]
-
-    logger::log_debug("\tScoring {.package}@{.version}", namespace = "pharmapkgs")
-
-    assessment <- suppressMessages(riskmetric::pkg_assess(ref, assessments = metrics))
-    package_assessments <<- c(package_assessments, list(assessment))
-
-    score <- riskmetric::pkg_score(assessment)
-
-    score$Package <- .package
-    score$Version <- .version
-
-    lapply(score, as.character) |>
-      as.data.frame()
-  })
+  if (length(scores) == 0) {
+    logger::log_warn("No packages successfully scored", namespace = "pharmapkgs")
+    return(NULL)
+  }
 
   score_data <- Reduce(x = scores, f = function(acc, nxt) {
     data <- .sync_colnames(acc, nxt)
@@ -176,8 +194,19 @@ score_packages <- function(
   list(
     scored_packages = score_data,
     package_refs = package_refs,
-    package_assessments = package_assessments
+    package_assessments = package_assessments,
+    failed_packages = failed_packages
   )
+}
+
+#' Resolve the effective limit for scoring.
+#' @noRd
+.resolve_limit <- function(limit, packages) {
+  if (is.na(limit) || is.null(limit) || !is.finite(limit)) {
+    length(packages)
+  } else {
+    min(limit, length(packages))
+  }
 }
 
 #' Join PACKAGES meta info with their respective scores (metrics).

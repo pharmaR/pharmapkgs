@@ -27,7 +27,7 @@ global_filters <- function() {
 .get_connection <- function(path) {
   if (startsWith(path, "http")) {
     url(path)
-  } else if (file.exists(path)){
+  } else if (file.exists(path)) {
     file(path, "r")
   } else {
     stop("ERROR path not found")
@@ -122,4 +122,56 @@ global_filters <- function() {
   }
 
   metrics
+}
+
+#' Unzips downloaded CRAN package tarballs.
+#'
+#' Current implementation is strongly coupled with:
+#' - CRAN-style tarball naming and structure
+#' - `utils::untar()` for extraction
+#' - `download.packages()` output format
+#'
+#' This function assumes that the tarballs are valid `.tar.gz` files
+#' downloaded from a CRAN-like repository and that they follow the
+#' standard naming convention. It performs per-package error handling
+#' and logs failures without interrupting the pipeline.
+#'
+#' @param download_result A matrix returned by `utils::download.packages()`,
+#'   where each row contains the package name and the path to the downloaded tarball.
+#' @param destination_directory Character scalar indicating where to extract the packages.
+#'
+#' @return A list with two elements:
+#'   - `successful`: character vector of successfully unzipped package names.
+#'   - `failed`: named list of packages that failed to unzip, with error messages.
+#'
+#' @noRd
+.unzip_downloaded_packages <- function(download_result, destination_directory) {
+  logger::log_info("Unzipping packages", namespace = "pharmapkgs")
+  successful_packages <- character()
+  failed_packages <- list()
+
+  for (i in seq_len(nrow(download_result))) {
+    pkg <- download_result[i, 1]
+    tarball <- download_result[i, 2]
+
+    tryCatch({
+      if (!file.exists(tarball)) {
+        stop(sprintf("Tarball not found: %s", tarball))
+      }
+
+      logger::log_debug("\tUnzipping: {tarball}", namespace = "pharmapkgs")
+      utils::untar(tarball, exdir = destination_directory)
+      successful_packages <- c(successful_packages, pkg)
+    }, error = function(e) {
+      logger::log_error("Failed to unzip {pkg}: {conditionMessage(e)}", namespace = "pharmapkgs")
+      failed_packages[[pkg]] <- conditionMessage(e)
+    })
+  }
+
+  if (length(successful_packages) == 0) {
+    logger::log_warn("No packages successfully unzipped", namespace = "pharmapkgs")
+    return(NULL)
+  }
+
+  list(successful = successful_packages, failed = failed_packages)
 }
