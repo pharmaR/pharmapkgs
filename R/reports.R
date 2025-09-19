@@ -90,6 +90,7 @@ generate_riskreports <- function(pkg_reference,
     # and forcefully moves generated files to _site directory
     report_files <- list.files(file.path("_site", site_subdir), full.names = TRUE)
     copy_result <- file.copy(from = report_files, to = outdir, overwrite = TRUE)
+    logger::log_debug("Moving file '{report_files[!copy_result]}' to '{outdir}'", namespace = "pharmapkgs")
     if (any(!copy_result)) {
       logger::log_error(
         "Failed to copy report file '{report_files[!copy_result]}' to the output directory '{outdir}'", # nolint
