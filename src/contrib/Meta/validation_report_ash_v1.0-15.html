@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>validation_report_ash_v1.0-15 – pharmapkgs: riskreports</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-fb9b4b6315c8f96196a323f92bd21b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-b9d346965354312887051bca1aa726de.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-fb9b4b6315c8f96196a323f92bd21b55.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">pharmapkgs: riskreports</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pharmaR/pharmapkgs"> <i class="bi bi-github" role="img" aria-label="GitHub repo">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<section id="this-report-is-fully-automated-and-builds-on" class="level1">
+<h1>This report is fully automated and builds on</h1>
+<p><a href="https://hub.docker.com/r/rhub/ref-image">rhub/ref-image</a> image.</p>
+<p>2025-09-24 12:00:00</p>
+</section>
+<section id="context" class="level1">
+<h1>Context</h1>
+<p>Documents the installation of this package on an open source R environment, focusing on:</p>
+<ul>
+<li>Installation environment description</li>
+<li>Testing coverage</li>
+</ul>
+<p>It is limited to assess whether unit tests and documentation are present and can execute without error. An assessment would be required that the tests and documentation are meaningful.</p>
+</section>
+<section id="package-ash" class="level1">
+<h1>Package ash</h1>
+<section id="metric-based-risk-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="metric-based-risk-assessment">Metric based risk assessment</h2>
+<p>The following metrics are derived from the <code>riskmetric</code> R package.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Downloads.1.year</th>
+<th style="text-align: right;">Reverse.dependencies</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Origin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">210134</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">GPL (&gt;= 2)</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Section</th>
+<th style="text-align: left;">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Has news</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exported namespace</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Has vignettes</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Export help</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Has website</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Has maintainer</td>
+<td style="text-align: left;">Albrecht Gebhardt <a href="mailto:albrecht.gebhardt@aau.at" class="email">albrecht.gebhardt@aau.at</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bugs status</td>
+<td style="text-align: left;">package DESCRIPTION does not have a BugReports field</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Size codebase</td>
+<td style="text-align: left;">79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Has bug reports url</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Has examples</td>
+<td style="text-align: left;">80.00%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Package general assessment:</strong> Coverage, check results, size, download the last year, reverse dependencies and number of dependencies.</p>
+</section>
+</section>
+<section id="installation-environment" class="level1">
+<h1>Installation environment</h1>
+<section id="system-info" class="level2">
+<h2 class="anchored" data-anchor-id="system-info">System Info</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Image</td>
+<td style="text-align: left;">rhub/ref-image</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OS</td>
+<td style="text-align: left;">Ubuntu 24.04.3 LTS</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Platform</td>
+<td style="text-align: left;">x86_64-pc-linux-gnu</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">System</td>
+<td style="text-align: left;">x86_64, linux-gnu</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Execution Time</td>
+<td style="text-align: left;">2025-09-24 03:33:44 UTC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>System information</strong>. Table about the system used to check the package.</p>
+<!--
+From here we use the lua filter based on this issue from Quarto itself
+https://github.com/quarto-dev/quarto-cli/issues/341
+Please take into account that not all content in the chunks will be correctly folded
+- character vectors are
+- reactable tables are not
+An alternative is to use callout blocks with collapse = TRUE
+The advantage of the foldable_code lua filter is that the code is printed exactly as in the R console
+-->
+</section>
+<section id="r-session-info" class="level2">
+<h2 class="anchored" data-anchor-id="r-session-info">R Session Info</h2>
+<details>
+<summary>
+Session info
+</summary>
+<pre class="details"><code>R version 4.5.1 (2025-06-13)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.3 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C           LC_TIME=C.UTF-8       
+ [4] LC_COLLATE=C.UTF-8     LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+ [7] LC_PAPER=C.UTF-8       LC_NAME=C              LC_ADDRESS=C          
+[10] LC_TELEPHONE=C         LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+
+time zone: UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] tools     stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] riskreports_0.0.0.9006 knitr_1.50            
+
+loaded via a namespace (and not attached):
+ [1] miniUI_0.1.2        jsonlite_2.0.0      compiler_4.5.1     
+ [4] BiocManager_1.30.26 promises_1.3.3      Rcpp_1.1.0         
+ [7] xml2_1.4.0          covr_3.6.4          urltools_1.7.3.1   
+[10] later_1.4.4         riskmetric_0.2.5    triebeard_0.4.1    
+[13] yaml_2.3.10         fastmap_1.2.0       mime_0.13          
+[16] R6_2.6.1            curl_7.0.0          htmlwidgets_1.6.4  
+[19] backports_1.5.0     tibble_3.3.0        profvis_0.4.0      
+[22] cranlogs_2.1.1      reactable_0.4.4     shiny_1.11.1       
+[25] pillar_1.11.1       rlang_1.1.6         cachem_1.1.0       
+[28] reactR_0.6.1        httpuv_1.6.16       xfun_0.53          
+[31] fs_1.6.6            lazyeval_0.2.2      pkgload_1.4.1      
+[34] rex_1.2.1           memoise_2.0.1       cli_3.6.5          
+[37] magrittr_2.0.4      digest_0.6.37       xtable_1.8-4       
+[40] remotes_2.5.0       devtools_2.4.5      lifecycle_1.0.4    
+[43] vctrs_0.6.5         glue_1.8.0          evaluate_1.0.5     
+[46] urlchecker_1.0.1    sessioninfo_1.2.3   pkgbuild_1.4.8     
+[49] purrr_1.1.0         rmarkdown_2.29      httr_1.4.7         
+[52] pkgconfig_2.0.3     usethis_3.2.1       ellipsis_0.3.2     
+[55] htmltools_0.5.8.1  </code></pre>
+</details>
+<details>
+<summary>
+Platform
+</summary>
+<pre class="details"><code>   OS.type   file.sep dynlib.ext        GUI     endian    pkgType   path.sep 
+    "unix"        "/"      ".so"      "X11"   "little"   "source"        ":" 
+    r_arch 
+        "" </code></pre>
+</details>
+<details>
+<summary>
+R’s capabilities
+</summary>
+<pre class="details"><code>       jpeg         png        tiff       tcltk         X11        aqua 
+       TRUE        TRUE        TRUE        TRUE       FALSE       FALSE 
+   http/ftp     sockets      libxml        fifo      cledit       iconv 
+       TRUE        TRUE       FALSE        TRUE       FALSE        TRUE 
+        NLS       Rprof     profmem       cairo         ICU long.double 
+       TRUE        TRUE        TRUE        TRUE        TRUE        TRUE 
+    libcurl 
+       TRUE </code></pre>
+</details>
+<details>
+<summary>
+External software
+</summary>
+<pre class="details"><code>                                                     zlib 
+                                                    "1.3" 
+                                                    bzlib 
+                                     "1.0.8, 13-Jul-2019" 
+                                                       xz 
+                                                  "5.4.5" 
+                                               libdeflate 
+                                                   "1.19" 
+                                                     PCRE 
+                                       "10.42 2022-12-11" 
+                                                      ICU 
+                                                   "74.2" 
+                                                      TRE 
+                                "TRE 0.8.0 R_fixes (BSD)" 
+                                                    iconv 
+                                             "glibc 2.39" 
+                                                 readline 
+                                                    "8.2" 
+                                                     BLAS 
+"/usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3" </code></pre>
+</details>
+<details>
+<summary>
+Graphics external software
+</summary>
+<pre class="details"><code>                   cairo                  cairoFT                    pango 
+                "1.18.0"                       ""                 "1.52.1" 
+                  libpng                     jpeg                  libtiff 
+                "1.6.43"                    "8.0" "LIBTIFF, Version 4.5.1" </code></pre>
+</details>
+<details>
+<summary>
+Numerical characteristics of the machine
+</summary>
+<pre class="details"><code>               double.eps            double.neg.eps               double.xmin 
+             2.220446e-16              1.110223e-16             2.225074e-308 
+              double.xmax               double.base             double.digits 
+            1.797693e+308              2.000000e+00              5.300000e+01 
+          double.rounding              double.guard         double.ulp.digits 
+             5.000000e+00              0.000000e+00             -5.200000e+01 
+    double.neg.ulp.digits           double.exponent            double.min.exp 
+            -5.300000e+01              1.100000e+01             -1.022000e+03 
+           double.max.exp               integer.max               sizeof.long 
+             1.024000e+03              2.147484e+09              8.000000e+00 
+          sizeof.longlong         sizeof.longdouble            sizeof.pointer 
+             8.000000e+00              1.600000e+01              8.000000e+00 
+            sizeof.time_t            longdouble.eps        longdouble.neg.eps 
+             8.000000e+00              1.084202e-19              5.421011e-20 
+        longdouble.digits       longdouble.rounding          longdouble.guard 
+             6.400000e+01              5.000000e+00              0.000000e+00 
+    longdouble.ulp.digits longdouble.neg.ulp.digits       longdouble.exponent 
+            -6.300000e+01             -6.400000e+01              1.500000e+01 
+       longdouble.min.exp        longdouble.max.exp 
+            -1.638200e+04              1.638400e+04 </code></pre>
+</details>
+<details>
+<summary>
+Random number generation process
+</summary>
+<pre class="details"><code>[1] "Mersenne-Twister" "Inversion"        "Rejection"       </code></pre>
+</details>
+</section>
+<section id="information-about-the-environment" class="level2">
+<h2 class="anchored" data-anchor-id="information-about-the-environment">Information about the environment</h2>
+<p>Environmental and options variables affect how package checks and software in it might behave.</p>
+<details>
+<summary>
+Environmental variables when running this report
+</summary>
+<pre class="details"><code>_R_CHECK_SYSTEM_CLOCK_
+                        FALSE
+ACCEPT_EULA             Y
+ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE
+                        /opt/actionarchivecache
+AGENT_TOOLSDIRECTORY    /opt/hostedtoolcache
+ANDROID_HOME            /usr/local/lib/android/sdk
+ANDROID_NDK             /usr/local/lib/android/sdk/ndk/27.3.13750724
+ANDROID_NDK_HOME        /usr/local/lib/android/sdk/ndk/27.3.13750724
+ANDROID_NDK_LATEST_HOME
+                        /usr/local/lib/android/sdk/ndk/28.2.13676358
+ANDROID_NDK_ROOT        /usr/local/lib/android/sdk/ndk/27.3.13750724
+ANDROID_SDK_ROOT        /usr/local/lib/android/sdk
+ANT_HOME                /usr/share/ant
+AZURE_EXTENSION_DIR     /opt/az/azcliextensions
+BOOTSTRAP_HASKELL_NONINTERACTIVE
+                        1
+BUNDLE_EXT              linux-amd64.deb
+CHROME_BIN              /usr/bin/google-chrome
+CHROMEWEBDRIVER         /usr/local/share/chromedriver-linux64
+CI                      true
+CONDA                   /usr/share/miniconda
+DEBIAN_FRONTEND         noninteractive
+DENO_DOM_PLUGIN         /opt/quarto/bin/tools/x86_64/deno_dom/libplugin.so
+DENO_NO_UPDATE_CHECK    1
+DENO_TLS_CA_STORE       system,mozilla
+DOTNET_MULTILEVEL_LOOKUP
+                        0
+DOTNET_NOLOGO           1
+DOTNET_SKIP_FIRST_TIME_EXPERIENCE
+                        1
+EDGEWEBDRIVER           /usr/local/share/edge_driver
+EDITOR                  vi
+ENABLE_RUNNER_TRACING   true
+GECKOWEBDRIVER          /usr/local/share/gecko_driver
+GHCUP_INSTALL_BASE_PREFIX
+                        /usr/local
+GITHUB_ACTION           __run_4
+GITHUB_ACTION_REF       
+GITHUB_ACTION_REPOSITORY
+                        
+GITHUB_ACTIONS          true
+GITHUB_ACTOR            llrs-roche
+GITHUB_ACTOR_ID         185338939
+GITHUB_API_URL          https://api.github.com
+GITHUB_BASE_REF         
+GITHUB_ENV              /home/runner/work/_temp/_runner_file_commands/set_env_0a42ca04-686c-462f-a9dc-272ecd33b32a
+GITHUB_EVENT_NAME       schedule
+GITHUB_EVENT_PATH       /home/runner/work/_temp/_github_workflow/event.json
+GITHUB_GRAPHQL_URL      https://api.github.com/graphql
+GITHUB_HEAD_REF         
+GITHUB_JOB              main
+GITHUB_OUTPUT           /home/runner/work/_temp/_runner_file_commands/set_output_0a42ca04-686c-462f-a9dc-272ecd33b32a
+GITHUB_PATH             /home/runner/work/_temp/_runner_file_commands/add_path_0a42ca04-686c-462f-a9dc-272ecd33b32a
+GITHUB_REF              refs/heads/main
+GITHUB_REF_NAME         main
+GITHUB_REF_PROTECTED    false
+GITHUB_REF_TYPE         branch
+GITHUB_REPOSITORY       pharmaR/pharmapkgs
+GITHUB_REPOSITORY_ID    798326913
+GITHUB_REPOSITORY_OWNER
+                        pharmaR
+GITHUB_REPOSITORY_OWNER_ID
+                        42115094
+GITHUB_RETENTION_DAYS   90
+GITHUB_RUN_ATTEMPT      1
+GITHUB_RUN_ID           17965370643
+GITHUB_RUN_NUMBER       358
+GITHUB_SERVER_URL       https://github.com
+GITHUB_SHA              4dab738240805360f82ec086ff9527480f18af1b
+GITHUB_STATE            /home/runner/work/_temp/_runner_file_commands/save_state_0a42ca04-686c-462f-a9dc-272ecd33b32a
+GITHUB_STEP_SUMMARY     /home/runner/work/_temp/_runner_file_commands/step_summary_0a42ca04-686c-462f-a9dc-272ecd33b32a
+GITHUB_TRIGGERING_ACTOR
+                        llrs-roche
+GITHUB_WORKFLOW         Update package repositories
+GITHUB_WORKFLOW_REF     pharmaR/pharmapkgs/.github/workflows/update-repos.yml@refs/heads/main
+GITHUB_WORKFLOW_SHA     4dab738240805360f82ec086ff9527480f18af1b
+GITHUB_WORKSPACE        /home/runner/work/pharmapkgs/pharmapkgs
+GOROOT_1_22_X64         /opt/hostedtoolcache/go/1.22.12/x64
+GOROOT_1_23_X64         /opt/hostedtoolcache/go/1.23.12/x64
+GOROOT_1_24_X64         /opt/hostedtoolcache/go/1.24.7/x64
+GRADLE_HOME             /usr/share/gradle-9.0.0
+HOME                    /home/runner
+HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS
+                        3650
+HOMEBREW_NO_AUTO_UPDATE
+                        1
+ImageOS                 ubuntu24
+ImageVersion            20250907.24.1
+INVOCATION_ID           4350c980f4964d4f9719c8cd643b07c7
+JAVA_HOME               /usr/lib/jvm/temurin-17-jdk-amd64
+JAVA_HOME_11_X64        /usr/lib/jvm/temurin-11-jdk-amd64
+JAVA_HOME_17_X64        /usr/lib/jvm/temurin-17-jdk-amd64
+JAVA_HOME_21_X64        /usr/lib/jvm/temurin-21-jdk-amd64
+JAVA_HOME_8_X64         /usr/lib/jvm/temurin-8-jdk-amd64
+JOURNAL_STREAM          9:11018
+LANG                    C.UTF-8
+LD_LIBRARY_PATH         /opt/R/4.5.1/lib/R/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/temurin-17-jdk-amd64/lib/server:/opt/R/4.5.1/lib/R/lib:/usr/local/lib:/usr/lib/x86_64-linux-gnu:/usr/lib/jvm/temurin-17-jdk-amd64/lib/server
+LN_S                    ln -s
+LOGGER_LOG_LEVEL        DEBUG
+LOGNAME                 runner
+MAKE                    make
+MEMORY_PRESSURE_WATCH   /sys/fs/cgroup/system.slice/hosted-compute-agent.service/memory.pressure
+MEMORY_PRESSURE_WRITE   c29tZSAyMDAwMDAgMjAwMDAwMAA=
+NOT_CRAN                true
+NVM_DIR                 /home/runner/.nvm
+PAGER                   /usr/bin/pager
+PATH                    /snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PHARMAPKGS_EXCLUDED_METRICS
+                        assess_covr_coverage,assess_r_cmd_check
+PHARMAPKGS_LIMIT        100
+PHARMAPKGS_LOCAL_REPO   /home/runner/work/pharmapkgs/pharmapkgs
+PHARMAPKGS_PLATFORM     ubuntu-22.04
+PHARMAPKGS_R_VERSION    4.4
+PHARMAPKGS_REMOTE_REPO
+                        https://cloud.r-project.org/
+PIPX_BIN_DIR            /opt/pipx_bin
+PIPX_HOME               /opt/pipx
+PKGCACHE_HTTP_VERSION   2
+PKGLOAD_PARENT_TEMPDIR
+                        /tmp/Rtmpka6QoF
+POWERSHELL_DISTRIBUTION_CHANNEL
+                        GitHub-Actions-ubuntu24
+PROCESSX_PS1db039cfdf03_1758684821
+                        YES
+PWD                     /home/runner/work/pharmapkgs/pharmapkgs
+QUARTO_BIN_PATH         /opt/quarto/bin
+QUARTO_DENO             /opt/quarto/bin/tools/x86_64/deno
+QUARTO_DOCUMENT_FILE    validation_report_ash_v1.0-15.qmd
+QUARTO_DOCUMENT_PATH    /home/runner/work/pharmapkgs/pharmapkgs/src/contrib/Meta
+QUARTO_EXECUTE_INFO     /home/runner/work/pharmapkgs/pharmapkgs/.quarto/quarto-session-temp8330189fd942d047/e8e27f8f84bf4378
+QUARTO_PROFILE          
+QUARTO_PROJECT_DIR      /home/runner/work/pharmapkgs/pharmapkgs
+QUARTO_PROJECT_ROOT     /home/runner/work/pharmapkgs/pharmapkgs
+QUARTO_ROOT             /
+QUARTO_SHARE_PATH       /opt/quarto/share
+R_ARCH                  
+R_BROWSER               xdg-open
+R_BZIPCMD               /usr/bin/bzip2
+R_DOC_DIR               /opt/R/4.5.1/lib/R/doc
+R_GZIPCMD               /usr/bin/gzip
+R_HOME                  /opt/R/4.5.1/lib/R
+R_INCLUDE_DIR           /opt/R/4.5.1/lib/R/include
+R_LIB_FOR_PAK           /opt/R/4.5.1/lib/R/site-library
+R_LIBS_SITE             /opt/R/4.5.1/lib/R/site-library
+R_LIBS_USER             /home/runner/work/_temp/Library
+R_PAPERSIZE             letter
+R_PAPERSIZE_USER        letter
+R_PDFVIEWER             /usr/bin/xdg-open
+R_PLATFORM              x86_64-pc-linux-gnu
+R_PRINTCMD              /usr/bin/lpr
+R_RD4PDF                times,inconsolata,hyper
+R_SESSION_TMPDIR        /tmp/Rtmpd31EnA
+R_SHARE_DIR             /opt/R/4.5.1/lib/R/share
+R_STRIP_SHARED_LIB      strip --strip-unneeded
+R_STRIP_STATIC_LIB      strip --strip-debug
+R_TEXI2DVICMD           /usr/bin/texi2dvi
+R_UNZIPCMD              /usr/bin/unzip
+R_ZIPCMD                /usr/bin/zip
+RUNNER_ARCH             X64
+RUNNER_ENVIRONMENT      github-hosted
+RUNNER_NAME             GitHub Actions 1000001430
+RUNNER_OS               Linux
+RUNNER_TEMP             /home/runner/work/_temp
+RUNNER_TOOL_CACHE       /opt/hostedtoolcache
+RUNNER_TRACKING_ID      github_278c5d5e-8513-4f9d-854f-b18f1d463e7d
+RUNNER_WORKSPACE        /home/runner/work/pharmapkgs
+SED                     /usr/bin/sed
+SELENIUM_JAR_PATH       /usr/share/java/selenium-server.jar
+SGX_AESM_ADDR           1
+SHELL                   /bin/bash
+SHLVL                   1
+SWIFT_PATH              /usr/share/swift/usr/bin
+SYSTEMD_EXEC_PID        1878
+TAR                     /usr/bin/tar
+TZ                      UTC
+USER                    runner
+VCPKG_INSTALLATION_ROOT
+                        /usr/local/share/vcpkg
+XDG_CONFIG_HOME         /home/runner/.config
+XDG_RUNTIME_DIR         /run/user/1001</code></pre>
+</details>
+<details>
+<summary>
+These are the options set to generate the report
+</summary>
+<pre class="details"><code>$add.smooth
+[1] TRUE
+
+$bitmapType
+[1] "cairo"
+
+$browser
+[1] "xdg-open"
+
+$browserNLdisabled
+[1] FALSE
+
+$callr.condition_handler_cli_message
+function (msg) 
+{
+    custom_handler &lt;- getOption("cli.default_handler")
+    if (is.function(custom_handler)) {
+        custom_handler(msg)
+    }
+    else {
+        cli_server_default(msg)
+    }
+}
+&lt;bytecode: 0x55a8048f3bc8&gt;
+&lt;environment: namespace:cli&gt;
+
+$catch.script.errors
+[1] FALSE
+
+$CBoundsCheck
+[1] FALSE
+
+$check.bounds
+[1] FALSE
+
+$citation.bibtex.max
+[1] 1
+
+$continue
+[1] "+ "
+
+$contrasts
+        unordered           ordered 
+"contr.treatment"      "contr.poly" 
+
+$covr.covrignore
+[1] ".covrignore"
+
+$covr.exclude_end
+#[[:space:]]*nocov[[:space:]]*end
+
+$covr.exclude_pattern
+#[[:space:]]*nocov
+
+$covr.exclude_start
+#[[:space:]]*nocov[[:space:]]*start
+
+$covr.flags
+          CFLAGS         CXXFLAGS       CXX1XFLAGS       CXX11FLAGS 
+"-O0 --coverage" "-O0 --coverage" "-O0 --coverage" "-O0 --coverage" 
+      CXX14FLAGS       CXX17FLAGS       CXX20FLAGS           FFLAGS 
+"-O0 --coverage" "-O0 --coverage" "-O0 --coverage" "-O0 --coverage" 
+         FCFLAGS            FLIBS          LDFLAGS 
+"-O0 --coverage"         "-lgcov"     "--coverage" 
+
+$covr.gcov
+           gcov 
+"/usr/bin/gcov" 
+
+$covr.icov
+codecov 
+     "" 
+
+$covr.icov_flags
+                CFLAGS               CXXFLAGS             CXX1XFLAGS 
+"-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" 
+            CXX11FLAGS             CXX14FLAGS             CXX17FLAGS 
+"-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" 
+            CXX20FLAGS                 FFLAGS                FCFLAGS 
+"-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" 
+               LDFLAGS           SHLIB_LIBADD 
+"-O0 -prof-gen=srcpos" "-O0 -prof-gen=srcpos" 
+
+$covr.icov_prof
+profmerge 
+       "" 
+
+$covr.record_tests
+[1] TRUE
+
+$defaultPackages
+[1] "datasets"  "utils"     "grDevices" "graphics"  "stats"     "methods"  
+
+$demo.ask
+[1] "default"
+
+$deparse.cutoff
+[1] 60
+
+$device
+function (width = 7, height = 7, ...) 
+{
+    grDevices::pdf(NULL, width, height, ...)
+}
+&lt;bytecode: 0x55a806072be0&gt;
+&lt;environment: namespace:knitr&gt;
+
+$device.ask.default
+[1] FALSE
+
+$devtools.ellipsis_action
+function (message = NULL, class = NULL, ..., body = NULL, footer = NULL, 
+    parent = NULL, use_cli_format = NULL, .inherit = NULL, .frequency = c("always", 
+        "regularly", "once"), .frequency_id = NULL, .subclass = deprecated()) 
+{
+    message &lt;- validate_signal_args(message, class, NULL, .subclass, 
+        "warn")
+    message_info &lt;- cnd_message_info(message, body, footer, caller_env(), 
+        use_cli_format = use_cli_format)
+    message &lt;- message_info$message
+    extra_fields &lt;- message_info$extra_fields
+    use_cli_format &lt;- message_info$use_cli_format
+    .frequency &lt;- arg_match0(.frequency, c("always", "regularly", 
+        "once"))
+    if (!needs_signal(.frequency, .frequency_id, warning_freq_env, 
+        "rlib_warning_verbosity")) {
+        return(invisible(NULL))
+    }
+    if (!is_null(parent)) {
+        if (is_null(.inherit)) {
+            .inherit &lt;- !inherits(parent, "error")
+        }
+        extra_fields$rlang &lt;- c(extra_fields$rlang, list(inherit = .inherit))
+    }
+    cnd &lt;- warning_cnd(class, message = message, !!!extra_fields, 
+        use_cli_format = use_cli_format, parent = parent, ...)
+    cnd$footer &lt;- c(cnd$footer, message_freq(message, .frequency, 
+        "warning"))
+    local_long_messages()
+    warning(cnd)
+}
+&lt;bytecode: 0x55a807147700&gt;
+&lt;environment: namespace:rlang&gt;
+
+$devtools.install.args
+[1] ""
+
+$devtools.path
+[1] "~/R-dev"
+
+$digits
+[1] 7
+
+$dvipscmd
+[1] "dvips"
+
+$echo
+[1] FALSE
+
+$editor
+[1] "vi"
+
+$encoding
+[1] "native.enc"
+
+$example.ask
+[1] "default"
+
+$expressions
+[1] 5000
+
+$help.search.types
+[1] "vignette" "demo"     "help"    
+
+$help.try.all.packages
+[1] FALSE
+
+$htmltools.preserve.raw
+[1] TRUE
+
+$HTTPUserAgent
+[1] "R/4.5.1 R (4.5.1 x86_64-pc-linux-gnu x86_64 linux-gnu) on GitHub Actions"
+
+$httr_oauth_cache
+[1] NA
+
+$httr_oob_default
+[1] FALSE
+
+$internet.info
+[1] 2
+
+$keep.parse.data
+[1] TRUE
+
+$keep.parse.data.pkgs
+[1] FALSE
+
+$keep.source
+[1] FALSE
+
+$keep.source.pkgs
+[1] FALSE
+
+$knitr.in.progress
+[1] TRUE
+
+$locatorBell
+[1] TRUE
+
+$mailer
+[1] "mailto"
+
+$matprod
+[1] "default"
+
+$max.contour.segments
+[1] 25000
+
+$max.print
+[1] 99999
+
+$menu.graphics
+[1] TRUE
+
+$na.action
+[1] "na.omit"
+
+$Ncpus
+[1] 1
+
+$nwarnings
+[1] 50
+
+$OutDec
+[1] "."
+
+$pager
+[1] "/opt/R/4.5.1/lib/R/bin/pager"
+
+$papersize
+[1] "letter"
+
+$PCRE_limit_recursion
+[1] NA
+
+$PCRE_study
+[1] FALSE
+
+$PCRE_use_JIT
+[1] TRUE
+
+$pdfviewer
+[1] "/usr/bin/xdg-open"
+
+$pkgType
+[1] "source"
+
+$printcmd
+[1] "/usr/bin/lpr"
+
+$prompt
+[1] "&gt; "
+
+$repos
+                      CRAN 
+"https://cran.rstudio.com" 
+
+$riskmetric.github_api_host
+[1] "https://api.github.com"
+
+$riskmetric.gitlab_api_host
+[1] "https://gitlab.com/api/v4"
+
+$riskmetric.per_package_request
+[1] FALSE
+
+$rl_word_breaks
+[1] " \t\n\"\\'`&gt;&lt;=%;,|&amp;{()}"
+
+$rlang_trace_top_env
+&lt;environment: R_GlobalEnv&gt;
+
+$scipen
+[1] 0
+
+$show.coef.Pvalues
+[1] TRUE
+
+$show.error.messages
+[1] TRUE
+
+$show.signif.stars
+[1] TRUE
+
+$showErrorCalls
+[1] TRUE
+
+$showNCalls
+[1] 50
+
+$showWarnCalls
+[1] FALSE
+
+$str
+$str$strict.width
+[1] "no"
+
+$str$digits.d
+[1] 3
+
+$str$vec.len
+[1] 4
+
+$str$list.len
+[1] 99
+
+$str$deparse.lines
+NULL
+
+$str$drop.deparse.attr
+[1] TRUE
+
+$str$formatNum
+function (x, ...) 
+format(x, trim = TRUE, drop0trailing = TRUE, ...)
+&lt;environment: 0x55a8041eb5c0&gt;
+
+
+$str.dendrogram.last
+[1] "`"
+
+$texi2dvi
+[1] "/usr/bin/texi2dvi"
+
+$tikzMetricsDictionary
+[1] "validation_report_ash_v1.0-15-tikzDictionary"
+
+$timeout
+[1] 60
+
+$try.outFile
+A connection with                    
+description ""      
+class       "file"  
+mode        "w+b"   
+text        "binary"
+opened      "opened"
+can read    "yes"   
+can write   "yes"   
+
+$ts.eps
+[1] 1e-05
+
+$ts.S.compat
+[1] FALSE
+
+$unzip
+[1] "/usr/bin/unzip"
+
+$useFancyQuotes
+[1] FALSE
+
+$verbose
+[1] FALSE
+
+$warn
+[1] 0
+
+$warning.length
+[1] 1000
+
+$warnPartialMatchArgs
+[1] FALSE
+
+$warnPartialMatchAttr
+[1] FALSE
+
+$warnPartialMatchDollar
+[1] FALSE
+
+$width
+[1] 80</code></pre>
+</details>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/pharmar\.github\.io\/pharmapkgs");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/pharmaR/pharmapkgs/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
