@@ -170550,13 +170550,13 @@ has_examples: 1
 dependencies: 0.880797077977882
 
 Package: fastICA
-Version: 1.2-7
+Version: 1.2-8
 Depends: R (>= 4.0.0)
 Suggests: MASS
 License: GPL-2 | GPL-3
-MD5sum: 0d1346e4402254a585610eab6cf1fa0d
+MD5sum: a5bb0ead6ebbdf58bf5b1f8e29e36ba7
 NeedsCompilation: yes
-DownloadURL: https://github.com/cran/fastICA/archive/refs/tags/1.2-7.tar.gz
+DownloadURL: https://github.com/cran/fastICA/archive/refs/tags/1.2-8.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.693596453153698
@@ -170567,10 +170567,11 @@ has_maintainer: 1
 size_codebase: 0.413223140495868
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.684854087442486
-reverse_dependencies: 0.821672085702747
+downloads_1yr: 0.723863699121887
+reverse_dependencies: 0.841021492133708
 has_examples: 1
 dependencies: 0.880797077977882
+Published: 2026-08-12 08:17:03 UTC
 
 Package: FastImputation
 Version: 2.2.1
@@ -272555,14 +272556,14 @@ has_examples: 1
 dependencies: 0.5
 
 Package: KernSmooth
-Version: 2.23-26
+Version: 2.23-27
 Depends: R (>= 2.5.0), stats
 Suggests: MASS, carData
 License: Unlimited
-MD5sum: 6bc46cc96d87d37de73050f49b2b1bc2
+MD5sum: fcb00c7502387107c125ca4ca6382139
 NeedsCompilation: yes
 Priority: recommended
-DownloadURL: https://github.com/cran/KernSmooth/archive/refs/tags/2.23-26.tar.gz
+DownloadURL: https://github.com/cran/KernSmooth/archive/refs/tags/2.23-27.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.643035173277501
@@ -272573,35 +272574,11 @@ has_maintainer: 1
 size_codebase: 0.198675496688742
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.8249103541013
-reverse_dependencies: 0.994549168282818
+downloads_1yr: 0.801124837916743
+reverse_dependencies: 0.993735824649407
 has_examples: 1
 dependencies: 0.817574476193644
-
-Package: KernSmooth
-Version: 2.23-26
-Depends: R (>= 4.6), stats
-Suggests: MASS, carData
-License: Unlimited
-MD5sum: 6bc46cc96d87d37de73050f49b2b1bc2
-NeedsCompilation: yes
-Priority: recommended
-Path: 4.6.0/Recommended
-DownloadURL: https://github.com/cran/KernSmooth/archive/refs/tags/2.23-26.tar.gz
-has_news: 0
-news_current: 0
-exported_namespace: 0.643035173277501
-has_vignettes: 0
-export_help: 1
-has_website: 0
-has_maintainer: 1
-size_codebase: 0.198675496688742
-has_source_control: 0
-has_bug_reports_url: 0
-downloads_1yr: 0.8249103541013
-reverse_dependencies: 0.994549168282818
-has_examples: 1
-dependencies: 0.817574476193644
+Published: 2026-08-12 06:40:09 UTC
 
 Package: KernSmoothIRT
 Version: 6.6
@@ -280463,31 +280440,32 @@ has_examples: 0.944444444444444
 dependencies: 0.119202922022118
 
 Package: lattice
-Version: 0.22-9
+Version: 0.23-1
 Depends: R (>= 4.0.0)
 Suggests: KernSmooth, MASS, latticeExtra, colorspace
 License: GPL (>= 2)
-MD5sum: 8fda6c7974b190459ad080e467e670c6
+MD5sum: e449ab6441f74836e93869dd34cdf3ba
 NeedsCompilation: yes
 Imports: grid, grDevices, graphics, stats, utils
 Enhances: chron, zoo
 Priority: recommended
-DownloadURL: https://github.com/cran/lattice/archive/refs/tags/0.22-9.tar.gz
+DownloadURL: https://github.com/cran/lattice/archive/refs/tags/0.23-1.tar.gz
 has_news: 1
 news_current: 0
-exported_namespace: 0.1429034598163
+exported_namespace: 0.144168727438605
 has_vignettes: 1
 export_help: 0
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.010806916426513
+size_codebase: 0.0108030248469571
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.894750801472647
-reverse_dependencies: 0.999993952693521
+downloads_1yr: 0.90694073241366
+reverse_dependencies: 0.99999308607404
 has_examples: 0.984848484848485
 dependencies: 0.377540668798145
-bugs_status: 0.4
+Published: 2026-08-12 14:43:29 UTC
+bugs_status: 0.533333333333333
 
 Package: latticeDensity
 Version: 1.2.7
@@ -566171,3 +566149,2049 @@ reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 2.75356911146885e-05
 Published: 2026-05-05 11:20:02 UTC
+
+Package: tidycharts
+Version: 0.1.3
+Depends: magrittr, knitr
+Suggests: rmarkdown, palmerpenguins, tidyverse, dplyr, covr
+License: GPL (>= 3)
+MD5sum: b9500b3266b0cd7c4d14c60e85e1700f
+NeedsCompilation: no
+Imports: magick, rsvg, rlang, testthat, methods, graphics, htmlwidgets, lubridate, stringr
+DownloadURL: https://github.com/cran/tidycharts/archive/refs/tags/0.1.3.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.442993960557413
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0477402928071292
+has_source_control: 1
+has_bug_reports_url: 0
+downloads_1yr: 0.0209196827779772
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0293122307513564
+Published: 2022-01-18 16:00:02 UTC
+
+Package: tidyclust
+Version: 0.3.2
+Depends: R (>= 4.1)
+Suggests: butcher, cluster, ClusterR, clustMixType (>= 0.3-5), covr, dbscan, future, future.apply, klaR, knitr, LPCM, meanShiftR, mirai (>= 1.0.0), modeldata (>= 1.0.0), RcppHungarian, recipes (>= 1.0.0), rmarkdown, testthat (>= 3.0.0), withr, workflows (>= 1.1.2)
+License: MIT + file LICENSE
+MD5sum: 258264581826914d6fbb2607f8149ca7
+NeedsCompilation: no
+Imports: cli (>= 3.0.0), lifecycle, dials (>= 1.3.0), dplyr (>= 1.0.9), flexclust (>= 1.3-6), generics (>= 0.1.2), glue (>= 1.6.2), hardhat (>= 1.0.0), mclust, modelenv (>= 0.2.0), parsnip (>= 1.0.2), philentropy (>= 0.9.0), prettyunits (>= 1.1.0), purrr (>= 1.0.0), rlang (>= 1.0.6), rsample (>= 1.0.0), stats, tibble (>= 3.1.0), tidyr (>= 1.2.0), tune (>= 2.1.0), utils, vctrs (>= 0.5.0)
+DownloadURL: https://github.com/cran/tidyclust/archive/refs/tags/0.3.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.274472360282968
+has_vignettes: 1
+export_help: 0.987341772151899
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0274926686217009
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.221575841865727
+reverse_dependencies: 0.350228721939924
+has_examples: 0.835443037974684
+dependencies: 0.000123394575986313
+Published: 2026-06-28 21:30:02 UTC
+bugs_status: 0.766666666666667
+
+Package: tidycmprsk
+Version: 1.1.2
+Depends: R (>= 4.2)
+Suggests: aod, broom.helpers (>= 1.15.0), cardx (>= 0.2.0), covr (>= 3.5.1), ggsurvfit, knitr (>= 1.36), spelling, testthat (>= 3.2.0)
+License: AGPL (>= 3)
+MD5sum: af7cc9922f66d74e05d4603329bf6cf6
+NeedsCompilation: no
+Imports: broom (>= 1.0.1), cli, cmprsk (>= 2.2.10), dplyr, ggplot2 (>= 3.3.5), gtsummary (>= 2.0.0), hardhat (>= 1.3.0), purrr (>= 0.3.4), rlang, stringr (>= 1.4.0), survival, tibble (>= 3.1.6), tidyr
+DownloadURL: https://github.com/cran/tidycmprsk/archive/refs/tags/1.1.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.569976227910009
+has_vignettes: 0
+export_help: 0.933333333333333
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.106458481192335
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.279504298957683
+reverse_dependencies: 0.5
+has_examples: 0.928571428571429
+dependencies: 0.0109869426305932
+Published: 2026-04-09 05:10:02 UTC
+bugs_status: 0.833333333333333
+
+Package: tidycomm
+Version: 0.4.2
+Depends: R (>= 3.6.0)
+Suggests: covr, knitr, rmarkdown, testthat (>= 3.0.0)
+License: GPL-3
+MD5sum: d4354960c613116d97d82afe508d0412
+NeedsCompilation: no
+Imports: car, dplyr, fastDummies, forcats, GGally, ggplot2, glue, lm.beta, lubridate, magrittr, MASS, MBESS, misty, pillar, purrr, rlang, stringr, tibble, tidyr, tidyselect
+DownloadURL: https://github.com/cran/tidycomm/archive/refs/tags/0.4.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.487742929733712
+has_vignettes: 1
+export_help: 0.962962962962963
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0456760048721072
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.0539023374919583
+reverse_dependencies: 0.246376140522644
+has_examples: 0.975609756097561
+dependencies: 0.000335350130466372
+Published: 2025-08-27 12:00:02 UTC
+bugs_status: 0.666666666666667
+
+Package: TidyConsultant
+Version: 0.1.2
+Depends: R (>= 2.10)
+Suggests: rmarkdown, knitr, yardstick, ggstance, broom.mixed, EIX, tidyverse, DiagrammeR
+License: MIT + file LICENSE
+MD5sum: 73323de74ec406b8ba44d747bc990622
+NeedsCompilation: no
+Imports: badger, pacman, framecleaner, validata, presenter, autostats, tidybins, Ckmeans.1d.dp
+DownloadURL: https://github.com/cran/TidyConsultant/archive/refs/tags/0.1.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.777299861174691
+has_vignettes: 1
+export_help: NaN
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.949367088607595
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0332996062307064
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2026-03-06 07:50:06 UTC
+bugs_status: NaN
+
+Package: tidycorrgram
+Version: 0.1.0
+Depends: R (>= 4.1.0)
+License: MIT + file LICENSE
+MD5sum: 3ae726a12daa039df0ee7ffffcd8e225
+NeedsCompilation: no
+Imports: ggplot2, stats
+DownloadURL: https://github.com/cran/tidycorrgram/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.693596453153698
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.334821428571429
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.00198272764773977
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.731058578630005
+Published: 2026-06-15 11:50:02 UTC
+bugs_status: NaN
+
+Package: tidycountries
+Version: 0.1.0
+Depends: R (>= 3.5.0)
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: 28306f0d515bf3484d5b38ad1b8d2de7
+NeedsCompilation: no
+Imports: dplyr, stringr, sf
+DownloadURL: https://github.com/cran/tidycountries/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.679178699175393
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.508474576271186
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0407857882822391
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.622459331201855
+Published: 2024-10-27 04:20:02 UTC
+bugs_status: 0.5
+
+Package: tidyCpp
+Version: 0.0.11
+Suggests: Rcpp, RcppSpdlog, simplermarkdown
+License: GPL (>= 2)
+MD5sum: f6d44b0668a0eed10a1e04310153df10
+NeedsCompilation: no
+DownloadURL: https://github.com/cran/tidyCpp/archive/refs/tags/0.0.11.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.777299861174691
+has_vignettes: 1
+export_help: NaN
+has_website: 1
+has_maintainer: 1
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0333805902822529
+reverse_dependencies: 0.398689815024215
+dependencies: 0.880797077977882
+Published: 2026-03-18 06:10:27 UTC
+bugs_status: 1
+
+Package: tidycwl
+Version: 1.0.7
+Suggests: knitr, rmarkdown, shiny
+License: AGPL-3
+MD5sum: 206a1e657f57c45b9eed5e39b701d2ff
+NeedsCompilation: no
+Imports: jsonlite, yaml, dplyr, magrittr, visNetwork, htmlwidgets, webshot
+DownloadURL: https://github.com/cran/tidycwl/archive/refs/tags/1.0.7.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.44825147377711
+has_vignettes: 1
+export_help: 0.970588235294118
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.234375
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0165933482374074
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.182425523806356
+Published: 2022-05-03 07:00:02 UTC
+bugs_status: 1
+
+Package: tidydann
+Version: 1.0.1
+Depends: R (>= 4.1.0)
+Suggests: testthat (>= 3.0.0), dann (>= 1.0.0), recipes, mlbench, modeldata, workflows, rsample, dplyr, magrittr, tune, scales, yardstick, rlang
+License: MIT + file LICENSE
+MD5sum: b4b8b56a55841ef704d350e33be791ff
+NeedsCompilation: no
+Imports: dials, generics, tibble, parsnip
+DownloadURL: https://github.com/cran/tidydann/archive/refs/tags/1.0.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.666185565559974
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.315789473684211
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0125667340315584
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.5
+Published: 2025-04-12 21:00:02 UTC
+bugs_status: 0.947368421052632
+
+Package: tidydatatutor
+Version: 0.1.0
+Suggests: rmarkdown, dplyr, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: f34b103b6fc24bbbbcd53d6f93b26869
+NeedsCompilation: no
+Imports: clipr, knitr, rstudioapi
+DownloadURL: https://github.com/cran/tidydatatutor/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.643035173277501
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.785340314136126
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0163289396025968
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.622459331201855
+Published: 2021-12-10 15:00:02 UTC
+bugs_status: 1
+
+Package: tidydelta
+Version: 0.1.0
+Suggests: testthat (>= 3.0.0), tidyverse
+License: MIT + file LICENSE
+MD5sum: cc15c86383537c58852946e5ec217ea0
+NeedsCompilation: no
+Imports: dplyr, numDeriv, purrr, rlang, tibble, cli
+DownloadURL: https://github.com/cran/tidydelta/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.731058578630005
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.447761194029851
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0111411431208385
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.268941421369995
+Published: 2024-07-18 23:20:02 UTC
+bugs_status: 0.916666666666667
+
+Package: tidyDenovix
+Version: 2.1.0
+Depends: R (>= 2.10)
+Suggests: knitr, learnr, rmarkdown, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: 1d52dd6ea7c6f4fffb960c0561bb4d48
+NeedsCompilation: no
+Imports: data.table, janitor, readxl, tibble, dplyr, tidyr, stats, utils
+DownloadURL: https://github.com/cran/tidyDenovix/archive/refs/tags/2.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.586280996051124
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.3
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0141891048179864
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2024-01-18 10:00:02 UTC
+bugs_status: 1
+
+Package: TidyDensity
+Version: 1.5.2
+Depends: R (>= 4.1.0)
+Suggests: rmarkdown, knitr, EnvStats
+License: MIT + file LICENSE
+MD5sum: 723cbb5ef0ee5afe89ede3f06950830c
+NeedsCompilation: no
+Imports: magrittr, rlang (>= 0.4.11), dplyr, ggplot2, plotly, tidyr, purrr, actuar, methods, stats, patchwork, survival, nloptr, broom, tidyselect, data.table, stringr
+DownloadURL: https://github.com/cran/TidyDensity/archive/refs/tags/1.5.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.108698770617825
+has_vignettes: 1
+export_help: 0.988888888888889
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0160788937721085
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0578066996224946
+reverse_dependencies: 0.246376140522644
+has_examples: 0.994285714285714
+dependencies: 0.00150118225673701
+Published: 2025-09-06 05:12:17 UTC
+bugs_status: 0.966666666666667
+
+Package: tidydfidx
+Version: 0.0-3
+Depends: R (>= 3.5.0)
+Suggests: knitr, quarto, rmarkdown
+License: GPL (>= 2)
+MD5sum: bff30352ffa43648bafcb5bae4ec5b3a
+NeedsCompilation: no
+Imports: dplyr, vctrs, pillar, Rdpack, dfidx
+DownloadURL: https://github.com/cran/tidydfidx/archive/refs/tags/0.0-3.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.578004170633666
+has_vignettes: 1
+export_help: 0.928571428571429
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.517241379310345
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0120594608479164
+reverse_dependencies: 0.246376140522644
+has_examples: 0.666666666666667
+dependencies: 0.377540668798145
+Published: 2026-02-06 14:20:08 UTC
+
+Package: tidydice
+Version: 1.0.0
+Suggests: explore, knitr, rmarkdown, testthat
+License: GPL-3
+MD5sum: 8033578ee812b07ea918b3c885ca2dfc
+NeedsCompilation: no
+Imports: assertthat, dplyr, ggplot2, magrittr, purrr, stats, stringr, tibble, tidyr
+DownloadURL: https://github.com/cran/tidydice/archive/refs/tags/1.0.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.594831368414695
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.206327372764787
+has_source_control: 1
+has_bug_reports_url: 0
+downloads_1yr: 0.0161547391826213
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0758581800212434
+Published: 2023-02-03 09:40:02 UTC
+
+Package: tidydp
+Version: 0.1.0
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown
+License: MIT + file LICENSE
+MD5sum: 8393d1e7c32886911a7ebe18e753172b
+NeedsCompilation: no
+Imports: magrittr, stats
+DownloadURL: https://github.com/cran/tidydp/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.643035173277501
+has_vignettes: 1
+export_help: 0.857142857142857
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.317796610169491
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.00833002776675917
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.731058578630005
+Published: 2025-11-27 19:00:02 UTC
+bugs_status: NaN
+
+Package: tidydr
+Version: 0.0.6
+Suggests: knitr, rmarkdown, prettydoc, SingleCellExperiment, SummarizedExperiment
+License: Artistic-2.0
+MD5sum: e8ed646669fb6a8ac418f9273844df05
+NeedsCompilation: no
+Imports: cluster, ggfun, ggplot2, grid, rlang, stats, utils
+DownloadURL: https://github.com/cran/tidydr/archive/refs/tags/0.0.6.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.622459331201855
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.325379609544469
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.565194705810738
+reverse_dependencies: 0.398689815024215
+has_examples: 0.875
+dependencies: 0.182425523806356
+Published: 2025-07-25 10:50:02 UTC
+bugs_status: 1
+
+Package: tidyedgar
+Version: 1.0.1
+License: MIT + file LICENSE
+MD5sum: 0201b9a1de9f7f4f856f1972e977e2c0
+NeedsCompilation: no
+Imports: dplyr, jsonlite, parallel, tidyr, httr
+DownloadURL: https://github.com/cran/tidyedgar/archive/refs/tags/1.0.1.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.654216971559148
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.477707006369427
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0130604993913872
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.377540668798145
+Published: 2024-02-09 15:20:02 UTC
+
+Package: tidyEdSurvey
+Version: 0.1.4
+Depends: R (>= 3.5.0), EdSurvey (>= 4.0.1),
+Suggests: testthat
+License: GPL-2
+MD5sum: 94fb3fa4366e92b816cb31db973c739b
+NeedsCompilation: no
+Imports: dplyr, ggplot2, tidyselect, lifecycle, cli, stats, rlang, methods
+DownloadURL: https://github.com/cran/tidyEdSurvey/archive/refs/tags/0.1.4.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.731058578630005
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.20891364902507
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.014532362757207
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0758581800212434
+Published: 2025-12-03 23:50:02 UTC
+
+Package: tidyEmoji
+Version: 0.3.0
+Depends: R (>= 3.5.0)
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0), ggplot2, readr, forcats, stringr
+License: GPL (>= 3)
+MD5sum: 0455154335e733d508e4ff25c78a05c3
+NeedsCompilation: no
+Imports: dplyr (>= 1.1.0), emoji, lifecycle, rlang, stats, tibble, tidyr, utils
+DownloadURL: https://github.com/cran/tidyEmoji/archive/refs/tags/0.3.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.481789145013842
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.152594099694812
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.018138259224591
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2026-08-04 17:50:24 UTC
+
+Package: tidyestimate
+Version: 1.1.1
+Depends: R (>= 4.1.0)
+Suggests: rmarkdown, knitr
+License: GPL (>= 2)
+MD5sum: 24fc6e1fea903356b51c3699d8a36e74
+NeedsCompilation: no
+Imports: glue, dplyr, stats, rlang, ggrepel, ggplot2
+DownloadURL: https://github.com/cran/tidyestimate/archive/refs/tags/1.1.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.693596453153698
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.480769230769231
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0273004344724727
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.268941421369995
+Published: 2023-08-21 03:50:02 UTC
+
+Package: tidyextreme
+Version: 1.0.0
+Depends: R (>= 4.1.0)
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown, ggplot2, tidyr, DT, tibble
+License: MIT + file LICENSE
+MD5sum: d68321a23bc9c050bb3d70ab0e0ae5ad
+NeedsCompilation: no
+Imports: dplyr (>= 1.0.0), lubridate (>= 1.8.0), zoo (>= 1.8.0), data.table (>= 1.14.0), cli (>= 3.0.0), rlang (>= 1.0.0), tidyselect (>= 1.2.1)
+DownloadURL: https://github.com/cran/tidyextreme/archive/refs/tags/1.0.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.506313446584661
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.113293051359517
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.00842835894893412
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.182425523806356
+Published: 2026-02-04 18:00:03 UTC
+
+Package: tidyfast
+Version: 0.4.0
+Depends: R (>= 3.1)
+Suggests: covr, dplyr, magrittr, remotes, spelling, testthat (>= 3.0.0), tidyr, knitr
+License: GPL-3
+MD5sum: cbbe023bc1d6216c8ad2d3ac1cdab549
+NeedsCompilation: yes
+Imports: data.table (>= 1.13.4), cpp11
+LinkingTo: cpp11 (>= 0.2.6)
+DownloadURL: https://github.com/cran/tidyfast/archive/refs/tags/0.4.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.562176500885798
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.28957528957529
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0623769369729777
+reverse_dependencies: 0.350228721939924
+has_examples: 0.923076923076923
+dependencies: 0.622459331201855
+Published: 2024-02-02 09:30:03 UTC
+
+Package: tidyfinance
+Version: 0.8.0
+Depends: R (>= 4.1)
+Suggests: knitr, rmarkdown, testthat (>= 3.2.0), withr
+License: MIT + file LICENSE
+MD5sum: 9b8753aa16eff70129c38857ac77b1a8
+NeedsCompilation: no
+Imports: cli, dplyr (>= 1.1.4), dbplyr (>= 2.5.0), jsonlite, lifecycle, lubridate (>= 1.9.3), nanoparquet (>= 0.5.1), purrr (>= 1.0.2), rlang (>= 1.1.3), slider (>= 0.3.1), stats, tibble, tidyr (>= 1.3.1), DBI (>= 1.2.2), httr2 (>= 1.0.0), RPostgres (>= 1.4.5), sandwich (>= 3.1-0)
+DownloadURL: https://github.com/cran/tidyfinance/archive/refs/tags/0.8.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.361230485780826
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0235331032318795
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.0659850433071602
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.00150118225673701
+Published: 2026-07-02 17:50:02 UTC
+
+Package: tidyfit
+Version: 0.7.4
+Depends: R (>= 4.1)
+Suggests: arm, bestglm, BMS, BoomSpikeSlab, CORElearn, e1071, gaselect, gets, gglasso, ggplot2, glmnet, hfr, iml, kableExtra, knitr, lme4, lmtest, lubridate, markdown, mboost, monomvn, mRMRe, MSwM, nnet, pls, quantreg, quantregForest, randomForest, sandwich, sensitivity, shrinkTVP, stringr, rmarkdown, testthat (>= 3.0.0)
+License: GPL-3
+MD5sum: e48cef5883feef899f981f5e6bb50dfe
+NeedsCompilation: no
+Imports: broom, crayon, dials, dplyr, furrr, generics, MASS, methods, progressr, purrr, rlang, rsample, stats, tibble, tidyr, utils, vctrs, yardstick
+DownloadURL: https://github.com/cran/tidyfit/archive/refs/tags/0.7.4.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.654216971559148
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0379939209726444
+has_source_control: 1
+has_bug_reports_url: 0
+downloads_1yr: 0.0237616416424234
+reverse_dependencies: 0.246376140522644
+has_examples: 0.977777777777778
+dependencies: 0.000911051194400603
+Published: 2025-04-29 18:50:02 UTC
+
+Package: tidyfst
+Version: 1.8.4
+Depends: R (>= 4.1.0)
+Suggests: knitr, rmarkdown, nycflights13, tidyr, ggplot2, dplyr, bench, testthat, tidytext
+License: MIT + file LICENSE
+MD5sum: 4a2059a716ecea951e26b23de92739c4
+NeedsCompilation: no
+Imports: data.table (>= 1.15.0), fst (>= 0.9.0), stringr (>= 1.5.0), pak
+DownloadURL: https://github.com/cran/tidyfst/archive/refs/tags/1.8.4.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.163400577958594
+has_vignettes: 1
+export_help: 0.977443609022556
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.110294117647059
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.109681325269025
+reverse_dependencies: 0.398689815024215
+has_examples: 0.981132075471698
+dependencies: 0.5
+Published: 2026-04-27 07:00:02 UTC
+
+Package: tidyft
+Version: 0.9.20
+Suggests: knitr, rmarkdown, bench, dplyr, dtplyr
+License: MIT + file LICENSE
+MD5sum: 47d7a9c94f0cb630b7b3264fab8bded5
+NeedsCompilation: no
+Imports: data.table (>= 1.12.8), stringr (>= 1.4.0), fst (>= 0.9.0)
+DownloadURL: https://github.com/cran/tidyft/archive/refs/tags/0.9.20.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.250638869768241
+has_vignettes: 1
+export_help: 0.988636363636364
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.165380374862183
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0246059408000833
+reverse_dependencies: 0.246376140522644
+has_examples: 0.971428571428571
+dependencies: 0.622459331201855
+Published: 2024-09-22 12:20:02 UTC
+
+Package: tidyfun
+Version: 0.2.0
+Depends: R (>= 4.1), tf (>= 0.5.0)
+Suggests: covr, fda, fdasrvf, gridExtra, janitor, knitr, lme4, maps, mgcv, refund, rmarkdown, scales, testthat (>= 3.0.0), tidyverse, vctrs, viridisLite
+License: MIT + file LICENSE
+MD5sum: 1f80997129ad93c6b24d2d0f36081b14
+NeedsCompilation: no
+Imports: cli, dplyr, GGally, ggplot2, grid, pillar, purrr, rlang, tibble, tidyr (>= 1.0.0), tidyselect (>= 1.0.0)
+DownloadURL: https://github.com/cran/tidyfun/archive/refs/tags/0.2.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.464574185158363
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0499001996007984
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0509032237653833
+reverse_dependencies: 0.246376140522644
+has_examples: 0.962962962962963
+dependencies: 0.0179862099620915
+Published: 2026-07-16 11:10:02 UTC
+
+Package: tidygam
+Version: 1.0.0
+Depends: R (>= 2.10)
+Suggests: knitr, rmarkdown
+License: MIT + file LICENSE
+MD5sum: f8934601d5de95b8a5edfdb34414d6c2
+NeedsCompilation: no
+Imports: cli, dplyr, ggplot2, glue, insight, magrittr, mgcv, rlang, stringr, tibble, tidyr, tidyselect
+DownloadURL: https://github.com/cran/tidygam/archive/refs/tags/1.0.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.693596453153698
+has_vignettes: 1
+export_help: 0.666666666666667
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.29296875
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0273824267456865
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0179862099620915
+Published: 2024-12-18 15:50:02 UTC
+
+Package: tidygapminder
+Version: 1.0.0
+Depends: R (>= 4.1.0)
+Suggests: testthat (>= 3.0.0), covr, knitr, rmarkdown
+License: GPL (>= 2)
+MD5sum: 20b130380269341f13a251d56abcf0de
+NeedsCompilation: no
+Imports: readxl, tibble
+DownloadURL: https://github.com/cran/tidygapminder/archive/refs/tags/1.0.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.693596453153698
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.700934579439252
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.0185686805637342
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.731058578630005
+Published: 2026-05-16 21:30:02 UTC
+
+Package: tidygate
+Version: 1.0.19
+Depends: R (>= 4.1.0)
+Suggests: testthat, markdown, knitr, readr
+License: GPL-3
+MD5sum: e056d24962b1936434c537128fd49b07
+NeedsCompilation: no
+Imports: utils, graphics, lifecycle, scales, magrittr, tibble, dplyr, purrr, rlang, tidyr, viridis, grDevices, RColorBrewer, stringr, shiny, plotly, ggplot2, xfun
+DownloadURL: https://github.com/cran/tidygate/archive/refs/tags/1.0.19.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.654216971559148
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.115295926210607
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.023253088148153
+reverse_dependencies: 0.350228721939924
+has_examples: 1
+dependencies: 0.000911051194400603
+Published: 2025-12-10 08:10:02 UTC
+
+Package: tidyGenR
+Version: 0.1.7
+Depends: R (>= 4.1.0)
+Suggests: ape, knitr, rmarkdown, testthat (>= 3.0.0), tools, BiocStyle
+License: GPL (>= 3)
+MD5sum: 05082cf913946a7a5563513d27ebaf8f
+NeedsCompilation: no
+Imports: Biostrings, dada2 (>= 1.16), digest, dplyr (>= 1.0.0), ggplot2, glue, methods, plyr, readr, ShortRead (>= 1.32.0), stats, stringr, tibble, tidyr (>= 1.1.0), tidyselect, DECIPHER, patchwork, writexl
+DownloadURL: https://github.com/cran/tidyGenR/archive/refs/tags/0.1.7.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.5
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0609756097560976
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.00701707930623585
+reverse_dependencies: 0.246376140522644
+has_examples: 0.868421052631579
+dependencies: 0.000911051194400603
+Published: 2026-02-17 22:10:02 UTC
+
+Package: tidygeocoder
+Version: 1.0.6
+Depends: R (>= 3.5)
+Suggests: knitr, rmarkdown, ggplot2, ggrepel, maps, testthat (>= 3.0.2), spelling
+License: MIT + file LICENSE
+MD5sum: ed51f61a4ebfc7cae04798e3ac0fc299
+NeedsCompilation: no
+Imports: tibble, dplyr, httr, jsonlite, progress
+DownloadURL: https://github.com/cran/tidygeocoder/archive/refs/tags/1.0.6.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.612879086374252
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0557828188917813
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.394590056747092
+reverse_dependencies: 0.613750471854878
+has_examples: 1
+dependencies: 0.377540668798145
+Published: 2025-03-31 13:30:02 UTC
+
+Package: tidygeoRSS
+Version: 0.0.1
+Depends: R (>= 3.1.0)
+Suggests: httptest, knitr, rmarkdown, testthat (>= 2.1.0)
+License: MIT + file LICENSE
+MD5sum: f991fa0a5722d06ad277ea9c6df90c22
+NeedsCompilation: no
+Imports: xml2 (>= 1.3.1), httr (>= 1.4.1), anytime (>= 0.3.7), dplyr (>= 1.0.0), tidyRSS (>= 2.0.2), jsonlite (>= 1.6.1), strex (>= 1.2.0), stringr (>= 1.4.0), magrittr (>= 1.5), purrr (>= 0.3.3), sf (>= 0.9.1), rlang (>= 0.4.6)
+DownloadURL: https://github.com/cran/tidygeoRSS/archive/refs/tags/0.0.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.731058578630005
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.233281493001555
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0138002222236833
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0179862099620915
+Published: 2020-06-14 14:50:02 UTC
+
+Package: tidygraph
+Version: 1.3.1
+Suggests: ape, covr, data.tree, graph, influenceR, methods, netrankr, NetSwan, network, seriation, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: e1995b3e38c2acdaa96376ad13f33d04
+NeedsCompilation: yes
+Imports: cli, dplyr (>= 0.8.5), igraph (>= 2.0.0), lifecycle, magrittr, pillar, R6, rlang, stats, tibble, tidyr, tools, utils
+LinkingTo: cpp11
+DownloadURL: https://github.com/cran/tidygraph/archive/refs/tags/1.3.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.0413046225785161
+has_vignettes: 0
+export_help: 0.990291262135922
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0440140845070423
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.850488454220063
+reverse_dependencies: 0.976561227841798
+has_examples: 0.974358974358974
+dependencies: 0.00669285092428473
+Published: 2024-01-30 13:40:02 UTC
+
+Package: tidyHeatmap
+Version: 1.13.1
+Depends: R (>= 4.3.0)
+Suggests: spelling, testthat, vdiffr, BiocManager, knitr, rmarkdown, qpdf, covr, roxygen2, forcats, ggplot2
+License: GPL-3
+MD5sum: e333040e764b26d9bf0943b147a1d4a0
+NeedsCompilation: no
+Imports: methods, stats, utils, dplyr (>= 0.8.5), magrittr (>= 1.5), tidyr (>= 1.0.3), rlang (>= 0.4.5), purrr (>= 0.3.3), tibble, ComplexHeatmap (>= 2.2.0), viridis (>= 0.5.1), circlize (>= 0.4.8), RColorBrewer (>= 1.1), grid, grDevices, lifecycle (>= 0.2.0), dendextend, patchwork
+DownloadURL: https://github.com/cran/tidyHeatmap/archive/refs/tags/1.13.1.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.519339362167825
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0701918577445016
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0986118622678925
+reverse_dependencies: 0.526652434048312
+has_examples: 1
+dependencies: 0.000911051194400603
+Published: 2025-10-30 07:50:02 UTC
+
+Package: tidyheatmaps
+Version: 0.2.1
+Suggests: testthat (>= 2.1.0), knitr, rmarkdown
+License: MIT + file LICENSE
+MD5sum: 0b2414b2588bd512f1bbd22bb7d377c2
+NeedsCompilation: no
+Imports: dplyr, pheatmap, rlang, grDevices, tidyr, tibble, RColorBrewer
+DownloadURL: https://github.com/cran/tidyheatmaps/archive/refs/tags/0.2.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.710218732760062
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.458715596330275
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0521686381558992
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.182425523806356
+Published: 2024-02-29 13:00:02 UTC
+
+Package: tidyhte
+Version: 1.0.4
+Suggests: covr, devtools, estimatr, ggplot2, glmnet, knitr, mockr, nprobust, palmerpenguins, quadprog, quickblock, rmarkdown, testthat (>= 3.0.0), vimp, WeightedROC
+License: MIT + file LICENSE
+MD5sum: 87933abe8c15d902aaccfca908dbf0ec
+NeedsCompilation: no
+Imports: checkmate, dplyr, lifecycle, magrittr, progress, purrr, R6, rlang, SuperLearner, tibble
+DownloadURL: https://github.com/cran/tidyhte/archive/refs/tags/1.0.4.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.459038615443055
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0838457238680827
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0461959113598067
+reverse_dependencies: 0.246376140522644
+has_examples: 0.943396226415094
+dependencies: 0.0474258731775666
+Published: 2025-07-29 19:20:02 UTC
+
+Package: tidyhydat
+Version: 1.0.1
+Depends: R (>= 4.2.0)
+Suggests: ggplot2, httptest2, knitr, rmarkdown, testthat (>= 3.0.0), covr
+License: Apache License (== 2.0) | file LICENSE
+MD5sum: 44fb54b2530eaee8b143565bc37d0c0e
+NeedsCompilation: no
+Imports: cli (>= 1.0.0), crayon (>= 1.3.4), DBI (>= 0.7), dbplyr (>= 1.1.0), dplyr (>= 0.7.4), httr2 (>= 1.0.0), lubridate (>= 1.6.0), rappdirs (>= 0.3.1), readr (>= 1.1.1), rlang (>= 0.1.2), RSQLite (>= 2.0), tidyr (>= 0.7.1)
+DownloadURL: https://github.com/cran/tidyhydat/archive/refs/tags/1.0.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.349593001523139
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0391338377250196
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0497006557065475
+reverse_dependencies: 0.43732917979627
+has_examples: 0.98
+dependencies: 0.0179862099620915
+Published: 2026-06-11 18:00:02 UTC
+
+Package: tidyILD
+Version: 0.4.1
+Depends: R (>= 4.1.0)
+Suggests: BH, testthat (>= 3.0.0), roxygen2, knitr, rmarkdown, rstan, RcppEigen, broom.mixed, clubSandwich, jsonlite, yaml, tsibble, brms, KFAS, ctsem
+License: MIT + file LICENSE
+MD5sum: 7f451155632d6425161154bae043b76f
+NeedsCompilation: no
+Imports: tibble, dplyr, lubridate, rlang, lme4, nlme, ggplot2, mgcv
+DownloadURL: https://github.com/cran/tidyILD/archive/refs/tags/0.4.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.2270799013417
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0145053669857847
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0171539399022397
+reverse_dependencies: 0.246376140522644
+has_examples: 0.959183673469388
+dependencies: 0.119202922022118
+Published: 2026-06-13 16:10:02 UTC
+
+Package: tidyjson
+Version: 0.3.3.1
+Depends: R (>= 3.1.0)
+Suggests: covr, forcats, ggplot2, igraph, knitr, listviewer, lubridate, RColorBrewer, rmarkdown, rprojroot, testthat (>= 3.0.0), vctrs, viridis, wordcloud
+License: MIT + file LICENSE
+MD5sum: 118b40fefe9f6d95344f23467dd68cce
+NeedsCompilation: no
+Imports: assertthat, dplyr (>= 1.0.0), jsonlite, magrittr, purrr, rlang, tibble, tidyr (>= 1.0.0)
+DownloadURL: https://github.com/cran/tidyjson/archive/refs/tags/0.3.3.1.tar.gz
+has_news: 1
+news_current: 0
+exported_namespace: 0.422809779525781
+has_vignettes: 1
+export_help: 0.974358974358974
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.164654226125137
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.210418267762957
+reverse_dependencies: 0.350228721939924
+has_examples: 0.974358974358974
+dependencies: 0.119202922022118
+Published: 2026-01-21 07:50:02 UTC
+
+Package: tidyklips
+Version: 0.3.0
+Depends: R (>= 3.5)
+Suggests: testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: d58a051b6ab2aee826886f36a46e5a4f
+NeedsCompilation: no
+Imports: magrittr, stringr, readxl, haven, dplyr
+DownloadURL: https://github.com/cran/tidyklips/archive/refs/tags/0.3.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.666185565559974
+has_vignettes: 0
+export_help: 0.8
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.266903914590747
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0117926082087094
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.377540668798145
+Published: 2025-03-07 11:20:07 UTC
+
+Package: tidylaslog
+Version: 0.1.2
+Depends: R (>= 4.1.0)
+Suggests: arrow, jsonlite, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: 9e2c01b56e1ccfbc4b103c3907d240c0
+NeedsCompilation: no
+Imports: dplyr, tibble, tidyr
+DownloadURL: https://github.com/cran/tidylaslog/archive/refs/tags/0.1.2.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.622459331201855
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.213068181818182
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0176495628540555
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.622459331201855
+Published: 2026-02-12 08:20:02 UTC
+
+Package: tidylda
+Version: 0.0.7
+Depends: R (>= 3.5.0)
+Suggests: ggplot2, knitr, parallel, quanteda, testthat, tm, slam, spelling, covr, rmarkdown
+License: MIT + file LICENSE
+MD5sum: ce917b8a1b0a5a9d53e34689cdee8a34
+NeedsCompilation: yes
+Imports: dplyr, generics, gtools, Matrix, methods, mvrsquared (>= 0.1.0), Rcpp (>= 1.0.2), rlang, stats, stringr, tibble, tidyr, tidytext
+LinkingTo: Rcpp, RcppArmadillo, RcppProgress, RcppThread
+DownloadURL: https://github.com/cran/tidylda/archive/refs/tags/0.0.7.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.643035173277501
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.112697220135237
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0289942322257395
+reverse_dependencies: 0.246376140522644
+has_examples: 0.96
+dependencies: 0.00150118225673701
+Published: 2025-11-14 22:20:02 UTC
+
+Package: tidylearn
+Version: 0.4.0
+Depends: R (>= 3.6.0)
+Suggests: arules, arulesViz, bigrquery, car, DBI, DT, GGally, ggforce, gridExtra, gt, jsonlite, keras, knitr, lmtest, moments, nanoparquet, NeuralNetTools, paws.storage, readr, readxl, RMariaDB, rmarkdown, RPostgres, rpart.plot, RSQLite, scales, shiny, shinydashboard, tensorflow, testthat (>= 3.1.7), xgboost
+License: MIT + file LICENSE
+MD5sum: 58104bb411f7e2d1de7e7c809f0a6596
+NeedsCompilation: no
+Imports: dplyr (>= 1.0.0), ggplot2 (>= 3.3.0), tibble (>= 3.0.0), tidyr (>= 1.0.0), purrr (>= 0.3.0), rlang (>= 0.4.0), magrittr, parallel, stats, e1071, gbm, glmnet, nnet, randomForest, rpart, rsample, ROCR, yardstick, cluster (>= 2.1.0), dbscan (>= 1.1.0), MASS, smacof (>= 2.1.0)
+DownloadURL: https://github.com/cran/tidylearn/archive/refs/tags/0.4.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.137975566353907
+has_vignettes: 1
+export_help: 0.993421052631579
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0127800971287382
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0185751019046185
+reverse_dependencies: 0.246376140522644
+has_examples: 0.913419913419913
+dependencies: 0.000123394575986313
+Published: 2026-08-03 18:00:02 UTC
+
+Package: tidyllm
+Version: 0.5.2
+Depends: R (>= 4.2.0)
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0), tidyverse, httptest2, httpuv, ellmer (>= 0.4.0)
+License: MIT + file LICENSE
+MD5sum: 4728fb52d64fdb1f6d1a4f9164442494
+NeedsCompilation: no
+Imports: S7 (>= 0.2.0), base64enc, glue, jsonlite, curl, httr2 (>= 1.1.1), lubridate, purrr, rlang, stringr, grDevices, pdftools, tibble, cli, png, lifecycle
+DownloadURL: https://github.com/cran/tidyllm/archive/refs/tags/0.5.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.153418123706183
+has_vignettes: 1
+export_help: 0.992857142857143
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0161637931034483
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.0529884527725342
+reverse_dependencies: 0.398689815024215
+has_examples: 1
+dependencies: 0.00247262315663466
+Published: 2026-07-30 16:20:02 UTC
+
+Package: tidylo
+Version: 0.2.0
+Suggests: covr, ggplot2, janeaustenr, knitr, rmarkdown, stringr, testthat (>= 2.1.0), tidytext
+License: MIT + file LICENSE
+MD5sum: 94f2663c5ab585701f83f5f905bc6ac8
+NeedsCompilation: no
+Imports: dplyr, rlang
+DownloadURL: https://github.com/cran/tidylo/archive/refs/tags/0.2.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.731058578630005
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.753768844221106
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0610563741752945
+reverse_dependencies: 0.350228721939924
+has_examples: 1
+dependencies: 0.731058578630005
+Published: 2022-03-22 14:10:02 UTC
+
+Package: tidylog
+Version: 1.1.0
+Suggests: testthat, units, nycflights13, covr, forcats, knitr, rmarkdown, bench
+License: MIT + file LICENSE
+MD5sum: e7e6941312ac41dee0b1b836d628811c
+NeedsCompilation: no
+Imports: dplyr, tidyr, glue, clisymbols, rlang (>= 0.4.3)
+DownloadURL: https://github.com/cran/tidylog/archive/refs/tags/1.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.298063280264177
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.197889182058047
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.24932814869308
+reverse_dependencies: 0.43732917979627
+has_examples: 1
+dependencies: 0.377540668798145
+Published: 2024-05-08 08:30:02 UTC
+
+Package: tidyLPA
+Version: 2.0.2
+Depends: R (>= 2.10), tidySEM (>= 0.2.10)
+Suggests: knitr, lme4, missForest, parallel, pillar, rmarkdown, testthat, OpenMx, mix
+License: MIT + file LICENSE
+MD5sum: 019de3031e9d44b73e85f284594d50e8
+NeedsCompilation: no
+Imports: dplyr, ggplot2 (>= 4.0.1), mclust, methods, MplusAutomation, tibble, rlang
+DownloadURL: https://github.com/cran/tidyLPA/archive/refs/tags/2.0.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.586280996051124
+has_vignettes: 1
+export_help: 0.923076923076923
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0696378830083565
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.324293887112032
+reverse_dependencies: 0.398689815024215
+has_examples: 0.952380952380952
+dependencies: 0.119202922022118
+Published: 2026-02-25 06:30:08 UTC
+
+Package: tidyMC
+Version: 1.0.1
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: e718184911b79bcdb5e9f770f9598c18
+NeedsCompilation: no
+Imports: checkmate, dplyr, furrr, future, ggplot2, hms, kableExtra, magrittr, methods, purrr, rlang, stringr, tibble, tidyr, utils
+DownloadURL: https://github.com/cran/tidyMC/archive/refs/tags/1.0.1.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.710218732760062
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.126475548060708
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.014907729690681
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.00407013771589604
+Published: 2025-07-24 08:20:02 UTC
+
+Package: tidymodels
+Version: 1.5.0
+Depends: R (>= 4.1)
+Suggests: covr, glue, knitr, rmarkdown, testthat (>= 3.0.0), xml2
+License: MIT + file LICENSE
+MD5sum: 0b3c0c909ab1290c993d00ef904c1f2c
+NeedsCompilation: no
+Imports: broom (>= 1.0.12), cli (>= 3.6.6), conflicted (>= 1.2.0), dials (>= 1.4.3), dplyr (>= 1.2.1), ggplot2 (>= 4.0.3), hardhat (>= 1.4.3), infer (>= 1.1.0), modeldata (>= 1.5.1), parsnip (>= 1.5.0), purrr (>= 1.2.2), recipes (>= 1.3.2), rlang (>= 1.2.0), rsample (>= 1.3.2), rstudioapi (>= 0.18.0), tailor (>= 0.1.0), tidyr (>= 1.3.2), tune (>= 2.1.0), workflows (>= 1.3.0), workflowsets (>= 1.1.1), yardstick (>= 1.4.0)
+DownloadURL: https://github.com/cran/tidymodels/archive/refs/tags/1.5.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.63248519712831
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.222882615156018
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.860568878973787
+reverse_dependencies: 0.852487714556052
+has_examples: 1
+dependencies: 0.000203426978055199
+Published: 2026-04-23 06:20:02 UTC
+
+Package: tidymodlr
+Version: 1.0.0
+Depends: R (>= 2.10)
+Suggests: testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: d3d19e01f102095e7ecf3186971c2689
+NeedsCompilation: no
+Imports: R6, dplyr, tidyr, tm, corrr, FactoMineR
+DownloadURL: https://github.com/cran/tidymodlr/archive/refs/tags/1.0.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.710218732760062
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.535714285714286
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0124627204676976
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.268941421369995
+Published: 2024-08-26 12:30:02 UTC
+
+Package: TidyMultiqc
+Version: 1.0.3
+Suggests: tidyr, testthat (>= 3.0.0), knitr, rmarkdown, ggplot2, HistDat
+License: GPL (>= 3)
+MD5sum: 2b350c1b2cbab4708ad16902dbeab4f2
+NeedsCompilation: no
+Imports: assertthat, dplyr, jsonlite, magrittr, purrr, rlang, stringr, tibble
+DownloadURL: https://github.com/cran/TidyMultiqc/archive/refs/tags/1.0.3.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.710218732760062
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.470219435736677
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0184980402677537
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2022-09-25 02:10:02 UTC
+
+Package: tidyna
+Version: 0.4.0
+Depends: R (>= 4.1.0)
+Suggests: testthat (>= 3.0.0), withr
+License: MIT + file LICENSE
+MD5sum: df03c5d33d83acd269bf65088d3e21d2
+NeedsCompilation: no
+Imports: cli (>= 3.0.0)
+DownloadURL: https://github.com/cran/tidyna/archive/refs/tags/0.4.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.547194050686571
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.335570469798658
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.00906376344370163
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.817574476193644
+Published: 2026-01-27 16:40:02 UTC
+
+Package: tidync
+Version: 0.5.0
+Depends: R (>= 4.1.0)
+Suggests: ggplot2, knitr, mirai, rmarkdown, testthat, covr, cubelyr
+License: GPL-3
+MD5sum: 0e5b4ee268e75c491d6171fd2e126eb7
+NeedsCompilation: no
+Imports: dplyr (>= 1.1.0), ncdf4, ncmeta (>= 0.5.0), RNetCDF (>= 1.9-1), rlang, tibble, tidyr (>= 1.0.0), CFtime (>= 1.4.0)
+DownloadURL: https://github.com/cran/tidync/archive/refs/tags/0.5.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.578004170633666
+has_vignettes: 1
+export_help: 0.928571428571429
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.141776937618147
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.107939339875112
+reverse_dependencies: 0.43732917979627
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2026-07-31 13:00:02 UTC
+
+Package: tidynorm
+Version: 0.4.1
+Depends: R (>= 4.1)
+Suggests: ggdensity, ggplot2, knitr, magick, quarto, reticulate, rmarkdown, testthat (>= 3.0.0), tibble
+License: GPL (>= 3)
+MD5sum: 1a5535c031ce4b353d529302d832e905
+NeedsCompilation: yes
+Imports: checkmate, cli, dplyr, glue, options, purrr, Rcpp, rlang, stringr, tidyr, tidyselect
+LinkingTo: Rcpp, RcppArmadillo
+DownloadURL: https://github.com/cran/tidynorm/archive/refs/tags/0.4.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.459038615443055
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0751503006012024
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0190179715907605
+reverse_dependencies: 0.246376140522644
+has_examples: 0.971428571428571
+dependencies: 0.0109869426305932
+Published: 2026-05-10 15:30:02 UTC
+
+Package: tidyOhdsiSolutions
+Version: 0.1.0
+Depends: R (>= 4.1.0)
+Suggests: CirceR, DatabaseConnector, knitr, rmarkdown, testthat (>= 3.0.0)
+License: Apache License (>= 2)
+MD5sum: 98638ff4f7dff0b14bfac0b5aa1c0d3d
+NeedsCompilation: no
+Imports: jsonlite, stats
+DownloadURL: https://github.com/cran/tidyOhdsiSolutions/archive/refs/tags/0.1.0.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.342101479965528
+has_vignettes: 1
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.115740740740741
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.00894591487506113
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.731058578630005
+Published: 2026-04-15 12:10:02 UTC
+
+Package: tidypaleo
+Version: 0.1.4
+Depends: R (>= 3.4.0)
+Suggests: testthat, knitr, rmarkdown, vegan, patchwork, forcats, vdiffr
+License: MIT + file LICENSE
+MD5sum: 4136829ab927088c0e5dd0d8f7768c8f
+NeedsCompilation: no
+Imports: rlang, tidyselect, dplyr, vctrs, tibble, scales, ggplot2 (>= 3.0.0), styler, purrr, ggstance, stringr, withr, tidyr (>= 1.0.2), digest, rioja
+DownloadURL: https://github.com/cran/tidypaleo/archive/refs/tags/0.1.4.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.294979640261905
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.074220682830282
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0364850976361768
+reverse_dependencies: 0.246376140522644
+has_examples: 0.96875
+dependencies: 0.00407013771589604
+Published: 2025-10-19 04:10:02 UTC
+
+Package: TidyPanel
+Version: 0.1.2
+Suggests: knitr, rmarkdown, testthat, writexl
+License: MIT + file LICENSE
+MD5sum: f632f9711d8513b8a52a16abee4187e4
+NeedsCompilation: no
+Imports: dplyr, stringr, readxl
+DownloadURL: https://github.com/cran/TidyPanel/archive/refs/tags/0.1.2.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.679178699175393
+has_vignettes: 1
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.183150183150183
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.00660935906435856
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.622459331201855
+Published: 2026-05-11 19:00:09 UTC
+
+Package: tidyplate
+Version: 2.2.0
+Suggests: knitr, rmarkdown, spelling, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: cad17b284f58d1b3d8d55adfada9774f
+NeedsCompilation: no
+Imports: data.table, lifecycle, openxlsx, readxl, rlang, tibble, tools, utils
+DownloadURL: https://github.com/cran/tidyplate/archive/refs/tags/2.2.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.666185565559974
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.221238938053097
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.016619136591602
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2024-12-07 00:20:03 UTC
+
+Package: tidyplots
+Version: 0.4.0
+Depends: R (>= 4.1.0)
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0), vdiffr
+License: MIT + file LICENSE
+MD5sum: 41d353ac62899760fe6bf8138f7b0c3e
+NeedsCompilation: no
+Imports: cli, dplyr, forcats, ggbeeswarm, ggplot2 (>= 4.0.1), ggpubr, ggrastr, ggrepel, glue, gtable, Hmisc, htmltools, lifecycle, purrr, rlang, scales, stringr, tidyr, tidyselect
+DownloadURL: https://github.com/cran/tidyplots/archive/refs/tags/0.4.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.130965229471287
+has_vignettes: 1
+export_help: 0.993670886075949
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.069060773480663
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.167554608417688
+reverse_dependencies: 0.398689815024215
+has_examples: 0.985074626865672
+dependencies: 0.000552778636923601
+Published: 2026-01-08 08:40:07 UTC
+
+Package: tidyplus
+Version: 0.2.1
+Depends: R (>= 4.1.0)
+Suggests: covr, readr, sf, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: 847fdbd46a9f2fcf126e37ae04ba3c17
+NeedsCompilation: no
+Imports: chk, dplyr, lifecycle, rlang, stringi, stringr, tibble, tidyr, tidyselect, vctrs
+DownloadURL: https://github.com/cran/tidyplus/archive/refs/tags/0.2.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.562176500885798
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.344036697247706
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0208941194900817
+reverse_dependencies: 0.350228721939924
+has_examples: 1
+dependencies: 0.0474258731775666
+Published: 2026-07-18 19:30:02 UTC
+
+Package: tidypopgen
+Version: 0.4.4
+Depends: R (>= 3.5.0), dplyr (>= 1.2.0), tibble
+Suggests: adegenet, admixtools, broom, data.table, hierfstat, knitr, detectRUNS, LEA, pcadapt, RhpcBLASctl, rmarkdown, rnaturalearth, rnaturalearthdata, readr, reticulate, testthat (>= 3.0.0), vcfR, xgboost, spelling
+License: GPL (>= 3)
+MD5sum: e5e594d55fe8e64644046fc83a99079d
+NeedsCompilation: yes
+Imports: bigparallelr, bigsnpr, bigstatsr, foreach, generics, ggplot2, methods, MASS, patchwork, runner, rlang, sf, stats, tidyselect, tidyr, utils, Rcpp, vctrs
+LinkingTo: Rcpp, RcppArmadillo (>= 0.9.600), bigstatsr, rmio
+DownloadURL: https://github.com/cran/tidypopgen/archive/refs/tags/0.4.4.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.238501484139579
+has_vignettes: 1
+export_help: 0.978494623655914
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0169357570283392
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0304440566220671
+reverse_dependencies: 0.246376140522644
+has_examples: 0.982905982905983
+dependencies: 4.53978687023904e-05
+Published: 2026-05-19 16:30:02 UTC
+
+Package: tidyposterior
+Version: 1.0.2
+Depends: R (>= 4.1)
+Suggests: covr, knitr, parsnip, rmarkdown, splines2, testthat (>= 3.0.0), yardstick
+License: MIT + file LICENSE
+MD5sum: c885a95e2aab88e548b5d5165165f196
+NeedsCompilation: no
+Imports: dplyr (> 1.0.0), generics, ggplot2 (>= 3.5.2), purrr, rlang, rsample (>= 0.0.2), rstanarm (>= 2.21.1), stats, tibble, tidyr (>= 0.7.1), tune (>= 0.2.0), utils, vctrs (>= 0.3.0), workflowsets
+DownloadURL: https://github.com/cran/tidyposterior/archive/refs/tags/1.0.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.44825147377711
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.13599274705349
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0514673799631969
+reverse_dependencies: 0.246376140522644
+has_examples: 0.916666666666667
+dependencies: 0.00669285092428473
+Published: 2025-07-31 12:00:02 UTC
+
+Package: tidypredict
+Version: 1.1.0
+Depends: R (>= 3.6)
+Suggests: bonsai, covr, Cubist (>= 0.5.1), DBI, dbplyr, earth (>= 5.1.2), glmnet, lightgbm, methods, mlbench, modeldata, nycflights13, parsnip, partykit, randomForest, ranger (>= 0.14.1), rpart (>= 4.1.0), rmarkdown, RSQLite, survival, testthat (>= 3.2.0), withr, xgboost, yaml
+License: MIT + file LICENSE
+MD5sum: 373a5a4f0deafd57ff1a8d5a1cee9cca
+NeedsCompilation: no
+Imports: cli, dplyr (>= 0.7), generics, jsonlite, knitr, purrr, rlang (>= 1.1.1), tibble, tidyr
+DownloadURL: https://github.com/cran/tidypredict/archive/refs/tags/1.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.487742929733712
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0332078813371707
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.123847128847041
+reverse_dependencies: 0.43732917979627
+has_examples: 0.972972972972973
+dependencies: 0.0758581800212434
+Published: 2026-02-27 06:30:14 UTC
+
+Package: tidyprf
+Version: 0.1.1
+Depends: R (>= 4.1)
+Suggests: httptest2, knitr, rmarkdown, testthat (>= 3.0.0), withr
+License: MIT + file LICENSE
+MD5sum: 836762a79e82bde02b5777f2c245ea8b
+NeedsCompilation: no
+Imports: arrow, cli, dplyr, fs, httr2, purrr, rlang, tibble
+DownloadURL: https://github.com/cran/tidyprf/archive/refs/tags/0.1.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.622459331201855
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.418994413407821
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.000679537914218376
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.119202922022118
+Published: 2026-08-03 17:50:02 UTC
+
+Package: tidyprompt
+Version: 0.4.0
+Depends: R (>= 4.1.0)
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0), withr, here, callr, skimr, jsonvalidate, DBI, ellmer (>= 0.3.0), coro, ggplot2, mcptools, grid
+License: GPL (>= 3) | file LICENSE
+MD5sum: a0d8ec96770d97c892d76d2fa549edfe
+NeedsCompilation: no
+Imports: dplyr, glue, httr2, jsonlite, stringr, utils, cli, R6, rlang, S7
+DownloadURL: https://github.com/cran/tidyprompt/archive/refs/tags/0.4.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.353417751567674
+has_vignettes: 1
+export_help: 0.945454545454545
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0181796145921706
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0292958512104681
+reverse_dependencies: 0.350228721939924
+has_examples: 1
+dependencies: 0.0474258731775666
+Published: 2026-04-21 08:30:03 UTC
+
+Package: tidyquant
+Version: 1.0.12
+Depends: R (>= 3.5.0),
+Suggests: alphavantager (>= 0.1.2), riingo, tibbletime, broom, knitr, forcats, rmarkdown, testthat (>= 2.1.0), scales, Rblpapi, janitor
+License: MIT + file LICENSE
+MD5sum: d3dc22a9eb9788611f8948bde4ea4e61
+NeedsCompilation: no
+Imports: dplyr (>= 1.0.0), ggplot2 (>= 3.4.0), httr, httr2, curl, jsonlite, lazyeval, lubridate, magrittr, PerformanceAnalytics, RobStatTM, quantmod (>= 0.4-13), purrr, readr, readxl, stringr, tibble, tidyr (>= 1.0.0), timetk (>= 2.4.0), timeDate, TTR, xts, rlang, zoo, cli
+DownloadURL: https://github.com/cran/tidyquant/archive/refs/tags/1.0.12.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.127622630296131
+has_vignettes: 1
+export_help: 0.993788819875776
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0441046750955601
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.584150016495383
+reverse_dependencies: 0.613750471854878
+has_examples: 1
+dependencies: 2.75356911146885e-05
+Published: 2026-03-16 21:10:02 UTC
+
+Package: tidyquery
+Version: 0.2.4
+Suggests: covr (>= 3.2.0), DBI (>= 0.7), dbplyr (>= 1.2.1), dtplyr (>= 1.0.0), arrow (>= 10.0.0), nycflights13, RSQLite (>= 2.1.0), testthat (>= 3.0.0), withr
+License: Apache License 2.0
+MD5sum: 10ec1fe77a96092b5955b12364d060fc
+NeedsCompilation: no
+Imports: dplyr (>= 1.0.0), lubridate (>= 1.6.0), queryparser (>= 0.3.2), rlang (>= 0.4.9), stringr (>= 1.0.0), utils
+DownloadURL: https://github.com/cran/tidyquery/archive/refs/tags/0.2.4.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.679178699175393
+has_vignettes: 0
+export_help: 0.5
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.143266475644699
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0271805747417165
+reverse_dependencies: 0.350228721939924
+has_examples: 1
+dependencies: 0.268941421369995
+Published: 2023-01-14 16:30:02 UTC
+
+Package: tidyr
+Version: 1.3.2
+Depends: R (>= 4.1.0)
+Suggests: covr, data.table, knitr, readr, repurrrsive (>= 1.1.0), rmarkdown, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: f8e976221d4ed9092c734cf86abcdba9
+NeedsCompilation: yes
+Imports: cli (>= 3.4.1), dplyr (>= 1.1.0), glue, lifecycle (>= 1.0.3), magrittr, purrr (>= 1.0.1), rlang (>= 1.1.1), stringr (>= 1.5.0), tibble (>= 2.1.1), tidyselect (>= 1.2.1), utils, vctrs (>= 0.5.2)
+LinkingTo: cpp11 (>= 0.4.0)
+DownloadURL: https://github.com/cran/tidyr/archive/refs/tags/1.3.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.301187374804398
+has_vignettes: 1
+export_help: 0.985714285714286
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0296150049358342
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.990601262902038
+reverse_dependencies: 0.999999999999561
+has_examples: 0.9375
+dependencies: 0.0109869426305932
+Published: 2025-12-19 09:20:02 UTC
+
+Package: tidyrates
+Version: 0.0.1
+Depends: R (>= 2.10)
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: dfae7841625bbc381f2a3b02e18c12bf
+NeedsCompilation: no
+Imports: checkmate, dplyr, epitools, forcats, magrittr, purrr, rlang, tibble, tidyr
+DownloadURL: https://github.com/cran/tidyrates/archive/refs/tags/0.0.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.693596453153698
+has_vignettes: 1
+export_help: 0.666666666666667
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.543478260869565
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0199665481915116
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0758581800212434
+Published: 2024-03-19 20:20:02 UTC
+
+Package: tidyREDCap
+Version: 2.1.0
+Depends: R (>= 4.1.0)
+Suggests: knitr, redcapAPI, rmarkdown, skimr, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: bdef69e4aeb5a6beb7281f8c3b50fcf2
+NeedsCompilation: no
+Imports: cli, dplyr, janitor, keyring, labelVector, lifecycle, magrittr, purrr, REDCapR, rlang, stringr, tibble, tidyr, tidyselect, vctrs
+DownloadURL: https://github.com/cran/tidyREDCap/archive/refs/tags/2.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.594831368414695
+has_vignettes: 1
+export_help: 0.916666666666667
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.201612903225806
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.0335487445798193
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.00407013771589604
+Published: 2026-02-22 11:50:02 UTC
+
+Package: tidyrgee
+Version: 0.1.1
+Depends: R (>= 4.1)
+Suggests: knitr, reticulate, rmarkdown, tibble, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: a9d0e8b6490a709b0dfaa851742c045e
+NeedsCompilation: no
+Imports: assertthat, crayon, dplyr, glue, lubridate, purrr, readr, rgee, rlang, sf, stringr, tidyr
+DownloadURL: https://github.com/cran/tidyrgee/archive/refs/tags/0.1.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.5
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.111441307578009
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0190372177279594
+reverse_dependencies: 0.246376140522644
+has_examples: 0.928571428571429
+dependencies: 0.0179862099620915
+Published: 2025-11-17 16:50:02 UTC
+
+Package: tidyrhrv
+Version: 1.1.0
+Suggests: testthat (>= 3.0.0), ggplot2, vroom, readr
+License: MIT + file LICENSE
+MD5sum: 68847992c61f39ae618986f7672ce962
+NeedsCompilation: no
+Imports: dplyr, tidyr, RHRV, purrr, magrittr, pracma, tibble, stats, grDevices
+DownloadURL: https://github.com/cran/tidyrhrv/archive/refs/tags/1.1.0.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.666185565559974
+has_vignettes: 0
+export_help: 0.8
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.422535211267606
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0115256113714094
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0758581800212434
+Published: 2025-07-29 12:20:07 UTC
+
+Package: tidyRSS
+Version: 2.0.7
+Depends: R (>= 3.1.0)
+Suggests: httptest, knitr, rmarkdown, covr, testthat
+License: MIT + file LICENSE
+MD5sum: 9e7d819ecb11cb38597440c313a73504
+NeedsCompilation: no
+Imports: xml2 (>= 1.3.1), httr(>= 1.4.1), magrittr (>= 1.5), tibble (>= 3.0.0), dplyr (>= 1.0.0), jsonlite (>= 1.6.1), purrr (>= 0.3.3), anytime(>= 0.3.7), rlang (>= 0.4.6), glue (>= 1.4.0), vctrs (>= 0.3.0), tidyselect (>= 1.1.0)
+DownloadURL: https://github.com/cran/tidyRSS/archive/refs/tags/2.0.7.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.710218732760062
+has_vignettes: 0
+export_help: 0.5
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.253378378378378
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.169862695289801
+reverse_dependencies: 0.470525714569983
+has_examples: 1
+dependencies: 0.0179862099620915
+Published: 2023-03-05 15:20:02 UTC
+
+Package: tidyrstats
+Version: 0.1.0
+Depends: R (>= 4.1.0)
+Suggests: ggplot2, knitr, magrittr, rmarkdown
+License: MIT + file LICENSE
+MD5sum: 96e83ddaa7344684b76fb62975e6d213
+NeedsCompilation: no
+Imports: broom, glue, purrr, dplyr, rlang, stringr, stats
+DownloadURL: https://github.com/cran/tidyrstats/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.679178699175393
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.738916256157635
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.0124627204676976
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.182425523806356
+Published: 2025-06-11 13:00:02 UTC
+
+Package: tidyrules
+Version: 0.2.7
+Depends: R (>= 3.6.0),
+Suggests: AmesHousing (>= 0.0.3), dplyr (>= 0.8), C50 (>= 0.1.2), Cubist (>= 0.2.2), rpart (>= 1.2.2), rpart.plot (>= 3.0.7), modeldata (>= 0.0.1), testthat (>= 2.0.1), MASS (>= 7.3.50), mlbench (>= 2.1.1), rmarkdown (>= 1.13), palmerpenguins (>= 0.1.1),
+License: GPL-3
+MD5sum: 01a9e0b9d38507b54fd5b819cb8c69ea
+NeedsCompilation: no
+Imports: stringr (>= 1.3.1), magrittr (>= 1.5), purrr (>= 0.3.2), partykit (>= 1.2.2), rlang (>= 1.1.3), generics (>= 0.1.3), checkmate (>= 2.3.1), tidytable (>= 0.11.0), data.table (>= 1.14.6), DescTools (>= 0.99.54), MetricsWeighted (>= 1.0.3), cli (>= 3.6.2), glue (>= 1.7.0), pheatmap (>= 1.0.12), proxy (>= 0.4.27), tibble (>= 3.2.1),
+DownloadURL: https://github.com/cran/tidyrules/archive/refs/tags/0.2.7.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.6036851467291
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0803858520900322
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0302434735385769
+reverse_dependencies: 0.246376140522644
+has_examples: 0.934782608695652
+dependencies: 0.00247262315663466
+Published: 2024-06-29 22:40:06 UTC
+
+Package: tidysdm
+Version: 1.0.4
+Depends: tidymodels, spatialsample, R (>= 3.5.0)
+Suggests: blockCV, data.table, DALEXtra, doParallel, earth, kernlab, knitr, mgcv, overlapping, pastclim (>= 2.0.0), ranger, rgbif, rmarkdown, spelling, stacks, testthat (>= 3.0.0), tidyterra, vdiffr, ggpattern, RhpcBLASctl
+License: AGPL (>= 3)
+MD5sum: 180c70bb4f88a28232e230627468ed2c
+NeedsCompilation: no
+Imports: DALEX, dials, dplyr, ggplot2, lubridate, maxnet, methods, parsnip, patchwork, recipes, rsample, rlang (>= 1.0.0), stats, stars, sf, terra, tibble, tune, xgboost, workflows, workflowsets, yardstick
+DownloadURL: https://github.com/cran/tidysdm/archive/refs/tags/1.0.4.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.338432705735493
+has_vignettes: 1
+export_help: 0.983050847457627
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0401821591213501
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0506088761740804
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 4.53978687023904e-05
+Published: 2025-12-13 21:50:02 UTC
+
+Package: tidyselect
+Version: 1.2.1
+Depends: R (>= 3.4)
+Suggests: covr, crayon, dplyr, knitr, magrittr, rmarkdown, stringr, testthat (>= 3.1.1), tibble (>= 2.1.3)
+License: MIT + file LICENSE
+MD5sum: 49c581292e819a2a39aac321f27ab0a8
+NeedsCompilation: yes
+Imports: cli (>= 3.3.0), glue (>= 1.3.0), lifecycle (>= 1.0.3), rlang (>= 1.0.4), vctrs (>= 0.5.2), withr
+DownloadURL: https://github.com/cran/tidyselect/archive/refs/tags/1.2.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.475945782565656
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0762195121951219
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.989664853238849
+reverse_dependencies: 0.99999641398816
+has_examples: 0.764705882352941
+dependencies: 0.268941421369995
+Published: 2024-03-11 14:10:02 UTC
+
+Package: tidySEM
+Version: 0.2.10
+Depends: R (>= 4.0.0), stats, utils
+Suggests: testthat, knitr, dplyr, stringr, covr, tidyLPA, poLCA, umx, mclust, MASS, scales, yaml, formatR, dagitty, mice, ggraph, OpenMx (>= 2.21.13), rmarkdown, blavaan, bain, future
+License: GPL (>= 3)
+MD5sum: 748e0ffcb4e256e42558d8c512d9ba64
+NeedsCompilation: no
+Imports: ggplot2 (>= 3.5.0), lavaan (>= 0.6-21), MplusAutomation, igraph (>= 2.0.0), psych, methods, gtable, dbscan, RANN, Matrix, car, future.apply, progressr, progress, nonnest2 (>= 0.5.6)
+DownloadURL: https://github.com/cran/tidySEM/archive/refs/tags/0.2.10.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.0153930424818901
+has_vignettes: 1
+export_help: 0.989316239316239
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.00932198123174445
+has_source_control: 0
+has_bug_reports_url: 1
+downloads_1yr: 0.343513254467392
+reverse_dependencies: 0.526652434048312
+has_examples: 1
+dependencies: 0.00150118225673701
+Published: 2026-01-11 06:10:10 UTC
+
+Package: tidyseurat
+Version: 0.8.10
+Depends: R (>= 4.1.0), ttservice (>= 0.3.8), SeuratObject
+Suggests: testthat, knitr, GGally, markdown, rbibutils
+License: GPL-3
+MD5sum: ded8af83e9d864050a57418bd3b63158
+NeedsCompilation: no
+Imports: Seurat (>= 4.3.0), tibble, dplyr (>= 1.1.4), magrittr, tidyr (>= 1.2.0), ggplot2, rlang (>= 1.0.0), purrr, lifecycle, methods, plotly, tidyselect, utils, vctrs, pillar, stringr, cli, fansi, Matrix, generics
+DownloadURL: https://github.com/cran/tidyseurat/archive/refs/tags/0.8.10.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.643035173277501
+has_vignettes: 1
+export_help: 0.857142857142857
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.107066381156317
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0549037892057411
+reverse_dependencies: 0.398689815024215
+has_examples: 1
+dependencies: 0.000123394575986313
+Published: 2026-02-26 21:40:03 UTC
