@@ -7454,30 +7454,30 @@ dependencies: 0.5
 bugs_status: NaN
 
 Package: aftables
-Version: 2.0.1
+Version: 2.1.0
 Depends: R (>= 4.1.0)
 Suggests: covr, knitr, rmarkdown, rstudioapi, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: fce37892f63e9128730d87df135887f1
+MD5sum: 6e7a09ec6f48a5bff0dc6e1aec4c17f4
 NeedsCompilation: no
-Imports: openxlsx2, pillar, purrr, dplyr, stringr, tidyselect, tidyr, rlang, utils, yaml, tibble
-DownloadURL: https://github.com/cran/aftables/archive/refs/tags/2.0.1.tar.gz
+Imports: openxlsx2 (>= 1.27), pillar, purrr, dplyr, stringr, tidyselect, tidyr, rlang, utils, yaml, tibble, stats
+DownloadURL: https://github.com/cran/aftables/archive/refs/tags/2.1.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.643035173277501
+exported_namespace: 0.63248519712831
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.079702444208289
+size_codebase: 0.075
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0217433837244185
+downloads_1yr: 0.0288622149710601
 reverse_dependencies: 0.246376140522644
 has_examples: 1
-dependencies: 0.0293122307513564
-Published: 2026-04-22 12:10:02 UTC
-bugs_status: 0.733333333333333
+dependencies: 0.0179862099620915
+Published: 2026-08-24 08:40:27 UTC
+bugs_status: 0.8
 
 Package: aftgee
 Version: 1.2.1
@@ -13265,28 +13265,29 @@ dependencies: 0.182425523806356
 bugs_status: NaN
 
 Package: ammiBayes
-Version: 2.1-1
+Version: 2.2-0
 Depends: R (>= 4.0.0)
 Suggests: ggpubr, R.rsp
 License: GPL (>= 2)
-MD5sum: 34736b1db14ab8fdea804b20e7356fe1
+MD5sum: a70b171efd5dcf075c2fab77094c6b43
 NeedsCompilation: no
-Imports: lattice, latticeExtra, distfree.cr, coda, spam, movMF, msm, bayesplot, Hmisc
-DownloadURL: https://github.com/cran/ammiBayes/archive/refs/tags/2.1-1.tar.gz
+Imports: lattice, latticeExtra, distfree.cr, coda, spam, movMF, msm, bayesplot, Hmisc, MASS
+DownloadURL: https://github.com/cran/ammiBayes/archive/refs/tags/2.2-0.tar.gz
 has_news: 0
 news_current: 0
-exported_namespace: 0.594831368414695
+exported_namespace: 0.578004170633666
 has_vignettes: 1
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.0801710315339391
+size_codebase: 0.0767263427109974
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0237679952099549
+downloads_1yr: 0.0268839526676354
 reverse_dependencies: 0.246376140522644
-has_examples: 0.769230769230769
-dependencies: 0.0758581800212434
+has_examples: 0.8
+dependencies: 0.0474258731775666
+Published: 2026-08-24 16:50:12 UTC
 
 Package: ammistability
 Version: 0.1.4
@@ -28540,14 +28541,14 @@ has_examples: 0.6
 dependencies: 0.0474258731775666
 
 Package: bain
-Version: 0.2.11
+Version: 0.2.12
 Depends: R (>= 3.0.0), stats
 Suggests: MASS, testthat, knitr, rmarkdown
 License: GPL (>= 3)
-MD5sum: b9e510275df53e0896b90761f4d4e945
+MD5sum: d9f13d78643fa1704702057aff639b4a
 NeedsCompilation: yes
 Imports: lavaan
-DownloadURL: https://github.com/cran/bain/archive/refs/tags/0.2.11.tar.gz
+DownloadURL: https://github.com/cran/bain/archive/refs/tags/0.2.12.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.654216971559148
@@ -28555,14 +28556,15 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0812127774769897
+size_codebase: 0.0794491525423729
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.20061392850291
-reverse_dependencies: 0.5
+downloads_1yr: 0.246836714199638
+reverse_dependencies: 0.551032098662781
 has_examples: 1
 dependencies: 0.731058578630005
-bugs_status: 0.766666666666667
+Published: 2026-08-24 11:20:08 UTC
+bugs_status: 0.7
 
 Package: baizer
 Version: 0.8.0
@@ -34381,15 +34383,15 @@ has_examples: 1
 dependencies: 0.377540668798145
 
 Package: BayesPPDSurv
-Version: 1.0.3
+Version: 1.0.4
 Depends: R (>= 2.10)
 Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 License: GPL (>= 3)
-MD5sum: b62e368ee077a1c0642f2fb989e38886
+MD5sum: 5222f2c857e121724513e8acd77822b2
 NeedsCompilation: yes
 Imports: Rcpp, dplyr, tidyr
 LinkingTo: Rcpp, RcppArmadillo, RcppDist
-DownloadURL: https://github.com/cran/BayesPPDSurv/archive/refs/tags/1.0.3.tar.gz
+DownloadURL: https://github.com/cran/BayesPPDSurv/archive/refs/tags/1.0.4.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.666185565559974
@@ -34397,13 +34399,14 @@ has_vignettes: 0
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.199468085106383
+size_codebase: 0.199203187250996
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0172312127366835
+downloads_1yr: 0.0174436503933501
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.268941421369995
+Published: 2026-08-24 08:10:14 UTC
 
 Package: BayesPPR
 Version: 0.1.0
@@ -60603,28 +60606,29 @@ dependencies: 0.00407013771589604
 bugs_status: 1
 
 Package: calba
-Version: 0.1.2
+Version: 0.1.3
 Suggests: testthat (>= 3.1.0), knitr, rmarkdown, ggplot2
 License: GPL-3
-MD5sum: 6bcc7f2a38c57c23e2d5395aed4311d8
+MD5sum: a4f74fcb0264cc3f30954db8c8413805
 NeedsCompilation: yes
 Imports: Rcpp
 LinkingTo: Rcpp
-DownloadURL: https://github.com/cran/calba/archive/refs/tags/0.1.2.tar.gz
-has_news: 0
-news_current: 0
-exported_namespace: 0.643035173277501
+DownloadURL: https://github.com/cran/calba/archive/refs/tags/0.1.3.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.63248519712831
 has_vignettes: 1
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.352112676056338
+size_codebase: 0.313152400835073
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00950871632329631
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.731058578630005
+Published: 2026-08-24 09:30:02 UTC
 bugs_status: 1
 
 Package: calcal
@@ -66174,6 +66178,32 @@ has_examples: 1
 dependencies: 0.268941421369995
 bugs_status: NaN
 
+Package: CausalState
+Version: 0.10.2
+Depends: R (>= 4.1.0)
+Suggests: testthat (>= 3.0.0), knitr, rmarkdown, ggplot2, scales, stringr, hal9001, dbarts, mgcv, earth, nnls
+License: AGPL-3
+MD5sum: a27720e88a8e3b373230bdf3a4a929a6
+NeedsCompilation: no
+Imports: data.table (>= 1.14.0), SuperLearner, origami, glmnet, xgboost, dplyr, tidyr, rlang, magrittr, parallel, stats
+DownloadURL: https://github.com/cran/CausalState/archive/refs/tags/0.10.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.487742929733712
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0235478806907378
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0293122307513564
+Published: 2026-08-24 09:10:08 UTC
+bugs_status: NaN
+
 Package: causalweight
 Version: 1.1.5
 Depends: R (>= 3.5.0), ranger
@@ -70794,29 +70824,30 @@ has_examples: 1
 dependencies: 0.817574476193644
 
 Package: cfbfastR
-Version: 2.0.0
+Version: 3.0.0
 Depends: R (>= 4.1.0)
-Suggests: crayon (>= 1.3.4), curl, DBI, ggplot2, ggrepel, qs (>= 0.25.1), rmarkdown, RSQLite, stats, stringi, testthat, usethis (>= 1.6.0), xgboost (>= 1.1)
+Suggests: arrow, bit64, cachem, crayon (>= 1.3.4), curl, DBI, ggplot2, ggrepel, memoise, patrick, progressr (>= 0.6.0), rmarkdown, RSQLite, stats, stringi, testthat, usethis (>= 1.6.0), withr, xgboost (>= 1.1)
 License: MIT + file LICENSE
-MD5sum: 6cac84addafb371430cfba0130360836
+MD5sum: 09d6cb3c8d2fd9972057e90da86ac9dc
 NeedsCompilation: no
-Imports: cli (>= 3.0.0), data.table (>= 1.15.0), dplyr (>= 1.0.0), glue (>= 1.4.0), httr, janitor, jsonlite, lubridate, magrittr, mgcv (>= 1.8-33), nnet, progressr (>= 0.6.0), purrr (>= 0.3.0), Rcpp (>= 1.0.7), RcppParallel (>= 5.1.4), rlang (>= 0.4.10), stringr (>= 1.4.0), tibble (>= 3.0), tidyr (>= 1.2.0)
-DownloadURL: https://github.com/cran/cfbfastR/archive/refs/tags/2.0.0.tar.gz
+Imports: cli (>= 3.0.0), data.table (>= 1.15.0), dplyr (>= 1.1.1), glue (>= 1.4.0), httr2 (>= 1.0.0), janitor, jsonlite, mgcv (>= 1.8-33), nnet, purrr (>= 0.3.0), Rcpp (>= 1.0.7), RcppParallel (>= 5.1.4), rlang (>= 0.4.10), stringr (>= 1.4.0), tibble (>= 3.0), tidyr (>= 1.2.0)
+DownloadURL: https://github.com/cran/cfbfastR/archive/refs/tags/3.0.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.255706598971995
+exported_namespace: 0.0708131826181344
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0182215743440233
+size_codebase: 0.00684962783688753
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0190564631099833
+downloads_1yr: 0.0759962300646186
 reverse_dependencies: 0.246376140522644
-has_examples: 0.895348837209302
-dependencies: 0.000552778636923601
-bugs_status: 0.8
+has_examples: 0.925925925925926
+dependencies: 0.00247262315663466
+Published: 2026-08-24 16:40:02 UTC
+bugs_status: 1
 
 Package: CFC
 Version: 1.2.1
@@ -70935,14 +70966,14 @@ dependencies: 0.119202922022118
 bugs_status: 0.7
 
 Package: cffr
-Version: 1.4.1
+Version: 1.4.2
 Depends: R (>= 4.1.0)
-Suggests: bibtex (>= 0.5.0), knitr, lifecycle, quarto, rmarkdown, testthat (>= 3.0.0), usethis
+Suggests: bibtex (>= 0.5.0), knitr, lifecycle, quarto, rmarkdown, testthat (>= 3.3.0), usethis, withr
 License: GPL (>= 3)
-MD5sum: ac6a6dd3dc2e7c78c1c8096fcc0393d9
+MD5sum: 0ba0628176790cf12429383ed16a9932
 NeedsCompilation: no
 Imports: cli (>= 2.0.0), desc (>= 1.3.0), jsonlite (>= 1.7.2), jsonvalidate (>= 1.1.0), tools, utils, yaml (>= 2.2.1)
-DownloadURL: https://github.com/cran/cffr/archive/refs/tags/1.4.1.tar.gz
+DownloadURL: https://github.com/cran/cffr/archive/refs/tags/1.4.2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.44825147377711
@@ -70950,14 +70981,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0469630557294928
+size_codebase: 0.0460546515198035
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.164912983932926
+downloads_1yr: 0.172842773954473
 reverse_dependencies: 0.5
 has_examples: 0.954545454545455
 dependencies: 0.182425523806356
-Published: 2026-06-17 15:00:07 UTC
+Published: 2026-08-24 12:10:02 UTC
 bugs_status: 1
 
 Package: cfid
@@ -90836,6 +90867,30 @@ reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.0474258731775666
 
+Package: CompositionalMPT
+Version: 1.0
+Depends: R (>= 4.0)
+License: GPL (>= 2)
+MD5sum: 4a23449be4e1e66d697886c6c58e6e53
+NeedsCompilation: no
+Imports: Compositional, Rfast, Rfast2
+DownloadURL: https://github.com/cran/CompositionalMPT/archive/refs/tags/1.0.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.777299861174691
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.815217391304348
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.622459331201855
+Published: 2026-08-24 10:10:27 UTC
+
 Package: CompositionalNAimp
 Version: 1.1
 Depends: R (>= 4.0)
@@ -93672,6 +93727,29 @@ reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.119202922022118
 
+Package: ConsensusCPA
+Version: 0.1.0
+Depends: R (>= 4.1.0)
+License: GPL-3
+MD5sum: 63960381a4952e9c462d54b5763e468a
+NeedsCompilation: no
+Imports: dplyr, ggplot2, rlang, trend, openxlsx, zoo
+DownloadURL: https://github.com/cran/ConsensusCPA/archive/refs/tags/0.1.0.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.731058578630005
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.374064837905237
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+dependencies: 0.268941421369995
+Published: 2026-08-24 14:50:13 UTC
+
 Package: ConsensusOPLS
 Version: 1.1.0
 Depends: R (>= 4.0.0), stats, utils, graphics, grDevices, methods
@@ -95090,29 +95168,30 @@ has_examples: 1
 dependencies: 0.817574476193644
 
 Package: convertid
-Version: 0.3.4
-Depends: AnnotationDbi, R (>= 3.5.0)
-Suggests: BiocManager, org.Hs.eg.db, org.Mm.eg.db, testthat (>= 3.0.0), mockery
+Version: 0.4.0
+Depends: R (>= 3.5.0)
+Suggests: BiocManager, org.Hs.eg.db, org.Mm.eg.db, testthat (>= 3.0.0), mockery, curl
 License: GPL-3
-MD5sum: 11a1d61dae6166a63a6a0aaa89de07fd
+MD5sum: fb1612363584efac687a04c93d2583a1
 NeedsCompilation: no
-Imports: plyr, stringr, biomaRt, stats, xml2, utils, rappdirs, assertthat, methods, httr, BiocFileCache
-DownloadURL: https://github.com/cran/convertid/archive/refs/tags/0.3.4.tar.gz
-has_news: 0
-news_current: 0
+Imports: AnnotationDbi, plyr, stringr, biomaRt, stats, xml2, utils, rappdirs, assertthat, methods, httr, BiocFileCache
+DownloadURL: https://github.com/cran/convertid/archive/refs/tags/0.4.0.tar.gz
+has_news: 1
+news_current: 1
 exported_namespace: 0.643035173277501
 has_vignettes: 0
 export_help: 1
-has_website: 0
+has_website: 1
 has_maintainer: 1
-size_codebase: 0.115295926210607
-has_source_control: 0
-has_bug_reports_url: 0
-downloads_1yr: 0.0338724325159894
+size_codebase: 0.11070110701107
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0335487445798193
 reverse_dependencies: 0.350228721939924
 has_examples: 1
 dependencies: 0.0179862099620915
-Published: 2026-07-20 12:00:08 UTC
+Published: 2026-08-24 16:20:33 UTC
+bugs_status: NaN
 
 Package: ConvertPar
 Version: 0.1
@@ -103794,6 +103873,31 @@ has_examples: 1
 dependencies: 0.622459331201855
 bugs_status: 1
 
+Package: cropwatMUL
+Version: 0.1.0
+Depends: R (>= 4.2.0)
+Suggests: knitr, rmarkdown, spelling, testthat (>= 3.0.0)
+License: GPL (>= 3)
+MD5sum: 3429f15d1aba468d37030e7187240a16
+NeedsCompilation: no
+Imports: dplyr, lubridate, openxlsx, purrr, readxl, stats, tibble, tidyr, utils
+DownloadURL: https://github.com/cran/cropwatMUL/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.666185565559974
+has_vignettes: 1
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.210378681626928
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0758581800212434
+Published: 2026-08-24 14:30:02 UTC
+
 Package: cropZoning
 Version: 1.0.3
 Depends: R (>= 2.10)
@@ -106518,6 +106622,32 @@ has_bug_reports_url: 0
 downloads_1yr: 0.0133331579258947
 reverse_dependencies: 0.246376140522644
 dependencies: 0.622459331201855
+
+Package: ctgimme
+Version: 0.0.12
+Depends: R (>= 4.1.0)
+Suggests: expm, igraph, nloptr, testthat (>= 3.2.0)
+License: Apache License (== 2.0)
+MD5sum: d5599f8859f40dd82230d61f13d7aa52
+NeedsCompilation: no
+Imports: cluster, gtools, matrixStats, methods, OpenMx, parallel, ps, qgraph, stats, utils
+DownloadURL: https://github.com/cran/ctgimme/archive/refs/tags/0.0.12.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.710218732760062
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0516706854977609
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0474258731775666
+Published: 2026-08-24 15:20:02 UTC
+bugs_status: 1
 
 Package: ctgt
 Version: 2.0.1
@@ -109365,32 +109495,32 @@ has_examples: 1
 dependencies: 0.622459331201855
 
 Package: CVXR
-Version: 1.9.1
+Version: 1.9.2
 Depends: R (>= 4.3.0)
 Suggests: jsonlite (>= 1.9), knitr, rmarkdown, testthat (>= 3.3), rlang
 License: Apache License 2.0 | file LICENSE
-MD5sum: 4ccb8e5471f02f005884631343c1b1cf
+MD5sum: 94fd108c9ed312b782a8c45f1282cf3c
 NeedsCompilation: yes
 Imports: S7 (>= 0.2), methods, Matrix (>= 1.7), Rcpp (>= 1.1), clarabel (>= 0.11), cli (>= 3.6), gmp (>= 0.7), highs (>= 1.14), osqp (>= 1.0), scs (>= 3.2), slam (>= 0.1)
 LinkingTo: Rcpp, RcppEigen
-Enhances: Rmosek, gurobi (>= 13.0), Rglpk (>= 0.6), ECOSolveR (>= 0.6), Rcplex (>= 0.3), cccp (>= 0.3), piqp (>= 0.6), scip, xpress, diffcp (>= 0.1), ipopt, sparsediff, Uno
-DownloadURL: https://github.com/cran/CVXR/archive/refs/tags/1.9.1.tar.gz
+Enhances: Rmosek, gurobi (>= 13.0), Rglpk (>= 0.6), ECOSolveR (>= 0.6), Rcplex (>= 0.3), cccp (>= 0.3), piqp (>= 0.6), scip, xpress, diffcp (>= 0.1.2), ipopt, sparsediff, Uno
+DownloadURL: https://github.com/cran/CVXR/archive/refs/tags/1.9.2.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.0637445934906111
+exported_namespace: 0.0632729838200249
 has_vignettes: 1
-export_help: 0.971774193548387
+export_help: 0.971887550200803
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.00585069038146501
+size_codebase: 0.00560328726186029
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.567793093909917
-reverse_dependencies: 0.846887268826289
+downloads_1yr: 0.584997952656567
+reverse_dependencies: 0.867836783398338
 has_examples: 1
 dependencies: 0.0109869426305932
-Published: 2026-06-09 07:00:27 UTC
-bugs_status: 0.966666666666667
+Published: 2026-08-24 05:21:00 UTC
+bugs_status: 0.933333333333333
 
 Package: cwot
 Version: 0.1.0
@@ -111048,29 +111178,29 @@ dependencies: 0.622459331201855
 bugs_status: NaN
 
 Package: daltoolbox
-Version: 1.3.767
+Version: 1.3.777
 Depends: R (>= 4.1.0)
 Suggests: adabag, glmnet, leaps, ipred, xgboost, arulesViz, GGally, igraph, rpart, MASS
 License: MIT + file LICENSE
-MD5sum: 5d9a4fda4fb32765eb4af3e08bab07d0
+MD5sum: 6922985547397ade9727ddb2775b5fd1
 NeedsCompilation: no
 Imports: methods, FNN, caret, arules, arulesSequences, class, cluster, dbscan, dplyr, e1071, ggplot2, mclust, nnet, randomForest, reshape, tree
-DownloadURL: https://github.com/cran/daltoolbox/archive/refs/tags/1.3.767.tar.gz
+DownloadURL: https://github.com/cran/daltoolbox/archive/refs/tags/1.3.777.tar.gz
 has_news: 0
 news_current: 0
-exported_namespace: 0.185854039824587
+exported_namespace: 0.171018354870504
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0321130378933847
+size_codebase: 0.0285932138772398
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0667869474601052
+downloads_1yr: 0.0602681368249594
 reverse_dependencies: 0.470525714569983
 has_examples: 1
 dependencies: 0.00247262315663466
-Published: 2026-07-09 17:50:10 UTC
+Published: 2026-08-24 05:20:30 UTC
 bugs_status: 1
 
 Package: daltoolboxdp
@@ -112064,30 +112194,30 @@ Published: 2026-07-09 09:00:02 UTC
 bugs_status: 1
 
 Package: data.table
-Version: 1.18.4
+Version: 1.18.6.1
 Depends: R (>= 3.4.0)
 Suggests: bit64 (>= 4.0.0), bit (>= 4.0.4), R.utils (>= 2.13.0), xts, zoo (>= 1.8-1), yaml, knitr, markdown
 License: MPL-2.0 | file LICENSE
-MD5sum: 8802d3e9516d5b38dd4aa1a473e2ac6e
+MD5sum: 0c0ad7916017c1657610ab16c36fecdd
 NeedsCompilation: yes
 Imports: methods
-DownloadURL: https://github.com/cran/data.table/archive/refs/tags/1.18.4.tar.gz
+DownloadURL: https://github.com/cran/data.table/archive/refs/tags/1.18.6.1.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.159028284989776
+exported_namespace: 0.156192517925278
 has_vignettes: 1
-export_help: 0.933333333333333
+export_help: 0.934306569343066
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0180418571084917
+size_codebase: 0.0179985601151908
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.987400535628429
-reverse_dependencies: 0.999999999749886
+downloads_1yr: 0.987481684661467
+reverse_dependencies: 0.99999999982969
 has_examples: 0.986842105263158
 dependencies: 0.817574476193644
-Published: 2026-05-06 05:10:20 UTC
-bugs_status: 0.466666666666667
+Published: 2026-08-24 08:40:13 UTC
+bugs_status: 0.7
 
 Package: data.table.threads
 Version: 1.0.1
@@ -112741,14 +112871,14 @@ dependencies: 0.377540668798145
 bugs_status: NaN
 
 Package: dataganger
-Version: 0.8.0
+Version: 0.8.2
 Depends: R (>= 4.1.0)
-Suggests: bslib, callr, chromote, DT, ggplot2, knitr, nnet, pkgdown, plotly, rmarkdown, shiny, shinytest2, spelling, synthpop, testthat (>= 3.0.0)
+Suggests: bslib, callr, chromote, DT, ggplot2, knitr, nnet, pkgdown, plotly, rmarkdown, shiny, shinytest2, spelling, synthpop, testthat (>= 3.2.0)
 License: MIT + file LICENSE
-MD5sum: 7e422cc8238fcec520950f52d0ab8f14
+MD5sum: aeceb1dc72cca4187d0813b0d02d2e75
 NeedsCompilation: no
 Imports: cli, digest, dplyr, haven, jsonlite, readr, readxl, rlang, stats, tibble, utils, withr, yaml, zip
-DownloadURL: https://github.com/cran/dataganger/archive/refs/tags/0.8.0.tar.gz
+DownloadURL: https://github.com/cran/dataganger/archive/refs/tags/0.8.2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.539983261282338
@@ -112756,14 +112886,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.012950012950013
+size_codebase: 0.0127086333982886
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.00212879191059079
+downloads_1yr: 0.00254683042631143
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.00669285092428473
-Published: 2026-08-21 15:30:14 UTC
+Published: 2026-08-24 18:30:02 UTC
 bugs_status: 1
 
 Package: DataGraph
@@ -117768,6 +117898,31 @@ has_examples: 1
 dependencies: 0.731058578630005
 bugs_status: 0.777777777777778
 
+Package: decimal
+Version: 0.1.0
+Depends: R (>= 4.2.0)
+Suggests: covr, knitr, pillar, rmarkdown, tibble, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: 2d6de2d67c788025c0a04c9b58900100
+NeedsCompilation: yes
+Imports: methods, rlang, vctrs, withr
+DownloadURL: https://github.com/cran/decimal/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.5
+has_vignettes: 1
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.110051357300073
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.5
+Published: 2026-08-24 12:40:09 UTC
+
 Package: decision
 Version: 0.1.0
 License: GPL (>= 2)
@@ -119442,28 +119597,29 @@ has_examples: 0.67741935483871
 dependencies: 0.731058578630005
 
 Package: Delaporte
-Version: 8.4.3
+Version: 9.0.0
 Depends: R (>= 3.6.0)
 Suggests: covr, tinytest
 License: BSD_2_clause + file LICENSE
-MD5sum: 6f88c990ad50b63f1b88df093db07fcb
+MD5sum: a75d5bdc293b02503a3f54bb6db6d323
 NeedsCompilation: yes
 Imports: stats, parallel
-DownloadURL: https://github.com/cran/Delaporte/archive/refs/tags/8.4.3.tar.gz
+DownloadURL: https://github.com/cran/Delaporte/archive/refs/tags/9.0.0.tar.gz
 has_news: 0
 news_current: 0
-exported_namespace: 0.63248519712831
+exported_namespace: 0.643035173277501
 has_vignettes: 0
 export_help: 0
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.547445255474453
+size_codebase: 0.483870967741935
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0473710616731974
+downloads_1yr: 0.0507530692317428
 reverse_dependencies: 0.398689815024215
 has_examples: 0.333333333333333
 dependencies: 0.731058578630005
+Published: 2026-08-24 05:20:53 UTC
 bugs_status: 1
 
 Package: delarr
@@ -120329,14 +120485,14 @@ dependencies: 0.000203426978055199
 Published: 2026-05-20 14:40:02 UTC
 
 Package: dendroextras
-Version: 0.2.3
+Version: 0.2.4
 Suggests: testthat
 License: GPL (>= 2)
-MD5sum: 1ed7012ca6e1975edc925fd34ae8781f
+MD5sum: 4ec1fa778bdb128be5731c6f11f6e81b
 NeedsCompilation: no
-DownloadURL: https://github.com/cran/dendroextras/archive/refs/tags/0.2.3.tar.gz
-has_news: 0
-news_current: 0
+DownloadURL: https://github.com/cran/dendroextras/archive/refs/tags/0.2.4.tar.gz
+has_news: 1
+news_current: 1
 exported_namespace: 0.643035173277501
 has_vignettes: 0
 export_help: 0.857142857142857
@@ -120345,10 +120501,11 @@ has_maintainer: 1
 size_codebase: 0.551470588235294
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0443729493836206
+downloads_1yr: 0.0509272440825314
 reverse_dependencies: 0.43732917979627
 has_examples: 1
 dependencies: 0.880797077977882
+Published: 2026-08-24 05:20:24 UTC
 
 Package: DendroFlux
 Version: 1.0.3
@@ -121320,16 +121477,16 @@ has_examples: 1
 dependencies: 0.0109869426305932
 
 Package: depmixS4
-Version: 1.5-3
+Version: 1.5-4
 Depends: R (>= 4.0.0), nnet, MASS, Rsolnp, nlme
 Suggests: gamlss, gamlss.dist
 License: GPL (>= 2)
-MD5sum: 1148092906f0118e8f753be81b579053
+MD5sum: 2ca240297675057dad8c534fefd56eee
 NeedsCompilation: yes
 Imports: stats, stats4, methods
-DownloadURL: https://github.com/cran/depmixS4/archive/refs/tags/1.5-3.tar.gz
+DownloadURL: https://github.com/cran/depmixS4/archive/refs/tags/1.5-4.tar.gz
 has_news: 1
-news_current: 1
+news_current: 0
 exported_namespace: 0.594831368414695
 has_vignettes: 1
 export_help: 0
@@ -121338,11 +121495,11 @@ has_maintainer: 1
 size_codebase: 0.0477402928071292
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.248116531912441
-reverse_dependencies: 0.59434719329332
+downloads_1yr: 0.241435810298267
+reverse_dependencies: 0.526652434048312
 has_examples: 0.766666666666667
 dependencies: 0.182425523806356
-Published: 2026-06-17 05:30:02 UTC
+Published: 2026-08-24 13:40:19 UTC
 
 Package: DepMod
 Version: 0.1.0
@@ -134635,14 +134792,14 @@ has_examples: 1
 dependencies: 0.622459331201855
 
 Package: douconca
-Version: 1.2.5
+Version: 1.2.5.1
 Depends: R (>= 4.0.0)
 Suggests: rmarkdown, knitr, tinytest
 License: GPL-3
-MD5sum: 8282d92248bca99948f32b8a9c9e1d6b
+MD5sum: 9cd32698d76b7661b82ed0630257220b
 NeedsCompilation: no
 Imports: ggplot2 (>= 3.5.1), ggrepel, gridExtra, permute, rlang, stats, vegan (>= 2.6-8)
-DownloadURL: https://github.com/cran/douconca/archive/refs/tags/1.2.5.tar.gz
+DownloadURL: https://github.com/cran/douconca/archive/refs/tags/1.2.5.1.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.586280996051124
@@ -134650,13 +134807,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0357398141529664
+size_codebase: 0.0357227911407478
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.016696493539696
+downloads_1yr: 0.01826035735323
 reverse_dependencies: 0.246376140522644
 has_examples: 0.928571428571429
 dependencies: 0.182425523806356
+Published: 2026-08-24 10:50:09 UTC
 bugs_status: 1
 
 Package: doudpackage
@@ -135875,15 +136033,15 @@ has_examples: 0.973684210526316
 dependencies: 0.182425523806356
 
 Package: dracor
-Version: 0.2.6
+Version: 0.2.7
 Suggests: testthat, spelling, covr
 License: Apache License (>= 2.0)
-MD5sum: d591701e7ea64631b37ac5994ff27f13
+MD5sum: 888f5e9636b113364ea35d38838fb9cf
 NeedsCompilation: yes
 Imports: Rcpp (>= 1.0.5)
 LinkingTo: Rcpp
 Enhances: rgl
-DownloadURL: https://github.com/cran/dracor/archive/refs/tags/0.2.6.tar.gz
+DownloadURL: https://github.com/cran/dracor/archive/refs/tags/0.2.7.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.731058578630005
@@ -135894,10 +136052,11 @@ has_maintainer: 1
 size_codebase: 0.797872340425532
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0192424628783273
+downloads_1yr: 0.0191077804370856
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.731058578630005
+Published: 2026-08-24 05:10:02 UTC
 bugs_status: 1
 
 Package: dragmapr
@@ -137038,28 +137197,29 @@ dependencies: 0.5
 bugs_status: NaN
 
 Package: drmeta
-Version: 0.1.0
+Version: 0.2.2
 Depends: R (>= 4.1.0)
-Suggests: ggplot2 (>= 3.4.0), knitr, metafor (>= 4.0.0), rmarkdown, testthat (>= 3.0.0)
+Suggests: testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: 5600fbdb5bd0e64dd1138c6e5a6d09b3
+MD5sum: 29bf626c2cbafbae1392dcc87eede5db
 NeedsCompilation: no
-Imports: grDevices, graphics, stats, utils
-DownloadURL: https://github.com/cran/drmeta/archive/refs/tags/0.1.0.tar.gz
-has_news: 0
-news_current: 0
-exported_namespace: 0.586280996051124
-has_vignettes: 1
+Imports: grDevices, graphics, parallel, stats, utils
+DownloadURL: https://github.com/cran/drmeta/archive/refs/tags/0.2.2.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.612879086374252
+has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.168350168350168
+size_codebase: 0.264084507042254
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.0112910561388939
 reverse_dependencies: 0.246376140522644
 has_examples: 1
-dependencies: 0.5
+dependencies: 0.377540668798145
+Published: 2026-08-24 19:10:02 UTC
 bugs_status: NaN
 
 Package: drogonR
@@ -144515,6 +144675,30 @@ has_examples: 1
 dependencies: 0.817574476193644
 Published: 2026-04-23 13:50:02 UTC
 
+Package: ebdt
+Version: 1.0.1
+Suggests: knitr, readxl, rmarkdown, testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: cea632d0957604a15c891dede2444365
+NeedsCompilation: no
+Imports: stats
+DownloadURL: https://github.com/cran/ebdt/archive/refs/tags/1.0.1.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.594831368414695
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.126903553299492
+has_source_control: 1
+has_bug_reports_url: 0
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.817574476193644
+Published: 2026-08-24 13:40:14 UTC
+
 Package: EBEN
 Version: 5.2
 Depends: R (>= 2.10)
@@ -151456,16 +151640,16 @@ dependencies: 0.622459331201855
 bugs_status: NaN
 
 Package: Elja
-Version: 1.0.0
+Version: 1.0.1
 Depends: R (>= 4.3)
-Suggests: knitr, rmarkdown, mlbench
+Suggests: knitr, rmarkdown, mlbench (>= 2.1-11)
 License: GPL (>= 3)
-MD5sum: 3f4822548aed3a7128cf5183e2a65684
+MD5sum: 0fee36b15cb193b30322ab52642213ea
 NeedsCompilation: no
 Imports: stats, devtools, dplyr, ggplot2, MASS
-DownloadURL: https://github.com/cran/Elja/archive/refs/tags/1.0.0.tar.gz
-has_news: 0
-news_current: 0
+DownloadURL: https://github.com/cran/Elja/archive/refs/tags/1.0.1.tar.gz
+has_news: 1
+news_current: 1
 exported_namespace: 0.693596453153698
 has_vignettes: 1
 export_help: 1
@@ -151474,10 +151658,11 @@ has_maintainer: 1
 size_codebase: 0.231124807395994
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0113040899054148
+downloads_1yr: 0.0137613170888863
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.377540668798145
+Published: 2026-08-24 19:20:02 UTC
 bugs_status: NaN
 
 Package: elliplot
@@ -152344,14 +152529,14 @@ has_examples: 1
 dependencies: 0.268941421369995
 
 Package: embryogrowth
-Version: 2025.12.22
+Version: 2026.8.24
 Depends: deSolve, optimx, numDeriv, ggplot2, HelpersMG (>= 6.6),R (>= 4.1)
 Suggests: entropy, shiny, coda, polynom, car, gam, pbapply, cranlogs, parallel, mapdata
 License: GPL-2
-MD5sum: f031c16b31c9a40957c666957799c528
+MD5sum: 99a85cc83f8dddadc8380814187a9fa8
 NeedsCompilation: no
 Imports: Rdpack
-DownloadURL: https://github.com/cran/embryogrowth/archive/refs/tags/2025.12.22.tar.gz
+DownloadURL: https://github.com/cran/embryogrowth/archive/refs/tags/2026.8.24.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.413193029045602
@@ -152359,13 +152544,14 @@ has_vignettes: 0
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.0228206298493838
+size_codebase: 0.0224148236700538
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0384368829969999
+downloads_1yr: 0.0478789917673269
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.268941421369995
+Published: 2026-08-24 15:50:02 UTC
 
 Package: emburden
 Version: 0.6.2
@@ -167203,13 +167389,13 @@ has_examples: 1
 dependencies: 0.00247262315663466
 
 Package: f1pits
-Version: 1.3.1
+Version: 1.3.2
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown
 License: MIT + file LICENSE
-MD5sum: 27c18a52baba21ed0f8d1f7121034c23
+MD5sum: ade2ac78f8809dd9f29283b5da74c549
 NeedsCompilation: no
 Imports: dplyr, ggplot2, readr, tibble, httr, jsonlite, f1dataR
-DownloadURL: https://github.com/cran/f1pits/archive/refs/tags/1.3.1.tar.gz
+DownloadURL: https://github.com/cran/f1pits/archive/refs/tags/1.3.2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.666185565559974
@@ -167217,14 +167403,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.256410256410256
+size_codebase: 0.255972696245734
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0112193642799699
+downloads_1yr: 0.0176238285164155
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.182425523806356
-Published: 2026-05-20 16:40:08 UTC
+Published: 2026-08-24 18:10:02 UTC
 
 Package: FaaSr
 Version: 2.0.0
@@ -169298,29 +169484,30 @@ dependencies: 0.0758581800212434
 Published: 2026-05-14 21:40:29 UTC
 
 Package: Familia
-Version: 1.0.3
+Version: 2.0.0
 Depends: R (>= 4.4.0)
 Suggests: LEA, spelling, testthat
 License: Apache License (>= 2)
-MD5sum: 36192bf9bec437ad622006341e4aac6b
+MD5sum: 5bf907691d32bd29f5ee94cf2fe5b522
 NeedsCompilation: no
-Imports: BIGpopA, bs4Dash, config, curl, data.table, dplyr, DT, ggplot2, golem, httr, openxlsx, RColorBrewer, scales, shiny, shinydisconnect, shinyjs, shinyWidgets, tibble, tidyr, vcfR (>= 1.15.0), withr, zip
-DownloadURL: https://github.com/cran/Familia/archive/refs/tags/1.0.3.tar.gz
+Imports: BIGpopA (>= 2.0.0), bs4Dash, config, curl, data.table, dplyr, DT, ggplot2, golem, httr, openxlsx, RColorBrewer, scales, shiny, shinydisconnect, shinyjs, shinyWidgets, tibble, tidyr, vcfR (>= 1.15.0), withr, zip
+DownloadURL: https://github.com/cran/Familia/archive/refs/tags/2.0.0.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.731058578630005
 has_vignettes: 0
 export_help: 1
-has_website: 0
+has_website: 1
 has_maintainer: 1
-size_codebase: 0.0350467289719626
-has_source_control: 0
-has_bug_reports_url: 0
-downloads_1yr: 0
+size_codebase: 0.0346901017576318
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.00169047080277396
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.000123394575986313
-Published: 2026-07-29 18:30:17 UTC
+Published: 2026-08-24 15:50:11 UTC
+bugs_status: 1
 
 Package: familial
 Version: 1.0.7
@@ -185636,14 +185823,14 @@ has_examples: 1
 dependencies: 0.5
 
 Package: forestecology
-Version: 0.2.2
+Version: 0.2.3
 Depends: R (>= 3.5)
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown, covr, patchwork, blockCV (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: ef1267957aba2b116bb2f1d52e5fc42f
+MD5sum: b92d9110a8308642d78ce01c72093cf3
 NeedsCompilation: no
 Imports: magrittr, rlang, glue, ggplot2, stringr, dplyr, tidyr, purrr, ggridges, mvnfast, sf, sfheaders, snakecase, tibble, yardstick, forcats
-DownloadURL: https://github.com/cran/forestecology/archive/refs/tags/0.2.2.tar.gz
+DownloadURL: https://github.com/cran/forestecology/archive/refs/tags/0.2.3.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.586280996051124
@@ -185654,12 +185841,12 @@ has_maintainer: 1
 size_codebase: 0.188679245283019
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0217433837244185
+downloads_1yr: 0.0222152690863578
 reverse_dependencies: 0.246376140522644
 has_examples: 0.96
 dependencies: 0.00247262315663466
-Published: 2026-08-19 17:40:02 UTC
-bugs_status: 0.866666666666667
+Published: 2026-08-24 07:40:19 UTC
+bugs_status: 0.833333333333333
 
 Package: forested
 Version: 0.2.0
@@ -205878,26 +206065,28 @@ has_examples: 1
 dependencies: 0.0758581800212434
 
 Package: GFisher
-Version: 0.2.0
+Version: 0.2.1
 License: GPL-2
-MD5sum: 893f2e4ca354dc6f5b5d4942e199ac0f
+MD5sum: d5246643ee720141a01c478cb3aa4dcf
 NeedsCompilation: no
 Imports: stats, methods, Matrix, mvtnorm
-DownloadURL: https://github.com/cran/GFisher/archive/refs/tags/0.2.0.tar.gz
-has_news: 0
-news_current: 0
+DownloadURL: https://github.com/cran/GFisher/archive/refs/tags/0.2.1.tar.gz
+has_news: 1
+news_current: 1
 exported_namespace: 0.693596453153698
 has_vignettes: 0
 export_help: 1
-has_website: 0
+has_website: 1
 has_maintainer: 1
 size_codebase: 0.398936170212766
-has_source_control: 0
-has_bug_reports_url: 0
-downloads_1yr: 0.0152957395128996
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0164063422119054
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.5
+Published: 2026-08-24 18:30:20 UTC
+bugs_status: NaN
 
 Package: gfiUltra
 Version: 1.0.0
@@ -206773,29 +206962,29 @@ has_examples: 1
 dependencies: 0.5
 
 Package: ggchangepoint
-Version: 0.3.0
-Suggests: rmarkdown, knitr, testthat (>= 3.0.0), wbs, breakfast, not, mosum, fpop, IDetect, future, future.apply
+Version: 0.4.0
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0), wbs, breakfast, not, mosum, fpop, IDetect, stepR, cpop, bcp, ocp, Rbeast, cpm, kcpRS, CptNonPar, DeCAFS, SNSeg, InspectChangepoint, ocd, changepoint.geo, strucchange, segmented, EnvCpt, fastcpd, plotly, future, future.apply
 License: GPL (>= 3)
-MD5sum: 95fd7a4855c425dac7cda8c87b027f55
+MD5sum: 793fe59e5be7645c7a500ba40d863e33
 NeedsCompilation: no
-Imports: changepoint, changepoint.np, dplyr, ecp, generics, ggplot2 (>= 3.4.0), lifecycle, Rdpack, tibble, utils
-DownloadURL: https://github.com/cran/ggchangepoint/archive/refs/tags/0.3.0.tar.gz
+Imports: changepoint, changepoint.np, dplyr, ecp, generics, ggplot2 (>= 3.4.0), lifecycle, Rdpack, stats, tibble, utils
+DownloadURL: https://github.com/cran/ggchangepoint/archive/refs/tags/0.4.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.422809779525781
+exported_namespace: 0.324248877854622
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0956022944550669
+size_codebase: 0.0466853408029879
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.0202290051405318
+downloads_1yr: 0.0213285139199708
 reverse_dependencies: 0.246376140522644
-has_examples: 0.975609756097561
-dependencies: 0.0474258731775666
-Published: 2026-06-26 15:30:08 UTC
-bugs_status: 1
+has_examples: 0.984615384615385
+dependencies: 0.0293122307513564
+Published: 2026-08-24 18:50:16 UTC
+bugs_status: 0.923076923076923
 
 Package: ggcharts
 Version: 0.2.1
@@ -206872,28 +207061,30 @@ Published: 2026-07-14 20:40:02 UTC
 bugs_status: NaN
 
 Package: ggchord
-Version: 0.2.0
-Depends: R (>= 3.6.0)
-Suggests: knitr, rmarkdown, qpdf, dplyr, testthat (>= 3.0.0)
+Version: 0.8.0
+Depends: R (>= 4.1.0)
+Suggests: knitr, rmarkdown, qpdf, dplyr, plotly, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: f01c67acfd38f7a3be5ef7be1c14c287
+MD5sum: 885d8103fc20e8b951bc9c9ebf04f80c
 NeedsCompilation: no
-Imports: ggplot2 (>= 3.3.0), ggnewscale (>= 0.5.0), RColorBrewer, grDevices, grid
-DownloadURL: https://github.com/cran/ggchord/archive/refs/tags/0.2.0.tar.gz
-has_news: 0
-news_current: 0
-exported_namespace: 0.731058578630005
+Imports: ggplot2 (>= 4.0.0), grDevices, grid
+DownloadURL: https://github.com/cran/ggchord/archive/refs/tags/0.8.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.526065368621414
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.114942528735632
+size_codebase: 0.0228798047589994
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.00574019328410635
+downloads_1yr: 0.0133007064766941
 reverse_dependencies: 0.246376140522644
 has_examples: 1
-dependencies: 0.377540668798145
+dependencies: 0.622459331201855
+Published: 2026-08-24 08:20:19 UTC
+bugs_status: 1
 
 Package: ggchord2
 Version: 0.0.1
@@ -208063,14 +208254,14 @@ dependencies: 0.0474258731775666
 bugs_status: 0.866666666666667
 
 Package: ggfortify
-Version: 0.4.19
+Version: 0.4.22
 Depends: methods, ggplot2 (>= 2.0.0)
 Suggests: testthat, cluster, changepoint, fGarch, forecast, ggrepel, glmnet, grDevices, KFAS, knitr, lintr, mapdata, markdown, MASS, MSwM, nlme, raster, ROCR, sp, stats, strucchange, survival, timeSeries, tseries, utils, vars, xts, zoo, lfda
 License: MIT + file LICENSE
-MD5sum: 984fc37955a720bba5ffd22a07a9fece
+MD5sum: 5335f7f25f99943518640792dab87d8d
 NeedsCompilation: no
 Imports: dplyr (>= 0.3), tidyr, gridExtra, grid, scales, stringr, tibble
-DownloadURL: https://github.com/cran/ggfortify/archive/refs/tags/0.4.19.tar.gz
+DownloadURL: https://github.com/cran/ggfortify/archive/refs/tags/0.4.22.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.63248519712831
@@ -208078,13 +208269,15 @@ has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0527426160337553
+size_codebase: 0.0524475524475524
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.728881201164726
-reverse_dependencies: 0.852487714556052
+downloads_1yr: 0.72142777550793
+reverse_dependencies: 0.862949405536777
 has_examples: 1
 dependencies: 0.0758581800212434
+Published: 2026-08-24 08:30:20 UTC
+bugs_status: 0.866666666666667
 
 Package: ggfoundry
 Version: 0.3.1
@@ -212202,30 +212395,30 @@ has_examples: 1
 dependencies: 0.731058578630005
 
 Package: ggtaichi
-Version: 0.1.0
+Version: 0.2.0
 Depends: R (>= 3.5.0)
-Suggests: rmarkdown, knitr, dplyr, scales, tidyr
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0), vdiffr, gganimate
 License: GPL (>= 3)
-MD5sum: 335508fa968c920d486132ec74e5f5e4
+MD5sum: 02487ef304f3d1491a809bc4391d3347
 NeedsCompilation: no
-Imports: rlang, grid, ggplot2 (>= 3.0.0), ggnewscale (>= 0.4.5)
-DownloadURL: https://github.com/cran/ggtaichi/archive/refs/tags/0.1.0.tar.gz
+Imports: rlang, grid, grDevices, ggplot2 (>= 3.4.0), ggnewscale (>= 0.4.5)
+DownloadURL: https://github.com/cran/ggtaichi/archive/refs/tags/0.2.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.693596453153698
+exported_namespace: 0.643035173277501
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.490196078431373
+size_codebase: 0.199468085106383
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00352751260537687
 reverse_dependencies: 0.246376140522644
-has_examples: 1
-dependencies: 0.5
-Published: 2026-06-24 08:00:22 UTC
-bugs_status: NaN
+has_examples: 0.888888888888889
+dependencies: 0.377540668798145
+Published: 2026-08-24 17:40:02 UTC
+bugs_status: 0.833333333333333
 
 Package: ggtangle
 Version: 0.1.2
@@ -213714,14 +213907,14 @@ dependencies: 0.880797077977882
 bugs_status: 0.9
 
 Package: GIFT
-Version: 1.3.3
+Version: 1.3.4
 Depends: R (>= 3.5.3)
 Suggests: covr, ggplot2, kableExtra, knitr, patchwork, testthat (>= 3.0.0), RColorBrewer, rmarkdown, rnaturalearth, rnaturalearthdata, scales
 License: GPL (>= 2)
-MD5sum: ca9551a24eba95c2bd36bd4f5e09c30a
+MD5sum: 41038ff2ca2120abee42d0320527abbd
 NeedsCompilation: no
 Imports: ape, curl, dplyr, httr2, jsonlite, phytools, purrr, sf, stats, tidyr, utils
-DownloadURL: https://github.com/cran/GIFT/archive/refs/tags/1.3.3.tar.gz
+DownloadURL: https://github.com/cran/GIFT/archive/refs/tags/1.3.4.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.493811596420431
@@ -213729,13 +213922,15 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0627877773126831
+size_codebase: 0.0625782227784731
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0271427181632454
-reverse_dependencies: 0.246376140522644
+downloads_1yr: 0.029126213592233
+reverse_dependencies: 0.350228721939924
 has_examples: 1
 dependencies: 0.0293122307513564
+Published: 2026-08-24 11:20:15 UTC
+bugs_status: 0.9
 
 Package: gifti
 Version: 0.9.0
@@ -215177,30 +215372,31 @@ Published: 2026-08-23 06:50:02 UTC
 bugs_status: 1
 
 Package: gkwreg
-Version: 2.1.14
+Version: 2.1.18
 Depends: R (>= 3.5)
 Suggests: betareg, knitr, rmarkdown, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: 7806d81dc97204c937153dc8af21b26f
+MD5sum: f44e676aae5a618cc4579af3408b235e
 NeedsCompilation: yes
-Imports: Formula, stats, graphics, TMB, Rcpp, magrittr, ggplot2, ggpubr, gridExtra, numDeriv, gkwdist
-LinkingTo: TMB, Rcpp, RcppArmadillo, RcppEigen
-DownloadURL: https://github.com/cran/gkwreg/archive/refs/tags/2.1.14.tar.gz
+Imports: Formula, ggplot2, ggpubr, gkwdist, graphics, grDevices, gridExtra, magrittr, numDeriv, Rcpp, stats, TMB, utils
+LinkingTo: Rcpp, RcppArmadillo, RcppEigen, TMB
+DownloadURL: https://github.com/cran/gkwreg/archive/refs/tags/2.1.18.tar.gz
 has_news: 1
-news_current: 0
-exported_namespace: 0.654216971559148
+news_current: 1
+exported_namespace: 0.666185565559974
 has_vignettes: 1
-export_help: 0.833333333333333
+export_help: 0.8
 has_website: 1
 has_maintainer: 1
 size_codebase: 0.0350631136044881
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0114604683041275
+downloads_1yr: 0.0290005178663905
 reverse_dependencies: 0.246376140522644
 has_examples: 1
-dependencies: 0.00407013771589604
-bugs_status: 0.9
+dependencies: 0.00150118225673701
+Published: 2026-08-24 07:40:10 UTC
+bugs_status: 0.954545454545455
 
 Package: glam
 Version: 1.0.2
@@ -219954,15 +220150,15 @@ has_examples: 0.68
 dependencies: 0.377540668798145
 
 Package: golden
-Version: 0.0.1
+Version: 0.0.4
 Depends: R (>= 3.5)
 Suggests: testthat (>= 3.0.0), SciViews, knitr, rmarkdown, ggplot2
 License: MIT + file LICENSE
-MD5sum: 521c3102cf41fafb8167ead588b15456
+MD5sum: 803f38947c8bca3e897a1a13562f0081
 NeedsCompilation: yes
 Imports: Rcpp (>= 1.1.0), data.table
 LinkingTo: Rcpp
-DownloadURL: https://github.com/cran/golden/archive/refs/tags/0.0.1.tar.gz
+DownloadURL: https://github.com/cran/golden/archive/refs/tags/0.0.4.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.777299861174691
@@ -219970,13 +220166,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.234375
+size_codebase: 0.225225225225225
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0
+downloads_1yr: 0.00345469040659052
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.622459331201855
+Published: 2026-08-24 13:00:02 UTC
 
 Package: GoldenVizR
 Version: 0.1.0
@@ -224766,14 +224963,14 @@ Published: 2026-07-17 13:40:02 UTC
 bugs_status: 0.909090909090909
 
 Package: greenbook
-Version: 0.1.0
+Version: 0.1.1
 Depends: R (>= 4.1.0)
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown, inflateR, openxlsx, officer, flextable
 License: MIT + file LICENSE
-MD5sum: 2c28bdb8cb74c18e38cab721913928b3
+MD5sum: 751daacb0c73ab4c510b792e01c39a04
 NeedsCompilation: no
 Imports: cli (>= 3.6.0), stats, utils
-DownloadURL: https://github.com/cran/greenbook/archive/refs/tags/0.1.0.tar.gz
+DownloadURL: https://github.com/cran/greenbook/archive/refs/tags/0.1.1.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.44825147377711
@@ -224781,14 +224978,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.118203309692671
+size_codebase: 0.117279124315872
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00811363050248959
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.622459331201855
-Published: 2026-04-28 19:40:18 UTC
+Published: 2026-08-24 07:30:28 UTC
 bugs_status: NaN
 
 Package: greenclust
@@ -225682,15 +225879,15 @@ Published: 2026-06-03 14:30:02 UTC
 bugs_status: 0.875
 
 Package: gridmicrotex
-Version: 0.1.0
+Version: 0.1.1
 Depends: R (>= 4.2.0)
 Suggests: ggplot2 (>= 4.0.0), grImport2, jpeg, knitr, png, ragg, rmarkdown, rsvg, S7, svglite, testthat (>= 3.0.0), textshaping, vdiffr
 License: MIT + file LICENSE
-MD5sum: ae652764c8f46585d0e4db7e83a2443f
+MD5sum: 14b7891f5f39858bb610465e05c902e5
 NeedsCompilation: yes
 Imports: commonmark, grDevices, grid, Rcpp, systemfonts, tools, utils, xml2
 LinkingTo: Rcpp, systemfonts
-DownloadURL: https://github.com/cran/gridmicrotex/archive/refs/tags/0.1.0.tar.gz
+DownloadURL: https://github.com/cran/gridmicrotex/archive/refs/tags/0.1.1.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.459038615443055
@@ -225698,14 +225895,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0303951367781155
+size_codebase: 0.0303030303030303
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.00989445474887629
+downloads_1yr: 0.010221116602551
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.0474258731775666
-Published: 2026-08-21 14:10:17 UTC
+Published: 2026-08-24 07:30:20 UTC
 bugs_status: 1
 
 Package: GridOnClusters
@@ -227290,13 +227487,13 @@ has_examples: 1
 dependencies: 0.5
 
 Package: grt
-Version: 0.2.1
+Version: 0.2.2
 Depends: R (>= 3.2.0), grDevices, graphics, stats, utils, MASS
 Suggests: rgl, misc3d
 License: GPL (>= 2)
-MD5sum: 1a674584570225f285b8eb18088c061a
+MD5sum: 667d7de7b94b14acdf2ebd5713b3a1a8
 NeedsCompilation: no
-DownloadURL: https://github.com/cran/grt/archive/refs/tags/0.2.1.tar.gz
+DownloadURL: https://github.com/cran/grt/archive/refs/tags/0.2.2.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.777299861174691
@@ -227307,10 +227504,11 @@ has_maintainer: 1
 size_codebase: 0.107066381156317
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0171796988638597
+downloads_1yr: 0.0166320302615103
 reverse_dependencies: 0.246376140522644
-has_examples: 1
+has_examples: 0.918918918918919
 dependencies: 0.377540668798145
+Published: 2026-08-24 09:20:02 UTC
 
 Package: GRTo
 Version: 1.3
@@ -230812,6 +231010,31 @@ reverse_dependencies: 0.398689815024215
 has_examples: 1
 dependencies: 0.000552778636923601
 
+Package: gwrf
+Version: 0.1.1
+Suggests: testthat (>= 3.0.0)
+License: MIT + file LICENSE
+MD5sum: a153d5fc24873afda7cfc8f55971f8b3
+NeedsCompilation: no
+Imports: ranger, tibble, dplyr, pbapply, stats
+DownloadURL: https://github.com/cran/gwrf/archive/refs/tags/0.1.1.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.666185565559974
+has_vignettes: 0
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.283018867924528
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.377540668798145
+Published: 2026-08-24 14:50:08 UTC
+bugs_status: NaN
+
 Package: GWRLASSO
 Version: 0.1.0
 Depends: R(>= 2.10)
@@ -232582,30 +232805,29 @@ dependencies: 0.119202922022118
 Published: 2026-07-02 16:10:02 UTC
 
 Package: harness
-Version: 0.1.0
+Version: 0.2.0
 Depends: R (>= 4.2)
 Suggests: rstudioapi, testthat (>= 3.0.0), withr
 License: MIT + file LICENSE
-MD5sum: 134f9e7f9af5ec43f2e4cb7b3aa44d0d
+MD5sum: f7cb9bacec361afe7196bd1142565be1
 NeedsCompilation: no
 Imports: jsonlite, yaml
-DownloadURL: https://github.com/cran/harness/archive/refs/tags/0.1.0.tar.gz
+DownloadURL: https://github.com/cran/harness/archive/refs/tags/0.2.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.586280996051124
+exported_namespace: 0.578004170633666
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.136116152450091
+size_codebase: 0.118670886075949
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00324940693339715
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.731058578630005
-Published: 2026-06-09 15:40:13 UTC
-bugs_status: 0.666666666666667
+Published: 2026-08-24 16:30:09 UTC
 
 Package: HARplus
 Version: 1.2.0
@@ -232989,14 +233211,14 @@ dependencies: 0.731058578630005
 Published: 2026-04-29 18:40:13 UTC
 
 Package: HausdorffGoF
-Version: 0.3.0
+Version: 0.3.1
 Depends: R (>= 3.5.0)
 License: GPL (>= 3)
-MD5sum: 2d8e912290568db36fe6a29cfcb5d9cd
+MD5sum: 17b073fe34456991a14d2f7b345a951e
 NeedsCompilation: yes
-Imports: Rcpp (>= 0.12.12), KSgeneral, stats, utils, withr
+Imports: Rcpp (>= 0.12.12), KSgeneral (>= 2.1.0), stats, utils
 LinkingTo: Rcpp, RcppEigen
-DownloadURL: https://github.com/cran/HausdorffGoF/archive/refs/tags/0.3.0.tar.gz
+DownloadURL: https://github.com/cran/HausdorffGoF/archive/refs/tags/0.3.1.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.731058578630005
@@ -233004,14 +233226,14 @@ has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.214592274678112
+size_codebase: 0.216450216450216
 has_source_control: 1
 has_bug_reports_url: 0
-downloads_1yr: 0
+downloads_1yr: 0.00774619470665672
 reverse_dependencies: 0.246376140522644
 has_examples: 1
-dependencies: 0.182425523806356
-Published: 2026-05-15 20:40:14 UTC
+dependencies: 0.268941421369995
+Published: 2026-08-24 09:20:20 UTC
 
 Package: havel
 Version: 0.1.2
@@ -236469,6 +236691,30 @@ dependencies: 0.880797077977882
 Published: 2026-06-17 13:30:13 UTC
 bugs_status: NaN
 
+Package: hellometry
+Version: 1.0.1
+Suggests: knitr, rmarkdown
+License: GPL (>= 3)
+MD5sum: 5fbfee796502ffe23cab7e809026a006
+NeedsCompilation: no
+Imports: dplyr, magrittr, performance, progress, purrr, rlang, stats, tibble, tidyr, tidyselect, utils
+DownloadURL: https://github.com/cran/hellometry/archive/refs/tags/1.0.1.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.586280996051124
+has_vignettes: 1
+export_help: 0.846153846153846
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.245901639344262
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0293122307513564
+Published: 2026-08-24 14:50:02 UTC
+
 Package: hellorust
 Version: 1.2.3
 License: MIT + file LICENSE
@@ -236491,13 +236737,13 @@ dependencies: 0.880797077977882
 bugs_status: 1
 
 Package: HelpersMG
-Version: 2026.3.31
+Version: 2026.8.24
 Depends: R (>= 4.1), MASS, rlang, coda, Matrix, ggplot2
 Suggests: lme4, RNetCDF, ncdf4, maps, fields, shiny, ppcor, pbmcapply, pbapply, parallel, visNetwork, igraph, shinyWidgets, cranlogs
 License: GPL-2
-MD5sum: ba5a67575ff9f580471f917b5e96997c
+MD5sum: 3300c4cf271bff57474bb467de25d606
 NeedsCompilation: no
-DownloadURL: https://github.com/cran/HelpersMG/archive/refs/tags/2026.3.31.tar.gz
+DownloadURL: https://github.com/cran/HelpersMG/archive/refs/tags/2026.8.24.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.240869983580934
@@ -236505,13 +236751,14 @@ has_vignettes: 0
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.0204834084391643
+size_codebase: 0.0203527815468114
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0696578201462498
+downloads_1yr: 0.0536158184961325
 reverse_dependencies: 0.5
 has_examples: 1
 dependencies: 0.377540668798145
+Published: 2026-08-24 13:10:02 UTC
 
 Package: helsinki
 Version: 1.0.6
@@ -242236,13 +242483,13 @@ has_examples: 1
 dependencies: 0.731058578630005
 
 Package: howManyImputations
-Version: 0.2.5
-Suggests: tinytest, roxygen2, jomo, Amelia, mitools
+Version: 0.2.6
+Suggests: roxygen2, jomo, Amelia, mitools, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: eac6d7d94a29f80823ceb83b2a8342b8
+MD5sum: 0025fa938ecf4497622ad6d9659242fd
 NeedsCompilation: no
 Imports: methods, stats, mice
-DownloadURL: https://github.com/cran/howManyImputations/archive/refs/tags/0.2.5.tar.gz
+DownloadURL: https://github.com/cran/howManyImputations/archive/refs/tags/0.2.6.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.710218732760062
@@ -242253,10 +242500,11 @@ has_maintainer: 1
 size_codebase: 0.903614457831325
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.0263470488579051
+downloads_1yr: 0.0253347974970598
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.622459331201855
+Published: 2026-08-24 18:00:10 UTC
 
 Package: howzatR
 Version: 1.0.2
@@ -250236,30 +250484,29 @@ has_examples: 1
 dependencies: 0.268941421369995
 
 Package: idiographic
-Version: 0.3.2
+Version: 0.3.4
 Depends: R (>= 4.1)
 Suggests: testthat (>= 3.0.0), lme4, lavaan, cograph, mlVAR, MplusAutomation, knitr, rmarkdown
 License: GPL-3
-MD5sum: d4529b1d1f1c1955ca01a5aa374374e1
+MD5sum: d1be6623d2bfe20f3311df9f3050463e
 NeedsCompilation: no
 Imports: stats, utils, parallel
-DownloadURL: https://github.com/cran/idiographic/archive/refs/tags/0.3.2.tar.gz
+DownloadURL: https://github.com/cran/idiographic/archive/refs/tags/0.3.4.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.442993960557413
+exported_namespace: 0.427733733305233
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0166611129623459
+size_codebase: 0.0162919517758227
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00145122422079913
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.622459331201855
-Published: 2026-08-03 18:10:19 UTC
-bugs_status: NaN
+Published: 2026-08-24 07:30:10 UTC
 
 Package: idiolect
 Version: 1.2.0
@@ -253275,29 +253522,29 @@ reverse_dependencies: 0.246376140522644
 dependencies: 0.119202922022118
 
 Package: imfweo
-Version: 0.1.0
+Version: 0.2.0
 Depends: R (>= 4.1.0)
-Suggests: curl, testthat, withr, tibble
+Suggests: curl, testthat, withr
 License: MIT + file LICENSE
-MD5sum: 81006480abe1f201665c0bf29de0e07a
+MD5sum: 93ec637adb8eb812068e029db6b12fa3
 NeedsCompilation: no
-Imports: cli, dplyr, httr2, readr, readxl, rlang, tidyr
-DownloadURL: https://github.com/cran/imfweo/archive/refs/tags/0.1.0.tar.gz
+Imports: cli, dplyr, httr2, readr, readxl, rlang, tibble, tidyr
+DownloadURL: https://github.com/cran/imfweo/archive/refs/tags/0.2.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.654216971559148
+exported_namespace: 0.666185565559974
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.213068181818182
+size_codebase: 0.19893899204244
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0152246272625215
+downloads_1yr: 0.0408103234387589
 reverse_dependencies: 0.398689815024215
 has_examples: 1
-dependencies: 0.182425523806356
-bugs_status: 1
+dependencies: 0.119202922022118
+Published: 2026-08-24 16:20:27 UTC
 
 Package: imgpalr
 Version: 0.4.0
@@ -264773,30 +265020,29 @@ has_examples: 1
 dependencies: 0.377540668798145
 
 Package: isoreader2
-Version: 0.6.1
+Version: 0.7.0
 Depends: R (>= 4.5.0)
 Suggests: testthat (>= 3.0.0), vdiffr, arrow, openxlsx, rmarkdown
 License: AGPL (>= 3)
-MD5sum: 9890a9a8ce6baf15e7c020b505468a5c
+MD5sum: 04778d5c2022cbcc7132582e2bf7aec0
 NeedsCompilation: no
-Imports: ggplot2, tools, utils, methods, stats, rlang (>= 1.1.0), cli (>= 3.6.0), processx, readr, tibble, dplyr, tidyr, purrr, withr, RcppSimdJson, scales, fansi, knitr
-DownloadURL: https://github.com/cran/isoreader2/archive/refs/tags/0.6.1.tar.gz
+Imports: ggplot2, tools, utils, methods, stats, rlang (>= 1.1.0), cli (>= 3.6.0), lifecycle, processx, readr, tibble, dplyr, tidyr, tidyselect, purrr, withr, RcppSimdJson, scales, fansi, knitr
+DownloadURL: https://github.com/cran/isoreader2/archive/refs/tags/0.7.0.tar.gz
 has_news: 1
-news_current: 0
-exported_namespace: 0.373374542849293
+news_current: 1
+exported_namespace: 0.365220679901778
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0223048327137546
+size_codebase: 0.0216387766878246
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
-reverse_dependencies: 0.246376140522644
+downloads_1yr: 0.00297777305115388
+reverse_dependencies: 0.350228721939924
 has_examples: 1
-dependencies: 0.000911051194400603
-Published: 2026-07-10 20:40:02 UTC
-bugs_status: 1
+dependencies: 0.000335350130466372
+Published: 2026-08-24 05:20:15 UTC
 
 Package: IsoriX
 Version: 0.9.4
@@ -289508,29 +289754,28 @@ Published: 2026-07-11 05:20:02 UTC
 bugs_status: 0.966666666666667
 
 Package: liteformats
-Version: 0.1.0
+Version: 0.2.0
 Suggests: testit
 License: MIT + file LICENSE
-MD5sum: a16282aca7fd9da60885c2a5da601aca
+MD5sum: d2a4757beda89a19cb9eca633099c022
 NeedsCompilation: no
 Imports: litedown (>= 0.10), xfun (>= 0.60)
-DownloadURL: https://github.com/cran/liteformats/archive/refs/tags/0.1.0.tar.gz
+DownloadURL: https://github.com/cran/liteformats/archive/refs/tags/0.2.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.679178699175393
+exported_namespace: 0.643035173277501
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.162162162162162
+size_codebase: 0.127986348122867
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00103226665778688
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.731058578630005
-Published: 2026-08-05 07:10:08 UTC
-bugs_status: 0.766666666666667
+Published: 2026-08-24 05:20:09 UTC
 
 Package: liteq
 Version: 1.1.0
@@ -290731,15 +290976,15 @@ has_examples: 0.833333333333333
 dependencies: 0.731058578630005
 
 Package: LMERConvenienceFunctions
-Version: 3.0
+Version: 3.2
 Depends: lme4
 License: GPL-2
-MD5sum: 46b507baa946ea7c2b280baad4467428
+MD5sum: 96aaff5bbd71aab0e02f0c4453a61e55
 NeedsCompilation: no
 Imports: Matrix, LCFdata, fields, mgcv, parallel, methods, graphics
-DownloadURL: https://github.com/cran/LMERConvenienceFunctions/archive/refs/tags/3.0.tar.gz
+DownloadURL: https://github.com/cran/LMERConvenienceFunctions/archive/refs/tags/3.2.tar.gz
 has_news: 1
-news_current: 1
+news_current: 0
 exported_namespace: 0.539983261282338
 has_vignettes: 0
 export_help: 1
@@ -290748,10 +290993,11 @@ has_maintainer: 1
 size_codebase: 0.0477554918815664
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0537173138188816
+downloads_1yr: 0.0448293428425879
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.119202922022118
+Published: 2026-08-24 20:10:02 UTC
 
 Package: lmeresampler
 Version: 0.2.4
@@ -293086,15 +293332,15 @@ Published: 2026-06-12 11:20:08 UTC
 bugs_status: NaN
 
 Package: logger
-Version: 0.4.2
+Version: 0.4.3
 Depends: R (>= 4.0.0)
 Suggests: botor, cli, covr, crayon, devtools, glue, jsonlite, knitr, mirai (>= 1.3.0), ntfy, pander, parallel, R.utils, rmarkdown, roxygen2, RPushbullet, rsyslog, shiny, slackr (>= 1.4.1), syslognet, telegram, testthat (>= 3.0.0), withr
 License: MIT + file LICENSE
-MD5sum: 6f6a3cc1ed3caf7c0dc8d8efc305c841
+MD5sum: e5f916d334c6148dab947d042079d04b
 NeedsCompilation: no
 Imports: utils
 Enhances: futile.logger, log4r, logging
-DownloadURL: https://github.com/cran/logger/archive/refs/tags/0.4.2.tar.gz
+DownloadURL: https://github.com/cran/logger/archive/refs/tags/0.4.3.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.277290787306478
@@ -293105,12 +293351,11 @@ has_maintainer: 1
 size_codebase: 0.101971447994562
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.84514802300481
-reverse_dependencies: 0.951415318410205
+downloads_1yr: 0.843617726660467
+reverse_dependencies: 0.960194418602979
 has_examples: 1
 dependencies: 0.817574476193644
-Published: 2026-05-10 05:10:27 UTC
-bugs_status: 0.766666666666667
+Published: 2026-08-24 16:20:18 UTC
 
 Package: logging
 Version: 0.10-111
@@ -296328,28 +296573,28 @@ Published: 2026-05-13 07:30:32 UTC
 bugs_status: 1
 
 Package: LRTesteR
-Version: 1.3.1
+Version: 2.0.0
 Suggests: covr, testthat, lmtest, knitr, rmarkdown, emplik, emplik2, datasets
 License: GPL-3
-MD5sum: f1751efba5bf6fde5649baf61ffb3727
+MD5sum: f0b23491a9054c1feabffff8fa434e86
 NeedsCompilation: no
 Imports: stats, rlang, statmod, stringr, EnvStats
-DownloadURL: https://github.com/cran/LRTesteR/archive/refs/tags/1.3.1.tar.gz
+DownloadURL: https://github.com/cran/LRTesteR/archive/refs/tags/2.0.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.417963554083659
+exported_namespace: 0.408496277612912
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.061652281134402
+size_codebase: 0.0554323725055432
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0420538365743846
+downloads_1yr: 0.0360330833445797
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.377540668798145
-bugs_status: 1
+Published: 2026-08-24 08:10:08 UTC
 
 Package: LS2W
 Version: 1.3.7
@@ -317647,27 +317892,28 @@ has_examples: 1
 dependencies: 0.817574476193644
 
 Package: MFF
-Version: 0.2.0
-Suggests: knitr, rmarkdown, MASS
+Version: 0.2.3
+Suggests: knitr, rmarkdown, MASS, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: b3dec1686f079aefe96667ef00c8b27d
+MD5sum: 6f97e880c23df92df8c3228c7820cc43
 NeedsCompilation: no
 Imports: glmnet, randomForest, xgboost, lightgbm, e1071, ppclust, doParallel, foreach, parallel
-DownloadURL: https://github.com/cran/MFF/archive/refs/tags/0.2.0.tar.gz
-has_news: 0
-news_current: 0
+DownloadURL: https://github.com/cran/MFF/archive/refs/tags/0.2.3.tar.gz
+has_news: 1
+news_current: 1
 exported_namespace: 0.666185565559974
-has_vignettes: 0
+has_vignettes: 1
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.308008213552361
+size_codebase: 0.218023255813953
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.00366650725330786
+downloads_1yr: 0.0151276394579262
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.0758581800212434
+Published: 2026-08-24 08:50:29 UTC
 
 Package: mfGARCH
 Version: 0.2.2
@@ -323245,29 +323491,30 @@ has_examples: 1
 dependencies: 0.880797077977882
 
 Package: misha
-Version: 5.6.6
+Version: 5.11.23
 Depends: R (>= 3.0.0)
 Suggests: data.table, dplyr, glue, knitr, readr, rmarkdown, spelling, stats, stringr, testthat (>= 3.0.0), tibble, withr
 License: MIT + file LICENSE
-MD5sum: ca4683736e2878e913db7c2c51a307b9
+MD5sum: 1a464bf8174f18f270820014c1d92731
 NeedsCompilation: yes
 Imports: magrittr, curl, digest, ps, parallel, utils, tools, yaml
 OS_type: unix
-DownloadURL: https://github.com/cran/misha/archive/refs/tags/5.6.6.tar.gz
+DownloadURL: https://github.com/cran/misha/archive/refs/tags/5.11.23.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.132103011597126
+exported_namespace: 0.109605990610449
 has_vignettes: 1
-export_help: 0.993630573248408
+export_help: 0.994413407821229
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0143513203214696
+size_codebase: 0.00915080527086384
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0159804770526647
+downloads_1yr: 0.0189987246983421
 reverse_dependencies: 0.246376140522644
-has_examples: 0.993506493506494
+has_examples: 0.989010989010989
 dependencies: 0.119202922022118
+Published: 2026-08-24 13:30:02 UTC
 
 Package: misl
 Version: 2.0.0
@@ -325639,31 +325886,30 @@ has_examples: 1
 dependencies: 0.0293122307513564
 
 Package: mixtime
-Version: 0.2.0
+Version: 0.3.0
 Depends: R (>= 3.0.2)
-Suggests: stats, tsibble, testthat, pillar, knitr, rmarkdown
+Suggests: stats, tsibble, testthat, pillar, knitr, rmarkdown, ggplot2, ggtime
 License: MIT + file LICENSE
-MD5sum: 7c6f76e4b8ce25a357cab942c6a7032d
+MD5sum: 4bb553cc6134ee15feaf0ed0c5a717fc
 NeedsCompilation: yes
 Imports: lifecycle, vctrs, rlang, cli, S7, vecvec (>= 1.2.0), tzdb, methods
 LinkingTo: cpp11 (>= 0.5.2), tzdb (>= 0.5.0)
-DownloadURL: https://github.com/cran/mixtime/archive/refs/tags/0.2.0.tar.gz
+DownloadURL: https://github.com/cran/mixtime/archive/refs/tags/0.3.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.283036418096046
+exported_namespace: 0.222700138825309
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0522648083623693
+size_codebase: 0.0288794763188294
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.00562814470099249
+downloads_1yr: 0.0105279822686615
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.0474258731775666
-Published: 2026-06-28 12:00:02 UTC
-bugs_status: 0.5
+Published: 2026-08-24 05:30:02 UTC
 
 Package: mixtools
 Version: 2.0.0.1
@@ -325926,30 +326172,30 @@ dependencies: 0.817574476193644
 bugs_status: 1
 
 Package: mizer
-Version: 3.2.1
+Version: 3.3.0
 Depends: R (>= 3.5)
 Suggests: testthat (>= 3.0.0), withr, vdiffr, diffviewer, roxygen2, knitr, rmarkdown, quarto, pkgdown, covr, spelling
 License: GPL-3
-MD5sum: c2249d12e4504b214b7965057bdf9680
+MD5sum: 7b422a8352281453cccb682470072d17
 NeedsCompilation: yes
-Imports: assertthat, deSolve, dplyr, ggplot2 (>= 3.4.0), ggrepel, grid, lubridate, methods, plotly, plyr, progress, Rcpp, reshape2, rlang, lifecycle, pak
+Imports: assertthat, deSolve, dplyr, ggplot2 (>= 3.4.0), ggrepel, grid, lubridate, methods, nleqslv, plotly, plyr, progress, Rcpp, reshape2, rlang, lifecycle, pak
 LinkingTo: Rcpp
-DownloadURL: https://github.com/cran/mizer/archive/refs/tags/3.2.1.tar.gz
+DownloadURL: https://github.com/cran/mizer/archive/refs/tags/3.3.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.035627790998833
+exported_namespace: 0.0304613722250865
 has_vignettes: 1
-export_help: 0.918429003021148
+export_help: 0.92112676056338
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.01041305102395
+size_codebase: 0.00835189309576837
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0666591999402661
+downloads_1yr: 0.0669785031847133
 reverse_dependencies: 0.246376140522644
-has_examples: 0.983818770226537
-dependencies: 0.00150118225673701
-Published: 2026-08-04 15:20:02 UTC
+has_examples: 0.987373737373737
+dependencies: 0.000911051194400603
+Published: 2026-08-24 08:50:02 UTC
 
 Package: MJMbamlss
 Version: 0.1.0
@@ -328025,29 +328271,29 @@ Published: 2026-04-23 16:40:02 UTC
 bugs_status: 0.866666666666667
 
 Package: mlr3forecast
-Version: 0.1.0
+Version: 0.2.0
 Depends: mlr3 (>= 1.7.0), R (>= 3.6.0)
-Suggests: distributional, fabletools, feasts, forecast (>= 9.0.2), ggplot2 (>= 3.4.0), greybox, mlr3tuning, nnfor (>= 0.9.9), prophet (>= 1.1.7), Rcatch22, Rlgt (>= 0.2.3), rpart, smooth (>= 4.4.0), testthat (>= 3.2.0), tidyselect, timeSeries, tsbox, tscount (>= 1.4.3), tsfeatures, tsibble, tsibbledata, vctrs, vdiffr (>= 1.0.0), withr (>= 3.0.0), xts, zoo
+Suggests: distributional, fabletools, feasts, forecast (>= 9.0.2), ggplot2 (>= 3.4.0), greybox, mlr3tuning, nnet, nnfor (>= 0.9.9), prophet (>= 1.1.7), Rcatch22, Rlgt (>= 0.2.3), rpart, smooth (>= 4.4.0), testthat (>= 3.2.0), tidyselect, timeSeries, tsbox, tscount (>= 1.4.3), tsfeatures, tsibble, tsibbledata, vctrs, vdiffr (>= 1.0.0), withr (>= 3.0.0), xts, zoo
 License: LGPL-3
-MD5sum: 27c59a005d51e94c900dc9d3c33b3927
+MD5sum: a025aa3ba00e7e0c3baa041f1d4dc50b
 NeedsCompilation: no
 Imports: backports (>= 1.5.0), checkmate (>= 2.0.0), cli, data.table (>= 1.18.0), generics (>= 0.1.2), lgr, mlr3misc (>= 0.22.0), mlr3pipelines (>= 0.11.0), paradox (>= 1.0.1), R6 (>= 2.4.1), stats, utils
-DownloadURL: https://github.com/cran/mlr3forecast/archive/refs/tags/0.1.0.tar.gz
+DownloadURL: https://github.com/cran/mlr3forecast/archive/refs/tags/0.2.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.285964805117178
+exported_namespace: 0.280145278239905
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0253635441325668
+size_codebase: 0.0239005736137667
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00269272962999911
 reverse_dependencies: 0.246376140522644
-has_examples: 0.764705882352941
+has_examples: 0.772727272727273
 dependencies: 0.0109869426305932
-Published: 2026-07-22 07:10:15 UTC
+Published: 2026-08-24 10:10:08 UTC
 
 Package: mlr3fselect
 Version: 1.7.0
@@ -337006,28 +337252,29 @@ has_examples: 1
 dependencies: 0.817574476193644
 
 Package: mrangr
-Version: 1.0.1
+Version: 1.0.2
 Depends: R (>= 3.5.0)
 Suggests: bookdown, knitr, rmarkdown, testthat (>= 3.0.0), tools
 License: MIT + file LICENSE
-MD5sum: 9261f4b750a4e08fd992ece9e48939fc
+MD5sum: db6b90897ae17f7664b41a0108f604e9
 NeedsCompilation: no
 Imports: assertthat, FieldSimR, graphics, grDevices, gstat, methods, mgcv, parallel, rangr, RColorBrewer, stats, terra, utils
-DownloadURL: https://github.com/cran/mrangr/archive/refs/tags/1.0.1.tar.gz
+DownloadURL: https://github.com/cran/mrangr/archive/refs/tags/1.0.2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.594831368414695
 has_vignettes: 1
 export_help: 1
-has_website: 0
+has_website: 1
 has_maintainer: 1
-size_codebase: 0.142585551330798
-has_source_control: 0
-has_bug_reports_url: 0
-downloads_1yr: 0.00216198237152831
+size_codebase: 0.136239782016349
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0104953460297775
 reverse_dependencies: 0.246376140522644
 has_examples: 0.884615384615385
 dependencies: 0.0109869426305932
+Published: 2026-08-24 18:40:34 UTC
 
 Package: mrap
 Version: 1.0.1
@@ -348113,15 +348360,15 @@ dependencies: 0.182425523806356
 bugs_status: 1
 
 Package: myTAI
-Version: 2.3.6
+Version: 2.3.7
 Depends: R (>= 4.1)
 Suggests: knitr (>= 1.6), rmarkdown (>= 0.3.3), testthat (>= 0.9.1), mgcv, Seurat, SeuratObject, uwot, decor, DESeq2, gganimate, taxize
 License: GPL-2
-MD5sum: cde03a9efd22df126000f1c48b77862b
+MD5sum: b1b862b81a268c2b74f1e1e5653ea5ed
 NeedsCompilation: yes
-Imports: S7, patchwork, purrr, tidyr, Rcpp, memoise, fitdistrplus (>= 1.1-5), dplyr (>= 0.3.0), RColorBrewer (>= 1.1-2), ggplot2 (>= 1.0.1), ggforce, ggridges, ggtext, readr (>= 0.2.2), tibble, ggplotify, ggrepel, Matrix, pheatmap
+Imports: S7, patchwork, purrr, tidyr, Rcpp, memoise, fitdistrplus (>= 1.1-5), dplyr (>= 0.3.0), RColorBrewer (>= 1.1-2), ggplot2 (>= 1.0.1), ggforce, ggridges, readr (>= 0.2.2), tibble, ggplotify, ggrepel, Matrix, pheatmap
 LinkingTo: RcppArmadillo, RcppThread, Rcpp
-DownloadURL: https://github.com/cran/myTAI/archive/refs/tags/2.3.6.tar.gz
+DownloadURL: https://github.com/cran/myTAI/archive/refs/tags/2.3.7.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.25828793714824
@@ -348129,15 +348376,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0375281461095822
+size_codebase: 0.0375375375375375
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.0247644806220702
+downloads_1yr: 0.0320769692394061
 reverse_dependencies: 0.246376140522644
 has_examples: 0.992424242424242
-dependencies: 0.000123394575986313
-Published: 2026-05-28 12:30:02 UTC
-bugs_status: 0.966666666666667
+dependencies: 0.000203426978055199
+Published: 2026-08-24 16:50:02 UTC
 
 Package: mzipmed
 Version: 1.4.0
@@ -365470,14 +365716,14 @@ dependencies: 0.182425523806356
 Published: 2026-07-21 15:00:02 UTC
 
 Package: nysOpenData
-Version: 0.1.1
+Version: 0.1.3
 Depends: R (>= 4.1.0)
 Suggests: curl, covr, knitr, testthat (>= 3.0.0), vcr, withr, webmockr, ggplot2
 License: MIT + file LICENSE
-MD5sum: 40e7b7459c27cbfe56958b9b1904be50
+MD5sum: 67b7281114cc12fcb2eef3e73096960c
 NeedsCompilation: no
 Imports: dplyr, tibble, stringr, jsonlite, httr, janitor, rlang
-DownloadURL: https://github.com/cran/nysOpenData/archive/refs/tags/0.1.1.tar.gz
+DownloadURL: https://github.com/cran/nysOpenData/archive/refs/tags/0.1.3.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.693596453153698
@@ -365485,14 +365731,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.298804780876494
+size_codebase: 0.278293135435993
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.0073981921412406
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.182425523806356
-bugs_status: NaN
+Published: 2026-08-24 08:30:14 UTC
 
 Package: nzffdr
 Version: 2.1.0
@@ -366198,14 +366444,14 @@ has_examples: 1
 dependencies: 0.880797077977882
 
 Package: obr
-Version: 0.6.0
+Version: 0.6.2
 Depends: R (>= 4.1.0)
 Suggests: testthat (>= 3.0.0), knitr, rmarkdown
 License: MIT + file LICENSE
-MD5sum: c1bebd28180bfc465d22aa3f0b1312a8
+MD5sum: 3d588af573c4694c3e21e129abb3c26b
 NeedsCompilation: no
 Imports: cli, httr2, readxl, tools
-DownloadURL: https://github.com/cran/obr/archive/refs/tags/0.6.0.tar.gz
+DownloadURL: https://github.com/cran/obr/archive/refs/tags/0.6.2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.459038615443055
@@ -366213,15 +366459,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0663129973474801
+size_codebase: 0.0662251655629139
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0127162151488824
+downloads_1yr: 0.0138909889358569
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.5
-Published: 2026-08-02 18:30:02 UTC
-bugs_status: NaN
+Published: 2026-08-24 07:40:02 UTC
 
 Package: obrasgovr
 Version: 0.1.0
@@ -367248,29 +367493,29 @@ Published: 2026-08-05 09:20:13 UTC
 bugs_status: NaN
 
 Package: oddsapiR
-Version: 0.0.3
+Version: 1.0.0
 Depends: R (>= 4.0.0)
-Suggests: crayon (>= 1.3.4), curl, DBI, ggplot2, ggrepel, gt, knitr, progressr (>= 0.6.0), qs (>= 0.25.1), Rcpp (>= 1.0.7), RcppParallel (>= 5.1.4), rmarkdown, RSQLite, stats, stringi, stringr (>= 1.5.0), testthat, tibble (>= 3.0), tidyselect (>= 1.2.0), usethis (>= 1.6.0), xml2 (>= 1.3)
+Suggests: crayon (>= 1.3.4), curl, DBI, ggplot2, ggrepel, gt, knitr, progressr (>= 0.6.0), Rcpp (>= 1.0.7), RcppParallel (>= 5.1.4), rmarkdown, RSQLite, stats, stringi, stringr (>= 1.5.0), testthat, tidyselect (>= 1.2.0), usethis (>= 1.6.0), xml2 (>= 1.3)
 License: MIT + file LICENSE
-MD5sum: d5d9db1dcc893e05c33cb0c7953330b8
+MD5sum: 9cc8fcdfd338c9add85a1a1eab39a625
 NeedsCompilation: no
-Imports: cli (>= 3.4.1), data.table (>= 1.14.0), dplyr (>= 1.0.10), glue, httr (>= 0.5), janitor, jsonlite, magrittr, rlang (>= 1.0.4), rvest (>= 1.0.0), tidyr (>= 1.0.0)
-DownloadURL: https://github.com/cran/oddsapiR/archive/refs/tags/0.0.3.tar.gz
+Imports: cli (>= 3.4.1), data.table (>= 1.14.0), dplyr (>= 1.0.10), glue, httr2 (>= 1.0.0), jsonlite, magrittr, rlang (>= 1.0.4), rvest (>= 1.0.0), tibble (>= 3.0), tidyr (>= 1.0.0)
+DownloadURL: https://github.com/cran/oddsapiR/archive/refs/tags/1.0.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.622459331201855
+exported_namespace: 0.569976227910009
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.304259634888438
+size_codebase: 0.185414091470952
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0582267036678931
+downloads_1yr: 0.0557307699571302
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.0293122307513564
-bugs_status: 0.75
+Published: 2026-08-24 09:10:02 UTC
 
 Package: OddsPlotty
 Version: 1.0.2
@@ -369651,28 +369896,29 @@ has_examples: 1
 dependencies: 0.817574476193644
 
 Package: ONAM
-Version: 1.0.1
+Version: 1.1.0
 Depends: keras3, reticulate
 Suggests: akima, RColorBrewer, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: 3e7f9b2cb70baf0e84bfded9fd44fc77
+MD5sum: 6dff41ab541f0d07b09994e4bad89aec
 NeedsCompilation: no
 Imports: dplyr, scales, rlang, ggplot2, pROC
-DownloadURL: https://github.com/cran/ONAM/archive/refs/tags/1.0.1.tar.gz
+DownloadURL: https://github.com/cran/ONAM/archive/refs/tags/1.1.0.tar.gz
 has_news: 0
 news_current: 0
-exported_namespace: 0.666185565559974
+exported_namespace: 0.622459331201855
 has_vignettes: 0
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.0950570342205323
+size_codebase: 0.0762582613116421
 has_source_control: 0
 has_bug_reports_url: 1
-downloads_1yr: 0.0116819197090392
+downloads_1yr: 0.0279307886721534
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.182425523806356
+Published: 2026-08-24 09:20:15 UTC
 
 Package: onbabynames
 Version: 0.0.1
@@ -376076,14 +376322,14 @@ has_examples: 1
 dependencies: 0.5
 
 Package: ORION
-Version: 1.1.1
+Version: 1.1.2
 Depends: R (>= 3.5.0), TunePareto
 Suggests: doParallel, igraph, knitr, randomForest, rmarkdown, testthat (>= 3.1.0)
 License: GPL-2
-MD5sum: 33a5a23079acba0bda613d93cb914f84
+MD5sum: d812c0f5255228c2b363167cdbe169b0
 NeedsCompilation: yes
 Imports: e1071, foreach, plotrix, stringr
-DownloadURL: https://github.com/cran/ORION/archive/refs/tags/1.1.1.tar.gz
+DownloadURL: https://github.com/cran/ORION/archive/refs/tags/1.1.2.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.554587455172015
@@ -376094,10 +376340,11 @@ has_maintainer: 1
 size_codebase: 0.0438981562774363
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0191783329954948
+downloads_1yr: 0.0202034057729614
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.377540668798145
+Published: 2026-08-24 12:30:02 UTC
 
 Package: ORIONZ.G
 Version: 1.0.1
@@ -385117,14 +385364,14 @@ dependencies: 0.0109869426305932
 bugs_status: 1
 
 Package: PathwaySpace
-Version: 1.5.0
+Version: 1.5.1
 Depends: R(>= 4.5), methods, RGraphSpace(>= 1.4.1)
 Suggests: knitr, rmarkdown, testthat, RedeR, patchwork
 License: Artistic-2.0
-MD5sum: bea35b52f45799468bcb0fb5de06863f
+MD5sum: 9ab562156b625a36da2ca22d9175e51e
 NeedsCompilation: no
 Imports: grDevices, rlang, stats, scales, RANN, igraph, ggplot2, grid, ggnewscale, ggrepel, colorspace, lifecycle
-DownloadURL: https://github.com/cran/PathwaySpace/archive/refs/tags/1.5.0.tar.gz
+DownloadURL: https://github.com/cran/PathwaySpace/archive/refs/tags/1.5.1.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.586280996051124
@@ -385132,14 +385379,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0473036896877956
+size_codebase: 0.0472887767969735
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0216923418076517
+downloads_1yr: 0.0219857601126672
 reverse_dependencies: 0.246376140522644
 has_examples: 0.928571428571429
 dependencies: 0.00407013771589604
-Published: 2026-07-30 15:30:17 UTC
+Published: 2026-08-24 13:00:08 UTC
 
 Package: PathwayVote
 Version: 0.1.3
@@ -390233,6 +390480,30 @@ has_examples: 0.909090909090909
 dependencies: 0.268941421369995
 bugs_status: NaN
 
+Package: PenalReg
+Version: 0.1.0
+Depends: R (>= 4.0.0)
+Suggests: glmnet
+License: GPL-3
+MD5sum: 6c46b9f2a2a76120222b54811c397440
+NeedsCompilation: no
+Imports: caret, stats, utils
+DownloadURL: https://github.com/cran/PenalReg/archive/refs/tags/0.1.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.731058578630005
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.412087912087912
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+dependencies: 0.622459331201855
+Published: 2026-08-24 14:40:07 UTC
+
 Package: penaltyLearning
 Version: 2024.9.3
 Depends: R (>= 2.10)
@@ -394292,27 +394563,28 @@ has_examples: 1
 dependencies: 0.817574476193644
 
 Package: phenology
-Version: 2026.2.28
+Version: 2026.8.24
 Depends: numDeriv, parallel, optimx, HelpersMG (>= 6.6), R (>= 4.1)
 Suggests: shiny, fields, progress, car, MultiRNG, nlWaldTest, pbapply, cranlogs
 License: GPL-2
-MD5sum: 9fe66dfcf77dd2b1546da8332938b816
+MD5sum: 0c4132dc810dd04bba72f466001dbc5d
 NeedsCompilation: no
-DownloadURL: https://github.com/cran/phenology/archive/refs/tags/2026.2.28.tar.gz
+DownloadURL: https://github.com/cran/phenology/archive/refs/tags/2026.8.24.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.353417751567674
+exported_namespace: 0.349593001523139
 has_vignettes: 0
 export_help: 1
 has_website: 0
 has_maintainer: 1
-size_codebase: 0.0177851553236898
+size_codebase: 0.0172850887301221
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.030506721820062
+downloads_1yr: 0.0266439982868935
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.5
+Published: 2026-08-24 13:40:02 UTC
 
 Package: phenomap
 Version: 2.0.1
@@ -401223,13 +401495,13 @@ dependencies: 0.182425523806356
 bugs_status: 1
 
 Package: plotmo
-Version: 3.7.0
+Version: 3.7.1
 Depends: R (>= 3.4.0), Formula (>= 1.2-3), plotrix
 Suggests: C50 (>= 0.1.0-24), earth (>= 5.1.2), gbm (>= 2.1.1), glmnet (>= 2.0.5), glmnetUtils (>= 1.0.3), MASS (>= 7.3-51), mlr (>= 2.12.1), neuralnet (>= 1.33), partykit (>= 1.2-2), pre (>= 0.5.0), rpart (>= 4.1-15), rpart.plot (>= 3.0.8)
 License: GPL-3
-MD5sum: e3750064bbe059bf4fa12ef93aee5ca5
+MD5sum: 26f6079e76c4175b8e3a89629107a85c
 NeedsCompilation: no
-DownloadURL: https://github.com/cran/plotmo/archive/refs/tags/3.7.0.tar.gz
+DownloadURL: https://github.com/cran/plotmo/archive/refs/tags/3.7.1.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.481789145013842
@@ -401240,10 +401512,11 @@ has_maintainer: 1
 size_codebase: 0.0153956686852099
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.625382110247548
+downloads_1yr: 0.64512244458587
 reverse_dependencies: 0.350228721939924
 has_examples: 1
 dependencies: 0.731058578630005
+Published: 2026-08-21 11:50:09 UTC
 
 Package: PlotNormTest
 Version: 1.0.1
@@ -401909,14 +402182,14 @@ dependencies: 0.119202922022118
 Published: 2026-06-17 10:40:02 UTC
 
 Package: plssem
-Version: 0.1.3
+Version: 0.1.4
 Depends: R (>= 4.1.0)
 Suggests: knitr, rmarkdown, ggplot2, mice, mvtnorm, pkgload
 License: GPL-3
-MD5sum: 7dbfb5741ddc120ec222841a8ca5808f
+MD5sum: 2c0015812f351b3d57abf96d8bfc0852
 NeedsCompilation: no
-Imports: methods, stats, modsem (>= 1.0.20), lme4, lavaan, stringr, matrixStats, Rfast, collapse, mvnfast, reformulas, future, future.apply, progressr, FNN, MASS
-DownloadURL: https://github.com/cran/plssem/archive/refs/tags/0.1.3.tar.gz
+Imports: methods, stats, modsem (>= 1.0.21), lme4, lavaan, stringr, Rfast, collapse, mvnfast, reformulas, future, future.apply, progressr, FNN, MASS, pbivnorm
+DownloadURL: https://github.com/cran/plssem/archive/refs/tags/0.1.4.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.539983261282338
@@ -401924,14 +402197,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0201721355567509
+size_codebase: 0.0187617260787992
 has_source_control: 1
 has_bug_reports_url: 0
-downloads_1yr: 0.0102994833763302
+downloads_1yr: 0.0133656072405809
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.00247262315663466
-Published: 2026-07-03 22:10:02 UTC
+Published: 2026-08-24 12:50:02 UTC
 
 Package: PLSsemEngine
 Version: 1.3.0
@@ -403763,28 +404036,29 @@ has_examples: 0.666666666666667
 dependencies: 0.731058578630005
 
 Package: PointedSDMs
-Version: 2.1.5
+Version: 2.1.6
 Depends: R (>= 4.1), stats, sf, inlabru (>= 2.12.0), R6 (>= 2.5), methods,
 Suggests: testthat (>= 3.0.0), sn, INLA (>= 21.08.31), rasterVis, ggmap, RColorBrewer, cowplot, knitr, kableExtra, rmarkdown, spocc, covr
 License: GPL (>= 3)
-MD5sum: 6599e4a40cf7cde703d0ce7a7d223372
+MD5sum: 9482ec2d2005a29f596c6e2cbd34f44e
 NeedsCompilation: no
 Imports: terra, ggplot2, fmesher, raster, sp (>= 1.4-5), R.devices, blockCV (>= 3.0.0), FNN, dplyr, lifecycle
-DownloadURL: https://github.com/cran/PointedSDMs/archive/refs/tags/2.1.5.tar.gz
+DownloadURL: https://github.com/cran/PointedSDMs/archive/refs/tags/2.1.6.tar.gz
 has_news: 1
 news_current: 0
-exported_namespace: 0.578004170633666
+exported_namespace: 0.554587455172015
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0251846877098724
+size_codebase: 0.0252058477566795
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0372333938806554
+downloads_1yr: 0.0392990726033715
 reverse_dependencies: 0.350228721939924
 has_examples: 0.568965517241379
 dependencies: 0.00407013771589604
+Published: 2026-08-24 13:20:07 UTC
 
 Package: PointFore
 Version: 0.2.1
@@ -404384,14 +404658,14 @@ reverse_dependencies: 0.246376140522644
 dependencies: 0.817574476193644
 
 Package: polarzonoid
-Version: 0.3-0
+Version: 0.4-0
 Depends: R (>= 4.0.0)
 Suggests: knitr, rmarkdown, av, base64enc, flextable, equatags, rgl, zonohedra, microbenchmark, magick, pdftools
 License: GPL (>= 2)
-MD5sum: 9aa97baef9b2196b75039d09e12de0dc
+MD5sum: db72a6036d290860d5071dd8ec0129ae
 NeedsCompilation: no
 Imports: logger
-DownloadURL: https://github.com/cran/polarzonoid/archive/refs/tags/0.3-0.tar.gz
+DownloadURL: https://github.com/cran/polarzonoid/archive/refs/tags/0.4-0.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.532943707051472
@@ -404402,10 +404676,11 @@ has_maintainer: 1
 size_codebase: 0.0868055555555556
 has_source_control: 1
 has_bug_reports_url: 0
-downloads_1yr: 0.0114865265613571
+downloads_1yr: 0.014176147006053
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.817574476193644
+Published: 2026-08-22 04:30:02 UTC
 
 Package: poLCA
 Version: 1.6.0.2
@@ -408809,6 +409084,31 @@ reverse_dependencies: 0.5
 has_examples: 0.946428571428571
 dependencies: 0.268941421369995
 
+Package: PowerXgammaRF
+Version: 1.0.0
+Depends: R (>= 4.0.0)
+Suggests: testthat (>= 3.0.0)
+License: GPL (>= 3)
+MD5sum: 0150464297194977a843d304d9fe9bed
+NeedsCompilation: no
+Imports: ranger, coda, goftest, stats, graphics
+DownloadURL: https://github.com/cran/PowerXgammaRF/archive/refs/tags/1.0.0.tar.gz
+has_news: 0
+news_current: 0
+exported_namespace: 0.547194050686571
+has_vignettes: 0
+export_help: 1
+has_website: 0
+has_maintainer: 1
+size_codebase: 0.186799501867995
+has_source_control: 0
+has_bug_reports_url: 0
+downloads_1yr: 0.00028658451243968
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.377540668798145
+Published: 2026-08-21 13:20:24 UTC
+
 Package: powRICLPM
 Version: 0.2.1
 Depends: R (>= 4.0.0), stats, utils
@@ -412129,6 +412429,31 @@ reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.731058578630005
 
+Package: pressfreedom.data
+Version: 0.3.0
+Depends: R (>= 4.1.0)
+Suggests: usethis, knitr, rmarkdown, ggplot2, tidyr, forcats, patchwork, scales, sf, rnaturalearth, testthat (>= 3.0.0), covr
+License: MIT + file LICENSE
+MD5sum: 1baa3ffc5cb982f9a5398a5b93ff4796
+NeedsCompilation: no
+Imports: readr, here, rlang, countrycode, dplyr, stringr, cli, fs, glue, purrr, tibble, stringi
+DownloadURL: https://github.com/cran/pressfreedom.data/archive/refs/tags/0.3.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.777299861174691
+has_vignettes: 1
+export_help: NaN
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.112781954887218
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0179862099620915
+Published: 2026-08-24 12:40:02 UTC
+
 Package: PressPurt
 Version: 1.0.2
 Depends: R (>= 3.1.0)
@@ -415276,14 +415601,14 @@ has_examples: 1
 dependencies: 0.377540668798145
 
 Package: projectLSA
-Version: 0.0.9
+Version: 0.1.1
 Depends: R (>= 4.0.0)
-Suggests: pkgdown, testthat (>= 3.0.0)
+Suggests: pdftools, pkgdown, semTools, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: 8c4f6a48490ea9560fefc6e346085f21
+MD5sum: 0afcde469d2c95512f6640ef8b587586
 NeedsCompilation: no
-Imports: colourpicker, data.table, dplyr, DT, flextable, ggiraph, ggplot2, glca, haven, kableExtra, knitr, lavaan, magick, mclust, mirt, officer, plotly, poLCA, psych, purrr, readr, readxl, rlang, rmarkdown, scales, semPlot, semptools, shiny, shinyWidgets, stats, stringr, tibble, tidyr, tidyLPA, tidyverse, viridisLite
-DownloadURL: https://github.com/cran/projectLSA/archive/refs/tags/0.0.9.tar.gz
+Imports: shinyBS, colourpicker, data.table, dplyr, DT, flextable, ggiraph, ggplot2, glca, haven, httr, jsonlite, kableExtra, knitr, lavaan, magick, mclust, mirt, officer, plotly, poLCA, psych, purrr, readr, readxl, rlang, rmarkdown, scales, semPlot, semptools, shiny, shinycssloaders, shinyWidgets, stats, stringr, tibble, tidyr, tidyLPA, viridisLite, writexl
+DownloadURL: https://github.com/cran/projectLSA/archive/refs/tags/0.1.1.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.731058578630005
@@ -415294,12 +415619,11 @@ has_maintainer: 1
 size_codebase: 0.943396226415094
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0108346577158194
+downloads_1yr: 0.0193835191056777
 reverse_dependencies: 0.246376140522644
 has_examples: 1
-dependencies: 1.12535162077876e-07
-Published: 2026-05-09 11:30:02 UTC
-bugs_status: NaN
+dependencies: 1.52299794997646e-08
+Published: 2026-08-22 09:20:08 UTC
 
 Package: ProjectManagement
 Version: 2.1.4
@@ -418791,15 +419115,15 @@ has_examples: 1
 dependencies: 0.880797077977882
 
 Package: psrwe
-Version: 3.2-1
+Version: 3.2-2
 Depends: methods, R (>= 4.0), rstan (>= 2.26.0), Rcpp (>= 1.0.5)
 Suggests: knitr, rmarkdown
 License: GPL (>= 3)
-MD5sum: bbc5725f0df22187205e0854e3c854ba
+MD5sum: 42f775931dee9b8f0798e0e2771d9fc4
 NeedsCompilation: yes
 Imports: parallel (>= 3.2), cowplot (>= 1.0.0), dplyr (>= 0.8.5), ggplot2 (>= 3.3.2), randomForest (>= 4.6-14), survival, rstantools (>= 2.1.1)
 LinkingTo: BH (>= 1.72.0-3), rstan (>= 2.26.0), Rcpp (>= 1.0.5), RcppEigen (>= 0.3.3.7.0), StanHeaders (>= 2.26.0), RcppParallel (>= 5.0.2)
-DownloadURL: https://github.com/cran/psrwe/archive/refs/tags/3.2-1.tar.gz
+DownloadURL: https://github.com/cran/psrwe/archive/refs/tags/3.2-2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.539983261282338
@@ -418807,13 +419131,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0358337314859054
+size_codebase: 0.0357313006193426
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.00907685599904873
+downloads_1yr: 0.0151147063072055
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.00247262315663466
+Published: 2026-08-21 05:41:12 UTC
 
 Package: PSS.Health
 Version: 1.1.5
@@ -419237,14 +419562,14 @@ has_examples: 0.972972972972973
 dependencies: 0.0293122307513564
 
 Package: psychnets
-Version: 0.4.3
+Version: 0.5.2
 Depends: R (>= 3.5.0)
 Suggests: cocor, cograph, glasso, glmnet, igraph, IsingFit, knitr, mgm, mvtnorm, networktools, psych, qgraph, rmarkdown, testthat (>= 3.0.0), tna
 License: GPL-3
-MD5sum: a7f20eb06ceab01ae2d32fb8bed775c5
+MD5sum: e69449f425bddfaf3b7319b7a3800bd9
 NeedsCompilation: no
 Imports: grDevices, graphics, parallel, stats
-DownloadURL: https://github.com/cran/psychnets/archive/refs/tags/0.4.3.tar.gz
+DownloadURL: https://github.com/cran/psychnets/archive/refs/tags/0.5.2.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.427733733305233
@@ -419252,14 +419577,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0366032210834553
+size_codebase: 0.0328803156510303
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00152433950835051
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.5
-Published: 2026-07-30 17:20:02 UTC
+Published: 2026-08-23 20:10:02 UTC
 
 Package: psycho
 Version: 0.6.2
@@ -420166,14 +420491,14 @@ reverse_dependencies: 0.246376140522644
 dependencies: 0.880797077977882
 
 Package: PTXQC
-Version: 1.1.5
+Version: 1.1.6
 Depends: R (>= 3.3.0)
 Suggests: testthat
 License: BSD_3_clause + file LICENSE
-MD5sum: 2e7dfef6a1eec32fc0bbfcce2ccd80b6
+MD5sum: 9234b8927bd3000fba2585d144a31d92
 NeedsCompilation: no
 Imports: data.table, ggplot2 (>= 3.4), ggdendro, grid, gridExtra, grDevices, gtable, htmlTable, knitr (>= 1.10), magrittr, methods, plyr, R6, R6P, RColorBrewer, reshape2, rmarkdown, rmzqc (>= 0.5.0), seqinr, stats, utils, UpSetR, xml2, yaml
-DownloadURL: https://github.com/cran/PTXQC/archive/refs/tags/1.1.5.tar.gz
+DownloadURL: https://github.com/cran/PTXQC/archive/refs/tags/1.1.6.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.280145278239905
@@ -420181,15 +420506,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0263250263250263
+size_codebase: 0.0260642919200695
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0428729126653438
+downloads_1yr: 0.0433856495092568
 reverse_dependencies: 0.350228721939924
 has_examples: 0.965811965811966
 dependencies: 4.53978687023904e-05
-Published: 2026-04-23 05:10:49 UTC
-bugs_status: 0.866666666666667
+Published: 2026-08-21 23:50:07 UTC
 
 Package: ptycho
 Version: 1.1-5
@@ -420433,14 +420757,14 @@ has_examples: 1
 dependencies: 0.377540668798145
 
 Package: PubMatrixR
-Version: 1.0.0
+Version: 1.0.1
 Depends: R (>= 4.1.0)
-Suggests: dplyr, ggplot2, kableExtra, knitr, rmarkdown, testthat (>= 3.0.0)
+Suggests: covr, dplyr, ggplot2, kableExtra, knitr, rmarkdown, testthat (>= 3.0.0), withr
 License: MIT + file LICENSE
-MD5sum: c3c014db5c1e92de7fc0cdec501ba89a
+MD5sum: 94f472177e7b045eb9776d2900434e30
 NeedsCompilation: no
 Imports: pbapply, pheatmap, readODS, xml2
-DownloadURL: https://github.com/cran/PubMatrixR/archive/refs/tags/1.0.0.tar.gz
+DownloadURL: https://github.com/cran/PubMatrixR/archive/refs/tags/1.0.1.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.693596453153698
@@ -420448,13 +420772,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.313807531380753
+size_codebase: 0.274223034734918
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.0030771684733123
+downloads_1yr: 0.00840869427256863
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.5
+Published: 2026-08-21 05:46:09 UTC
 
 Package: pubmed.mineR
 Version: 1.0.21
@@ -420551,12 +420876,12 @@ dependencies: 0.0758581800212434
 bugs_status: NaN
 
 Package: PubMedWordcloud
-Version: 0.3.6
+Version: 0.3.7
 License: GPL (>= 2)
-MD5sum: 5e73eed2f0f925cd54d84ccb61319578
+MD5sum: 1426e80f189da6dfe2ffeed513c9dfd3
 NeedsCompilation: no
 Imports: XML, stringr, RCurl, wordcloud, tm, RColorBrewer
-DownloadURL: https://github.com/cran/PubMedWordcloud/archive/refs/tags/0.3.6.tar.gz
+DownloadURL: https://github.com/cran/PubMedWordcloud/archive/refs/tags/0.3.7.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.643035173277501
@@ -420567,10 +420892,11 @@ has_maintainer: 1
 size_codebase: 0.427350427350427
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0268523864823309
+downloads_1yr: 0.0256766675543835
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.268941421369995
+Published: 2026-08-23 14:50:02 UTC
 
 Package: pubrplot
 Version: 0.0.1
@@ -422826,26 +423152,27 @@ has_examples: 1
 dependencies: 0.119202922022118
 
 Package: Qapprox
-Version: 0.2.0
+Version: 0.2.1
 License: GPL-2
-MD5sum: 670e9fc9da9a8a47128174d491b2ec84
+MD5sum: 416e99d000cdde10339a3178b577d2ea
 NeedsCompilation: no
 Imports: stats
-DownloadURL: https://github.com/cran/Qapprox/archive/refs/tags/0.2.0.tar.gz
-has_news: 0
-news_current: 0
+DownloadURL: https://github.com/cran/Qapprox/archive/refs/tags/0.2.1.tar.gz
+has_news: 1
+news_current: 1
 exported_namespace: 0.710218732760062
 has_vignettes: 0
 export_help: 1
-has_website: 0
+has_website: 1
 has_maintainer: 1
 size_codebase: 0.657894736842105
-has_source_control: 0
-has_bug_reports_url: 0
-downloads_1yr: 0.0199665481915116
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.0189217295755855
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.817574476193644
+Published: 2026-08-24 18:30:15 UTC
 
 Package: qardlr
 Version: 1.0.1
@@ -424766,29 +425093,29 @@ dependencies: 0.880797077977882
 bugs_status: 1
 
 Package: qol
-Version: 1.3.3
+Version: 1.3.4
 Depends: R (>= 4.1.0)
-Suggests: tinytest (>= 1.4.3)
+Suggests: tinytest (>= 1.4.3), yyjsonr (>= 0.1.22), rstudioapi (>= 0.19.0)
 License: MIT + file LICENSE
-MD5sum: 0f14c8143a6bb921fcfba6d3eeea208b
+MD5sum: 7b71f2567fcdaeca60704130e6033acf
 NeedsCompilation: no
-Imports: data.table (>= 1.17.8), collapse (>= 2.1.2), openxlsx2 (>= 1.28), fst (>= 0.9.8)
-DownloadURL: https://github.com/cran/qol/archive/refs/tags/1.3.3.tar.gz
+Imports: data.table (>= 1.17.8), collapse (>= 2.1.2), openxlsx2 (>= 1.29), fst (>= 0.9.8)
+DownloadURL: https://github.com/cran/qol/archive/refs/tags/1.3.4.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.167920328598367
+exported_namespace: 0.160469689144591
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0124719381391868
+size_codebase: 0.0104087155644993
 has_source_control: 1
-has_bug_reports_url: 0
-downloads_1yr: 0.0266629463561505
+has_bug_reports_url: 1
+downloads_1yr: 0.0295031055900622
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.5
-Published: 2026-07-16 08:00:07 UTC
+Published: 2026-08-21 05:41:02 UTC
 
 Package: QoLMiss
 Version: 0.1.0
@@ -425735,15 +426062,15 @@ Published: 2026-06-07 23:50:02 UTC
 bugs_status: 0.782608695652174
 
 Package: qs2
-Version: 0.2.2
-Depends: R (>= 3.5.0)
+Version: 0.3.1
+Depends: R (>= 3.6.0)
 Suggests: knitr, rmarkdown, dplyr, data.table, stringi
 License: GPL-3
-MD5sum: ee82f2633108f37570128a214dcc3650
+MD5sum: f28443f5de1e6c84e121f10afa1c2aa9
 NeedsCompilation: yes
-Imports: Rcpp, RcppParallel, stringfish (>= 0.18.0)
-LinkingTo: Rcpp, RcppParallel
-DownloadURL: https://github.com/cran/qs2/archive/refs/tags/0.2.2.tar.gz
+Imports: Rcpp, RcppParallel (>= 6.1.1), stringfish (>= 0.18.0)
+LinkingTo: Rcpp, RcppParallel (>= 6.1.1)
+DownloadURL: https://github.com/cran/qs2/archive/refs/tags/0.3.1.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.453598734544997
@@ -425751,14 +426078,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.23961661341853
+size_codebase: 0.219298245614035
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.511209593326382
-reverse_dependencies: 0.923262089125122
+downloads_1yr: 0.611282146966446
+reverse_dependencies: 0.920757229725994
 has_examples: 1
 dependencies: 0.377540668798145
-Published: 2026-06-03 07:40:02 UTC
+Published: 2026-08-21 14:00:07 UTC
 
 Package: QSARdata
 Version: 1.3
@@ -425783,29 +426110,29 @@ has_examples: 1
 dependencies: 0.880797077977882
 
 Package: qshap
-Version: 1.0.1
+Version: 2.0.0
 Suggests: shiny
 License: GPL (>= 2)
-MD5sum: b01ff13fbb8f687d19b1536bc307430a
+MD5sum: 64ec48ad6daa15c331f168661bdb1b55
 NeedsCompilation: yes
-Imports: Rcpp (>= 1.0.14), xgboost (>= 3.1.3.1), parallel, lightgbm, viridisLite, ggplot2, jsonlite, methods, progress
+Imports: Rcpp (>= 1.0.14), xgboost (>= 3.1.3.1), parallel, lightgbm, viridisLite, ggplot2, scales, jsonlite, methods, progress
 LinkingTo: Rcpp, RcppEigen
-DownloadURL: https://github.com/cran/qshap/archive/refs/tags/1.0.1.tar.gz
+DownloadURL: https://github.com/cran/qshap/archive/refs/tags/2.0.0.tar.gz
 has_news: 0
 news_current: 0
-exported_namespace: 0.666185565559974
+exported_namespace: 0.643035173277501
 has_vignettes: 0
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.079914757591902
+size_codebase: 0.0524842547235829
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.00597738929901526
+downloads_1yr: 0.0114995551747998
 reverse_dependencies: 0.246376140522644
-has_examples: 0.964285714285714
-dependencies: 0.0293122307513564
-Published: 2026-05-04 07:00:17 UTC
+has_examples: 0.966666666666667
+dependencies: 0.0179862099620915
+Published: 2026-08-23 09:10:02 UTC
 
 Package: qsimulatR
 Version: 1.1.1
@@ -428539,28 +428866,27 @@ dependencies: 0.0109869426305932
 Published: 2026-04-21 20:12:20 UTC
 
 Package: QuickJSR
-Version: 1.10.0
+Version: 1.11.0
 Suggests: knitr, rmarkdown, tinytest
 License: MIT + file LICENSE
-MD5sum: 1e86be1d081a3b6a4a9d7c16acc23e34
+MD5sum: 4eb9c9ec59be0b2bdf113969781f61ac
 NeedsCompilation: yes
-DownloadURL: https://github.com/cran/QuickJSR/archive/refs/tags/1.10.0.tar.gz
+DownloadURL: https://github.com/cran/QuickJSR/archive/refs/tags/1.11.0.tar.gz
 has_news: 1
 news_current: 1
-exported_namespace: 0.666185565559974
+exported_namespace: 0.643035173277501
 has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.635593220338983
+size_codebase: 0.559701492537313
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.955346125576816
-reverse_dependencies: 0.398689815024215
+downloads_1yr: 0.972243522748469
+reverse_dependencies: 0.470525714569983
 has_examples: 1
 dependencies: 0.880797077977882
-Published: 2026-05-17 12:50:12 UTC
-bugs_status: 0.933333333333333
+Published: 2026-08-21 22:01:33 UTC
 
 Package: quickmatch
 Version: 0.2.3
@@ -429183,14 +429509,14 @@ has_examples: 1
 dependencies: 0.622459331201855
 
 Package: qvivid
-Version: 0.1.2
+Version: 0.1.3
 Depends: R (>= 4.2.0)
-Suggests: gifski, ggplot2 (>= 3.4.0), knitr, ragg (>= 1.2.0), rmarkdown, testthat (>= 3.0.0)
+Suggests: gifski, ggplot2 (>= 3.4.0), knitr, rmarkdown, testthat (>= 3.0.0)
 License: MIT + file LICENSE
-MD5sum: 199b53f10f25bff82f579f44a790c5c4
+MD5sum: 6406e9e2e34f0be71f8389fcd0156e2a
 NeedsCompilation: yes
 Imports: grDevices, graphics
-DownloadURL: https://github.com/cran/qvivid/archive/refs/tags/0.1.2.tar.gz
+DownloadURL: https://github.com/cran/qvivid/archive/refs/tags/0.1.3.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.464574185158363
@@ -429198,15 +429524,14 @@ has_vignettes: 1
 export_help: 1
 has_website: 1
 has_maintainer: 1
-size_codebase: 0.0476190476190476
+size_codebase: 0.0480923372875922
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00135150429751729
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.731058578630005
-Published: 2026-08-09 06:50:02 UTC
-bugs_status: 0.5
+Published: 2026-08-23 16:40:02 UTC
 
 Package: qwalkr
 Version: 0.1.0
@@ -433092,13 +433417,13 @@ has_examples: 1
 dependencies: 0.622459331201855
 
 Package: ramps
-Version: 0.6.18
+Version: 0.6.19
 Depends: coda, maps, Matrix, nlme
 License: GPL-2
-MD5sum: 1d1a08191ca3b5366d03de621e34e668
+MD5sum: cd5cf80437ebf748e4fd8f1fd41672e6
 NeedsCompilation: no
 Imports: fields, graphics, grDevices, methods, stats
-DownloadURL: https://github.com/cran/ramps/archive/refs/tags/0.6.18.tar.gz
+DownloadURL: https://github.com/cran/ramps/archive/refs/tags/0.6.19.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.539983261282338
@@ -433109,10 +433434,11 @@ has_maintainer: 1
 size_codebase: 0.0658472344161545
 has_source_control: 0
 has_bug_reports_url: 0
-downloads_1yr: 0.0251004146572904
+downloads_1yr: 0.0254297854646101
 reverse_dependencies: 0.246376140522644
 has_examples: 0.961538461538462
 dependencies: 0.0758581800212434
+Published: 2026-08-21 05:40:49 UTC
 
 Package: RaMS
 Version: 1.4.3
@@ -433813,14 +434139,14 @@ has_examples: 0
 dependencies: 0.622459331201855
 
 Package: randompack
-Version: 0.1.3
+Version: 0.1.10
 Depends: R (>= 4.0.0)
 Suggests: testthat (>= 3.0.0)
 License: BSD_3_clause + file LICENSE
-MD5sum: 011b51ed99f4c5325041b29a48bccaa9
+MD5sum: 017a112a82d67a2e42ef161e3e48c4cf
 NeedsCompilation: yes
 Imports: R6
-DownloadURL: https://github.com/cran/randompack/archive/refs/tags/0.1.3.tar.gz
+DownloadURL: https://github.com/cran/randompack/archive/refs/tags/0.1.10.tar.gz
 has_news: 0
 news_current: 0
 exported_namespace: 0.710218732760062
@@ -433831,11 +434157,11 @@ has_maintainer: 1
 size_codebase: 0.350467289719626
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0
+downloads_1yr: 0.00952833739426706
 reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.817574476193644
-Published: 2026-04-22 13:40:02 UTC
+Published: 2026-08-24 08:10:02 UTC
 
 Package: RandomProjectionTest
 Version: 0.1.4
@@ -434612,6 +434938,32 @@ reverse_dependencies: 0.246376140522644
 has_examples: 1
 dependencies: 0.880797077977882
 
+Package: rankingQ
+Version: 0.2.0
+Depends: R (>= 4.1.0)
+Suggests: knitr, rmarkdown, cli, testthat (>= 3.0.0)
+License: GPL (>= 3)
+MD5sum: 019587bc2166e4ca6c3766c3edb85a0c
+NeedsCompilation: yes
+Imports: dplyr, tidyr (>= 1.3.0), tidyselect, purrr, tibble, generics, ggplot2, rlang, combinat, estimatr, stats, Rcpp
+LinkingTo: Rcpp
+DownloadURL: https://github.com/cran/rankingQ/archive/refs/tags/0.2.0.tar.gz
+has_news: 1
+news_current: 1
+exported_namespace: 0.539983261282338
+has_vignettes: 1
+export_help: 1
+has_website: 1
+has_maintainer: 1
+size_codebase: 0.0440658049353702
+has_source_control: 1
+has_bug_reports_url: 1
+downloads_1yr: 0.000319897632757526
+reverse_dependencies: 0.246376140522644
+has_examples: 1
+dependencies: 0.0109869426305932
+Published: 2026-08-21 13:50:14 UTC
+
 Package: rankinma
 Version: 0.2.2
 Depends: R (>= 4.2.0)
@@ -434802,12 +435154,12 @@ dependencies: 0.268941421369995
 bugs_status: 1
 
 Package: RANN
-Version: 2.6.2
+Version: 2.6.3
 Suggests: testthat
 License: GPL (>= 3)
-MD5sum: d5a42d1f730a34f7298318996eae7c63
+MD5sum: 8e96f8f5271fa8941aa23f3adac396d9
 NeedsCompilation: yes
-DownloadURL: https://github.com/cran/RANN/archive/refs/tags/2.6.2.tar.gz
+DownloadURL: https://github.com/cran/RANN/archive/refs/tags/2.6.3.tar.gz
 has_news: 1
 news_current: 1
 exported_namespace: 0.731058578630005
@@ -434818,11 +435170,11 @@ has_maintainer: 1
 size_codebase: 0.77720207253886
 has_source_control: 1
 has_bug_reports_url: 1
-downloads_1yr: 0.812903660352789
-reverse_dependencies: 0.985851102959684
+downloads_1yr: 0.826512378341805
+reverse_dependencies: 0.986788346013393
 has_examples: 1
 dependencies: 0.880797077977882
-bugs_status: 0.866666666666667
+Published: 2026-08-24 05:20:48 UTC
 
 Package: RANSAC
 Version: 0.1.0
