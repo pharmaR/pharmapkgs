@@ -1,6 +1,10 @@
 project:
     type: website
     resources: []
+    execute-dir: project
+
+execute:
+  freeze: auto  # re-render only when source changes
 
 website:
     title: "pharmapkgs: riskreports"
